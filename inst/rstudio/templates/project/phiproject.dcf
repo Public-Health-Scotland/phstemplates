@@ -1,0 +1,8 @@
+Binding: phiproject
+Title: PHI R Project Template
+OpenFiles: code/code.R
+
+Parameter: author
+Widget: TextInput
+Label: Author
+Default: Original author(s)
