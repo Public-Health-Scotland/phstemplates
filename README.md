@@ -2,7 +2,7 @@
 Install this package with:
 
 ```{r install, eval = FALSE}
-devtools::install_github("alan-y/phiproject")
+devtools::install_github("Health-SocialCare-Scotland/phiproject")
 ```
 
 # *Title of project*
