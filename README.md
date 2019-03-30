@@ -24,11 +24,7 @@ install.packages("<FILEPATH OF UNZIPPED FILE>/phiproject", repos = NULL,
 
 ## How to use
 
-To use this project template, install the package by following the instructions above. Then simply run the following line of code in R:
-```{r install, eval = FALSE}
-library(phiproject)
-```
-After doing this you will then be able to create new R projects with the recommended PHI structure within RStudio by clicking File -> New Project... -> New Directory and selecting PHI R Project Template. As usual, name the project and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in subsequent sections of this README.
+To use this project template, install the package by following the instructions above. After doing this you will then be able to create new R projects with the recommended PHI structure within RStudio by clicking File -> New Project... -> New Directory and selecting PHI R Project Template. As usual, name the project and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in subsequent sections of this README.
 
 This template aims to instil best practice within PHI and therefore git has been initiliased for version control. However, if you are not using this then you can delete the .gitignore file. More information about [version control](https://github.com/NHS-NSS-transforming-publications/resources/blob/master/version-control.md).
 
