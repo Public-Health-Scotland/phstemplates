@@ -85,14 +85,32 @@ phiproject <- function(path, author) {
         "### END OF SCRIPT ###"
     )
 
+    rproj_settings <- c(
+        "Version: 1.0",
+        "",
+        "RestoreWorkspace: No",
+        "SaveWorkspace: No",
+        "AlwaysSaveHistory: Default",
+        "",
+        "EnableCodeIndexing: Yes",
+        "UseSpacesForTab: Yes",
+        "NumSpacesForTab: 2",
+        "Encoding: UTF-8",
+        "",
+        "RnwWeave: Sweave",
+        "LaTeX: pdfLaTeX"
+    )
+
     # collect into single text string
     gitignore <- paste(gitignore, collapse = "\n")
     r_code <- paste(r_code, collapse = "\n")
+    rproj_settings <- paste(rproj_settings, collapse = "\n")
 
     # write to index file
     writeLines("", con = file.path(path, ".Renviron"))
     writeLines("", con = file.path(path, ".Rprofile"))
     writeLines(gitignore, con = file.path(path, ".gitignore"))
+    writeLines(rproj_settings, con = file.path(path, paste0(path, ".Rproj")))
     writeLines(r_code, con = file.path(path, "code", "code.R"))
     writeLines("", con = file.path(path, "code", "functions.R"))
     writeLines("", con = file.path(path, "code", "packages.R"))
