@@ -18,7 +18,7 @@ If you are working inside the NSS network then this may not work in which case f
 5. Replace the sections marked `<>` below (including the arrows themselves) and run the following code in R:
 
 ```{r source-installation, eval = FALSE}
-install.packages("<FILEPATH OF UNZIPPED FILE>/phiproject-master.zip", repos = NULL,
+install.packages("<FILEPATH OF UNZIPPED FILE>/phiproject-master", repos = NULL,
                  type = "source")
 ```
 
