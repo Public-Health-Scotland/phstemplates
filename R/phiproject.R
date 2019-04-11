@@ -110,7 +110,7 @@ phiproject <- function(path, author) {
     writeLines("", con = file.path(path, ".Renviron"))
     writeLines("", con = file.path(path, ".Rprofile"))
     writeLines(gitignore, con = file.path(path, ".gitignore"))
-    writeLines(rproj_settings, con = file.path(path, paste0(path, ".Rproj")))
+    writeLines(rproj_settings, con = file.path(path, paste0(basename(path), ".Rproj")))
     writeLines(r_code, con = file.path(path, "code", "code.R"))
     writeLines("", con = file.path(path, "code", "functions.R"))
     writeLines("", con = file.path(path, "code", "packages.R"))
