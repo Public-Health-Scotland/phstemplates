@@ -107,7 +107,6 @@ phiproject <- function(path, author) {
     rproj_settings <- paste(rproj_settings, collapse = "\n")
 
     # write to index file
-    writeLines("", con = file.path(path, ".Renviron"))
     writeLines("", con = file.path(path, ".Rprofile"))
     writeLines(gitignore, con = file.path(path, ".gitignore"))
     writeLines(rproj_settings, con = file.path(path, paste0(basename(path), ".Rproj")))
