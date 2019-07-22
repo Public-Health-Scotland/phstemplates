@@ -73,7 +73,7 @@ phiproject <- function(path, author) {
         "source(\"code/packages.R\") # Remove this line if loading packages here",
         "#   setting filepaths and extract dates",
         "#   defining functions",
-        "source(\"code/functions.R\") # Remove this line if defining funtions here",
+        "source(\"code/functions.R\") # Remove this line if defining functions here",
         "#   setting plot parameter",
         "#   specifying codes (e.g. ICD-10 codes)",
         "",
