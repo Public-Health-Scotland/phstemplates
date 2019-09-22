@@ -4,12 +4,14 @@
 \alias{phiproject}
 \title{phiproject}
 \usage{
-phiproject(path, author)
+phiproject(path, author, n_scripts = 1)
 }
 \arguments{
 \item{path}{Filepath for the project.}
 
 \item{author}{Name of the main author for the project.}
+
+\item{n_scripts}{Number of code files to start the project with.}
 }
 \value{
 New project created according to the PHI R project structure.
@@ -18,5 +20,5 @@ New project created according to the PHI R project structure.
 Create new projects according to the PHI R project structure
 }
 \examples{
-phiproject(path = file.path(getwd(), "testproj"), author = "A Person")
+phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
 }

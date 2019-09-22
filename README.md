@@ -48,5 +48,7 @@ This template is also intended to be flexible, so you may not require every file
   * `.gitignore` - tells git what files and folders *not* to track or upload to GitHub
   * `README.md` - this page
   * `r-project.Proj` - R project
-  
 
+## RMarkdown Templates
+
+This package currently provides two RMarkdown templates: one for producing ISD national statistics reports and one for producing ISD national statistics summary documents. You can access these templates in RStudio by clicking File -> New File -> R Markdown -> From Template.

@@ -3,14 +3,18 @@
 #'
 #' @param path Filepath for the project.
 #' @param author Name of the main author for the project.
+#' @param n_scripts Number of code files to start the project with.
 #' @return New project created according to the PHI R project structure.
 #' @export
 #' @examples
-#' phiproject(path = file.path(getwd(), "testproj"), author = "A Person")
-phiproject <- function(path, author) {
+#' phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
+phiproject <- function(path, author, n_scripts = 1) {
     if (dir.exists(path)) {
         stop("This directory already exists")
     }
+
+    n_scripts <- as.numeric(n_scripts)
+    stopifnot(!is.na(n_scripts) && n_scripts >= 1 && n_scripts <= 10)
 
     dir.create(path, recursive = TRUE, showWarnings = FALSE)
     dir.create(file.path(path, "code"), showWarnings = FALSE)
@@ -115,4 +119,9 @@ phiproject <- function(path, author) {
     writeLines(r_code, con = file.path(path, "code", "code.R"))
     writeLines("", con = file.path(path, "code", "functions.R"))
     writeLines("", con = file.path(path, "code", "packages.R"))
+
+    if (n_scripts > 1) {
+        script_name <- paste0("code", 2:n_scripts, ".R")
+        lapply(file.path(path, "code", script_name), function(x) writeLines(r_code, x))
+    }
 }
