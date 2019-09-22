@@ -3,6 +3,7 @@
 - [How to use](#how-to-use)
 - [Directories created in PHI project](#directories)
 - [Files created in PHI project](#files)
+- [RMarkdown Templates](#rmarkdown-templates)
 
 ## Installation
 Install this package by running the following code in R:
@@ -51,4 +52,4 @@ This template is also intended to be flexible, so you may not require every file
 
 ## RMarkdown Templates
 
-This package currently provides two RMarkdown templates: one for producing ISD national statistics reports and one for producing ISD national statistics summary documents. You can access these templates in RStudio by clicking File -> New File -> R Markdown -> From Template.
+This package currently provides two RMarkdown templates: [one for producing ISD national statistics reports and one for producing ISD national statistics summary documents](https://github.com/NHS-NSS-transforming-publications/National-Stats-Template). You can access these templates in RStudio by clicking File -> New File -> R Markdown -> From Template.
