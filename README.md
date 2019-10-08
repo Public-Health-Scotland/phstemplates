@@ -3,6 +3,7 @@
 - [How to use](#how-to-use)
 - [Directories created in PHI project](#directories)
 - [Files created in PHI project](#files)
+- [RMarkdown Templates](#rmarkdown-templates)
 
 ## Installation
 Install this package by running the following code in R:
@@ -48,5 +49,29 @@ This template is also intended to be flexible, so you may not require every file
   * `.gitignore` - tells git what files and folders *not* to track or upload to GitHub
   * `README.md` - this page
   * `r-project.Proj` - R project
-  
 
+## RMarkdown Templates
+
+This package currently provides two RMarkdown templates: [one for producing ISD national statistics reports and one for producing ISD national statistics summary documents](https://github.com/NHS-NSS-transforming-publications/National-Stats-Template). You can access these templates in RStudio by clicking File -> New File -> R Markdown -> From Template.
+
+### Adding a new template to phiproject
+1. Clone phiproject and load it up in RStudio
+2. Create your own Git branch and switch to that branch
+3. In R, type `usethis::use_rmarkdown_template("my-template")` where you replace `my-template` with the name you want to give your template. This is actually just the name it gives to the folder that stores your template so the name should not have spaces but can contain dashes or underscores. This will create a basic structure for your template within the directory `inst\rmarkdown\templates\my-template`
+4. Open up `template.yaml` in the folder just created for your template. Update the name and description as appropriate for your template.
+5. Go to the 'skeleton' folder (`inst\rmarkdown\templates\my-template\skeleton`) and delete `skeleton.Rmd`
+6. Copy and paste your RMarkdown template file and any associated files required for the template into the 'skeleton' folder (e.g. you may have an MS Word reference document to set up styles)
+7. Rename your RMarkdown template file to `skeleton.Rmd`
+8. Run `devtools::check()` and make sure the package passes all the checks
+9. Run `devtools::install()`, then restart RStudio and check that your templates can be loaded from the RStudio menus
+10. Push to Github
+11. Create a pull request and ask for a review from an appropriate staff member so the changes can be merged
+
+### Updating an existing template for phiproject
+1. Clone phiproject and load it up in RStudio
+2. Create your own Git branch and switch to that branch
+3. Rename your updated template file to `skeleton.Rmd` and place it (and any associated files if they have also been updated) inside the 'skeleton' folder of your template (`inst\rmarkdown\templates\your-template\skeleton`)
+4. Run `devtools::check()` and make sure the package passes all the checks
+5. Run `devtools::install()`, then restart RStudio and check that your templates can be loaded from the RStudio menus
+6. Push to Github
+7. Create a pull request and ask for a review from an appropriate staff member so the changes can be merged

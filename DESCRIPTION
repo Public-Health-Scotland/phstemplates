@@ -4,7 +4,7 @@ Authors@R: c(
     person("Anna", "Price", email = "anna.price5@nhs.net", role = c("aut", "cre")),
     person("Alan", "Yeung", email = "alan.yeung@nhs.net", role = "aut", comment = c(ORCID = "0000-0001-5226-3695"))
     )
-Version: 0.7.0
+Version: 0.8.0
 Description: Create new projects according to the PHI R project structure.
 Depends: R (>= 3.2.0)
 License: GPL (>= 2)
