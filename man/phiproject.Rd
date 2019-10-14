@@ -4,7 +4,7 @@
 \alias{phiproject}
 \title{phiproject}
 \usage{
-phiproject(path, author, n_scripts = 1)
+phiproject(path, author, n_scripts = 1, git = FALSE)
 }
 \arguments{
 \item{path}{Filepath for the project.}
@@ -12,13 +12,17 @@ phiproject(path, author, n_scripts = 1)
 \item{author}{Name of the main author for the project.}
 
 \item{n_scripts}{Number of code files to start the project with.}
+
+\item{git}{Initialise the project with Git.}
 }
 \value{
 New project created according to the PHI R project structure.
 }
 \description{
-Create new projects according to the PHI R project structure
+Create new projects according to the PHI R project structure. This function is meant to be used within RStudio by going to the File menu, then New Project.
 }
 \examples{
-phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
+\dontrun{
+phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1, git = FALSE)
+}
 }

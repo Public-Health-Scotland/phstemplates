@@ -1,14 +1,17 @@
 #' phiproject
-#' @description Create new projects according to the PHI R project structure
+#' @description Create new projects according to the PHI R project structure. This function is meant to be used within RStudio by going to the File menu, then New Project.
 #'
 #' @param path Filepath for the project.
 #' @param author Name of the main author for the project.
 #' @param n_scripts Number of code files to start the project with.
+#' @param git Initialise the project with Git.
 #' @return New project created according to the PHI R project structure.
 #' @export
 #' @examples
-#' phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
-phiproject <- function(path, author, n_scripts = 1) {
+#' \dontrun{
+#' phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1, git = FALSE)
+#' }
+phiproject <- function(path, author, n_scripts = 1, git = FALSE) {
     if (dir.exists(path)) {
         stop("This directory already exists")
     }
@@ -22,8 +25,6 @@ phiproject <- function(path, author, n_scripts = 1) {
     dir.create(file.path(path, "data", "basefiles"), showWarnings = FALSE)
     dir.create(file.path(path, "data", "output"), showWarnings = FALSE)
     dir.create(file.path(path, "data", "temp"), showWarnings = FALSE)
-
-    author <- paste("#", author)
 
     gitignore <- c(
         ".Rproj.user",
@@ -53,43 +54,7 @@ phiproject <- function(path, author, n_scripts = 1) {
         ".DS_Store"
     )
 
-    r_code <- c(
-        "##########################################################",
-        "# Name of script",
-        "# Publication (delete if not applicable)",
-        author,
-        "# Original date (delete if using version control)",
-        "# Latest update author (delete if using version control)",
-        "# Latest update date (delete if using version control)",
-        "# Latest update description (delete if using version control)",
-        "# Type of script (e.g. extraction, preparation, modelling)",
-        "# Written/run on (e.g. R Studio Server or Desktop)",
-        "# Version of R that the script was most recently run on",
-        "# Description of content",
-        "# Approximate run time",
-        "##########################################################",
-        "",
-        "",
-        "### 1 - Housekeeping ----",
-        "# This section should be the only section of the script which requires manual changes ",
-        "# for future updates and includes:",
-        "#   loading packages",
-        "source(\"code/packages.R\") # Remove this line if loading packages here",
-        "#   setting filepaths and extract dates",
-        "#   defining functions",
-        "source(\"code/functions.R\") # Remove this line if defining functions here",
-        "#   setting plot parameter",
-        "#   specifying codes (e.g. ICD-10 codes)",
-        "",
-        "",
-        "### 2 Section Heading ----",
-        "",
-        "",
-        "### 3 Section Heading ----",
-        "",
-        "",
-        "### END OF SCRIPT ###"
-    )
+    r_code <- script_template(author = author)
 
     rproj_settings <- c(
         "Version: 1.0",
@@ -109,7 +74,6 @@ phiproject <- function(path, author, n_scripts = 1) {
 
     # collect into single text string
     gitignore <- paste(gitignore, collapse = "\n")
-    r_code <- paste(r_code, collapse = "\n")
     rproj_settings <- paste(rproj_settings, collapse = "\n")
 
     # write to index file
@@ -123,5 +87,9 @@ phiproject <- function(path, author, n_scripts = 1) {
     if (n_scripts > 1) {
         script_name <- paste0("code", 2:n_scripts, ".R")
         lapply(file.path(path, "code", script_name), function(x) writeLines(r_code, x))
+    }
+
+    if (git) {
+        system(paste("cd", path, "&&", "git init"))
     }
 }
