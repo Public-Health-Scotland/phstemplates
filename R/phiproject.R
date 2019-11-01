@@ -90,6 +90,6 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE) {
     }
 
     if (git) {
-        system(paste("cd", path, "&&", "git init"))
+        shell(paste("cd", path, "&&", "git init"))
     }
 }
