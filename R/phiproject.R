@@ -90,6 +90,10 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE) {
     }
 
     if (git) {
-        shell(paste("cd", path, "&&", "git init"))
+        if (Sys.info()[["sysname"]] == "Windows") {
+            shell(paste("cd", path, "&&", "git init"))
+        } else {
+            system(paste("cd", path, "&&", "git init"))
+        }
     }
 }
