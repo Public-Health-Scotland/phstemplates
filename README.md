@@ -46,6 +46,7 @@ This template is also intended to be flexible, so you may not require every file
 ### Files
   * `.gitignore` - tells git what files and folders *not* to track or upload to GitHub
   * `README.md` - this page
+  * `.Rprofile` - R profile settings
   * `r-project.Proj` - R project
 
 ## RMarkdown Templates
