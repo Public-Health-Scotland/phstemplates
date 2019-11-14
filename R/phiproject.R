@@ -54,7 +54,8 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE) {
         ".DS_Store"
     )
 
-    r_code <- script_template(author = author)
+    r_code <- script_template(author = author,
+                              git = git)
 
     rproj_settings <- c(
         "Version: 1.0",
