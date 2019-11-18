@@ -58,7 +58,7 @@ This package currently provides two RMarkdown templates: [one for producing ISD 
 ### Adding a new template to phiproject
 1. Clone phiproject and load it up in RStudio
 2. Create your own Git branch and switch to that branch
-3. In R, type `usethis::use_rmarkdown_template("my-template")` where you replace `my-template` with the name you want to give your template. This is actually just the name it gives to the folder that stores your template so the name should not have spaces but can contain dashes or underscores. This will create a basic structure for your template within the directory `inst\rmarkdown\templates\my-template`
+3. In R, type `usethis::use_rmarkdown_template("my-template")` where you replace `my-template` with the name you want to give your template. This is actually just the name it gives to the folder that stores your template so the name should not have spaces but can contain dashes or underscores. The name should also not be too long as this may cause issues when building the package. This will create a basic structure for your template within the directory `inst\rmarkdown\templates\my-template`
 4. Open up `template.yaml` in the folder just created for your template. Update the name and description as appropriate for your template.
 5. Go to the 'skeleton' folder (`inst\rmarkdown\templates\my-template\skeleton`) and delete `skeleton.Rmd`
 6. Copy and paste your RMarkdown template file and any associated files required for the template into the 'skeleton' folder (e.g. you may have an MS Word reference document to set up styles)
