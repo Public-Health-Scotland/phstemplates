@@ -1,4 +1,4 @@
-[![Travis build status](https://travis-ci.org/Health-SocialCare-Scotland/phiproject.svg?branch=master)](https://travis-ci.org/Health-SocialCare-Scotland/phiproject)
+[![Travis build status](https://travis-ci.com/Health-SocialCare-Scotland/phiproject.svg?branch=master)](https://travis-ci.com/Health-SocialCare-Scotland/phiproject)
 
 ## Contents
 - [Installation](#installation)
