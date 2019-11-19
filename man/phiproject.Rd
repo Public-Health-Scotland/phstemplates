@@ -25,6 +25,6 @@ Create new projects according to the PHI R project structure. This function is m
 }
 \examples{
 \dontrun{
-phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1, git = FALSE)
+phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
 }
 }

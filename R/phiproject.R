@@ -10,7 +10,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1, git = FALSE, renv = FALSE)
+#' phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
 #' }
 phiproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
     if (dir.exists(path)) {
@@ -99,6 +99,11 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
     }
 
     if (renv) {
+        if (!"renv" %in% utils::installed.packages()[, 1]) {
+            warning("renv is not installed. Now attempting to install...",
+                    immediate. = TRUE)
+            utils::install.packages("renv")
+        }
         renv::init(project = file.path(getwd(), path))
     }
 }

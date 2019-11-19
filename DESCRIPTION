@@ -15,3 +15,5 @@ LazyData: true
 RoxygenNote: 7.0.0
 Suggests: 
     rstudioapi
+Imports: 
+    renv
