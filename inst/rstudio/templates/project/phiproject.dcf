@@ -17,3 +17,8 @@ Parameter: git
 Widget: CheckboxInput
 Label: Initialise with Git
 Default: Off
+
+Parameter: renv
+Widget: CheckboxInput
+Label: Initialise with renv (package management)
+Default: Off

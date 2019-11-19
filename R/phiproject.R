@@ -5,13 +5,14 @@
 #' @param author Name of the main author for the project.
 #' @param n_scripts Number of code files to start the project with.
 #' @param git Initialise the project with Git.
+#' @param renv Initialise the project with package management using renv.
 #' @return New project created according to the PHI R project structure.
 #' @export
 #' @examples
 #' \dontrun{
-#' phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1, git = FALSE)
+#' phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1, git = FALSE, renv = FALSE)
 #' }
-phiproject <- function(path, author, n_scripts = 1, git = FALSE) {
+phiproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
     if (dir.exists(path)) {
         stop("This directory already exists")
     }
@@ -95,5 +96,9 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE) {
         } else {
             system(paste("cd", path, "&&", "git init"))
         }
+    }
+
+    if (renv) {
+        renv::init(project = file.path(getwd(), path))
     }
 }

@@ -4,8 +4,10 @@
 \alias{new_script}
 \title{new_script}
 \usage{
-new_script(author = rstudioapi::showPrompt(title = "Author", message =
-  "Name of Author", default = "Original author(s)"))
+new_script(
+  author = rstudioapi::showPrompt(title = "Author", message = "Name of Author", default
+    = "Original author(s)")
+)
 }
 \arguments{
 \item{author}{Name of the main author of the script.}
