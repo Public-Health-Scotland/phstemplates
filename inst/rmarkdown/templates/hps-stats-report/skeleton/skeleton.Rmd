@@ -205,7 +205,7 @@ MetaData <- data.frame(Indicator, Description)
 
 <br>
 
-[The Official Statistics (Scotland) Order 2008](http://www.legislation.gov.uk/ssi/2008/131/contents/made) authorises NHS National Services Scotland (the legal name being the Common Services Agency for the Scottish Health Service) to produce official statistics.  
+[The Official Statistics (Scotland) Order 2008](http://www.legislation.gov.uk/ssi/2008/131/contents/made) authorises NHS National Services Scotland (the legal name being the Common Services Agency for the Scottish Health Service) to produce official statistics.   
 All official statistics should comply with the UK Statistics Authority’s Code of Practice which promotes the production and dissemination of official statistics that inform decision making. They can be formally assessed by the UK Statistics Authority’s regulatory arm for National Statistics status. 
 
 <br>
@@ -220,8 +220,8 @@ https://www.statisticsauthority.gov.uk/national-statistician/producers-of-offici
 
 
 <Div custom-style = "Heading 2_pgbrk">Introduction</div>
-In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem. Donec a dolor gravida, lobortis ligula vitae, pulvinar ante. Integer faucibus eros ut luctus tristique.
-Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec sodales lacus in erat elementum viverra. Phasellus faucibus faucibus erat vitae pharetra. Mauris sed blandit dolor. Duis consequat fermentum diam quis elementum. Maecenas euismod non lorem sit amet ornare.
+In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem. Donec a dolor gravida, lobortis ligula vitae, pulvinar ante. Integer faucibus eros ut luctus tristique.  
+Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec sodales lacus in erat elementum viverra. Phasellus faucibus faucibus erat vitae pharetra. Mauris sed blandit dolor. Duis consequat fermentum diam quis elementum. Maecenas euismod non lorem sit amet ornare.  
 Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus. Vivamus molestie massa in quam porttitor viverra. Nulla facilisi. Suspendisse fermentum metus justo, vel elementum ante rutrum eget.
 
 <Div custom-style = "Heading 2_pgbrk">Main Points</div>
@@ -233,7 +233,7 @@ Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. 
 Suspendisse velit nisi, tempor ut posuere ut, blandit in mauris. Suspendisse commodo sagittis pretium. Nullam.
 
 ### Sub-heading
-Suspendisse potenti. Donec sit amet porttitor urna. Fusce egestas et elit quis imperdiet. Quisque tempor, metus vel gravida fermentum, odio neque imperdiet justo, vitae sagittis turpis velit vitae velit. Nulla iaculis egestas tellus, non efficitur lorem molestie at. Donec urna sem, pharetra ut nunc non, tempor ullamcorper dolor. Duis fringilla mi eu erat lobortis, ac sagittis ipsum eleifend. Fusce eget rhoncus lorem.
+Suspendisse potenti. Donec sit amet porttitor urna. Fusce egestas et elit quis imperdiet. Quisque tempor, metus vel gravida fermentum, odio neque imperdiet justo, vitae sagittis turpis velit vitae velit. Nulla iaculis egestas tellus, non efficitur lorem molestie at. Donec urna sem, pharetra ut nunc non, tempor ullamcorper dolor. Duis fringilla mi eu erat lobortis, ac sagittis ipsum eleifend. Fusce eget rhoncus lorem.  
 Sed suscipit nisl vel orci scelerisque mattis. Proin ut tortor et purus bibendum pharetra vel elementum dolor. Morbi orci massa, egestas vel dictum quis, maximus id justo. Fusce eu sem consequat, mollis nulla in, mollis nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at facilisis augue.
 
 ##### Table title
@@ -254,8 +254,8 @@ knitr::kable(TableData, col.names = c("**NHS Board**", "**Q2 Cases**", "**Q2 Bed
 </div>  
 
 ### Sub-heading
-Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam non libero eu orci viverra rhoncus eu sed massa.
-Mauris ac neque vel erat varius cursus. Praesent at molestie felis. Nunc eget ipsum non lectus facilisis dictum quis viverra magna. Pellentesque elementum condimentum accumsan. Nunc vel pharetra augue. Pellentesque vitae lectus cursus magna blandit aliquet. In aliquet sapien sit amet viverra aliquam.
+Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam non libero eu orci viverra rhoncus eu sed massa.  
+Mauris ac neque vel erat varius cursus. Praesent at molestie felis. Nunc eget ipsum non lectus facilisis dictum quis viverra magna. Pellentesque elementum condimentum accumsan. Nunc vel pharetra augue. Pellentesque vitae lectus cursus magna blandit aliquet. In aliquet sapien sit amet viverra aliquam.  
 Pellentesque aliquam imperdiet neque et interdum. Nulla sodales tellus magna, id venenatis justo pulvinar ut. Etiam luctus facilisis auctor. Curabitur interdum feugiat convallis. Nullam mi libero, hendrerit vitae condimentum in, iaculis porta purus. Suspendisse potenti. Donec sed molestie nisi, ut blandit ex. Proin tempor, mauris sit amet consectetur placerat, elit lorem placerat dui, sed placerat mi ante a purus.
 
 
@@ -288,14 +288,15 @@ Email:
 <br>
 
 <Div custom-style = "Heading 2_nopgbrk">Further Information</div>
-Further Information can be found on the [ISD website](http://www.isdscotland.org/).  
-For more information on XXX see the [XXX section of our website](http://www.isdscotland.org/). For related topics, please see the [XXX](http://www.isdscotland.org/) pages.  
+Further Information can be found on the [HPS website](http://www.hps.scot.nhs.uk/).  
+For more information on XXX see the [XXX section of our website](http://www.hps.scot.nhs.uk/). For related topics, please see the [XXX](http://www.hps.scot.nhs.uk/) pages.  
+Data from this publication is available to download from the [NHSScotland Open Data platform](https://www.opendata.nhs.scot/).  
 The next release of this publication will be DD Month YYYY.  
 
 <br>
 
 <Div custom-style = "Heading 2_nopgbrk">Rate this publication</div>
-Please [provide feedback](http://www.isdscotland.org/Health-Topics/HEALTHTOPIC/Publications/rate-this-publication.asp?ID=XXXX) on this publication to help us improve our services.
+Please [provide feedback](mailto:hps@hps.net) on this publication to help us improve our services.
 
 <Div custom-style = "Heading 2_pgbrk">Appendices</div>
 ### Appendix 1 - Background information
@@ -315,7 +316,7 @@ knitr::kable(MetaData, col.names = c("**Metadata Indicator**", "**Description**"
 <br>
 
 **Pre-Release Access**  
-Under terms of the "Pre-Release Access to Official Statistics (Scotland) Order 2008", ISD is obliged to publish information on those receiving Pre-Release Access ("Pre-Release Access" refers to statistics in their final form prior to publication). The standard maximum Pre-Release Access is five working days. Shown below are details of those receiving standard Pre-Release Access.
+Under terms of the "Pre-Release Access to Official Statistics (Scotland) Order 2008", HPS is obliged to publish information on those receiving Pre-Release Access ("Pre-Release Access" refers to statistics in their final form prior to publication). The standard maximum Pre-Release Access is five working days. Shown below are details of those receiving standard Pre-Release Access.
 
 <br>
 
