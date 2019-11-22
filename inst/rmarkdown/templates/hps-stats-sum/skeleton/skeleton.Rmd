@@ -1,7 +1,13 @@
 ---
 output: 
   word_document:
-    reference_docx: "HPS_OFFSTATS_SUM_TEMPLATE.docx"
+    reference_docx: "HPS_STATS_SUM_TEMPLATE.docx"
+params:
+  type: 
+    label: "Publication Type"
+    value: official
+    input: select
+    choices: [official, experimental, management]
 ---
 
 <!-- readme available at https://github.com/NHS-NSS-transforming-publications/National-Stats-Template -->
@@ -9,6 +15,11 @@ output:
 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+pub_type_text <- dplyr::case_when(
+  params$type == "official" ~ "An Official Statistics publication for Scotland",
+  params$type == "experimental" ~ "An Official Statistics publication for Scotland (Experimental)",
+  params$type == "management" ~ "A Management Information publication for Scotland"
+)
 
 #Create a pseudo chart
 library(ggplot2)
@@ -45,7 +56,7 @@ contact <- data.frame(contact1, contact2)
 
 # Insert publication Title here
 ## Subtitle
-#### An Official Statistics publication for Scotland
+#### `r pub_type_text`
 
 #### Publication date: DD Month YYYY
 ##### RESTRICTED STATISTICS: embargoed to 09:30 dd/mm/yyyy
