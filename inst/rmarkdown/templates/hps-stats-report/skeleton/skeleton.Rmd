@@ -225,9 +225,9 @@ Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus ve
 Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus. Vivamus molestie massa in quam porttitor viverra. Nulla facilisi. Suspendisse fermentum metus justo, vel elementum ante rutrum eget.
 
 <Div custom-style = "Heading 2_pgbrk">Main Points</div>
-* In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem.
-* Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-* Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus.
+<Div custom-style = "Bullet-KP">In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem.</div>
+<Div custom-style = "Bullet-KP">Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.</div>
+<Div custom-style = "Bullet-KP">Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus.</div>
 
 <Div custom-style = "Heading 2_pgbrk">Results and Commentary</div>
 Suspendisse velit nisi, tempor ut posuere ut, blandit in mauris. Suspendisse commodo sagittis pretium. Nullam.
@@ -349,9 +349,9 @@ These statistics will also have been made available to those who needed access t
 HPS is a division of NHS National Services Scotland which works at the very heart of the health service across Scotland, delivering services critical to frontline patient care and supporting the efficient and effective operation of NHS Scotland.  
 HPS was established by the Scottish Government in 2005 to strengthen and coordinate health protection in Scotland. It is organised into three specialist groups with expertise provided by a multi-disciplinary workforce which includes doctors, nurses, scientists and information staff, all of whom are supported by core business teams. The specialist groups are:
 
-*	Antimicrobial Resistance Healthcare Associated Infections;
-*	Blood Borne Viruses and Sexually Transmitted Infections, Immunisation, and Respiratory and Vaccine Preventable Diseases;
-*	Environmental Public Health, Gastrointestinal and Zoonoses, Travel and International Health.
+<Div custom-style = "Bullet-KP">Antimicrobial Resistance Healthcare Associated Infections;</div>
+<Div custom-style = "Bullet-KP">Blood Borne Viruses and Sexually Transmitted Infections, Immunisation, and Respiratory and Vaccine Preventable Diseases;</div>
+<Div custom-style = "Bullet-KP">Environmental Public Health, Gastrointestinal and Zoonoses, Travel and International Health.</div>
   
 <br>
 
@@ -359,9 +359,9 @@ HPS was established by the Scottish Government in 2005 to strengthen and coordin
 Our official statistics publications are produced to a high professional standard and comply with the Code of Practice for Official Statistics. The Code of Practice is produced and monitored by the UK Statistics Authority which is independent of Government. Under the Code of Practice, the format, content and timing of statistics publications are the responsibility of professional staff working within NHS National Services Scotland.   
 Our statistical publications are currently classified as one of the following: 
 
-* National Statistics (ie assessed by the UK Statistics Authority as complying with the Code of Practice)
-* National Statistics (ie legacy, still to be assessed by the UK Statistics Authority)
-* Official Statistics (ie still to be assessed by the UK Statistics Authority)
-* other (not Official Statistics)  
+<Div custom-style = "Bullet-KP">National Statistics (ie assessed by the UK Statistics Authority as complying with the Code of Practice)</div>
+<Div custom-style = "Bullet-KP">National Statistics (ie legacy, still to be assessed by the UK Statistics Authority)</div>
+<Div custom-style = "Bullet-KP">Official Statistics (ie still to be assessed by the UK Statistics Authority)</div>
+<Div custom-style = "Bullet-KP">other (not Official Statistics)</div>  
 
 Further information on NHS National Services Scotland's statistics, including compliance with the Code of Practice for Official Statistics, and on the UK Statistics Authority, is available on the [ISD website](http://www.isdscotland.org/About-ISD/About-Our-Statistics/).
