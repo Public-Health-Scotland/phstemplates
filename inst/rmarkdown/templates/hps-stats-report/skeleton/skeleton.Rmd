@@ -220,8 +220,12 @@ https://www.statisticsauthority.gov.uk/national-statistician/producers-of-offici
 
 
 <Div custom-style = "Heading 2_pgbrk">Introduction</div>
-In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem. Donec a dolor gravida, lobortis ligula vitae, pulvinar ante. Integer faucibus eros ut luctus tristique.  
-Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec sodales lacus in erat elementum viverra. Phasellus faucibus faucibus erat vitae pharetra. Mauris sed blandit dolor. Duis consequat fermentum diam quis elementum. Maecenas euismod non lorem sit amet ornare.  
+In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem. Donec a dolor gravida, lobortis ligula vitae, pulvinar ante. Integer faucibus eros ut luctus tristique.
+<br>
+
+Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec sodales lacus in erat elementum viverra. Phasellus faucibus faucibus erat vitae pharetra. Mauris sed blandit dolor. Duis consequat fermentum diam quis elementum. Maecenas euismod non lorem sit amet ornare.
+<br>
+
 Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus. Vivamus molestie massa in quam porttitor viverra. Nulla facilisi. Suspendisse fermentum metus justo, vel elementum ante rutrum eget.
 
 <Div custom-style = "Heading 2_pgbrk">Main Points</div>
@@ -233,7 +237,9 @@ Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. 
 Suspendisse velit nisi, tempor ut posuere ut, blandit in mauris. Suspendisse commodo sagittis pretium. Nullam.
 
 ### Sub-heading
-Suspendisse potenti. Donec sit amet porttitor urna. Fusce egestas et elit quis imperdiet. Quisque tempor, metus vel gravida fermentum, odio neque imperdiet justo, vitae sagittis turpis velit vitae velit. Nulla iaculis egestas tellus, non efficitur lorem molestie at. Donec urna sem, pharetra ut nunc non, tempor ullamcorper dolor. Duis fringilla mi eu erat lobortis, ac sagittis ipsum eleifend. Fusce eget rhoncus lorem.  
+Suspendisse potenti. Donec sit amet porttitor urna. Fusce egestas et elit quis imperdiet. Quisque tempor, metus vel gravida fermentum, odio neque imperdiet justo, vitae sagittis turpis velit vitae velit. Nulla iaculis egestas tellus, non efficitur lorem molestie at. Donec urna sem, pharetra ut nunc non, tempor ullamcorper dolor. Duis fringilla mi eu erat lobortis, ac sagittis ipsum eleifend. Fusce eget rhoncus lorem.
+<br>
+
 Sed suscipit nisl vel orci scelerisque mattis. Proin ut tortor et purus bibendum pharetra vel elementum dolor. Morbi orci massa, egestas vel dictum quis, maximus id justo. Fusce eu sem consequat, mollis nulla in, mollis nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at facilisis augue.
 
 ##### Table title
@@ -258,8 +264,12 @@ knitr::kable(TableData, col.names = c("**NHS Board**", "**Q2 Cases**", "**Q2 Bed
 </div>  
 
 ### Sub-heading
-Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam non libero eu orci viverra rhoncus eu sed massa.  
-Mauris ac neque vel erat varius cursus. Praesent at molestie felis. Nunc eget ipsum non lectus facilisis dictum quis viverra magna. Pellentesque elementum condimentum accumsan. Nunc vel pharetra augue. Pellentesque vitae lectus cursus magna blandit aliquet. In aliquet sapien sit amet viverra aliquam.  
+Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam non libero eu orci viverra rhoncus eu sed massa.
+<br>
+
+Mauris ac neque vel erat varius cursus. Praesent at molestie felis. Nunc eget ipsum non lectus facilisis dictum quis viverra magna. Pellentesque elementum condimentum accumsan. Nunc vel pharetra augue. Pellentesque vitae lectus cursus magna blandit aliquet. In aliquet sapien sit amet viverra aliquam.
+<br>
+
 Pellentesque aliquam imperdiet neque et interdum. Nulla sodales tellus magna, id venenatis justo pulvinar ut. Etiam luctus facilisis auctor. Curabitur interdum feugiat convallis. Nullam mi libero, hendrerit vitae condimentum in, iaculis porta purus. Suspendisse potenti. Donec sed molestie nisi, ut blandit ex. Proin tempor, mauris sit amet consectetur placerat, elit lorem placerat dui, sed placerat mi ante a purus.
 
 
@@ -306,8 +316,12 @@ Please [provide feedback](mailto:hps@hps.net) on this publication to help us imp
 
 <Div custom-style = "Heading 2_pgbrk">Appendices</div>
 ### Appendix 1 - Background information
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. 
-Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.
+<br>
+
+Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.
+<br>
+
 Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna.
 
 
@@ -356,7 +370,9 @@ HPS was established by the Scottish Government in 2005 to strengthen and coordin
 <br>
 
 **Official Statistics**  
-Our official statistics publications are produced to a high professional standard and comply with the Code of Practice for Official Statistics. The Code of Practice is produced and monitored by the UK Statistics Authority which is independent of Government. Under the Code of Practice, the format, content and timing of statistics publications are the responsibility of professional staff working within NHS National Services Scotland.   
+Our official statistics publications are produced to a high professional standard and comply with the Code of Practice for Official Statistics. The Code of Practice is produced and monitored by the UK Statistics Authority which is independent of Government. Under the Code of Practice, the format, content and timing of statistics publications are the responsibility of professional staff working within NHS National Services Scotland.
+<br>
+
 Our statistical publications are currently classified as one of the following: 
 
 <Div custom-style = "Bullet-KP">National Statistics (ie assessed by the UK Statistics Authority as complying with the Code of Practice)</div>
