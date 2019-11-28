@@ -2,9 +2,11 @@
 output: 
   word_document:
     reference_docx: "HPS_STATS_REP_TEMPLATE.docx"
+    fig_caption: no
 ---
 
 <!-- readme available at https://github.com/NHS-NSS-transforming-publications/National-Stats-Template --> 
+<!-- Please see the 'create_report.R' script to compile the whole report with cover page and table of contents -->
 
 
 ```{r TableData, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
@@ -35,9 +37,12 @@ TableData <- data.frame(NHSBoard, Q2Cases, Q2BedDays, Q2Rate, Q3Cases, Q3BedDays
 TableData[16, c(2:7)] <- c("**221**", "**910,937**", "**24.3**", "**257**", "**861,491**", "**29.8**")
 ```
 
-```{r Figures, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+```{r Figures, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
 library(ggplot2)
 library(scales)
+library(captioner)
+
+fig_nums <- captioner(prefix = "#### Figure", infix = ":")
 
 #Create Figure 1
 HBR <- c("Ayrshire & Arran", "Borders", "Dumfries & Galloway", "Fife", "Forth Valley",
@@ -70,8 +75,8 @@ FigureOne <- ggplot(data = FigureOneData, aes(x = HBR, y = UptakeRate, fill = HB
                                "#0391BF", "#092869", "#0391BF", "#0391BF", "#0391BF")) +
   xlab("NHS Board of Residence") + ylab("Uptake rate (%)")
 
-ggsave("Figure1_ggplot.png", plot = FigureOne, width = 17.79, height = 14.24, units = "cm", 
-       device = "png", dpi = 600)
+fig_nums(name = "uptake", caption = "Uptake rate^1^ by NHS Board by three-year rolling period 2013-16^1,2,3,4^")
+
 
 #Create Figure 2
 RollingYear <- c("2007-10", "2008-11", "2009-12", "2010-13", "2011-14", "2012-15", "2013-16")
@@ -94,8 +99,7 @@ FigureTwo <- ggplot(data = FigureTwoData, aes(x = RollingYear, y = DetectionRate
     axis.text = element_text(size = 12)) +
   xlab("Three Year Rolling Period") + ylab("Cancer detection rate \n (per 1000 women screened)")
 
-ggsave("Figure2_ggplot.png", plot = FigureTwo, width = 17.78, height = 14.24, units = "cm", 
-       device = "png", dpi = 600)
+fig_nums(name = "cancer", caption = "Trend in invasive cancer detection rate for Scotland")
 ```
 
 ```{r ListofTables, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
@@ -242,18 +246,19 @@ Suspendisse potenti. Donec sit amet porttitor urna. Fusce egestas et elit quis i
 
 Sed suscipit nisl vel orci scelerisque mattis. Proin ut tortor et purus bibendum pharetra vel elementum dolor. Morbi orci massa, egestas vel dictum quis, maximus id justo. Fusce eu sem consequat, mollis nulla in, mollis nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at facilisis augue.
 
-##### Table title
+#### Table title
 ```{r kable_TableData, echo = FALSE}
 knitr::kable(TableData, col.names = c("**NHS Board**", "**Q2 Cases**", "**Q2 Bed Days**", 
                                       "**Q2 Rate**", "**Q3 Cases**", "**Q3 Bed Days**", "**Q3 Rate**"),
              align = c('l','r','r','r','r','r','r'))
 ```
 
-<Div custom-style = "Heading 4_pgbrk">Figure 1: Uptake rate^1^ by NHS Board by three-year rolling period 2013-16^1,2,3,4^</div>
-
+<Div custom-style = "Heading 4_pgbrk">`r gsub("#### ", "", fig_nums("uptake"))`</div>
 <!-- hack to get images to be placed in the right location when the 'Normal' style has been altered --> 
-<Div custom-style = "Normal_Notes">
-![Uptake rate by NHS Board by three-year rolling period 2013-16.](Figure1_ggplot.png) \
+<Div custom-style = "Old_Normal">
+```{r fig-uptake, echo=FALSE, fig.width=7, fig.height=5.6, fig.cap="Uptake rate by NHS Board by three-year rolling period 2013-16."}
+FigureOne
+```
 </div>
 
 <Div custom-style = "Normal_Notes">
@@ -272,10 +277,11 @@ Mauris ac neque vel erat varius cursus. Praesent at molestie felis. Nunc eget ip
 
 Pellentesque aliquam imperdiet neque et interdum. Nulla sodales tellus magna, id venenatis justo pulvinar ut. Etiam luctus facilisis auctor. Curabitur interdum feugiat convallis. Nullam mi libero, hendrerit vitae condimentum in, iaculis porta purus. Suspendisse potenti. Donec sed molestie nisi, ut blandit ex. Proin tempor, mauris sit amet consectetur placerat, elit lorem placerat dui, sed placerat mi ante a purus.
 
-
-#### Figure 2: Trend in invasive cancer detection rate for Scotland
-<Div custom-style = "Normal_Notes">
-![Trend in invasive cancer detection rates for Scotland, three-year rolling periods (2007/10 to 2013/16). There is a bar for each three-year rolling period.](Figure2_ggplot.png) \
+`r fig_nums("cancer")`
+<Div custom-style = "Old_Normal">
+```{r fig-cancer, echo=FALSE, fig.width=7, fig.height=5.6, fig.cap="Trend in invasive cancer detection rates for Scotland, three-year rolling periods (2007/10 to 2013/16). There is a bar for each three-year rolling period."}
+FigureTwo
+```
 </div>
 
 Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam non libero eu orci viverra rhoncus eu sed massa. Donec viverra scelerisque orci, sit amet dignissim eros ullamcorper rhoncus. Donec et metus sodales, aliquet ligula nec, bibendum leo. 
