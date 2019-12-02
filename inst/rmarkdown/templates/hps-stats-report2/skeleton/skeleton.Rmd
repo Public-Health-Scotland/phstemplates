@@ -42,6 +42,7 @@ library(ggplot2)
 library(scales)
 library(captioner)
 library(flextable)
+library(officer)
 library(magrittr)
 
 fig_nums <- captioner(prefix = "#### Figure", infix = ":")
@@ -144,35 +145,35 @@ glossary <- data.frame(glossary1, glossary2)
 ```
 
 ```{r MetaData, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
-Indicator <- c("**Publication title**",
-"**Description**",
-"**Theme**",
-"**Topic**",
-"**Format**",
-"**Data source(s)**",
-"**Date that data are acquired**",
-"**Release date**",
-"**Frequency**",
-"**Timeframe of data and timeliness**",
-"**Continuity of data**",
-"**Revisions statement**",
-"**Revisions relevant to this publication**",
-"**Concepts and definitions**",
-"**Relevance and key uses of the statistics**",
-"**Accuracy**",
-"**Completeness**",
-"**Comparability**",
-"**Accessibility**",
-"**Coherence and clarity**",
-"**Value type and unit of measurement**",
-"**Disclosure**",
-"**Official Statistics designation**",
-"**UK Statistics Authority Assessment**",
-"**Last published**",
-"**Next published**",
-"**Date of first publication**",
-"**Help email**",
-"**Date form completed**")
+Indicator <- c("Publication title",
+"Description",
+"Theme",
+"Topic",
+"Format",
+"Data source(s)",
+"Date that data are acquired",
+"Release date",
+"Frequency",
+"Timeframe of data and timeliness",
+"Continuity of data",
+"Revisions statement",
+"Revisions relevant to this publication",
+"Concepts and definitions",
+"Relevance and key uses of the statistics",
+"Accuracy",
+"Completeness",
+"Comparability",
+"Accessibility",
+"Coherence and clarity",
+"Value type and unit of measurement",
+"Disclosure",
+"Official Statistics designation",
+"UK Statistics Authority Assessment",
+"Last published",
+"Next published",
+"Date of first publication",
+"Help email",
+"Date form completed")
 
 Description <- c("",
 "",
@@ -224,7 +225,6 @@ https://www.statisticsauthority.gov.uk/osr/code-of-practice/
 Find out more about official statistics at:  
 https://www.statisticsauthority.gov.uk/national-statistician/producers-of-official-statistics/
 
-\newpage
 
 <Div custom-style = "Heading 2_nopgbrk">Introduction</div>
 In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem. Donec a dolor gravida, lobortis ligula vitae, pulvinar ante. Integer faucibus eros ut luctus tristique.
@@ -254,19 +254,32 @@ Suspendisse potenti. Donec sit amet porttitor urna. Fusce egestas et elit quis i
 Sed suscipit nisl vel orci scelerisque mattis. Proin ut tortor et purus bibendum pharetra vel elementum dolor. Morbi orci massa, egestas vel dictum quis, maximus id justo. Fusce eu sem consequat, mollis nulla in, mollis nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at facilisis augue.
 
 #### Table title
-```{r flextable_TableData, echo = FALSE}
+```{r flextable_TableData, echo = FALSE, ft.align="left"}
+# Set up some formatting for flextable to be applied to most tables
+my_ft_format <- function(ft) {
+  ft %>% 
+    bold(part = "header") %>% 
+    bg(bg = "#58792d", part = "header") %>% 
+    color(color = "white", part = "header") %>% 
+    align(align = "center", part = "header") %>% 
+    valign(valign = "center", part = "all")
+}
+
 headings <- list("NHS Board", "Q2 Cases", "Q2 Bed Days", "Q2 Rate", "Q3 Cases", 
                  "Q3 Bed Days", "Q3 Rate")
 names(headings) <- names(TableData)
 
-flextable(TableData, theme_fun = theme_box) %>% 
+flextable(TableData, theme_fun = NULL) %>% 
+  my_ft_format() %>% 
+  set_header_labels(values = headings) %>% 
   align(j = 1, align = "left", part = "all") %>% 
   align(j = 2:ncol(TableData), align = "right", part = "all") %>% 
-  set_header_labels(values = headings) %>% 
-  bold(part = "header") %>% 
-  bg(bg = "#58792d", part = "header") %>% 
+  align(align = "right", part = "body") %>% 
   bold(i = nrow(TableData)) %>% 
-  autofit(add_w = 0, add_h = 0.1)
+  border_outer(border = fp_border()) %>% 
+  border(i = nrow(TableData) - 1, border.bottom = fp_border(), part = "body") %>%
+  border(j = c(1, 4, ncol(TableData)), border.right = fp_border(), part = "all") %>%
+  autofit(add_w = 0, add_h = 0.05)
 ```
 
 \newpage
@@ -306,19 +319,30 @@ Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti soc
 
 ## Glossary
 ```{r kable_glossary, echo = FALSE}
-    knitr::kable(glossary, col.names = NULL, align = c('l','l'))
+flextable(glossary, theme_fun = NULL) %>% 
+  delete_part(part = "header") %>% 
+  align(align = "left", part = "body") %>% 
+  valign(valign = "top", part = "body") %>% 
+  width(j = 1, width = 4.94 / 2.54) %>% 
+  width(j = 2, width = 12.69 / 2.54) %>% 
+  height(i = 2, height = 1, part = "body")
 ```
 
 ## List of Tables
 <br>
-```{r kable_ListOfTables, echo = FALSE}
-flextable(ListofTables, theme_fun = theme_box) %>% 
-  align(j = 1:2, align = "left", part = "all") %>% 
+```{r kable_ListOfTables, echo = FALSE, ft.align="left"}
+flextable(ListofTables, theme_fun = NULL) %>% 
+  my_ft_format() %>% 
   set_header_labels(file_name = "File name",
                     file_size = "File and size") %>% 
-  bold(part = "header") %>% 
-  bg(bg = "#58792d", part = "header") %>% 
-  autofit(add_w = 0, add_h = 0.1)
+  align(j = 1, align = "left", part = "body") %>% 
+  align(j = 2, align = "right", part = "body") %>% 
+  style(j = 1, pr_t = fp_text(color = "#58792d", underline = TRUE), part = "body") %>% 
+  border_outer(border = fp_border()) %>%
+  border_inner(border = fp_border()) %>%
+  autofit(add_w = 0, add_h = 0.06) %>% 
+  width(j = 1, width = 13.85 / 2.54) %>% 
+  width(j = 2, width = 3.5 / 2.54)
 ```
 
 \newpage
@@ -363,7 +387,20 @@ Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torqu
 ### Appendix 2 - Publication Metadata
 <br>
 ```{r kable_MetaData, echo = FALSE}
-knitr::kable(MetaData, col.names = c("**Metadata Indicator**", "**Description**"), align = c('l','l'))
+# Need to fix row heights in this table - hopefully fixed in next flextable update
+flextable(MetaData, theme_fun = NULL) %>% 
+  my_ft_format() %>% 
+  set_header_labels(Indicator = "Metadata Indicator",
+                    Description = "Description") %>% 
+  align(j = 1, align = "right", part = "body") %>% 
+  align(j = 2, align = "left", part = "body") %>% 
+  valign(valign = "top", part = "all") %>% 
+  bold(j = 1, part = "body") %>% 
+  border_outer(border = fp_border()) %>%
+  border_inner(border = fp_border()) %>%
+  autofit(add_w = 0, add_h = 0.06) %>% 
+  width(j = 1, width = 5.19 / 2.54) %>% 
+  width(j = 2, width = 12.44 / 2.54)
 ```
 
 \newpage

@@ -35,6 +35,8 @@ read_docx("temp_report.docx") %>%
   body_add_break(pos = "before") %>%
   body_add_toc() %>%
   body_add_par("Contents", pos = "before", style = "Contents Header") %>%
+  cursor_reach(keyword = "Introduction") %>%
+  body_add_break(pos = "before") %>%
   print("temp_report2.docx")
 
 
