@@ -78,7 +78,9 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
     rproj_settings <- paste(rproj_settings, collapse = "\n")
 
     # write to index file
-    writeLines("", con = file.path(path, ".Rprofile"))
+    if (!renv) {
+        writeLines("", con = file.path(path, ".Rprofile"))
+    }
     writeLines(gitignore, con = file.path(path, ".gitignore"))
     writeLines(rproj_settings, con = file.path(path, paste0(basename(path), ".Rproj")))
     writeLines(r_code, con = file.path(path, "code", "code.R"))
@@ -103,6 +105,11 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
             warning("renv is not installed. Now attempting to install...",
                     immediate. = TRUE)
             utils::install.packages("renv")
+        }
+
+        if (Sys.info()[["sysname"]] != "Windows") {
+            renv_rprofile <- "Sys.setenv(RENV_PATHS_ROOT = readLines(\"/conf/linkage/output/renv_cache/shared_location\"))"
+            writeLines(renv_rprofile, con = file.path(path, ".Rprofile"))
         }
         renv::init(project = file.path(getwd(), path))
     }
