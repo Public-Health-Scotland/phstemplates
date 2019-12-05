@@ -78,7 +78,7 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
     rproj_settings <- paste(rproj_settings, collapse = "\n")
 
     # write to index file
-    if (!renv) {
+    if (!renv || Sys.info()[["sysname"]] == "Windows") {
         writeLines("", con = file.path(path, ".Rprofile"))
     }
     writeLines(gitignore, con = file.path(path, ".gitignore"))
