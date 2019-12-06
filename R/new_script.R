@@ -12,9 +12,9 @@ new_script <- function(author = rstudioapi::showPrompt(title = "Author",
                                                        message = "Name of Author",
                                                        default = "Original author(s)")) {
 
-  if (!is.null(author) & RStudio.Version()$version >= 1.2) {
+  if (!is.null(author) & rstudioapi::getVersion() >= 1.2) {
     rstudioapi::documentNew(script_template(author = author), type = "r")
-  } else if (!is.null(author) & RStudio.Version()$version < 1.2) {
+  } else if (!is.null(author) & rstudioapi::getVersion() < 1.2) {
     filename <- rstudioapi::showPrompt(title = "Filename",
                                        message = "Filename for new script\nYou can choose a folder to store this in after this",
                                        default = "code.R")
