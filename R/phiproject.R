@@ -78,7 +78,7 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
     rproj_settings <- paste(rproj_settings, collapse = "\n")
 
     # write to index file
-    if (!renv || Sys.info()[["sysname"]] == "Windows") {
+    if (!renv) {
         writeLines("", con = file.path(path, ".Rprofile"))
     }
     writeLines(gitignore, con = file.path(path, ".gitignore"))
@@ -106,11 +106,11 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
                     immediate. = TRUE)
             utils::install.packages("renv")
         }
+        renv_rprofile <- ifelse(Sys.info()[["sysname"]] != "Windows",
+                                "Sys.setenv(RENV_PATHS_ROOT = \"/conf/linkage/output/renv_cache/shared_location\")",
+                                "Sys.setenv(RENV_PATHS_ROOT = \"//stats/cl-out/renv_cache\")")
+        writeLines(renv_rprofile, con = file.path(path, ".Rprofile"))
 
-        if (Sys.info()[["sysname"]] != "Windows") {
-            renv_rprofile <- "Sys.setenv(RENV_PATHS_ROOT = readLines(\"/conf/linkage/output/renv_cache/shared_location\"))"
-            writeLines(renv_rprofile, con = file.path(path, ".Rprofile"))
-        }
         renv::init(project = file.path(getwd(), path))
     }
 }
