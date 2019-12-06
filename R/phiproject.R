@@ -107,8 +107,8 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
             utils::install.packages("renv")
         }
 
-        if (Sys.info()[["sysname"]] != "Windows" && file.access("/conf/linkage/output/renv_cache/shared_location", mode = 2) == 0) {
-            renv_rprofile <- "Sys.setenv(RENV_PATHS_ROOT = \"/conf/linkage/output/renv_cache/shared_location\")"
+        if (Sys.info()[["sysname"]] != "Windows" && file.access("/conf/linkage/output/renv_cache", mode = 2) == 0) {
+            renv_rprofile <- "Sys.setenv(RENV_PATHS_ROOT = \"/conf/linkage/output/renv_cache\")"
         } else if (Sys.info()[["sysname"]] == "Windows" && file.access("//stats/cl-out/renv_cache/Windows_test", mode = 2) == 0) {
             renv_rprofile <- "Sys.setenv(RENV_PATHS_ROOT = \"//stats/cl-out/renv_cache/Windows_test\")"
         } else {
