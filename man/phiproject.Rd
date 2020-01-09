@@ -4,7 +4,7 @@
 \alias{phiproject}
 \title{phiproject}
 \usage{
-phiproject(path, author, n_scripts = 1, git = FALSE)
+phiproject(path, author, n_scripts = 1, git = FALSE, renv = FALSE)
 }
 \arguments{
 \item{path}{Filepath for the project.}
@@ -14,6 +14,8 @@ phiproject(path, author, n_scripts = 1, git = FALSE)
 \item{n_scripts}{Number of code files to start the project with.}
 
 \item{git}{Initialise the project with Git.}
+
+\item{renv}{Initialise the project with package management using renv.}
 }
 \value{
 New project created according to the PHI R project structure.
@@ -23,6 +25,6 @@ Create new projects according to the PHI R project structure. This function is m
 }
 \examples{
 \dontrun{
-phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1, git = FALSE)
+phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
 }
 }

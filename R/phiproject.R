@@ -5,13 +5,14 @@
 #' @param author Name of the main author for the project.
 #' @param n_scripts Number of code files to start the project with.
 #' @param git Initialise the project with Git.
+#' @param renv Initialise the project with package management using renv.
 #' @return New project created according to the PHI R project structure.
 #' @export
 #' @examples
 #' \dontrun{
-#' phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1, git = FALSE)
+#' phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
 #' }
-phiproject <- function(path, author, n_scripts = 1, git = FALSE) {
+phiproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
     if (dir.exists(path)) {
         stop("This directory already exists")
     }
@@ -77,7 +78,9 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE) {
     rproj_settings <- paste(rproj_settings, collapse = "\n")
 
     # write to index file
-    writeLines("", con = file.path(path, ".Rprofile"))
+    if (!renv) {
+        writeLines("", con = file.path(path, ".Rprofile"))
+    }
     writeLines(gitignore, con = file.path(path, ".gitignore"))
     writeLines(rproj_settings, con = file.path(path, paste0(basename(path), ".Rproj")))
     writeLines(r_code, con = file.path(path, "code", "code.R"))
@@ -95,5 +98,24 @@ phiproject <- function(path, author, n_scripts = 1, git = FALSE) {
         } else {
             system(paste("cd", path, "&&", "git init"))
         }
+    }
+
+    if (renv) {
+        if (!"renv" %in% utils::installed.packages()[, 1]) {
+            warning("renv is not installed. Now attempting to install...",
+                    immediate. = TRUE)
+            utils::install.packages("renv")
+        }
+
+        if (Sys.info()[["sysname"]] != "Windows" && file.access("/conf/linkage/output/renv_cache", mode = 2) == 0) {
+            renv_rprofile <- "Sys.setenv(RENV_PATHS_ROOT = \"/conf/linkage/output/renv_cache\")"
+        } else if (Sys.info()[["sysname"]] == "Windows" && file.access("//stats/cl-out/renv_cache/Windows_test", mode = 2) == 0) {
+            renv_rprofile <- "Sys.setenv(RENV_PATHS_ROOT = \"//stats/cl-out/renv_cache/Windows_test\")"
+        } else {
+            renv_rprofile <- ""
+        }
+        writeLines(renv_rprofile, con = file.path(path, ".Rprofile"))
+
+        renv::init(project = file.path(getwd(), path))
     }
 }
