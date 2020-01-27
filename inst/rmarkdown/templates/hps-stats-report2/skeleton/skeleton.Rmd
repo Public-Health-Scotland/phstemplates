@@ -213,7 +213,7 @@ MetaData <- data.frame(Indicator, Description)
 <br>
 
 [The Official Statistics (Scotland) Order 2008](http://www.legislation.gov.uk/ssi/2008/131/contents/made) authorises NHS National Services Scotland (the legal name being the Common Services Agency for the Scottish Health Service) to produce official statistics.   
-All official statistics should comply with the UK Statistics Authority’s Code of Practice which promotes the production and dissemination of official statistics that inform decision making. They can be formally assessed by the UK Statistics Authority’s regulatory arm for National Statistics status. 
+All official statistics should comply with the UK Statistics Authority's Code of Practice which promotes the production and dissemination of official statistics that inform decision making. They can be formally assessed by the UK Statistics Authority's regulatory arm for National Statistics status. 
 
 <br>
 
