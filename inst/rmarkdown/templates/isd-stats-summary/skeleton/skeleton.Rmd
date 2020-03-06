@@ -27,9 +27,10 @@ scale_y_continuous(breaks = c(200, 400, 600, 800, 1000, 1200, 1400, 1600),
     limits = c(0, 1600),  expand = expand_scale(mult = 0)) +
 scale_x_discrete(limits =  c('Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov'),
     labels =  c('Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov'))  +
-  
-  geom_line(size = 1) + 
-  geom_point(size = 3) +
+geom_line( size = .75 ) + 
+geom_point( size = c(rep(3, 8), rep(2.5, 8)) ) +
+scale_shape_manual(values = c('diamond', 'square')) +
+scale_linetype_manual(values = c('dashed', 'solid')) + 
   theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 11, colour = "#6C2383"),
     panel.background = element_blank(),
     panel.grid.major = element_blank(), 
