@@ -13,10 +13,10 @@ output:
 #Create a pseudo chart
 library(ggplot2)
 
-Year <- c(rep("2014", times = 8), rep("2015", times = 8))
-Month <- rep(c(4, 5, 6, 7, 8, 9, 10, 11), times = 2)
-Count <- c(800, 820, 840, 860, 880, 1000, 1100, 1200, 
-           800, 840, 860, 880, 1000, 1100, 1200, 1300)
+Year <- c(rep("2014-15", times = 8), rep("2015-16", times = 8))
+Month <- rep(c('Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov'), times = 2)
+Count <- c(1100, 1220, 1240, 1250, 1290, 1300, 1380, 1350, 
+           1100, 1140, 1150, 1150, 1190, 1260, 1270, 1280)
 
 ChartData <- data.frame(Year, Month, Count)
 
