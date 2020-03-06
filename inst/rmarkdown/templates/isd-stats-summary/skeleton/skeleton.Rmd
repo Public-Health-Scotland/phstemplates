@@ -114,7 +114,7 @@ Please see [News and Updates section](http://www.isdscotland.org/) of our websit
 
 ### Further Information
 
-Find out more in the [full report](http://www.isdscotland.org/). The data from this publication is available to download [from our webpage](http://www.isdscotland.org/) along with a [background information and glossary](http://www.isdscotland.org/), and [metadata document](http://www.isdscotland.org/). 
+Find out more in the [full report](http://www.isdscotland.org/). Data from this publication is available to download [from our web page](http://www.isdscotland.org/) and the [NHSScotland Open Data platform](http://www.opendata.nhs.scot/) along with a [background information and glossary](http://www.isdscotland.org/), and [metadata document](http://www.isdscotland.org/). 
 
 For more information on XXX see the [XXX section of our website](http://www.isdscotland.org/). For related topics, please see the [XXX](http://www.isdscotland.org/) pages.
 
