@@ -52,10 +52,11 @@ theme(
     axis.text.x = element_text(size = 7.5, color = 'black'), 
     axis.text.y = element_text(size = 7, color = 'black'),
     axis.title.x = element_text(size = 8, face = 'bold', margin = margin(t = 10))) +
-  xlab("Month") + ylab("Count") +
+  xlab("Month") + 
   ggtitle("Chart title")
 
-ggsave("chart1.png", plot = chart, device = "png", dpi = 300)
+ggsave("chart1.png", plot = chart, height = 3, width = 6.15, device = "png", dpi = 300)
+
 
 #Create contact information
 contact1 <- c("**name**", "role", "number", "email")
