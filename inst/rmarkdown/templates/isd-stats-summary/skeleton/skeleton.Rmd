@@ -59,8 +59,8 @@ ggsave("chart1.png", plot = chart, height = 3, width = 6.15, device = "png", dpi
 
 
 #Create contact information
-contact1 <- c("**name**", "role", "number", "email")
-contact2 <- c("**name**", "role", "number", "email")
+contact1 <- c("**Name**", "Role", "Number", "email")
+contact2 <- c("**Name**", "Role", "Number", "email")
 
 contact <- data.frame(contact1, contact2)
 ```
