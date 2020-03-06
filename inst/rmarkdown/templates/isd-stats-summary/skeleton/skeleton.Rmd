@@ -20,7 +20,13 @@ Count <- c(1100, 1220, 1240, 1250, 1290, 1300, 1380, 1350,
 
 ChartData <- data.frame(Year, Month, Count)
 
-chart <- ggplot(data = ChartData, aes(x = Month, y = Count, group = Year, color = Year)) +
+chart <- ggplot(data = ChartData, aes(x = Month, y = Count, group = Year, 
+                                      color = Year, shape = Year, linetype = Year)) +
+scale_y_continuous(breaks = c(200, 400, 600, 800, 1000, 1200, 1400, 1600), 
+    labels = c('200', '400', '600', '800', '1,000', '1,200', '1,400', '1,600'),
+    limits = c(0, 1600),  expand = expand_scale(mult = 0)) +
+scale_x_discrete(limits =  c('Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov'),
+    labels =  c('Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov'))  +
   geom_line(size = 1) + 
   geom_point(size = 3) +
   theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 11, colour = "#6C2383"),
