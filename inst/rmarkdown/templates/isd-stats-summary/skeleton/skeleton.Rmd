@@ -46,10 +46,12 @@ theme(
     legend.key.height = unit(10, 'pt'),
     legend.key.width = unit(30, 'pt'),
     legend.text = element_text(size = 8),
-    axis.text.x = element_text(angle = 90),
-    axis.title.y = element_text(margin = margin(0,10,0,0)),
-    axis.line = element_line(colour="grey"),
-    axis.ticks = element_line(colour="grey")) +
+    axis.title.y = element_blank(),
+    axis.line = element_line(colour = "grey"),
+    axis.ticks = element_line(colour = "grey"),
+    axis.text.x = element_text(size = 7.5, color = 'black'), 
+    axis.text.y = element_text(size = 7, color = 'black'),
+    axis.title.x = element_text(size = 8, face = 'bold', margin = margin(t = 10))) +
   xlab("Month") + ylab("Count") +
   ggtitle("Chart title")
 
