@@ -322,15 +322,20 @@ Email:
 
 <br>
 
-<Div custom-style = "Heading 2_nopgbrk">Further Information</div>
-Further Information can be found on the [ISD website](http://www.isdscotland.org/).  
+Further information and data for this publication are available from  the [ISD website](http://www.isdscotland.org/).  
 For more information on XXX see the [XXX section of our website](http://www.isdscotland.org/). For related topics, please see the [XXX](http://www.isdscotland.org/) pages.  
-The next release of this publication will be DD Month YYYY.  
+The next release of this publication will be D Month YYYY.  
+
+<br>
+
+<Div custom-style = "Heading 2_nopgbrk">Open data</div>
+Data from this publication is available to download from the [NHSScotland Open Data platform](https://www.opendata.nhs.scot/).
 
 <br>
 
 <Div custom-style = "Heading 2_nopgbrk">Rate this publication</div>
-Please [provide feedback](http://www.isdscotland.org/Health-Topics/HEALTHTOPIC/Publications/rate-this-publication.asp?ID=XXXX) on this publication to help us improve our services.
+Please [provide feedback](mailto:YOUR-GENERIC-MAILBOX@nhs.net?subject=Feedback) on this publication to help us improve our services.
+
 
 <Div custom-style = "Heading 2_pgbrk">Appendices</div>
 ### Appendix 1 - Background information
