@@ -388,9 +388,13 @@ These statistics will also have been made available to those who needed access t
 **About ISD**  
 Scotland has some of the best health service data in the world combining high quality, consistency, national coverage and the ability to link data to allow patient based analysis and follow up.
 Information Services Division (ISD) is a business operating unit of NHS National Services Scotland and has been in existence for over 40 years. We are an essential support service to NHSScotland and the Scottish Government and others, responsive to the needs of NHSScotland as the delivery of health and social care evolves.  
+
 **Purpose**: To deliver effective national and specialist intelligence services to improve the health and wellbeing of people in Scotland.  
+
 **Mission**: Better Information, Better Decisions, Better Health  
+
 **Vision**: To be a valued partner in improving health and wellbeing in Scotland by providing a world class intelligence service.  
+
 
 <br>
 
