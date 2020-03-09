@@ -188,8 +188,8 @@ Description <- c("",
 "",
 "",
 "",
-"DD Month YYYY",
-"DD Month YYYY",
+"D Month YYYY",
+"D Month YYYY",
 "",
 "",
 "",
@@ -206,11 +206,11 @@ Description <- c("",
 "",
 "",
 "",
-"DD Month YYYY",
-"DD Month YYYY",
-"DD Month YYYY",
+"D Month YYYY",
+"D Month YYYY",
+"D Month YYYY",
 "",
-"DD Month YYYY")
+"D Month YYYY")
 
 MetaData <- data.frame(Indicator, Description)
 ```
