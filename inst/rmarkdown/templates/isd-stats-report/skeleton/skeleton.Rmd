@@ -87,18 +87,25 @@ DetectionRate <- c(6.2, 6.5, 7, 7.1, 6.9, 6.4, 6.2)
 FigureTwoData <- data.frame(RollingYear, DetectionRate)
 
 FigureTwo <- ggplot(data = FigureTwoData, aes(x = RollingYear, y = DetectionRate)) +
-  geom_bar(position = "dodge", stat = "identity", width = 0.5, 
-            show.legend = F, fill = "#0391BF") + 
+  geom_bar(position = "dodge", stat = "identity", width = 0.40, 
+            show.legend = F, fill = "#00a2e5") + 
   scale_y_continuous(breaks = c(0:8), 
-                     limits = c(0, 8)) +
+                     limits = c(0, 8),
+                     oob = squish, expand = expand_scale(mult = 0)) +
   geom_hline(yintercept = 3.1, size = 1, color = "#092869") +
   geom_hline(yintercept = 4.1, size = 1, color = "#092869", linetype = "dashed") +
   theme(panel.background = element_blank(),
+    plot.margin = margin(t = 18),
     panel.grid.major.x = element_blank(), 
-    panel.grid.major.y = element_line(size = .1, color = "#C0C0C0"), 
-    axis.title.x = element_text(size = 12, face = "bold"),
-    axis.title.y = element_text(size = 12, face = "bold"),
-    axis.text = element_text(size = 12)) +
+    panel.grid.major.y = element_line(size = .2, color = "#C0C0C0"), 
+    axis.title.x = element_text(size = 9, face = "bold", margin = margin(t = 10)),
+    axis.title.y = element_text(size = 9, face = "bold", margin = margin(r = 10)),
+    axis.text = element_text(size = 9, colour = 'black'),
+    axis.text.x = element_text(margin = margin(t = 6)),
+    axis.ticks.x = element_blank(), 
+    axis.ticks.y = element_blank(),
+    axis.line.x = element_line(size = .18, colour = 'black'),
+    axis.line.y = element_line(size = .18, colour = 'black')) +
   xlab("Three Year Rolling Period") + ylab("Cancer detection rate \n (per 1000 women screened)")
 
 ggsave("Figure2_ggplot.png", plot = FigureTwo, width = 17.78, height = 14.24, units = "cm", 
