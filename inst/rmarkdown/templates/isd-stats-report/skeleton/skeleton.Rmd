@@ -233,11 +233,9 @@ Once statistics have been designated as National Statistics, it is a statutory r
 
 <br>
 
-The statistics last underwent a full [assessment](https://www.statisticsauthority.gov.uk/archive/assessment/assessment/assessment-reports/confirmation-of-designation-letters/letter-of-confirmation-as-national-statistics---assessment-report-177.pdf) by the Office for Statistics Regulation (OSR) against the Code of Practice in June 2019. The OSR is the regulatory arm of the UK Statistics Authority.
+The statistics last underwent a full [assessment](https://www.statisticsauthority.gov.uk/archive/assessment/assessment/assessment-reports/confirmation-of-designation-letters/letter-of-confirmation-as-national-statistics---assessment-report-177.pdf) by the Office for Statistics Regulation (OSR) against the Code of Practice in <span custom-style = "highlight">June 2019</span>. The OSR is the regulatory arm of the UK Statistics Authority. 
 
-<br>
-
-The continued designation of these statistics as National Statistics was confirmed in June 2019 following a compliance check by the Office for Statistics Regulation. The [compliance check report](https://www.statisticsauthority.gov.uk/correspondence/compliance-check-on-home-offices-statistics-on-immigration/) highlighted a number of strengths and made suggestions for improvements.
+The continued designation of these statistics as National Statistics was confirmed in <span custom-style = "highlight">June 2019</span> following a compliance check by the Office for Statistics Regulation. The [compliance check report](https://www.statisticsauthority.gov.uk/correspondence/compliance-check-on-home-offices-statistics-on-immigration/) highlighted a number of strengths and made suggestions for improvements.
 
 <br>
 
@@ -248,6 +246,18 @@ https://www.statisticsauthority.gov.uk/osr/code-of-practice/
 
 Find out more about National Statistics at:  
 https://www.statisticsauthority.gov.uk/national-statistician/types-of-official-statistics/ 
+
+<br>
+<div><br></div>
+
+
+<span custom-style = "Red_Bold_Highlight">Please remove  </span>
+
+  *	<span custom-style = "highlight">Note to analyst: Remove the last paragraph relating to compliance checks if your publication has not undergone compliance checks. </span>
+<br>
+
+  *	<span custom-style = "highlight">Please provide the correct hyperlinks to the published assessment and, if applicable, the compliance check report </span>
+  
 
 <Div custom-style = "Heading 2_pgbrk">Introduction</div>
 In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem. Donec a dolor gravida, lobortis ligula vitae, pulvinar ante. Integer faucibus eros ut luctus tristique.
