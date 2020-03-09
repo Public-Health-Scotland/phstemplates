@@ -108,7 +108,7 @@ FigureTwo <- ggplot(data = FigureTwoData, aes(x = RollingYear, y = DetectionRate
     axis.line.y = element_line(size = .18, colour = 'black')) +
   xlab("Three Year Rolling Period") + ylab("Cancer detection rate \n (per 1000 women screened)")
 
-ggsave("Figure2_ggplot.png", plot = FigureTwo, width = 17.78, height = 14.24, units = "cm", 
+ggsave("Figure2_ggplot.png", plot = FigureTwo, width = 15, height = 9.25, units = "cm", 
        device = "png", dpi = 600)
 ```
 
