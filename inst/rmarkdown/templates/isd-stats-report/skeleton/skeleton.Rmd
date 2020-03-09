@@ -72,6 +72,9 @@ FigureOne <- ggplot(data = FigureOneData, aes(x = HBR, y = UptakeRate, fill = HB
                               "Lothian", "Lanarkshire", "Highland", "Greater Glasgow & Clyde",
                               "Grampian", "Forth Valley", "Fife", "Dumfries & Galloway",
                               "Borders", "Ayrshire & Arran")) +
+  scale_fill_manual(values = c("#00a2e5", "#00a2e5", "#00a2e5", "#00a2e5", "#00a2e5", 
+                               "#00a2e5", "#00a2e5", "#00a2e5", "#00a2e5", "#00a2e5",
+                               "#00a2e5", "#092869", "#00a2e5", "#00a2e5", "#00a2e5"))
   xlab("NHS Board of Residence") + ylab("Uptake rate (%)")
 
 ggsave("Figure1_ggplot.png", plot = FigureOne, width = 17.79, height = 14.24, units = "cm", 
