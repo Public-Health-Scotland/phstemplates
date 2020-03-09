@@ -309,11 +309,6 @@ Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti soc
     knitr::kable(glossary, col.names = NULL, align = c('l','l'))
 ```
 
-## List of Tables
-<br>
-```{r kable_ListOfTables, echo = FALSE}
-knitr::kable(ListofTables, col.names = c("**File name**", "**File and size**"), align = c('l','l'))
-```
 
 <Div custom-style = "Heading 2_pgbrk">Contact</div>
 **Name, title**  
