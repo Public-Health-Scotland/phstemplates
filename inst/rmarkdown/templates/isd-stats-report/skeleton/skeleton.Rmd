@@ -219,19 +219,15 @@ MetaData <- data.frame(Indicator, Description)
 
 ![National Statistics Quality Mark](kitemark_tcm97-17949.jpg) \
 
-<br>
 
 National Statistics status means that the official statistics meet the highest standards of trustworthiness, quality and public value. They are identified by the quality mark shown above.
 
-<br>
 
 The UK Statistics Authority has designated these statistics as National Statistics signifying compliance with the Code of Practice for Statistics.
 
-<br>
 
 Once statistics have been designated as National Statistics, it is a statutory requirement that the Code of Practice shall continue to be observed.
 
-<br>
 
 The statistics last underwent a full [assessment](https://www.statisticsauthority.gov.uk/archive/assessment/assessment/assessment-reports/confirmation-of-designation-letters/letter-of-confirmation-as-national-statistics---assessment-report-177.pdf) by the Office for Statistics Regulation (OSR) against the Code of Practice in <span custom-style = "highlight">June 2019</span>. The OSR is the regulatory arm of the UK Statistics Authority. 
 
