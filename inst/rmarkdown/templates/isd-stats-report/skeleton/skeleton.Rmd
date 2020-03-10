@@ -323,6 +323,7 @@ Email:
 
 <br>
 
+<Div custom-style = "Heading 2_nopgbrk">Further Information</div>
 Further information and data for this publication are available from  the [ISD website](http://www.isdscotland.org/).  
 For more information on XXX see the [XXX section of our website](http://www.isdscotland.org/). For related topics, please see the [XXX](http://www.isdscotland.org/) pages.  
 The next release of this publication will be D Month YYYY.  
