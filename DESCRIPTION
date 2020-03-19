@@ -1,8 +1,8 @@
 Package: phiproject
 Title: PHI R Templates
 Authors@R: c(
-    person("Anna", "Price", email = "anna.price5@nhs.net", role = c("aut", "cre")),
-    person("Alan", "Yeung", email = "alan.yeung@nhs.net", role = "aut", comment = c(ORCID = "0000-0001-5226-3695"))
+    person("Alan", "Yeung", email = "alan.yeung@nhs.net", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5226-3695")),
+    person("Anna", "Price", email = "anna.price5@nhs.net", role = "aut")
     )
 Version: 0.8.1
 Description: Create new projects according to the PHI R project structure.
@@ -19,11 +19,11 @@ Suggests:
     tidyr,
     lubridate,
     ggplot2,
-    janitor
+    janitor,
+    phsmethods
 Imports: 
     captioner,
     flextable,
     officer,
-    renv,
-    phsmethods
+    renv
 Remotes: Health-SocialCare-Scotland/phsmethods
