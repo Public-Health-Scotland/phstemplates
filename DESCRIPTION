@@ -1,5 +1,5 @@
 Package: phiproject
-Title: PHI R Project Template
+Title: PHI R Templates
 Authors@R: c(
     person("Anna", "Price", email = "anna.price5@nhs.net", role = c("aut", "cre")),
     person("Alan", "Yeung", email = "alan.yeung@nhs.net", role = "aut", comment = c(ORCID = "0000-0001-5226-3695"))
@@ -14,6 +14,16 @@ BugReports: https://github.com/Health-SocialCare-Scotland/phiproject/issues
 LazyData: true
 RoxygenNote: 7.0.2
 Suggests: 
-    rstudioapi
+    rstudioapi,
+    dplyr,
+    tidyr,
+    lubridate,
+    ggplot2,
+    janitor
 Imports: 
-    renv
+    captioner,
+    flextable,
+    officer,
+    renv,
+    phsmethods
+Remotes: Health-SocialCare-Scotland/phsmethods
