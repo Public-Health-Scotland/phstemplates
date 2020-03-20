@@ -255,7 +255,7 @@ knitr::kable(TableData, col.names = c("**NHS Board**", "**Q2 Cases**", "**Q2 Bed
 
 <Div custom-style = "Heading 4_pgbrk">`r gsub("#### ", "", fig_nums("uptake"))`</div>
 <!-- hack to get images to be placed in the right location when the 'Normal' style has been altered --> 
-<Div custom-style = "Old_Normal">
+<Div custom-style = "Figure_Style">
 ```{r fig-uptake, echo=FALSE, fig.width=7, fig.height=5.6, fig.cap="Uptake rate by NHS Board by three-year rolling period 2013-16."}
 FigureOne
 ```
@@ -278,7 +278,7 @@ Mauris ac neque vel erat varius cursus. Praesent at molestie felis. Nunc eget ip
 Pellentesque aliquam imperdiet neque et interdum. Nulla sodales tellus magna, id venenatis justo pulvinar ut. Etiam luctus facilisis auctor. Curabitur interdum feugiat convallis. Nullam mi libero, hendrerit vitae condimentum in, iaculis porta purus. Suspendisse potenti. Donec sed molestie nisi, ut blandit ex. Proin tempor, mauris sit amet consectetur placerat, elit lorem placerat dui, sed placerat mi ante a purus.
 
 `r fig_nums("cancer")`
-<Div custom-style = "Old_Normal">
+<Div custom-style = "Figure_Style">
 ```{r fig-cancer, echo=FALSE, fig.width=7, fig.height=5.6, fig.cap="Trend in invasive cancer detection rates for Scotland, three-year rolling periods (2007/10 to 2013/16). There is a bar for each three-year rolling period."}
 FigureTwo
 ```
