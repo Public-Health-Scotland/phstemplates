@@ -16,7 +16,7 @@ new_script(
 New R script created according to the PHI R project structure.
 }
 \description{
-Create new R script according to the PHI R project template. This function is meant to be used within RStudio by clicking on the Addins dropdown menu.
+Create new R script according to the PHS R project template. This function is meant to be used within RStudio by clicking on the Addins dropdown menu.
 }
 \examples{
 \dontrun{
