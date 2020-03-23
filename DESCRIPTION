@@ -1,11 +1,11 @@
 Package: phiproject
-Title: PHI R Templates
+Title: PHS R Templates
 Authors@R: c(
     person("Alan", "Yeung", email = "alan.yeung@nhs.net", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5226-3695")),
     person("Anna", "Price", email = "anna.price5@nhs.net", role = "aut")
     )
 Version: 0.8.2
-Description: Create new projects according to the PHI R project structure.
+Description: Create new projects according to the PHS R project structure.
 Depends: R (>= 3.2.0)
 License: GPL (>= 2)
 Encoding: UTF-8

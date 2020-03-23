@@ -2,7 +2,7 @@
 #' @description Create new R script according to the PHS R project template. This function is meant to be used within RStudio by clicking on the Addins dropdown menu.
 #'
 #' @param author Name of the main author of the script.
-#' @return New R script created according to the PHI R project structure.
+#' @return New R script created according to the PHS R project structure.
 #' @export
 #' @examples
 #' \dontrun{

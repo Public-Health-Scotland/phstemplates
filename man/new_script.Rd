@@ -13,7 +13,7 @@ new_script(
 \item{author}{Name of the main author of the script.}
 }
 \value{
-New R script created according to the PHI R project structure.
+New R script created according to the PHS R project structure.
 }
 \description{
 Create new R script according to the PHS R project template. This function is meant to be used within RStudio by clicking on the Addins dropdown menu.

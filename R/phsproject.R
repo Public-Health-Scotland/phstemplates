@@ -6,7 +6,7 @@
 #' @param n_scripts Number of code files to start the project with.
 #' @param git Initialise the project with Git.
 #' @param renv Initialise the project with package management using renv.
-#' @return New project created according to the PHI R project structure.
+#' @return New project created according to the PHS R project structure.
 #' @export
 #' @examples
 #' \dontrun{

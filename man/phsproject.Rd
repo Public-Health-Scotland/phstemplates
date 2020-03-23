@@ -18,7 +18,7 @@ phsproject(path, author, n_scripts = 1, git = FALSE, renv = FALSE)
 \item{renv}{Initialise the project with package management using renv.}
 }
 \value{
-New project created according to the PHI R project structure.
+New project created according to the PHS R project structure.
 }
 \description{
 Create new projects according to the PHS R project structure. This function is meant to be used within RStudio by going to the File menu, then New Project.

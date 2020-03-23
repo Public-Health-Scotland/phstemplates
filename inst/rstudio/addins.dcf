@@ -1,4 +1,4 @@
-Name: New phiproject R Script
-Description: create new R script from phiproject template
+Name: New phsproject R Script
+Description: create new R script from phsproject template
 Binding: new_script
 Interactive: true
