@@ -4,7 +4,7 @@ Authors@R: c(
     person("Alan", "Yeung", email = "alan.yeung@nhs.net", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5226-3695")),
     person("Anna", "Price", email = "anna.price5@nhs.net", role = "aut")
     )
-Version: 0.8.1
+Version: 0.8.2
 Description: Create new projects according to the PHI R project structure.
 Depends: R (>= 3.2.0)
 License: GPL (>= 2)
@@ -12,7 +12,7 @@ Encoding: UTF-8
 URL: https://github.com/Health-SocialCare-Scotland/phiproject
 BugReports: https://github.com/Health-SocialCare-Scotland/phiproject/issues
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Suggests: 
     rstudioapi,
     dplyr,
@@ -23,7 +23,7 @@ Suggests:
     phsmethods
 Imports: 
     captioner,
-    flextable,
+    flextable (>= 0.5.7),
     officer,
     renv
 Remotes: Health-SocialCare-Scotland/phsmethods

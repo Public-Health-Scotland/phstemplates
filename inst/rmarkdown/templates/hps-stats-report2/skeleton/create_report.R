@@ -1,20 +1,26 @@
 # Compile report with table of contents and front cover included
 
 
-# Parameters - This should be the only section that needs edited
-# Change as required for your publication
-# Note: filenames need to be filepaths if they are not stored in your R working
-# directory
+# Parameters: please change as required for your publication
+# Note: filenames need to be filepaths if they are not stored in your current R
+# working directory
 params <- list(
+  # Report filename - Please check carefully
   rmd_filename    = "Report.Rmd",
+  # Cover page filename - Please check carefully
   cover_filename  = "Cover_Page.docx",
+  # Title for cover page
   title           = "My Title",
+  # Subtitle for cover page
   subtitle        = "My Subtitle",
+  # Date of Publication
   date            = "DD Month YYYY",
+  # Output filename for compiled report
   filename_out    = "Report_and_Cover.docx"
 )
 
-source("create_report_source.R")
+source("compile.R")
+# Note: if it does not find the script, check your working directory with getwd()
 
 
 # PLEASE READ

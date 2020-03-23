@@ -1,5 +1,5 @@
-#' phiproject
-#' @description Create new projects according to the PHI R project structure. This function is meant to be used within RStudio by going to the File menu, then New Project.
+#' phsproject
+#' @description Create new projects according to the PHS R project structure. This function is meant to be used within RStudio by going to the File menu, then New Project.
 #'
 #' @param path Filepath for the project.
 #' @param author Name of the main author for the project.
@@ -10,9 +10,9 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' phiproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
+#' phsproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
 #' }
-phiproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
+phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
     if (dir.exists(path)) {
         stop("This directory already exists")
     }
