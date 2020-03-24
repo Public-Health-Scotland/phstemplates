@@ -1,5 +1,5 @@
-Binding: phiproject
-Title: PHI R Project Template
+Binding: phsproject
+Title: PHS R Project Template
 OpenFiles: code/code.R
 
 Parameter: author
