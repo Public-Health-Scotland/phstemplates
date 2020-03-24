@@ -1,9 +1,12 @@
 # Compile report with table of contents and front cover included
 
 
-# Parameters: please change as required for your publication
+
+# Parameters --------------------------------------------------------------
+# Please change as required for your publication
 # Note: filenames need to be filepaths if they are not stored in your current R
 # working directory
+
 params <- list(
   # Report filename - Please check carefully
   rmd_filename    = "Report.Rmd",
@@ -19,8 +22,16 @@ params <- list(
   filename_out    = "Report_and_Cover.docx"
 )
 
+
+
+# Compile Report ----------------------------------------------------------
+
+# Note: if source() below cannot find the 'compile.R' file, check that your
+# current working directory contains the 'compile.R' file
+# Check your current working directory with getwd()
+# If needed, set your working directory using setwd() to the directory that
+# contains 'compile.R'
 source("compile.R")
-# Note: if it does not find the script, check your working directory with getwd()
 
 
 # PLEASE READ
