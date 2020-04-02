@@ -13,32 +13,55 @@ output:
 #Create a pseudo chart
 library(ggplot2)
 
-Year <- c(rep("2014", times = 8), rep("2015", times = 8))
-Month <- rep(c(4, 5, 6, 7, 8, 9, 10, 11), times = 2)
-Count <- c(800, 820, 840, 860, 880, 1000, 1100, 1200, 
-           800, 840, 860, 880, 1000, 1100, 1200, 1300)
+Year <- c(rep("2014-15", times = 8), rep("2015-16", times = 8))
+Month <- rep(c('Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov'), times = 2)
+Count <- c(1100, 1220, 1240, 1250, 1290, 1300, 1380, 1350, 
+           1100, 1140, 1150, 1150, 1190, 1260, 1270, 1280)
 
 ChartData <- data.frame(Year, Month, Count)
 
-chart <- ggplot(data = ChartData, aes(x = Month, y = Count, group = Year, color = Year)) +
-  geom_line(size = 1) + 
-  geom_point(size = 3) +
-  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 11, colour = "#6C2383"),
+chart <- ggplot(data = ChartData, aes(x = Month, y = Count, group = Year, 
+                                      color = Year, shape = Year, linetype = Year)) +
+scale_y_continuous(breaks = c(200, 400, 600, 800, 1000, 1200, 1400, 1600), 
+    labels = c('200', '400', '600', '800', '1,000', '1,200', '1,400', '1,600'),
+    limits = c(0, 1600),  expand = expand_scale(mult = 0)) +
+scale_x_discrete(limits =  c('Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov'),
+    labels =  c('Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov'))  +
+scale_color_manual(values = c('#59B4F0', '#FF0000')) +
+geom_line( size = .75 ) + 
+geom_point( size = c(rep(3, 8), rep(2.5, 8)) ) +
+scale_shape_manual(values = c('diamond', 'square')) +
+scale_linetype_manual(values = c('dashed', 'solid')) + 
+theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 12, colour = "#6C2383"),
+    plot.margin = margin(l = 30, b = 10),
     panel.background = element_blank(),
     panel.grid.major = element_blank(), 
+    panel.grid.major.y = element_line(size = .4, color = "#969696"), 
     panel.grid.minor = element_blank(),
-    axis.text.x = element_text(angle = 90),
-    axis.title.y = element_text(margin = margin(0,10,0,0)),
-    axis.line = element_line(colour="grey"),
-    axis.ticks = element_line(colour="grey")) +
-  xlab("Month") + ylab("Count") +
+    panel.border = element_rect(colour = "#969696", fill = NA, size = 0.75), 
+    legend.box.spacing = unit(0, 'cm'),
+    legend.box.margin = margin(b = 0),
+    legend.position = 'top',
+    legend.title=element_blank(),
+    legend.key.height = unit(10, 'pt'),
+    legend.key.width = unit(30, 'pt'),
+    legend.text = element_text(size = 8),
+    axis.title.y = element_blank(),
+    axis.line = element_line(colour = "grey"),
+    axis.ticks = element_line(colour = "grey"),
+    axis.text.x = element_text(size = 7.5, color = 'black'), 
+    axis.text.y = element_text(size = 7, color = 'black'),
+    axis.title.x = element_text(size = 8, face = 'bold', margin = margin(t = 10))) +
+  xlab("Month") + 
   ggtitle("Chart title")
 
-ggsave("chart1.png", plot = chart, device = "png", dpi = 300)
+ggsave("chart1.png", plot = chart, height = 3, width = 6.15, device = "png", dpi = 300)
+
 
 #Create contact information
-contact1 <- c("**name**", "role", "number", "email")
-contact2 <- c("**name**", "role", "number", "email")
+contact1 <- c("**Name**", "Role", "Number", "email")
+contact2 <- c("**Name**", "Role", "Number", "email")
 
 contact <- data.frame(contact1, contact2)
 ```
@@ -92,7 +115,7 @@ Please see [News and Updates section](http://www.isdscotland.org/) of our websit
 
 ### Further Information
 
-Find out more in the [full report](http://www.isdscotland.org/). The data from this publication is available to download [from our webpage](http://www.isdscotland.org/) along with a [background information and glossary](http://www.isdscotland.org/), and [metadata document](http://www.isdscotland.org/). 
+Find out more in the [full report](http://www.isdscotland.org/). Data from this publication is available to download [from our web page](http://www.isdscotland.org/) and the [NHSScotland Open Data platform](http://www.opendata.nhs.scot/) along with a [background information and glossary](http://www.isdscotland.org/), and [metadata document](http://www.isdscotland.org/). 
 
 For more information on XXX see the [XXX section of our website](http://www.isdscotland.org/). For related topics, please see the [XXX](http://www.isdscotland.org/) pages.
 
