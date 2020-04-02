@@ -1,16 +1,16 @@
-[![Travis build status](https://travis-ci.com/Health-SocialCare-Scotland/phiproject.svg?branch=master)](https://travis-ci.com/Health-SocialCare-Scotland/phiproject)
+[![Travis build status](https://travis-ci.com/Health-SocialCare-Scotland/phstemplates.svg?branch=master)](https://travis-ci.com/Health-SocialCare-Scotland/phstemplates)
 
 ## Contents
 - [Installation](#installation)
 - [How to use](#how-to-use)
-- [Directories created in PHI project](#directories)
-- [Files created in PHI project](#files)
+- [Directories](#directories)
+- [Files](#files)
 - [RMarkdown Templates](#rmarkdown-templates)
 
 ## Installation
 Install this package by running the following code in R:
 ```{r install, eval = FALSE}
-devtools::install_github("Health-SocialCare-Scotland/phiproject")
+devtools::install_github("Health-SocialCare-Scotland/phstemplates")
 ```
 
 If you are working inside the NSS network then this may not work in which case follow these steps:
@@ -21,15 +21,14 @@ If you are working inside the NSS network then this may not work in which case f
 5. Replace the sections marked `<>` below (including the arrows themselves) and run the following code in R:
 
 ```{r source-installation, eval = FALSE}
-install.packages("<FILEPATH OF UNZIPPED FILE>/phiproject-master", repos = NULL,
+install.packages("<FILEPATH OF UNZIPPED FILE>/phstemplates-master", repos = NULL,
                  type = "source")
 ```
 
 ## How to use
+To use this project template, install the package by following the instructions above. After doing this you will then be able to create new R projects with the recommended PHS structure within RStudio by clicking File -> New Project... -> New Directory and selecting PHS R Project Template. As usual, name the project and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in subsequent sections of this README.
 
-To use this project template, install the package by following the instructions above. After doing this you will then be able to create new R projects with the recommended PHI structure within RStudio by clicking File -> New Project... -> New Directory and selecting PHI R Project Template. As usual, name the project and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in subsequent sections of this README.
-
-This template aims to instil best practice within PHI and therefore git has been initiliased for version control. However, if you are not using this then you can delete the .gitignore file. More information about [version control](https://github.com/NHS-NSS-transforming-publications/resources/blob/master/version-control.md).
+This template aims to instil best practice within PHS and therefore git has been initiliased for version control. However, if you are not using this then you can delete the .gitignore file. More information about [version control](https://github.com/NHS-NSS-transforming-publications/resources/blob/master/version-control.md).
 
 If you are using git for version control then please be aware that the .gitignore contains the minimum recommended file types and folders to stop data being tracked and pushed to GitHub. Further guidance on using git and GitHub securely can be found [here](https://github.com/NHS-NSS-transforming-publications/GitHub-guidance).
 
@@ -52,11 +51,10 @@ This template is also intended to be flexible, so you may not require every file
   * `r-project.Proj` - R project
 
 ## RMarkdown Templates
+This package currently provides various RMarkdown templates including [one for producing ISD national statistics reports and one for producing ISD national statistics summary documents](https://github.com/NHS-NSS-transforming-publications/National-Stats-Template). You can access these templates in RStudio by clicking File -> New File -> R Markdown -> From Template.
 
-This package currently provides two RMarkdown templates: [one for producing ISD national statistics reports and one for producing ISD national statistics summary documents](https://github.com/NHS-NSS-transforming-publications/National-Stats-Template). You can access these templates in RStudio by clicking File -> New File -> R Markdown -> From Template.
-
-### Adding a new template to phiproject
-1. Clone phiproject and load it up in RStudio
+### Adding a new template
+1. Clone phstemplates and load it up in RStudio
 2. Create your own Git branch and switch to that branch
 3. In R, type `usethis::use_rmarkdown_template("my-template")` where you replace `my-template` with the name you want to give your template. This is actually just the name it gives to the folder that stores your template so the name should not have spaces but can contain dashes or underscores. The name should also not be too long as this may cause issues when building the package. This will create a basic structure for your template within the directory `inst\rmarkdown\templates\my-template`
 4. Open up `template.yaml` in the folder just created for your template. Update the name and description as appropriate for your template.
@@ -68,8 +66,8 @@ This package currently provides two RMarkdown templates: [one for producing ISD 
 10. Push to Github
 11. Create a pull request and ask for a review from an appropriate staff member so the changes can be merged
 
-### Updating an existing template for phiproject
-1. Clone phiproject and load it up in RStudio
+### Updating an existing template
+1. Clone phstemplates and load it up in RStudio
 2. Create your own Git branch and switch to that branch
 3. Rename your updated template file to `skeleton.Rmd` and place it (and any associated files if they have also been updated) inside the 'skeleton' folder of your template (`inst\rmarkdown\templates\your-template\skeleton`)
 4. Run `devtools::check()` and make sure the package passes all the checks

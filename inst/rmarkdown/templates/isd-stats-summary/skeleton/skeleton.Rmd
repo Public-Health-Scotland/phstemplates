@@ -1,7 +1,7 @@
 ---
 output: 
   word_document:
-    reference_docx: "NATIONAL_STATS_SUMMARY_TEMPLATE.docx"
+    reference_docx: "NAT_STATS_SUMMARY_TEMPLATE.docx"
 ---
 
 <!-- readme available at https://github.com/NHS-NSS-transforming-publications/National-Stats-Template -->
