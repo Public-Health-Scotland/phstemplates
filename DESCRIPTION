@@ -19,11 +19,9 @@ Suggests:
     tidyr,
     lubridate,
     ggplot2,
-    janitor,
-    phsmethods
+    janitor
 Imports: 
     captioner,
     flextable (>= 0.5.7),
     officer,
     renv
-Remotes: Health-SocialCare-Scotland/phsmethods

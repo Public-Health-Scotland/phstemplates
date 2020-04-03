@@ -13,7 +13,7 @@ Install this package by running the following code in R:
 devtools::install_github("Health-SocialCare-Scotland/phstemplates")
 ```
 
-If you are working inside the NSS network then this may not work in which case follow these steps:
+If you are working inside the PHS network then this may not work in which case follow these steps:
 1. Click **Clone or download**
 2. Click **Download ZIP**
 3. Save the zip file locally
