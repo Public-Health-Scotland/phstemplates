@@ -24,6 +24,11 @@ If you are working inside the PHS network then this may not work in which case f
 install.packages("<FILEPATH OF UNZIPPED FILE>/phstemplates-master", repos = NULL,
                  type = "source")
 ```
+If you encounter any issues with the automatic installation of package dependencies using this method, you may need to install these manually prior to running the code to install phstemplates. In this case, it should tell you which packages you need. For example, if you need [flextable](https://davidgohel.github.io/flextable) and [officer](https://davidgohel.github.io/officer), install these first:
+
+```{r source-installation-issues, eval = FALSE}
+install.packages(c("flextable", "officer"))
+```
 
 ## How to use
 To use this project template, install the package by following the instructions above. After doing this you will then be able to create new R projects with the recommended PHS structure within RStudio by clicking File -> New Project... -> New Directory and selecting PHS R Project Template. As usual, name the project and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in subsequent sections of this README.
