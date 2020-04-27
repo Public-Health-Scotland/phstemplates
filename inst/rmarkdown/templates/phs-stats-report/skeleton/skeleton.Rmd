@@ -376,7 +376,7 @@ flextable(MetaData, theme_fun = NULL) %>%
   autofit(add_w = 0, add_h = 0.06) %>% 
   width(j = 1, width = 5.19 / 2.54) %>% 
   width(j = 2, width = 12.44 / 2.54) %>% 
-  padding(padding = 0, part = "all")
+  padding(padding.top = 0, padding.bottom = 0, part = "all")
 ```
 
 \newpage
