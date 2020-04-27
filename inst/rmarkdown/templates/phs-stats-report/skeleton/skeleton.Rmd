@@ -5,11 +5,10 @@ output:
     fig_caption: no
 ---
 
-<!-- readme available at https://github.com/NHS-NSS-transforming-publications/National-Stats-Template --> 
 <!-- Please see the 'create_report.R' script to compile the whole report with cover page and table of contents -->
 
 
-```{r TableData, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+```{r TableData, echo = FALSE, message = FALSE, warning = FALSE, error = FALSE}
 NHSBoard <- c("AA", "BR", "DG", "FF", "FV", "GR", "GGC", "HG", "LN", "LO", "NWTC", "OR", "SH", "TY", "WI", "Scotland")
 
 Q2Cases <- as.character(c(22, 2, 9, 9, 10, 16, 52, 9, 22, 44, 0, 1, 0, 24, 1, 221))
@@ -37,7 +36,7 @@ TableData <- data.frame(NHSBoard, Q2Cases, Q2BedDays, Q2Rate, Q3Cases, Q3BedDays
 TableData[16, c(2:7)] <- c("221", "910,937", "24.3", "257", "861,491", "29.8")
 ```
 
-```{r Figures, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
+```{r Figures, echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, include = FALSE}
 library(ggplot2)
 library(scales)
 library(captioner)
@@ -47,7 +46,7 @@ library(magrittr)
 
 fig_nums <- captioner(prefix = "Figure", infix = ":")
 
-#Create Figure 1
+# Create Figure 1
 HBR <- c("Ayrshire & Arran", "Borders", "Dumfries & Galloway", "Fife", "Forth Valley",
          "Grampian", "Greater Glasgow & Clyde", "Highland", "Lanarkshire", "Lothian", 
          "Orkney", "Shetland", "Tayside", "Western Isles", "Scotland")
@@ -81,7 +80,7 @@ FigureOne <- ggplot(data = FigureOneData, aes(x = HBR, y = UptakeRate, fill = HB
 fig_nums(name = "uptake", caption = "Uptake rate^1^ by NHS Board by three-year rolling period 2013-16^1,2,3,4^")
 
 
-#Create Figure 2
+# Create Figure 2
 RollingYear <- c("2007-10", "2008-11", "2009-12", "2010-13", "2011-14", "2012-15", "2013-16")
 DetectionRate <- c(6.2, 6.5, 7, 7.1, 6.9, 6.4, 6.2)
 
@@ -105,7 +104,7 @@ FigureTwo <- ggplot(data = FigureTwoData, aes(x = RollingYear, y = DetectionRate
 fig_nums(name = "cancer", caption = "Trend in invasive cancer detection rate for Scotland")
 ```
 
-```{r glossary, echo=FALSE, message=FALSE, warning=FALSE,error=FALSE}
+```{r glossary, echo = FALSE, message = FALSE, warning = FALSE, error = FALSE}
 glossary1 <- c("Hendrerit", "Class aptent")
 glossary2 <- c("Donec et metus sodales, aliquet ligula nec, bibendum leo.",
                "Nullam mi libero, hendrerit vitae condimentum in, iaculis porta purus. Suspendisse potenti. Donec sed molestie nisi, ut blandit ex. Proin tempor, mauris sit amet consectetur placerat, elit lorem placerat dui, sed placerat mi ante a purus.")
@@ -113,7 +112,7 @@ glossary2 <- c("Donec et metus sodales, aliquet ligula nec, bibendum leo.",
 glossary <- data.frame(glossary1, glossary2)
 ```
 
-```{r MetaData, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+```{r MetaData, echo = FALSE, message = FALSE, warning = FALSE, error = FALSE}
 Indicator <- c("Publication title",
 "Description",
 "Theme",
@@ -239,7 +238,7 @@ Suspendisse potenti. Donec sit amet porttitor urna. Fusce egestas et elit quis i
 Sed suscipit nisl vel orci scelerisque mattis. Proin ut tortor et purus bibendum pharetra vel elementum dolor. Morbi orci massa, egestas vel dictum quis, maximus id justo. Fusce eu sem consequat, mollis nulla in, mollis nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at facilisis augue.
 
 <Div custom-style = "TableChart title">Table title</Div>
-```{r flextable_TableData, echo = FALSE, ft.align="left"}
+```{r flextable_TableData, echo = FALSE, ft.align = "left"}
 # Set up some formatting for flextable to be applied to most tables
 my_ft_format <- function(ft) {
   ft %>% 
@@ -247,7 +246,8 @@ my_ft_format <- function(ft) {
     bg(bg = "#964091", part = "header") %>% 
     color(color = "white", part = "header") %>% 
     align(align = "center", part = "header") %>% 
-    valign(valign = "center", part = "all")
+    valign(valign = "center", part = "all") %>% 
+    padding(padding.top = 0, padding.bottom = 0, part = "all")
 }
 
 headings <- list("NHS Board", "Q2 Cases", "Q2 Bed Days", "Q2 Rate", "Q3 Cases", 
@@ -272,7 +272,7 @@ flextable(TableData, theme_fun = NULL) %>%
 <Div custom-style = "TableChart title">`r fig_nums("uptake")`</Div>
 <!-- hack to get images to be placed in the right location when the 'Normal' style has been altered --> 
 <Div custom-style = "Figure_Style">
-```{r fig-uptake, echo=FALSE, fig.width=7, fig.height=5.6, fig.cap="Uptake rate by NHS Board by three-year rolling period 2013-16."}
+```{r fig-uptake, echo = FALSE, fig.width = 7, fig.height = 5.6, fig.cap = "Uptake rate by NHS Board by three-year rolling period 2013-16."}
 FigureOne
 ```
 </div>
@@ -295,7 +295,7 @@ Pellentesque aliquam imperdiet neque et interdum. Nulla sodales tellus magna, id
 
 <Div custom-style = "TableChart title">`r fig_nums("cancer")`</Div>
 <Div custom-style = "Figure_Style">
-```{r fig-cancer, echo=FALSE, fig.width=7, fig.height=5.6, fig.cap="Trend in invasive cancer detection rates for Scotland, three-year rolling periods (2007/10 to 2013/16). There is a bar for each three-year rolling period."}
+```{r fig-cancer, echo = FALSE, fig.width = 7, fig.height = 5.6, fig.cap = "Trend in invasive cancer detection rates for Scotland, three-year rolling periods (2007/10 to 2013/16). There is a bar for each three-year rolling period."}
 FigureTwo
 ```
 </div>
@@ -305,7 +305,7 @@ Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti soc
 \newpage
 
 # Glossary
-```{r kable_glossary, echo = FALSE}
+```{r kable_glossary, echo = FALSE, ft.align = "left"}
 flextable(glossary, theme_fun = NULL) %>% 
   delete_part(part = "header") %>% 
   align(align = "left", part = "body") %>% 
@@ -361,8 +361,7 @@ Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torqu
 
 <br>
 
-```{r kable_MetaData, echo = FALSE}
-# Need to fix row heights in this table - hopefully fixed in next flextable update
+```{r kable_MetaData, echo = FALSE, ft.align = "left"}
 flextable(MetaData, theme_fun = NULL) %>% 
   my_ft_format() %>% 
   set_header_labels(Indicator = "Metadata Indicator",
@@ -374,9 +373,8 @@ flextable(MetaData, theme_fun = NULL) %>%
   border_outer(border = fp_border()) %>%
   border_inner(border = fp_border()) %>%
   autofit(add_w = 0, add_h = 0.06) %>% 
-  width(j = 1, width = 5.19 / 2.54) %>% 
-  width(j = 2, width = 12.44 / 2.54) %>% 
-  padding(padding.top = 0, padding.bottom = 0, part = "all")
+  width(j = 1, width = 5.5 / 2.54) %>% 
+  width(j = 2, width = 12.3 / 2.54)
 ```
 
 \newpage

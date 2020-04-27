@@ -17,6 +17,7 @@ Suggests:
     rstudioapi,
     dplyr,
     tidyr,
+    magrittr,
     lubridate,
     ggplot2,
     janitor
