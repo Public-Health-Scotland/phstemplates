@@ -41,7 +41,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
         "*.[tT][xX][tT]",
         "",
         "# Excel files #",
-        "*.[xX][lL][sS][xXmMtT]?",
+        "*.[xX][lL][sS]*",
         "",
         "# SPSS formats #",
         "*.[sS][aA][vV]",
