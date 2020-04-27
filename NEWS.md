@@ -1,3 +1,8 @@
+# phstemplates 0.9.0
+
+* PHS template for RStudio 1.2.
+* Fixed gitignore for Excel files
+
 # phstemplates 0.8.3
 
 * Changes required for change to PHS.
