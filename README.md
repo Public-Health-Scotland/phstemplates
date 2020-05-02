@@ -30,6 +30,14 @@ If you encounter any issues with the automatic installation of package dependenc
 install.packages(c("flextable", "officer"))
 ```
 
+A further option is to install this package using [drat](https://github.com/eddelbuettel/drat). The advantage of this method is that it should work from within the PHS network but the disadvantage is that it may not always be completely in sync with the latest version of the package on Github. Note that the first line to install the drat package is only needed if you don't already have it installed.
+
+```{r drat-installation, eval = FALSE}
+install.packages("drat")
+drat::addRepo("alan-y")
+install.packages("phstemplates")
+```
+
 ## How to use
 To use this project template, install the package by following the instructions above. After doing this you will then be able to create new R projects with the recommended PHS structure within RStudio by clicking File -> New Project... -> New Directory and selecting PHS R Project Template. As usual, name the project and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in subsequent sections of this README.
 
