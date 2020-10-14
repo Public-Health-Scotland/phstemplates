@@ -1,7 +1,7 @@
 ---
 output: 
   word_document:
-    reference_docx: "PHS-NatStats-RepTemplate.dotx"
+    reference_docx: "PHS-NatStats-RepTemplate.docx"
     fig_caption: no
 ---
 
