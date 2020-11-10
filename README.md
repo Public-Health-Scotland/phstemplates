@@ -10,7 +10,7 @@
 ## Installation
 Install this package by running the following code in R:
 ```{r install, eval = FALSE}
-remotes::install_github("Public-Health-Scotland/phstemplates")
+remotes::install_github("Public-Health-Scotland/phstemplates", ref = "main")
 ```
 
 If you are working inside the PHS network then this may not work in which case follow these steps:
