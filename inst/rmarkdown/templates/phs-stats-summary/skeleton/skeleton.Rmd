@@ -67,7 +67,7 @@ contact <- data.frame(contact1, contact2)
 
 <Div custom-style = "Publication Title">Insert publication title here</Div>
 <Div custom-style = "Publication subtitle">Subtitle</Div>
-<Div custom-style = "National stats">A National Statistics statistical release for Scotland</Div>
+<Div custom-style = "National stats">A National Statistics release for Scotland</Div>
 
 <br>
 
@@ -119,6 +119,8 @@ flextable(contact, theme_fun = NULL) %>%
   width(j = 1:2, width = 8.15 / 2.54) %>% 
   padding(padding.top = 0, padding.bottom = 0)
 ```
+
+For all media enquiries please email [phs.comms@nhs.net](mailto:phs.comms@nhs.net) or call 07500 854 574.
 
 ### Further Information
 Data from this publication are available from the [publication page]() on our website.
