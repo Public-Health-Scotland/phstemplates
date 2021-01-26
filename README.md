@@ -1,4 +1,6 @@
-[![Travis build status](https://travis-ci.com/Public-Health-Scotland/phstemplates.svg?branch=master)](https://travis-ci.com/Public-Health-Scotland/phstemplates)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/Public-Health-Scotland/phstemplates/workflows/R-CMD-check/badge.svg)](https://github.com/Public-Health-Scotland/phstemplates/actions)
+<!-- badges: end -->
 
 ## Contents
 - [Installation](#installation)
