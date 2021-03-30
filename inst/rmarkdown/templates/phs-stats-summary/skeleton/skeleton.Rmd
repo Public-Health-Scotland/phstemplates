@@ -128,4 +128,4 @@ Data from this publication are available from the [publication page]() on our we
 The next release of this publication will be DD Month YYYY.
 
 ### NHS Performs
-A selection of information from this publication is included in [NHS Performs](http://www.nhsperforms.scot/). NHS Performs is a website that brings together a range of information on how hositals and NHS Boards within NHSScotland are performing.
+A selection of information from this publication is included in [NHS Performs](http://www.nhsperforms.scot). NHS Performs is a website that brings together a range of information on how hospitals and NHS Boards within NHSScotland are performing.
