@@ -23,7 +23,7 @@ If you are working inside the PHS network then this may not work in which case f
 5. Replace the sections marked `<>` below (including the arrows themselves) and run the following code in R:
 
 ```{r source-installation, eval = FALSE}
-install.packages("<FILEPATH OF UNZIPPED FILE>/phstemplates-master", repos = NULL,
+install.packages("<FILEPATH OF UNZIPPED FILE>/phstemplates-main", repos = NULL,
                  type = "source")
 ```
 If you encounter any issues with the automatic installation of package dependencies using this method, you may need to install these manually prior to running the code to install phstemplates. In this case, it should tell you which packages you need. For example, if you need [flextable](https://davidgohel.github.io/flextable) and [officer](https://davidgohel.github.io/officer), install these first:
