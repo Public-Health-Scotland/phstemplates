@@ -7,67 +7,70 @@ output:
 
 <!-- Please see the 'create_report.R' script to compile the whole report with cover page and table of contents -->
 
-
-```{r TableData, echo = FALSE, message = FALSE, warning = FALSE, error = FALSE}
-NHSBoard <- c("AA", "BR", "DG", "FF", "FV", "GR", "GGC", "HG", "LN", "LO", "NWTC", "OR", "SH", "TY", "WI", "Scotland")
-
-Q2Cases <- as.character(c(22, 2, 9, 9, 10, 16, 52, 9, 22, 44, 0, 1, 0, 24, 1, 221))
-
-Q2BedDaysBase <- c(72081, 21517, 27799, 49932, 47432, 84310, 232889, 43682, 91535, 150550, 6566, 2401, 2590, 72783, 4870, 910937)
-
-Q2BedDays <- format(Q2BedDaysBase, big.mark = ",")
-
-Q2RateBase <- c(30.5, 9.3, 32.4, 18.0, 21.1, 19.0, 22.3, 20.6, 24.0, 29.2, 0.0, 41.6, 0.0, 33.0, 20.5, 24.3)
-
-Q2Rate <- format(Q2RateBase, nsmall = 1)
-
-Q3Cases <- as.character(c(19, 6, 4, 10, 10, 30, 79, 16, 24, 36, 0, 1, 0, 22, 0, 257))
-
-Q3BedDaysBase <- c(69082, 19603, 27097, 47691, 50473, 76321, 206241, 42439, 87927, 148176, 7091, 2194, 2257, 70267, 4632, 861491)
-
-Q3BedDays <- format(Q3BedDaysBase, big.mark = ",")
-
-Q3RateBase <- c(27.5, 30.6, 14.8, 21.0, 19.8, 39.3, 38.3, 37.7, 27.3, 24.3, 0.0, 45.6, 0.0, 31.3, 0.0, 29.8)
-
-Q3Rate <- format(Q3RateBase, nsmall = 1)
-
-TableData <- data.frame(NHSBoard, Q2Cases, Q2BedDays, Q2Rate, Q3Cases, Q3BedDays, Q3Rate, stringsAsFactors = FALSE)
-
-TableData[16, c(2:7)] <- c("221", "910,937", "24.3", "257", "861,491", "29.8")
-```
-
-```{r Figures, echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, include = FALSE}
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
 library(ggplot2)
 library(scales)
 library(captioner)
 library(flextable)
 library(officer)
 library(magrittr)
+```
 
+
+```{r TableData, include = FALSE}
+NHSBoard <- c("AA", "BR", "DG", "FF", "FV", "GR", "GGC", "HG", "LN", "LO", "NWTC", "OR", "SH", "TY", "WI", "Scotland")
+
+Q2Cases <- as.character(c(22, 2, 9, 9, 10, 16, 52, 9, 22, 44, 0, 1, 0, 24, 1, 221))
+
+Q2BedDaysBase <- c(72081, 21517, 27799, 49932, 47432, 84310, 232889, 43682, 
+                   91535, 150550, 6566, 2401, 2590, 72783, 4870, 910937)
+Q2BedDays <- format(Q2BedDaysBase, big.mark = ",")
+
+Q2RateBase <- c(30.5, 9.3, 32.4, 18.0, 21.1, 19.0, 22.3, 20.6, 24.0, 29.2, 0.0, 
+                41.6, 0.0, 33.0, 20.5, 24.3)
+Q2Rate <- format(Q2RateBase, nsmall = 1)
+
+Q3Cases <- as.character(c(19, 6, 4, 10, 10, 30, 79, 16, 24, 36, 0, 1, 0, 22, 0, 257))
+
+Q3BedDaysBase <- c(69082, 19603, 27097, 47691, 50473, 76321, 206241, 42439, 87927, 148176, 7091, 2194, 2257, 70267, 4632, 861491)
+Q3BedDays <- format(Q3BedDaysBase, big.mark = ",")
+
+Q3RateBase <- c(27.5, 30.6, 14.8, 21.0, 19.8, 39.3, 38.3, 37.7, 27.3, 24.3, 0.0, 45.6, 0.0, 31.3, 0.0, 29.8)
+Q3Rate <- format(Q3RateBase, nsmall = 1)
+
+TableData <- data.frame(NHSBoard, Q2Cases, Q2BedDays, Q2Rate, Q3Cases, Q3BedDays, 
+                        Q3Rate, stringsAsFactors = FALSE)
+
+TableData[16, c(2:7)] <- c("221", "910,937", "24.3", "257", "861,491", "29.8")
+```
+
+```{r Figures, include = FALSE}
 fig_nums <- captioner(prefix = "Figure", infix = ":")
 
 # Create Figure 1
-HBR <- c("Ayrshire & Arran", "Borders", "Dumfries & Galloway", "Fife", "Forth Valley",
-         "Grampian", "Greater Glasgow & Clyde", "Highland", "Lanarkshire", "Lothian", 
-         "Orkney", "Shetland", "Tayside", "Western Isles", "Scotland")
+HBR <- c("Ayrshire & Arran", "Borders", "Dumfries & Galloway", "Fife", 
+         "Forth Valley", "Grampian", "Greater Glasgow & Clyde", "Highland", 
+         "Lanarkshire", "Lothian", "Orkney", "Shetland", "Tayside", 
+         "Western Isles", "Scotland")
 
 UptakeRate <- c(72, 76, 78, 69, 71, 79, 67, 77, 68, 69, 84, 84.5, 76, 80.5, 72)
 
 FigureOneData <- data.frame(HBR, UptakeRate)
 
 FigureOne <- ggplot(data = FigureOneData, aes(x = HBR, y = UptakeRate, fill = HBR)) +
-  geom_bar(position = "dodge", stat = "identity", width = 0.5, show.legend = F) + 
+  geom_bar(position = "dodge", stat = "identity", width = 0.5, show.legend = FALSE) + 
   scale_y_continuous(breaks = c(50, 55, 60, 65, 70, 75, 80, 85, 90), 
                      limits = c(50, 90), oob = rescale_none) +
   geom_hline(yintercept = 70, size = 1, color = "#092869") +
   geom_hline(yintercept = 80, size = 1, color = "#092869", linetype = "dashed") +
   coord_flip() +
   theme(panel.background = element_blank(),
-    panel.grid.major.x = element_line(size = .1, color = "#C0C0C0"), 
-    panel.grid.major.y = element_blank(),
-    axis.title.x = element_text(size = 12, face = "bold"),
-    axis.title.y = element_text(size = 12, face = "bold"),
-    axis.text = element_text(size = 12)) +
+        panel.grid.major.x = element_line(size = 0.1, color = "#C0C0C0"), 
+        panel.grid.major.y = element_blank(),
+        axis.title.x = element_text(size = 12, face = "bold"),
+        axis.title.y = element_text(size = 12, face = "bold"),
+        axis.text = element_text(size = 12)) +
   scale_x_discrete(limits = c("Scotland", "Western Isles", "Tayside", "Shetland", "Orkney", 
                               "Lothian", "Lanarkshire", "Highland", "Greater Glasgow & Clyde",
                               "Grampian", "Forth Valley", "Fife", "Dumfries & Galloway", 
@@ -88,23 +91,24 @@ FigureTwoData <- data.frame(RollingYear, DetectionRate)
 
 FigureTwo <- ggplot(data = FigureTwoData, aes(x = RollingYear, y = DetectionRate)) +
   geom_bar(position = "dodge", stat = "identity", width = 0.5, 
-            show.legend = F, fill = "#0391BF") + 
+           show.legend = FALSE, fill = "#0391BF") + 
   scale_y_continuous(breaks = c(0:8), 
                      limits = c(0, 8)) +
   geom_hline(yintercept = 3.1, size = 1, color = "#092869") +
   geom_hline(yintercept = 4.1, size = 1, color = "#092869", linetype = "dashed") +
   theme(panel.background = element_blank(),
-    panel.grid.major.x = element_blank(), 
-    panel.grid.major.y = element_line(size = .1, color = "#C0C0C0"), 
-    axis.title.x = element_text(size = 12, face = "bold"),
-    axis.title.y = element_text(size = 12, face = "bold"),
-    axis.text = element_text(size = 12)) +
-  xlab("Three Year Rolling Period") + ylab("Cancer detection rate \n (per 1000 women screened)")
+        panel.grid.major.x = element_blank(), 
+        panel.grid.major.y = element_line(size = 0.1, color = "#C0C0C0"), 
+        axis.title.x = element_text(size = 12, face = "bold"),
+        axis.title.y = element_text(size = 12, face = "bold"),
+        axis.text = element_text(size = 12)) +
+  xlab("Three Year Rolling Period") + 
+  ylab("Cancer detection rate\n(per 1000 women screened)")
 
 fig_nums(name = "cancer", caption = "Trend in invasive cancer detection rate for Scotland")
 ```
 
-```{r glossary, echo = FALSE, message = FALSE, warning = FALSE, error = FALSE}
+```{r glossary, include = FALSE}
 glossary1 <- c("Hendrerit", "Class aptent")
 glossary2 <- c("Donec et metus sodales, aliquet ligula nec, bibendum leo.",
                "Nullam mi libero, hendrerit vitae condimentum in, iaculis porta purus. Suspendisse potenti. Donec sed molestie nisi, ut blandit ex. Proin tempor, mauris sit amet consectetur placerat, elit lorem placerat dui, sed placerat mi ante a purus.")
@@ -112,66 +116,66 @@ glossary2 <- c("Donec et metus sodales, aliquet ligula nec, bibendum leo.",
 glossary <- data.frame(glossary1, glossary2)
 ```
 
-```{r MetaData, echo = FALSE, message = FALSE, warning = FALSE, error = FALSE}
+```{r MetaData, include = FALSE}
 Indicator <- c("Publication title",
-"Description",
-"Theme",
-"Topic",
-"Format",
-"Data source(s)",
-"Date that data are acquired",
-"Release date",
-"Frequency",
-"Timeframe of data and timeliness",
-"Continuity of data",
-"Revisions statement",
-"Revisions relevant to this publication",
-"Concepts and definitions",
-"Relevance and key uses of the statistics",
-"Accuracy",
-"Completeness",
-"Comparability",
-"Accessibility",
-"Coherence and clarity",
-"Value type and unit of measurement",
-"Disclosure",
-"Official Statistics designation",
-"UK Statistics Authority Assessment",
-"Last published",
-"Next published",
-"Date of first publication",
-"Help email",
-"Date form completed")
+               "Description",
+               "Theme",
+               "Topic",
+               "Format",
+               "Data source(s)",
+               "Date that data are acquired",
+               "Release date",
+               "Frequency",
+               "Timeframe of data and timeliness",
+               "Continuity of data",
+               "Revisions statement",
+               "Revisions relevant to this publication",
+               "Concepts and definitions",
+               "Relevance and key uses of the statistics",
+               "Accuracy",
+               "Completeness",
+               "Comparability",
+               "Accessibility",
+               "Coherence and clarity",
+               "Value type and unit of measurement",
+               "Disclosure",
+               "Official Statistics designation",
+               "UK Statistics Authority Assessment",
+               "Last published",
+               "Next published",
+               "Date of first publication",
+               "Help email",
+               "Date form completed")
 
 Description <- c("",
-"",
-"",
-"",
-"",
-"",
-"DD Month YYYY",
-"DD Month YYYY",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"DD Month YYYY",
-"DD Month YYYY",
-"DD Month YYYY",
-"",
-"DD Month YYYY")
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "DD Month YYYY",
+                 "DD Month YYYY",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "DD Month YYYY",
+                 "DD Month YYYY",
+                 "DD Month YYYY",
+                 "",
+                 "DD Month YYYY")
 
 MetaData <- data.frame(Indicator, Description)
 ```
@@ -208,8 +212,8 @@ https://www.statisticsauthority.gov.uk/national-statistician/types-of-official-s
 
 <span custom-style = "Red_Bold_Highlight">Please remove</span>
 
-  *	<span custom-style = "highlight">Note to analyst: Remove the last paragraph relating to compliance checks if your publication has not undergone compliance checks. </span>
-  *	<span custom-style = "highlight">Please provide the correct hyperlinks to the published assessment and, if applicable, the compliance check report </span>
+*	<span custom-style = "highlight">Note to analyst: Remove the last paragraph relating to compliance checks if your publication has not undergone compliance checks. </span>
+*	<span custom-style = "highlight">Please provide the correct hyperlinks to the published assessment and, if applicable, the compliance check report </span>
 
 \newpage
 
@@ -238,7 +242,7 @@ Suspendisse potenti. Donec sit amet porttitor urna. Fusce egestas et elit quis i
 Sed suscipit nisl vel orci scelerisque mattis. Proin ut tortor et purus bibendum pharetra vel elementum dolor. Morbi orci massa, egestas vel dictum quis, maximus id justo. Fusce eu sem consequat, mollis nulla in, mollis nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at facilisis augue.
 
 <Div custom-style = "TableChart title">Table title</Div>
-```{r flextable_TableData, echo = FALSE, ft.align = "left"}
+```{r flextable_TableData, ft.align = "left"}
 # Set up some formatting for flextable to be applied to most tables
 my_ft_format <- function(ft) {
   ft %>% 
@@ -272,7 +276,7 @@ flextable(TableData, theme_fun = NULL) %>%
 <Div custom-style = "TableChart title">`r fig_nums("uptake")`</Div>
 <!-- hack to get images to be placed in the right location when the 'Normal' style has been altered --> 
 <Div custom-style = "Figure_Style">
-```{r fig-uptake, echo = FALSE, fig.width = 7, fig.height = 5.6, fig.cap = "Uptake rate by NHS Board by three-year rolling period 2013-16."}
+```{r fig-uptake, fig.width = 7, fig.height = 5.6, fig.cap = "Uptake rate by NHS Board by three-year rolling period 2013-16."}
 FigureOne
 ```
 </div>
@@ -295,7 +299,7 @@ Pellentesque aliquam imperdiet neque et interdum. Nulla sodales tellus magna, id
 
 <Div custom-style = "TableChart title">`r fig_nums("cancer")`</Div>
 <Div custom-style = "Figure_Style">
-```{r fig-cancer, echo = FALSE, fig.width = 7, fig.height = 5.6, fig.cap = "Trend in invasive cancer detection rates for Scotland, three-year rolling periods (2007/10 to 2013/16). There is a bar for each three-year rolling period."}
+```{r fig-cancer, fig.width = 7, fig.height = 5.6, fig.cap = "Trend in invasive cancer detection rates for Scotland, three-year rolling periods (2007/10 to 2013/16). There is a bar for each three-year rolling period."}
 FigureTwo
 ```
 </div>
@@ -305,7 +309,7 @@ Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti soc
 \newpage
 
 # Glossary
-```{r kable_glossary, echo = FALSE, ft.align = "left"}
+```{r kable_glossary, ft.align = "left"}
 flextable(glossary, theme_fun = NULL) %>% 
   delete_part(part = "header") %>% 
   align(align = "left", part = "body") %>% 
@@ -313,7 +317,8 @@ flextable(glossary, theme_fun = NULL) %>%
   width(j = 1, width = 4.94 / 2.54) %>% 
   width(j = 2, width = 12.69 / 2.54) %>% 
   height(i = 2, height = 1, part = "body") %>% 
-  fontsize(size = 12, part = "all")
+  fontsize(size = 12, part = "all") %>% 
+  border_remove()
 ```
 
 \newpage
@@ -361,7 +366,7 @@ Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torqu
 
 <br>
 
-```{r kable_MetaData, echo = FALSE, ft.align = "left"}
+```{r kable_MetaData, ft.align = "left"}
 flextable(MetaData, theme_fun = NULL) %>% 
   my_ft_format() %>% 
   set_header_labels(Indicator = "Metadata Indicator",
@@ -401,7 +406,7 @@ NHS Board Communication leads
 
 **Early Access for Management Information**
 
-These statistics will also have been made available to those who needed access to ‘management information’, ie as part of the delivery of health and care:
+These statistics will also have been made available to those who needed access to 'management information', ie as part of the delivery of health and care:
 
 <br>
 
@@ -417,4 +422,4 @@ These statistics will also have been made available to those who needed access t
 
 **About Public Health Scotland (PHS)**
 
-PHS is a knowledge-based and intelligence driven organisation with a critical reliance on data and information to enable it to be an independent voice for the public’s health, leading collaboratively and effectively across the Scottish public health system, accountable at local and national levels, and providing leadership and focus for achieving better health and wellbeing outcomes for the population. Our statistics comply with the [Code of Practice for Statistics](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/) in terms of trustworthiness, high quality and public value. This also means that we keep data secure at all stages, through collection, processing, analysis and output production, and adhere to the ‘[five safes](https://blog.ons.gov.uk/2017/01/27/the-five-safes-data-privacy-at-ons/)’.
+PHS is a knowledge-based and intelligence driven organisation with a critical reliance on data and information to enable it to be an independent voice for the public's health, leading collaboratively and effectively across the Scottish public health system, accountable at local and national levels, and providing leadership and focus for achieving better health and wellbeing outcomes for the population. Our statistics comply with the [Code of Practice for Statistics](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/) in terms of trustworthiness, high quality and public value. This also means that we keep data secure at all stages, through collection, processing, analysis and output production, and adhere to the '[five safes](https://blog.ons.gov.uk/2017/01/27/the-five-safes-data-privacy-at-ons/)'.

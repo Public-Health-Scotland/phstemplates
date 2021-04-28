@@ -6,14 +6,15 @@ output:
 ---
 
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE, error = FALSE}
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
 library(flextable)
 library(magrittr)
 library(ggplot2)
 
 # Create a pseudo chart
 Year <- c(rep("2014-15", times = 8), rep("2015-16", times = 8))
-Month <- rep(c('Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov'), times = 2)
+Month <- rep(c("Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov"), times = 2)
 Count <- c(1100, 1220, 1240, 1250, 1290, 1300, 1380, 1350, 
            1100, 1140, 1150, 1150, 1190, 1260, 1270, 1280)
 
@@ -21,17 +22,17 @@ ChartData <- data.frame(Year, Month, Count)
 
 chart <- ggplot(data = ChartData, aes(x = Month, y = Count, group = Year, 
                                       color = Year, shape = Year, linetype = Year)) +
-scale_y_continuous(breaks = c(200, 400, 600, 800, 1000, 1200, 1400, 1600), 
-    labels = c('200', '400', '600', '800', '1,000', '1,200', '1,400', '1,600'),
-    limits = c(0, 1600),  expand = expansion(mult = 0)) +
-scale_x_discrete(limits =  c('Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov'),
-    labels =  c('Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov'))  +
-scale_color_manual(values = c('#59B4F0', '#FF0000')) +
-geom_line( size = .75 ) + 
-geom_point( size = c(rep(3, 8), rep(2.5, 8)) ) +
-scale_shape_manual(values = c('diamond', 'square')) +
-scale_linetype_manual(values = c('dashed', 'solid')) + 
-theme(
+  scale_y_continuous(breaks = c(200, 400, 600, 800, 1000, 1200, 1400, 1600), 
+                     labels = c("200", "400", "600", "800", "1,000", "1,200", "1,400", "1,600"),
+                     limits = c(0, 1600),  expand = expansion(mult = 0)) +
+  scale_x_discrete(limits =  c("Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov"),
+                   labels =  c("Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov"))  +
+  scale_color_manual(values = c("#59B4F0", "#FF0000")) +
+  geom_line( size = .75 ) + 
+  geom_point( size = c(rep(3, 8), rep(2.5, 8)) ) +
+  scale_shape_manual(values = c("diamond", "square")) +
+  scale_linetype_manual(values = c("dashed", "solid")) + 
+  theme(
     plot.title = element_text(hjust = 0.5, face = "bold", size = 12, colour = "#6C2383"),
     plot.margin = margin(l = 30, b = 10),
     panel.background = element_blank(),
@@ -39,32 +40,29 @@ theme(
     panel.grid.major.y = element_line(size = .4, color = "#969696"), 
     panel.grid.minor = element_blank(),
     panel.border = element_rect(colour = "#969696", fill = NA, size = 0.75), 
-    legend.box.spacing = unit(0, 'cm'),
+    legend.box.spacing = unit(0, "cm"),
     legend.box.margin = margin(b = 0),
-    legend.position = 'top',
+    legend.position = "top",
     legend.title=element_blank(),
-    legend.key.height = unit(10, 'pt'),
-    legend.key.width = unit(30, 'pt'),
+    legend.key.height = unit(10, "pt"),
+    legend.key.width = unit(30, "pt"),
     legend.text = element_text(size = 8),
     axis.title.y = element_blank(),
     axis.line = element_line(colour = "grey"),
     axis.ticks = element_line(colour = "grey"),
-    axis.text.x = element_text(size = 7.5, color = 'black'), 
-    axis.text.y = element_text(size = 7, color = 'black'),
-    axis.title.x = element_text(size = 8, face = 'bold', margin = margin(t = 10))) +
+    axis.text.x = element_text(size = 7.5, color = "black"), 
+    axis.text.y = element_text(size = 7, color = "black"),
+    axis.title.x = element_text(size = 8, face = "bold", margin = margin(t = 10))) +
   xlab("Month")
 
 # Create contact information
 contact1 <- c("Name", "Role", "Number", "email")
 contact2 <- c("Name", "Role", "Number", "email")
-
 contact <- data.frame(contact1, contact2)
 ```
 
 <Div custom-style = "Publication Title"> <br> </Div>
-
 <Div custom-style = "Publication Title"> <br> </Div>
-
 <Div custom-style = "Publication Title">Insert publication title here</Div>
 <Div custom-style = "Publication subtitle">Subtitle</Div>
 <Div custom-style = "National stats">A National Statistics release for Scotland</Div>
@@ -87,7 +85,7 @@ Proin nec ultricies dolor. Maecenas pulvinar, enim et imperdiet cursus, mi
 
 <Div custom-style = "Chart Title">`Chart title`</Div>
 <Div custom-style = "Figure_Style">
-```{r fig-uptake, echo=FALSE, fig.width=6.15, fig.height=3, fig.cap="Appropriate ALT Text to be added."}
+```{r fig-uptake, fig.width=6.15, fig.height=3, fig.cap="Appropriate ALT Text to be added."}
 chart
 ```
 </div>
@@ -100,9 +98,9 @@ Maecenas bibendum consequat vehicula. Fusce id viverra lorem, et
 
 * Ut in dapibus massa, ut gravida ligula. Vestibulum ut consectetur:
 
-    + Vivamus luctus varius nibh, a scelerisque ex tincidunt non. Etiam dignissim.
-    + Curabitur laoreet viverra magna eget dapibus. Maecenas scelerisque euismod mattis. Sed cursus.
-    + Sed in iaculis lectus, sed fermentum urna. Donec efficitur diam eu ipsum viverra, eu ornare justo mollis. Phasellus in dictum tellus.
++ Vivamus luctus varius nibh, a scelerisque ex tincidunt non. Etiam dignissim.
++ Curabitur laoreet viverra magna eget dapibus. Maecenas scelerisque euismod mattis. Sed cursus.
++ Sed in iaculis lectus, sed fermentum urna. Donec efficitur diam eu ipsum viverra, eu ornare justo mollis. Phasellus in dictum tellus.
 
 ### Background
 Aliquam sed maximus ante, a imperdiet est. Vivamus vel diam facilisis, pulvinar erat consequat, consequat nulla. Praesent lorem dolor, luctus ut libero vitae, venenatis congue tortor.
@@ -111,13 +109,14 @@ Nunc at mauris euismod, mattis tellus sed, vehicula dolor. Duis quis auctor elit
 
 ### Contact
 
-```{r tab_contact, echo = FALSE, ft.align = "left"}
+```{r tab_contact, ft.align = "left"}
 flextable(contact, theme_fun = NULL) %>% 
   delete_part(part = "header") %>%
   bold(i = 1, part = "body") %>% 
   align(align = "left", part = "body") %>% 
   width(j = 1:2, width = 8.15 / 2.54) %>% 
-  padding(padding.top = 0, padding.bottom = 0)
+  padding(padding.top = 0, padding.bottom = 0) %>% 
+  border_remove()
 ```
 
 For all media enquiries please email [phs.comms@nhs.net](mailto:phs.comms@nhs.net) or call 07500 854 574.
