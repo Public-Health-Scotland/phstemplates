@@ -55,10 +55,6 @@ chart <- ggplot(data = ChartData, aes(x = Month, y = Count, group = Year,
     axis.title.x = element_text(size = 8, face = "bold", margin = margin(t = 10))) +
   xlab("Month")
 
-# Create contact information
-contact1 <- c("Name", "Role", "Number", "email")
-contact2 <- c("Name", "Role", "Number", "email")
-contact <- data.frame(contact1, contact2)
 ```
 
 <Div custom-style = "Publication Title">Insert publication title here</Div>
