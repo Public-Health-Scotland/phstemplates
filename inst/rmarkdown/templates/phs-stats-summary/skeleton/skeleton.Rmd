@@ -54,7 +54,6 @@ chart <- ggplot(data = ChartData, aes(x = Month, y = Count, group = Year,
     axis.text.y = element_text(size = 7, color = "black"),
     axis.title.x = element_text(size = 8, face = "bold", margin = margin(t = 10))) +
   xlab("Month")
-
 ```
 
 <Div custom-style = "Publication Title">Insert publication title here</Div>
