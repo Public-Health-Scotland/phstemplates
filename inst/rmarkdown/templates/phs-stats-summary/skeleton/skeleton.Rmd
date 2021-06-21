@@ -54,15 +54,8 @@ chart <- ggplot(data = ChartData, aes(x = Month, y = Count, group = Year,
     axis.text.y = element_text(size = 7, color = "black"),
     axis.title.x = element_text(size = 8, face = "bold", margin = margin(t = 10))) +
   xlab("Month")
-
-# Create contact information
-contact1 <- c("Name", "Role", "Number", "email")
-contact2 <- c("Name", "Role", "Number", "email")
-contact <- data.frame(contact1, contact2)
 ```
 
-<Div custom-style = "Publication Title"> <br> </Div>
-<Div custom-style = "Publication Title"> <br> </Div>
 <Div custom-style = "Publication Title">Insert publication title here</Div>
 <Div custom-style = "Publication subtitle">Subtitle</Div>
 <Div custom-style = "National stats">A National Statistics release for Scotland</Div>
@@ -97,10 +90,9 @@ Maecenas bibendum consequat vehicula. Fusce id viverra lorem, et
 * Vivamus bibendum ut tellus rhoncus porttitor. Nam id nibh et.
 
 * Ut in dapibus massa, ut gravida ligula. Vestibulum ut consectetur:
-
-+ Vivamus luctus varius nibh, a scelerisque ex tincidunt non. Etiam dignissim.
-+ Curabitur laoreet viverra magna eget dapibus. Maecenas scelerisque euismod mattis. Sed cursus.
-+ Sed in iaculis lectus, sed fermentum urna. Donec efficitur diam eu ipsum viverra, eu ornare justo mollis. Phasellus in dictum tellus.
+  + Vivamus luctus varius nibh, a scelerisque ex tincidunt non. Etiam dignissim.
+  + Curabitur laoreet viverra magna eget dapibus. Maecenas scelerisque euismod mattis. Sed cursus.
+  + Sed in iaculis lectus, sed fermentum urna. Donec efficitur diam eu ipsum viverra, eu ornare justo mollis. Phasellus in dictum tellus.
 
 ### Background
 Aliquam sed maximus ante, a imperdiet est. Vivamus vel diam facilisis, pulvinar erat consequat, consequat nulla. Praesent lorem dolor, luctus ut libero vitae, venenatis congue tortor.
@@ -108,23 +100,26 @@ Aliquam sed maximus ante, a imperdiet est. Vivamus vel diam facilisis, pulvinar 
 Nunc at mauris euismod, mattis tellus sed, vehicula dolor. Duis quis auctor elit. Fusce eu dui eu magna convallis porttitor in ac purus. Proin sed tellus massa. In pulvinar augue sit amet faucibus maximus. Aenean porttitor arcu vitae lacus fringilla condimentum. Praesent laoreet, felis non dignissim viverra, libero nunc eleifend sapien, sed dignissim felis risus et tellus.
 
 ### Contact
-
-```{r tab_contact, ft.align = "left"}
-flextable(contact, theme_fun = NULL) %>% 
-  delete_part(part = "header") %>%
-  bold(i = 1, part = "body") %>% 
-  align(align = "left", part = "body") %>% 
-  width(j = 1:2, width = 8.15 / 2.54) %>% 
-  padding(padding.top = 0, padding.bottom = 0) %>% 
-  border_remove()
-```
-
+Name  
+Role  
+Number  
+[email@phs.scot](mailto:email@phs.scot)  
+Name  
+Role  
+Number  
+[email@phs.scot](mailto:email@phs.scot)  
 For all media enquiries please email [phs.comms@nhs.net](mailto:phs.comms@nhs.net) or call 07500 854 574.
 
-### Further Information
+### Find out more
 Data from this publication are available from the [publication page]() on our website.
 
+Open data from this publication is available from the [Scottish Health and Social Care Open Data platform](https://www.opendata.nhs.scot/).
+
 The next release of this publication will be DD Month YYYY.
+
+Other formats of this publication are available on request at:  
+0131 314 5300  
+phs.otherformats@phs.scot
 
 ### NHS Performs
 A selection of information from this publication is included in [NHS Performs](http://www.nhsperforms.scot). NHS Performs is a website that brings together a range of information on how hospitals and NHS Boards within NHSScotland are performing.

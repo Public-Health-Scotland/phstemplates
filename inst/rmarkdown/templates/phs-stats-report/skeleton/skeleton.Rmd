@@ -23,9 +23,9 @@ NHSBoard <- c("AA", "BR", "DG", "FF", "FV", "GR", "GGC", "HG", "LN", "LO", "NWTC
 
 Q2Cases <- as.character(c(22, 2, 9, 9, 10, 16, 52, 9, 22, 44, 0, 1, 0, 24, 1, 221))
 
-Q2BedDaysBase <- c(72081, 21517, 27799, 49932, 47432, 84310, 232889, 43682, 
+Q2BedDays <- c(72081, 21517, 27799, 49932, 47432, 84310, 232889, 43682, 
                    91535, 150550, 6566, 2401, 2590, 72783, 4870, 910937)
-Q2BedDays <- format(Q2BedDaysBase, big.mark = ",")
+# Q2BedDays <- format(Q2BedDaysBase, big.mark = ",")
 
 Q2RateBase <- c(30.5, 9.3, 32.4, 18.0, 21.1, 19.0, 22.3, 20.6, 24.0, 29.2, 0.0, 
                 41.6, 0.0, 33.0, 20.5, 24.3)
@@ -33,8 +33,8 @@ Q2Rate <- format(Q2RateBase, nsmall = 1)
 
 Q3Cases <- as.character(c(19, 6, 4, 10, 10, 30, 79, 16, 24, 36, 0, 1, 0, 22, 0, 257))
 
-Q3BedDaysBase <- c(69082, 19603, 27097, 47691, 50473, 76321, 206241, 42439, 87927, 148176, 7091, 2194, 2257, 70267, 4632, 861491)
-Q3BedDays <- format(Q3BedDaysBase, big.mark = ",")
+Q3BedDays <- c(69082, 19603, 27097, 47691, 50473, 76321, 206241, 42439, 87927, 148176, 7091, 2194, 2257, 70267, 4632, 861491)
+# Q3BedDays <- format(Q3BedDaysBase, big.mark = ",")
 
 Q3RateBase <- c(27.5, 30.6, 14.8, 21.0, 19.8, 39.3, 38.3, 37.7, 27.3, 24.3, 0.0, 45.6, 0.0, 31.3, 0.0, 29.8)
 Q3Rate <- format(Q3RateBase, nsmall = 1)
@@ -42,7 +42,7 @@ Q3Rate <- format(Q3RateBase, nsmall = 1)
 TableData <- data.frame(NHSBoard, Q2Cases, Q2BedDays, Q2Rate, Q3Cases, Q3BedDays, 
                         Q3Rate, stringsAsFactors = FALSE)
 
-TableData[16, c(2:7)] <- c("221", "910,937", "24.3", "257", "861,491", "29.8")
+TableData[16, c(2:7)] <- c("221", "910937", "24.3", "257", "861491", "29.8")
 ```
 
 ```{r Figures, include = FALSE}
@@ -106,14 +106,6 @@ FigureTwo <- ggplot(data = FigureTwoData, aes(x = RollingYear, y = DetectionRate
   ylab("Cancer detection rate\n(per 1000 women screened)")
 
 fig_nums(name = "cancer", caption = "Trend in invasive cancer detection rate for Scotland")
-```
-
-```{r glossary, include = FALSE}
-glossary1 <- c("Hendrerit", "Class aptent")
-glossary2 <- c("Donec et metus sodales, aliquet ligula nec, bibendum leo.",
-               "Nullam mi libero, hendrerit vitae condimentum in, iaculis porta purus. Suspendisse potenti. Donec sed molestie nisi, ut blandit ex. Proin tempor, mauris sit amet consectetur placerat, elit lorem placerat dui, sed placerat mi ante a purus.")
-
-glossary <- data.frame(glossary1, glossary2)
 ```
 
 ```{r MetaData, include = FALSE}
@@ -192,30 +184,47 @@ The UK Statistics Authority has designated these statistics as National Statisti
 
 Once statistics have been designated as National Statistics, it is a statutory requirement that the Code of Practice shall continue to be observed.
 
-The statistics last underwent a full [assessment](https://www.statisticsauthority.gov.uk/archive/assessment/assessment/assessment-reports/confirmation-of-designation-letters/letter-of-confirmation-as-national-statistics---assessment-report-177.pdf) by the Office for Statistics Regulation (OSR) against the Code of Practice in <span custom-style = "highlight">June 2019</span>. The OSR is the regulatory arm of the UK Statistics Authority.
-
-The continued designation of these statistics as National Statistics was confirmed in <span custom-style = "highlight">June 2019</span> following a compliance check by the Office for Statistics Regulation. The [compliance check report](https://www.statisticsauthority.gov.uk/correspondence/compliance-check-on-home-offices-statistics-on-immigration/) highlighted a number of strengths and made suggestions for improvements.
-
 <br>
 
-Find out more about the Code of Practice at:   
-https://www.statisticsauthority.gov.uk/osr/code-of-practice/
+Find out more about the Code of Practice by visiting the [UK Statistics Authority website](https://code.statisticsauthority.gov.uk/).
 
-<br>
-
-Find out more about National Statistics at:  
-https://www.statisticsauthority.gov.uk/national-statistician/types-of-official-statistics/
+Find out more about Experimental Statistics on the [UK Statistics Authority website](https://code.statisticsauthority.gov.uk/glossary/#experimental-statistics).
 
 <br>
 
 <br>
 
-<span custom-style = "Red_Bold_Highlight">Please remove</span>
+<br>
 
-*	<span custom-style = "highlight">Note to analyst: Remove the last paragraph relating to compliance checks if your publication has not undergone compliance checks. </span>
-*	<span custom-style = "highlight">Please provide the correct hyperlinks to the published assessment and, if applicable, the compliance check report </span>
+<br>
 
-\newpage
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+Other formats of this publication are available on request at:  
+0131 314 5300  
+[phs.otherformats@phs.scot](mailto:phs.otherformats@phs.scot) \newpage
 
 # Introduction
 In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem. Donec a dolor gravida, lobortis ligula vitae, pulvinar ante. Integer faucibus eros ut luctus tristique.
@@ -247,7 +256,6 @@ Sed suscipit nisl vel orci scelerisque mattis. Proin ut tortor et purus bibendum
 my_ft_format <- function(ft) {
   ft %>% 
     bold(part = "header") %>% 
-    bg(bg = "#964091", part = "header") %>% 
     color(color = "white", part = "header") %>% 
     align(align = "center", part = "header") %>% 
     valign(valign = "center", part = "all") %>% 
@@ -259,16 +267,15 @@ headings <- list("NHS Board", "Q2 Cases", "Q2 Bed Days", "Q2 Rate", "Q3 Cases",
 names(headings) <- names(TableData)
 
 flextable(TableData, theme_fun = NULL) %>% 
-  my_ft_format() %>% 
-  set_header_labels(values = headings) %>% 
-  align(j = 1, align = "left", part = "all") %>% 
-  align(j = 2:ncol(TableData), align = "right", part = "all") %>% 
-  align(align = "right", part = "body") %>% 
-  bold(i = nrow(TableData)) %>% 
-  border_outer(border = fp_border()) %>% 
-  border(i = nrow(TableData) - 1, border.bottom = fp_border(), part = "body") %>%
-  border(j = c(1, 4, ncol(TableData)), border.right = fp_border(), part = "all") %>%
-  autofit(add_w = 0, add_h = 0.05)
+  my_ft_format() %>%
+  set_header_labels(values = headings) %>%
+  align(align = "left", part = "body") %>%
+  bold(i = nrow(TableData)) %>%
+  border(border = fp_border_default(color = "#000000", width = 0.5), part = "all") %>%
+  bg(bg = "#964091", part = "header") %>%
+  height(height = 0.236, part = "body") %>%
+  hrule(rule = "atleast", part = "body") %>%
+  width(width = 0.98)
 ```
 
 \newpage
@@ -282,10 +289,10 @@ FigureOne
 </div>
 
 <Div custom-style = "Normal_Notes">
-1. Note one.
-2. Note two.
-3. Note three.
-4. Note four. 
+1 Note one.  
+2 Note two.  
+3 Note three.  
+4 Note four.
 </div>
 
 <br>
@@ -308,18 +315,20 @@ Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti soc
 
 \newpage
 
-# Glossary
-```{r kable_glossary, ft.align = "left"}
-flextable(glossary, theme_fun = NULL) %>% 
-  delete_part(part = "header") %>% 
-  align(align = "left", part = "body") %>% 
-  valign(valign = "top", part = "body") %>% 
-  width(j = 1, width = 4.94 / 2.54) %>% 
-  width(j = 2, width = 12.69 / 2.54) %>% 
-  height(i = 2, height = 1, part = "body") %>% 
-  fontsize(size = 12, part = "all") %>% 
-  border_remove()
-```
+# Glossary  
+
+<br>
+
+**Glossary item name**
+<br>
+
+Glossary item description
+<br>
+
+**Glossary item name**
+<br>
+
+Glossary item description  
 
 \newpage
 
@@ -327,11 +336,16 @@ flextable(glossary, theme_fun = NULL) %>%
 **Name, title**  
 Service  
 Phone:  
-Email:  
+Email:
+<br>
+
 **Name, title**  
 Service  
 Phone:  
-Email:  
+Email:
+<br>
+
+For all media enquiries please email [phs.comms@phs.scot](mailto:phs.comms@phs.scot) or call 07500 854 574.
 
 <br>
 
@@ -362,25 +376,181 @@ Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torqu
 
 \newpage
 
-## Appendix 2 - Publication Metadata
+## Appendix 2 - Publication metadata
 
 <br>
 
-```{r kable_MetaData, ft.align = "left"}
-flextable(MetaData, theme_fun = NULL) %>% 
-  my_ft_format() %>% 
-  set_header_labels(Indicator = "Metadata Indicator",
-                    Description = "Description") %>% 
-  align(j = 1, align = "right", part = "body") %>% 
-  align(j = 2, align = "left", part = "body") %>% 
-  valign(valign = "top", part = "all") %>% 
-  bold(j = 1, part = "body") %>% 
-  border_outer(border = fp_border()) %>%
-  border_inner(border = fp_border()) %>%
-  autofit(add_w = 0, add_h = 0.06) %>% 
-  width(j = 1, width = 5.5 / 2.54) %>% 
-  width(j = 2, width = 12.3 / 2.54)
-```
+**Publication title** 
+<br>
+
+[Insert publication title]
+<br>
+
+**Description**
+<br>
+
+[Insert publication description]
+<br>
+
+**Theme**
+<br>
+
+[Insert publication theme]
+<br>
+
+**Topic**
+<br>
+
+[Insert publication topic]
+<br>
+
+**Format**
+<br>
+
+[Insert publication format]
+<br>
+
+**Data source(s)**
+<br>
+
+[Insert data source]
+<br>
+
+**Date that data are acquired**
+<br>
+
+DD Month YYYY
+<br>
+
+**Release date**
+<br>
+
+DD Month YYYY
+<br>
+
+**Frequency**
+<br>
+
+[Insert frequency of publication]
+<br>
+
+**Timeframe of data and timeliness**
+<br>
+
+[Insert description of data and timeliness in relation to publication]
+<br>
+
+**Continuity of data**
+<br>
+
+[Insert description of continuity of data in relation to publication]
+<br>
+
+**Revisions statement**
+<br>
+
+[Only to be filled in if there has been a revision made to this publication after initial release. Please include a description of the revision]
+<br>
+
+**Revisions relevant to this publication**  
+
+<br>
+
+**Concepts and definitions**
+<br>
+
+[Insert concepts and definitions in relation to publication]
+<br>
+
+**Relevance and key uses of the statistics**
+<br>
+
+[Insert relevance and key uses for these statistics]
+<br>
+
+**Accuracy**
+<br>
+
+[Insert details about the accuracy of these statistics]
+<br>
+
+**Completeness**
+<br>
+
+[Insert details about the completeness of these statistics]
+<br>
+
+**Comparability**
+<br>
+
+[Insert details about how these statistics can be compared]
+<br>
+
+**Accessibility**
+<br>
+
+It is the policy of Public Health Scotland to make its web sites and products accessible according to published guidelines. More information on accessibility can be found on the [PHS website](https://beta.isdscotland.org/front-matter/accessibility-statement/).
+<br>
+
+**Coherence and clarity**
+<br>
+
+[Insert details about how the coherence and clarity of this publication]
+<br>
+
+**Value type and unit of measurement**
+<br>
+
+[Insert details about the value types and unit of measurement used within this publication]
+<br>
+
+**Disclosure**
+<br>
+
+[Insert details about disclosure levels of risk in relation to this publication]
+<br>
+
+**Official Statistics designation**
+<br>
+
+National statistics
+<br>
+
+**UK Statistics Authority Assessment**
+<br>
+
+[Insert details about the UK Stats Authority assessment of this publication]
+<br>
+
+**Last published**
+<br>
+
+DD Month YYYY
+<br>
+
+**Next published**
+<br>
+
+DD Month YYYY
+<br>
+
+**Date of first publication**
+<br>
+
+DD Month YYYY
+<br>
+
+**Help email**
+<br>
+
+[genericmailbox@phs.scot](mailto:genericmailbox@phs.scot)
+<br>
+
+**Date form completed**
+<br>
+
+DD Month YYYY
+<br>
 
 \newpage
 
