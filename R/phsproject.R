@@ -81,7 +81,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
     if (!renv) {
         writeLines("", con = file.path(path, ".Rprofile"))
     }
-    writeLines(gitignore, con = file.path(path, ".gitignore"))
+    
     writeLines(rproj_settings, con = file.path(path, paste0(basename(path), ".Rproj")))
     writeLines(r_code, con = file.path(path, "code", "code.R"))
     writeLines("", con = file.path(path, "code", "functions.R"))
@@ -93,6 +93,8 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
     }
 
     if (git) {
+        writeLines(gitignore, con = file.path(path, ".gitignore"))
+        
         if (Sys.info()[["sysname"]] == "Windows") {
             shell(paste("cd", path, "&&", "git init"))
         } else {
