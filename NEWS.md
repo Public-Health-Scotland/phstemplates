@@ -1,7 +1,15 @@
+# phstemplates 0.9.2
+
+* Added PHS ioslides template.
+
+# phstemplates 0.9.1
+
+* Update of PHS national stats summary and report documents.
+
 # phstemplates 0.9.0
 
 * PHS template for RStudio 1.2.
-* Fixed gitignore for Excel files
+* Fixed gitignore for Excel files.
 
 # phstemplates 0.8.3
 

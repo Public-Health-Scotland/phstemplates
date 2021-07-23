@@ -1,0 +1,62 @@
+---
+title: "Presentation title"
+subtitle: "Presentation subtitle"
+author: 'Name <br> Organisation <br>'
+date: "Date <br><br> Slides: url to slides"
+output:
+  ioslides_presentation:
+    css: my-theme.css
+---
+
+```{r setup, include = FALSE}
+# Load packages required
+library(knitr)
+library(magrittr)
+library(kableExtra)
+
+knitr::opts_chunk$set(echo = FALSE)
+
+# Create data frame for table
+table_contents <- data.frame(c("Text", "Text",
+                               "Text", "Text",
+                               "Text"),
+                             c(1:5))
+```
+
+## Slide title
+
+- Bullet point
+- Bullet point with *italic text*
+- Bullet point with **bold text**
+
+## Slide title
+
+```{r out.width = "70%", fig.align = 'center'}
+include_graphics("images/value.png")
+```
+
+## This slide has two columns 
+<!-- It seems easier to do with htmltags than with other ways --> 
+<div style="float: left; width: 50%; text-align: left">
+* Bullet point
+* Bullet point with *italic text*
+* Bullet point with **bold text**
+</div>
+
+<div style="float: right; width: 50%;">
+```{r out.width = "100%", fig.align = 'right'}
+hist(rnorm(100))
+```
+</div>
+
+## Slide title
+
+[PHS homepage](https://publichealthscotland.scot/)
+
+## Slide title
+
+```{r, echo = FALSE}
+    kable(table_contents,
+          col.names = c("Column heading", "Column heading"),
+          format = "markdown")
+```

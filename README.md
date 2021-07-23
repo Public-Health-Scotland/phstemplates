@@ -43,11 +43,11 @@ install.packages("phstemplates")
 ## How to use
 To use this project template, install the package by following the instructions above. After doing this you will then be able to create new R projects with the recommended PHS structure within RStudio by clicking File -> New Project... -> New Directory and selecting PHS R Project Template. As usual, name the project and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in subsequent sections of this README.
 
-This template aims to instil best practice within PHS and therefore git has been initiliased for version control. However, if you are not using this then you can delete the .gitignore file. More information about [version control](https://github.com/Public-Health-Scotland/resources/blob/master/version-control.md).
+This template aims to instil best practice within PHS and therefore git has been initialised for version control. However, if you are not using this then you can delete the .gitignore file. More information about [version control](https://github.com/Public-Health-Scotland/resources/blob/master/version-control.md).
 
 If you are using git for version control then please be aware that the .gitignore contains the minimum recommended file types and folders to stop data being tracked and pushed to GitHub. Further guidance on using git and GitHub securely can be found [here](https://github.com/Public-Health-Scotland/GitHub-guidance).
 
-This template is also intended to be flexible, so you may not require every file or folder. For example, if you have written long or multiple functions then we would recommend saving these in the dedicated `functions.R` file, which can then be sourced within the main script(s). Additionally, if you are using many packages then these could be saved within the `packages.R` file and sourced similarly. However, decisions on whether these files are required and the exact structure of the folders and scripts should be left up to the analyst's discretion. For more guidance on structuring and writing R scripts follow the [PHI R Style Guide](https://github.com/Public-Health-Scotland/R-Resources/blob/master/PHI%20R%20style%20guide.md).
+This template is also intended to be flexible, so you may not require every file or folder. For example, if you have written long or multiple functions then we would recommend saving these in the dedicated `functions.R` file, which can then be sourced within the main script(s). Additionally, if you are using many packages then these could be saved within the `packages.R` file and sourced similarly. However, decisions on whether these files are required and the exact structure of the folders and scripts should be left up to the analyst's discretion. For more guidance on structuring and writing R scripts follow the organisation's [R Style Guide](https://github.com/Public-Health-Scotland/R-Resources/blob/master/PHI%20R%20style%20guide.md).
 
 ### Directories
   * `code` - R scripts required for project
@@ -66,7 +66,7 @@ This template is also intended to be flexible, so you may not require every file
   * `r-project.Proj` - R project
 
 ## RMarkdown Templates
-This package currently provides various RMarkdown templates including [one for producing ISD national statistics reports and one for producing ISD national statistics summary documents](https://github.com/Public-Health-Scotland/National-Stats-Template). You can access these templates in RStudio by clicking File -> New File -> R Markdown -> From Template.
+This package currently provides a number of RMarkdown templates including templates for PHS national statistics report and summary documents but please note that these require pandoc v2 (or RStudio v1.2 which comes with the required version of pandoc). You can access these templates in RStudio by clicking File -> New File -> R Markdown -> From Template.
 
 ### Adding a new template
 1. Clone phstemplates and load it up in RStudio

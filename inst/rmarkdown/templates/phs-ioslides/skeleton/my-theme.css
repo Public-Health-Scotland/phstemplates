@@ -1,0 +1,26 @@
+
+/* adds NHS logo in top right and circles in bottom right of all slides */
+slides > slide {
+  background: white;
+  background-image: url("images/slide_background.png");
+  background-size: cover;
+}
+
+/* overrides the background that has just been applied to all slides for the title slide so only the NHS logo is shown */
+.title-slide {
+  background: white;
+  background-image: url("images/phs_logo.png") !important;
+  background-repeat: no-repeat;
+  background-position: 500px 30px;
+}
+
+/* removes slide numbers because they look rubbish with the circles*/
+slides > slide:not(.nobackground):after {
+  content: '';
+}
+
+/* aligns two-column slides in the center */
+div {
+  text-align: center;
+  vertical-align: baseline;
+}
