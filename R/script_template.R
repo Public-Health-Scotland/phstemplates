@@ -1,18 +1,21 @@
-script_template <- function(author = "Original author(s)") {
+script_template <- function(author = Sys.info()[["user"]]) {
   author <- paste("#", author)
+  orig_date <- paste("# Original date:", Sys.Date())
+  run_on <- paste0("# Written/run on RStudio " , RStudio.Version()$mode, " ",
+                   RStudio.Version()$version, " and R ",
+                   version$major, ".", version$minor)
 
   r_code <- c(
     "##########################################################",
     "# Name of script",
     "# Publication (delete if not applicable)",
     author,
-    "# Original date (delete if using version control)",
+    orig_date,
     "# Latest update author (delete if using version control)",
     "# Latest update date (delete if using version control)",
     "# Latest update description (delete if using version control)",
     "# Type of script (e.g. extraction, preparation, modelling)",
-    "# Written/run on (e.g. R Studio Server or Desktop)",
-    "# Version of R that the script was most recently run on",
+    run_on,
     "# Description of content",
     "# Approximate run time",
     "##########################################################",

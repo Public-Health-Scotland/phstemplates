@@ -4,13 +4,7 @@
 \alias{new_script}
 \title{new_script}
 \usage{
-new_script(
-  author = rstudioapi::showPrompt(title = "Author", message = "Name of Author", default
-    = "Original author(s)")
-)
-}
-\arguments{
-\item{author}{Name of the main author of the script.}
+new_script()
 }
 \value{
 New R script created according to the PHS R project structure.
@@ -20,6 +14,6 @@ Create new R script according to the PHS template. This function is meant to be 
 }
 \examples{
 \dontrun{
-new_script(author = "A Person")
+new_script()
 }
 }
