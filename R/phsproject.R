@@ -58,12 +58,14 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
     r_code <- script_template(author = author)
 
     if (git) {
-        lines_to_remove <- paste("# Original date \\(delete if using version control\\)",
-                                 "# Latest update author \\(delete if using version control\\)",
-                                 "# Latest update date \\(delete if using version control\\)",
-                                 "# Latest update description \\(delete if using version control\\)\n",
-                                 sep = "\n")
-        r_code <- gsub(lines_to_remove, "", r_code)
+        remove_start <- gregexpr("# Original", r_code)[[1]][1] - 1
+        remove_end <- gregexpr("Latest update description \\(delete if using version control\\)\n", r_code)[[1]]
+        remove_end <- as.integer(remove_end + attr(remove_end, "match.length"))
+
+        r_code_part1 <- substr(r_code, 1, remove_start)
+        r_code_part2 <- substr(r_code, remove_end, nchar(r_code))
+
+        r_code <- paste0(r_code_part1, r_code_part2, collapse = "")
     }
 
     rproj_settings <- c(
