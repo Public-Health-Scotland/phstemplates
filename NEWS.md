@@ -1,8 +1,12 @@
+# phstemplates 0.9.3
+
+* Removed use of renv global cache directories.
+
 # phstemplates 0.9.2
 
 * Added PHS ioslides template.
-* Some parts of metadata for scripts are now pre-filled
-* Some parts of metadata for scripts automatically removed if using git
+* Some parts of metadata for scripts are now pre-filled.
+* Some parts of metadata for scripts automatically removed if using git.
 
 # phstemplates 0.9.1
 
