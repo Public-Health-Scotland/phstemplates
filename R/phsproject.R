@@ -118,7 +118,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
             utils::install.packages("renv")
         }
 
-        renv::consent(provided = TRUE)
+        options(renv.consent = TRUE)
         renv::init(project = file.path(getwd(), path))
     }
 }
