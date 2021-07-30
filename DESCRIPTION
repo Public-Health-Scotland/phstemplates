@@ -20,7 +20,8 @@ Suggests:
     magrittr,
     lubridate,
     ggplot2,
-    janitor
+    janitor,
+    gdtools
 Imports: 
     captioner,
     flextable (>= 0.5.7),
