@@ -1,7 +1,7 @@
 ---
 output: 
   word_document:
-    reference_docx: "PHS-OfficialStats-SumTemplate.docx"
+    reference_docx: "PHS-OffStats-SumTemplate.docx"
     fig_caption: no
 ---
 

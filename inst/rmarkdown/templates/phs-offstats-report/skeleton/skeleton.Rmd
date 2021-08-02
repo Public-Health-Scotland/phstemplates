@@ -1,7 +1,7 @@
 ---
 output: 
   word_document:
-    reference_docx: "PHS-NatStats-RepTemplate.docx"
+    reference_docx: "PHS-OffStats-RepTemplate.docx"
     fig_caption: no
 ---
 
@@ -172,23 +172,18 @@ Description <- c("",
 MetaData <- data.frame(Indicator, Description)
 ```
 
-<Div custom-style = "Publication subtitle">This is a National Statistics Publication</Div>
-
-<Div custom-style = "Figure_Style">
-![National Statistics Quality Mark](kitemark_tcm97-17949.jpg)
-</Div>
-
-National Statistics status means that the official statistics meet the highest standards of trustworthiness, quality and public value. They are identified by the quality mark shown above.
-
-The UK Statistics Authority has designated these statistics as National Statistics signifying compliance with the Code of Practice for Statistics.
-
-Once statistics have been designated as National Statistics, it is a statutory requirement that the Code of Practice shall continue to be observed.
+<Div custom-style = "Publication subtitle">This is an Official Statistics Publication</Div>
 
 <br>
 
-Find out more about the Code of Practice by visiting the [UK Statistics Authority website](https://code.statisticsauthority.gov.uk/).
+Public Health Scotland has authority to produce official statistics on any matter in accordance with [The Official Statistics (Scotland) Order 2008](http://www.legislation.gov.uk/ssi/2008/131/contents/made), [The Official Statistics (Scotland) Amendment Order 2019](http://www.legislation.gov.uk/ssi/2019/416/made) and the [Statistics and Registration Service Act 2007](https://www.legislation.gov.uk/ukpga/2007/18/contents).
+All official statistics should comply with the UK Statistics Authority’s Code of Practice which promotes the production and dissemination of official statistics that inform decision making. They can be formally assessed by the UK Statistics Authority’s regulatory arm for National Statistics status.
 
-Find out more about Experimental Statistics on the [UK Statistics Authority website](https://code.statisticsauthority.gov.uk/glossary/#experimental-statistics).
+<br>
+
+Find out more about the Code of Practice on the [UK Statistics Authority website](https://code.statisticsauthority.gov.uk/).
+
+Find out more about Official Statistics on the [UK Statistics Authority website](https://code.statisticsauthority.gov.uk/glossary/#official-statistics).
 
 <br>
 
@@ -224,7 +219,9 @@ Find out more about Experimental Statistics on the [UK Statistics Authority webs
 
 Other formats of this publication are available on request at:  
 0131 314 5300  
-[phs.otherformats@phs.scot](mailto:phs.otherformats@phs.scot)  
+[phs.otherformats@phs.scot](mailto:phs.otherformats@phs.scot) 
+
+\newpage
 
 # Introduction
 In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem. Donec a dolor gravida, lobortis ligula vitae, pulvinar ante. Integer faucibus eros ut luctus tristique.
