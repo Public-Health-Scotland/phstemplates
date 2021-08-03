@@ -1,0 +1,125 @@
+---
+output: 
+  word_document:
+    reference_docx: "PHS-OffStats-SumTemplate.docx"
+    fig_caption: no
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(flextable)
+library(magrittr)
+library(ggplot2)
+
+# Create a pseudo chart
+Year <- c(rep("2014-15", times = 8), rep("2015-16", times = 8))
+Month <- rep(c("Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov"), times = 2)
+Count <- c(1100, 1220, 1240, 1250, 1290, 1300, 1380, 1350, 
+           1100, 1140, 1150, 1150, 1190, 1260, 1270, 1280)
+
+ChartData <- data.frame(Year, Month, Count)
+
+chart <- ggplot(data = ChartData, aes(x = Month, y = Count, group = Year, 
+                                      color = Year, shape = Year, linetype = Year)) +
+  scale_y_continuous(breaks = c(200, 400, 600, 800, 1000, 1200, 1400, 1600), 
+                     labels = c("200", "400", "600", "800", "1,000", "1,200", "1,400", "1,600"),
+                     limits = c(0, 1600),  expand = expansion(mult = 0)) +
+  scale_x_discrete(limits =  c("Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov"),
+                   labels =  c("Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov"))  +
+  scale_color_manual(values = c("#59B4F0", "#FF0000")) +
+  geom_line( size = .75 ) + 
+  geom_point( size = c(rep(3, 8), rep(2.5, 8)) ) +
+  scale_shape_manual(values = c("diamond", "square")) +
+  scale_linetype_manual(values = c("dashed", "solid")) + 
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 12, colour = "#6C2383"),
+    plot.margin = margin(l = 30, b = 10),
+    panel.background = element_blank(),
+    panel.grid.major = element_blank(), 
+    panel.grid.major.y = element_line(size = .4, color = "#969696"), 
+    panel.grid.minor = element_blank(),
+    panel.border = element_rect(colour = "#969696", fill = NA, size = 0.75), 
+    legend.box.spacing = unit(0, "cm"),
+    legend.box.margin = margin(b = 0),
+    legend.position = "top",
+    legend.title=element_blank(),
+    legend.key.height = unit(10, "pt"),
+    legend.key.width = unit(30, "pt"),
+    legend.text = element_text(size = 8),
+    axis.title.y = element_blank(),
+    axis.line = element_line(colour = "grey"),
+    axis.ticks = element_line(colour = "grey"),
+    axis.text.x = element_text(size = 7.5, color = "black"), 
+    axis.text.y = element_text(size = 7, color = "black"),
+    axis.title.x = element_text(size = 8, face = "bold", margin = margin(t = 10))) +
+  xlab("Month")
+```
+
+<Div custom-style = "Publication Title">Insert publication title here</Div>
+<Div custom-style = "Publication subtitle">Subtitle</Div>
+<Div custom-style = "National stats">An Official Statistics release for Scotland</Div>
+
+<br>
+
+**Publication date: DD Month YYYY**
+
+<Div custom-style = "RestrictedStats">RESTRICTED STATISTICS: embargoed to 09:30 dd/mm/yyyy</Div>
+
+### About this release
+Vestibulum lacinia, turpis eu sagittis lacinia, justo orci blandit orci, ut suscipit tortor turpis et metus. Pellentesque sollicitudin nisl et porttitor laoreet. Nunc id purus pretium, suscipit justo vitae, pretium dui. Quisque congue ex dignissim tellus pulvinar, a interdum libero fermentum.
+
+### Main Points
+Proin nec ultricies dolor. Maecenas pulvinar, enim et imperdiet cursus, mi
+
+* Maecenas ut sagittis mi. Vestibulum faucibus ligula sit amet facilisis pulvinar. Morbi mollis odio id est consequat, a convallis quam finibus. Morbi id congue turpis, sit amet ultrices tortor. Phasellus vel nisi.
+
+* Quisque iaculis congue aliquet. Aenean in dictum nisl. Etiam quis ullamcorper ex. Aenean mollis ante eget.
+
+<Div custom-style = "Chart Title">`Chart title`</Div>
+<Div custom-style = "Figure_Style">
+```{r fig-uptake, fig.width=6.15, fig.height=3, fig.cap="Appropriate ALT Text to be added."}
+chart
+```
+</div>
+
+Maecenas bibendum consequat vehicula. Fusce id viverra lorem, et
+
+* Curabitur luctus luctus lorem, at commodo mauris rutrum quis. Mauris aliquet turpis vel magna bibendum hendrerit. Nulla finibus porta sapien ut pretium. Aliquam elementum mauris.
+
+* Vivamus bibendum ut tellus rhoncus porttitor. Nam id nibh et.
+
+* Ut in dapibus massa, ut gravida ligula. Vestibulum ut consectetur:
+  + Vivamus luctus varius nibh, a scelerisque ex tincidunt non. Etiam dignissim.
+  + Curabitur laoreet viverra magna eget dapibus. Maecenas scelerisque euismod mattis. Sed cursus.
+  + Sed in iaculis lectus, sed fermentum urna. Donec efficitur diam eu ipsum viverra, eu ornare justo mollis. Phasellus in dictum tellus.
+
+### Background
+Aliquam sed maximus ante, a imperdiet est. Vivamus vel diam facilisis, pulvinar erat consequat, consequat nulla. Praesent lorem dolor, luctus ut libero vitae, venenatis congue tortor.
+
+Nunc at mauris euismod, mattis tellus sed, vehicula dolor. Duis quis auctor elit. Fusce eu dui eu magna convallis porttitor in ac purus. Proin sed tellus massa. In pulvinar augue sit amet faucibus maximus. Aenean porttitor arcu vitae lacus fringilla condimentum. Praesent laoreet, felis non dignissim viverra, libero nunc eleifend sapien, sed dignissim felis risus et tellus.
+
+### Contact
+Name  
+Role  
+Number  
+[email@phs.scot](mailto:email@phs.scot)  
+Name  
+Role  
+Number  
+[email@phs.scot](mailto:email@phs.scot)  
+For all media enquiries please email [phs.comms@nhs.net](mailto:phs.comms@nhs.net) or call 07500 854 574.
+
+### Find out more
+Data from this publication are available from the [publication page]() on our website.
+
+Open data from this publication is available from the [Scottish Health and Social Care Open Data platform](https://www.opendata.nhs.scot/).
+
+The next release of this publication will be DD Month YYYY.
+
+Other formats of this publication are available on request at:  
+0131 314 5300  
+phs.otherformats@phs.scot
+
+### NHS Performs
+A selection of information from this publication is included in [NHS Performs](http://www.nhsperforms.scot). NHS Performs is a website that brings together a range of information on how hospitals and NHS Boards within NHSScotland are performing.

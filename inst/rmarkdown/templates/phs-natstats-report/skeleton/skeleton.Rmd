@@ -1,0 +1,595 @@
+---
+output: 
+  word_document:
+    reference_docx: "PHS-NatStats-RepTemplate.docx"
+    fig_caption: no
+---
+
+<!-- Please see the 'create_report.R' script to compile the whole report with cover page and table of contents -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+library(scales)
+library(captioner)
+library(flextable)
+library(officer)
+library(magrittr)
+```
+
+
+```{r TableData, include = FALSE}
+NHSBoard <- c("AA", "BR", "DG", "FF", "FV", "GR", "GGC", "HG", "LN", "LO", "NWTC", "OR", "SH", "TY", "WI", "Scotland")
+
+Q2Cases <- as.character(c(22, 2, 9, 9, 10, 16, 52, 9, 22, 44, 0, 1, 0, 24, 1, 221))
+
+Q2BedDays <- c(72081, 21517, 27799, 49932, 47432, 84310, 232889, 43682, 
+                   91535, 150550, 6566, 2401, 2590, 72783, 4870, 910937)
+# Q2BedDays <- format(Q2BedDaysBase, big.mark = ",")
+
+Q2RateBase <- c(30.5, 9.3, 32.4, 18.0, 21.1, 19.0, 22.3, 20.6, 24.0, 29.2, 0.0, 
+                41.6, 0.0, 33.0, 20.5, 24.3)
+Q2Rate <- format(Q2RateBase, nsmall = 1)
+
+Q3Cases <- as.character(c(19, 6, 4, 10, 10, 30, 79, 16, 24, 36, 0, 1, 0, 22, 0, 257))
+
+Q3BedDays <- c(69082, 19603, 27097, 47691, 50473, 76321, 206241, 42439, 87927, 148176, 7091, 2194, 2257, 70267, 4632, 861491)
+# Q3BedDays <- format(Q3BedDaysBase, big.mark = ",")
+
+Q3RateBase <- c(27.5, 30.6, 14.8, 21.0, 19.8, 39.3, 38.3, 37.7, 27.3, 24.3, 0.0, 45.6, 0.0, 31.3, 0.0, 29.8)
+Q3Rate <- format(Q3RateBase, nsmall = 1)
+
+TableData <- data.frame(NHSBoard, Q2Cases, Q2BedDays, Q2Rate, Q3Cases, Q3BedDays, 
+                        Q3Rate, stringsAsFactors = FALSE)
+
+TableData[16, c(2:7)] <- c("221", "910937", "24.3", "257", "861491", "29.8")
+```
+
+```{r Figures, include = FALSE}
+fig_nums <- captioner(prefix = "Figure", infix = ":")
+
+# Create Figure 1
+HBR <- c("Ayrshire & Arran", "Borders", "Dumfries & Galloway", "Fife", 
+         "Forth Valley", "Grampian", "Greater Glasgow & Clyde", "Highland", 
+         "Lanarkshire", "Lothian", "Orkney", "Shetland", "Tayside", 
+         "Western Isles", "Scotland")
+
+UptakeRate <- c(72, 76, 78, 69, 71, 79, 67, 77, 68, 69, 84, 84.5, 76, 80.5, 72)
+
+FigureOneData <- data.frame(HBR, UptakeRate)
+
+FigureOne <- ggplot(data = FigureOneData, aes(x = HBR, y = UptakeRate, fill = HBR)) +
+  geom_bar(position = "dodge", stat = "identity", width = 0.5, show.legend = FALSE) + 
+  scale_y_continuous(breaks = c(50, 55, 60, 65, 70, 75, 80, 85, 90), 
+                     limits = c(50, 90), oob = rescale_none) +
+  geom_hline(yintercept = 70, size = 1, color = "#092869") +
+  geom_hline(yintercept = 80, size = 1, color = "#092869", linetype = "dashed") +
+  coord_flip() +
+  theme(panel.background = element_blank(),
+        panel.grid.major.x = element_line(size = 0.1, color = "#C0C0C0"), 
+        panel.grid.major.y = element_blank(),
+        axis.title.x = element_text(size = 12, face = "bold"),
+        axis.title.y = element_text(size = 12, face = "bold"),
+        axis.text = element_text(size = 12)) +
+  scale_x_discrete(limits = c("Scotland", "Western Isles", "Tayside", "Shetland", "Orkney", 
+                              "Lothian", "Lanarkshire", "Highland", "Greater Glasgow & Clyde",
+                              "Grampian", "Forth Valley", "Fife", "Dumfries & Galloway", 
+                              "Borders", "Ayrshire & Arran")) +
+  scale_fill_manual(values = c("#0391BF", "#0391BF", "#0391BF", "#0391BF", "#0391BF", 
+                               "#0391BF", "#0391BF", "#0391BF", "#0391BF", "#0391BF",
+                               "#0391BF", "#092869", "#0391BF", "#0391BF", "#0391BF")) +
+  xlab("NHS Board of Residence") + ylab("Uptake rate (%)")
+
+fig_nums(name = "uptake", caption = "Uptake rate^1^ by NHS Board by three-year rolling period 2013-16^1,2,3,4^")
+
+
+# Create Figure 2
+RollingYear <- c("2007-10", "2008-11", "2009-12", "2010-13", "2011-14", "2012-15", "2013-16")
+DetectionRate <- c(6.2, 6.5, 7, 7.1, 6.9, 6.4, 6.2)
+
+FigureTwoData <- data.frame(RollingYear, DetectionRate)
+
+FigureTwo <- ggplot(data = FigureTwoData, aes(x = RollingYear, y = DetectionRate)) +
+  geom_bar(position = "dodge", stat = "identity", width = 0.5, 
+           show.legend = FALSE, fill = "#0391BF") + 
+  scale_y_continuous(breaks = c(0:8), 
+                     limits = c(0, 8)) +
+  geom_hline(yintercept = 3.1, size = 1, color = "#092869") +
+  geom_hline(yintercept = 4.1, size = 1, color = "#092869", linetype = "dashed") +
+  theme(panel.background = element_blank(),
+        panel.grid.major.x = element_blank(), 
+        panel.grid.major.y = element_line(size = 0.1, color = "#C0C0C0"), 
+        axis.title.x = element_text(size = 12, face = "bold"),
+        axis.title.y = element_text(size = 12, face = "bold"),
+        axis.text = element_text(size = 12)) +
+  xlab("Three Year Rolling Period") + 
+  ylab("Cancer detection rate\n(per 1000 women screened)")
+
+fig_nums(name = "cancer", caption = "Trend in invasive cancer detection rate for Scotland")
+```
+
+```{r MetaData, include = FALSE}
+Indicator <- c("Publication title",
+               "Description",
+               "Theme",
+               "Topic",
+               "Format",
+               "Data source(s)",
+               "Date that data are acquired",
+               "Release date",
+               "Frequency",
+               "Timeframe of data and timeliness",
+               "Continuity of data",
+               "Revisions statement",
+               "Revisions relevant to this publication",
+               "Concepts and definitions",
+               "Relevance and key uses of the statistics",
+               "Accuracy",
+               "Completeness",
+               "Comparability",
+               "Accessibility",
+               "Coherence and clarity",
+               "Value type and unit of measurement",
+               "Disclosure",
+               "Official Statistics designation",
+               "UK Statistics Authority Assessment",
+               "Last published",
+               "Next published",
+               "Date of first publication",
+               "Help email",
+               "Date form completed")
+
+Description <- c("",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "DD Month YYYY",
+                 "DD Month YYYY",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "",
+                 "DD Month YYYY",
+                 "DD Month YYYY",
+                 "DD Month YYYY",
+                 "",
+                 "DD Month YYYY")
+
+MetaData <- data.frame(Indicator, Description)
+```
+
+<Div custom-style = "Publication subtitle">This is a National Statistics Publication</Div>
+
+<Div custom-style = "Figure_Style">
+![National Statistics Quality Mark](kitemark_tcm97-17949.jpg)
+</Div>
+
+National Statistics status means that the official statistics meet the highest standards of trustworthiness, quality and public value. They are identified by the quality mark shown above.
+
+The UK Statistics Authority has designated these statistics as National Statistics signifying compliance with the Code of Practice for Statistics.
+
+Once statistics have been designated as National Statistics, it is a statutory requirement that the Code of Practice shall continue to be observed.
+
+<br>
+
+Find out more about the Code of Practice by visiting the [UK Statistics Authority website](https://code.statisticsauthority.gov.uk/).
+
+Find out more about Experimental Statistics on the [UK Statistics Authority website](https://code.statisticsauthority.gov.uk/glossary/#experimental-statistics).
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+Other formats of this publication are available on request at:  
+0131 314 5300  
+[phs.otherformats@phs.scot](mailto:phs.otherformats@phs.scot)  
+
+# Introduction
+In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem. Donec a dolor gravida, lobortis ligula vitae, pulvinar ante. Integer faucibus eros ut luctus tristique.
+
+Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus. [Donec sodales lacus in erat elementum viverra](http://www.isdscotland.org/). Phasellus faucibus faucibus erat vitae pharetra. Mauris sed blandit dolor. Duis consequat fermentum diam quis elementum. Maecenas euismod non lorem sit amet ornare.
+
+Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus. Vivamus molestie massa in quam porttitor viverra. Nulla facilisi. Suspendisse fermentum metus justo, vel elementum ante rutrum eget.
+
+\newpage
+
+# Main Points
+* In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem.
+* Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+* Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus.
+
+\newpage
+
+# Results and Commentary
+Suspendisse velit nisi, tempor ut posuere ut, blandit in mauris. Suspendisse commodo sagittis pretium. Nullam.
+
+## Sub-heading
+Suspendisse potenti. Donec sit amet porttitor urna. Fusce egestas et elit quis imperdiet. Quisque tempor, metus vel gravida fermentum, odio neque imperdiet justo, vitae sagittis turpis velit vitae velit. Nulla iaculis egestas tellus, non efficitur lorem molestie at. Donec urna sem, pharetra ut nunc non, tempor ullamcorper dolor. Duis fringilla mi eu erat lobortis, ac sagittis ipsum eleifend. Fusce eget rhoncus lorem.
+
+Sed suscipit nisl vel orci scelerisque mattis. Proin ut tortor et purus bibendum pharetra vel elementum dolor. Morbi orci massa, egestas vel dictum quis, maximus id justo. Fusce eu sem consequat, mollis nulla in, mollis nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at facilisis augue.
+
+<Div custom-style = "TableChart title">Table title</Div>
+```{r flextable_TableData, ft.align = "left"}
+# Set up some formatting for flextable to be applied to most tables
+my_ft_format <- function(ft) {
+  ft %>% 
+    bold(part = "header") %>% 
+    color(color = "white", part = "header") %>% 
+    align(align = "center", part = "header") %>% 
+    valign(valign = "center", part = "all") %>% 
+    padding(padding.top = 0, padding.bottom = 0, part = "all")
+}
+
+headings <- list("NHS Board", "Q2 Cases", "Q2 Bed Days", "Q2 Rate", "Q3 Cases", 
+                 "Q3 Bed Days", "Q3 Rate")
+names(headings) <- names(TableData)
+
+flextable(TableData, theme_fun = NULL) %>% 
+  my_ft_format() %>%
+  set_header_labels(values = headings) %>%
+  align(align = "left", part = "body") %>%
+  bold(i = nrow(TableData)) %>%
+  border(border = fp_border_default(color = "#000000", width = 0.5), part = "all") %>%
+  bg(bg = "#964091", part = "header") %>%
+  height(height = 0.236, part = "body") %>%
+  hrule(rule = "atleast", part = "body") %>%
+  width(width = 0.98)
+```
+
+\newpage
+
+<Div custom-style = "TableChart title">`r fig_nums("uptake")`</Div>
+<!-- hack to get images to be placed in the right location when the 'Normal' style has been altered --> 
+<Div custom-style = "Figure_Style">
+```{r fig-uptake, fig.width = 7, fig.height = 5.6, fig.cap = "Uptake rate by NHS Board by three-year rolling period 2013-16."}
+FigureOne
+```
+</div>
+
+<Div custom-style = "Normal_Notes">
+1 Note one.  
+2 Note two.  
+3 Note three.  
+4 Note four.
+</div>
+
+<br>
+
+## Sub-heading
+Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam non libero eu orci viverra rhoncus eu sed massa.
+
+Mauris ac neque vel erat varius cursus. Praesent at molestie felis. Nunc eget ipsum non lectus facilisis dictum quis viverra magna. Pellentesque elementum condimentum accumsan. Nunc vel pharetra augue. Pellentesque vitae lectus cursus magna blandit aliquet. In aliquet sapien sit amet viverra aliquam.
+
+Pellentesque aliquam imperdiet neque et interdum. Nulla sodales tellus magna, id venenatis justo pulvinar ut. Etiam luctus facilisis auctor. Curabitur interdum feugiat convallis. Nullam mi libero, hendrerit vitae condimentum in, iaculis porta purus. Suspendisse potenti. Donec sed molestie nisi, ut blandit ex. Proin tempor, mauris sit amet consectetur placerat, elit lorem placerat dui, sed placerat mi ante a purus.
+
+<Div custom-style = "TableChart title">`r fig_nums("cancer")`</Div>
+<Div custom-style = "Figure_Style">
+```{r fig-cancer, fig.width = 7, fig.height = 5.6, fig.cap = "Trend in invasive cancer detection rates for Scotland, three-year rolling periods (2007/10 to 2013/16). There is a bar for each three-year rolling period."}
+FigureTwo
+```
+</div>
+
+Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam non libero eu orci viverra rhoncus eu sed massa. Donec viverra scelerisque orci, sit amet dignissim eros ullamcorper rhoncus. Donec et metus sodales, aliquet ligula nec, bibendum leo.
+
+\newpage
+
+# Glossary  
+
+<br>
+
+**Glossary item name**
+<br>
+
+Glossary item description
+<br>
+
+**Glossary item name**
+<br>
+
+Glossary item description  
+
+\newpage
+
+# Contact
+**Name, title**  
+Service  
+Phone:  
+Email:
+<br>
+
+**Name, title**  
+Service  
+Phone:  
+Email:
+<br>
+
+For all media enquiries please email [phs.comms@phs.scot](mailto:phs.comms@phs.scot) or call 07500 854 574.
+
+<br>
+
+# Further Information
+Further information and data for this publication are available from the [publication page](http://www.phs.org/) on our website.
+
+The next release of this publication will be DD Month YYYY.
+
+<br>
+
+# Open data
+Data from this publication is available to download from the [Scottish Health and Social Care Open Data Portal](https://www.opendata.nhs.scot/).
+
+<br>
+
+# Rate this publication
+Let us know what you think about this publication via. the link at the bottom of this [publication page]() on the PHS website.
+
+\newpage
+
+# Appendices
+## Appendix 1 - Background information
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.
+
+Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.
+
+Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna.
+
+\newpage
+
+## Appendix 2 - Publication metadata
+
+<br>
+
+**Publication title** 
+<br>
+
+[Insert publication title]
+<br>
+
+**Description**
+<br>
+
+[Insert publication description]
+<br>
+
+**Theme**
+<br>
+
+[Insert publication theme]
+<br>
+
+**Topic**
+<br>
+
+[Insert publication topic]
+<br>
+
+**Format**
+<br>
+
+[Insert publication format]
+<br>
+
+**Data source(s)**
+<br>
+
+[Insert data source]
+<br>
+
+**Date that data are acquired**
+<br>
+
+DD Month YYYY
+<br>
+
+**Release date**
+<br>
+
+DD Month YYYY
+<br>
+
+**Frequency**
+<br>
+
+[Insert frequency of publication]
+<br>
+
+**Timeframe of data and timeliness**
+<br>
+
+[Insert description of data and timeliness in relation to publication]
+<br>
+
+**Continuity of data**
+<br>
+
+[Insert description of continuity of data in relation to publication]
+<br>
+
+**Revisions statement**
+<br>
+
+[Only to be filled in if there has been a revision made to this publication after initial release. Please include a description of the revision]
+<br>
+
+**Revisions relevant to this publication**  
+
+<br>
+
+**Concepts and definitions**
+<br>
+
+[Insert concepts and definitions in relation to publication]
+<br>
+
+**Relevance and key uses of the statistics**
+<br>
+
+[Insert relevance and key uses for these statistics]
+<br>
+
+**Accuracy**
+<br>
+
+[Insert details about the accuracy of these statistics]
+<br>
+
+**Completeness**
+<br>
+
+[Insert details about the completeness of these statistics]
+<br>
+
+**Comparability**
+<br>
+
+[Insert details about how these statistics can be compared]
+<br>
+
+**Accessibility**
+<br>
+
+It is the policy of Public Health Scotland to make its web sites and products accessible according to published guidelines. More information on accessibility can be found on the [PHS website](https://beta.isdscotland.org/front-matter/accessibility-statement/).
+<br>
+
+**Coherence and clarity**
+<br>
+
+[Insert details about how the coherence and clarity of this publication]
+<br>
+
+**Value type and unit of measurement**
+<br>
+
+[Insert details about the value types and unit of measurement used within this publication]
+<br>
+
+**Disclosure**
+<br>
+
+[Insert details about disclosure levels of risk in relation to this publication]
+<br>
+
+**Official Statistics designation**
+<br>
+
+National statistics
+<br>
+
+**UK Statistics Authority Assessment**
+<br>
+
+[Insert details about the UK Stats Authority assessment of this publication]
+<br>
+
+**Last published**
+<br>
+
+DD Month YYYY
+<br>
+
+**Next published**
+<br>
+
+DD Month YYYY
+<br>
+
+**Date of first publication**
+<br>
+
+DD Month YYYY
+<br>
+
+**Help email**
+<br>
+
+[genericmailbox@phs.scot](mailto:genericmailbox@phs.scot)
+<br>
+
+**Date form completed**
+<br>
+
+DD Month YYYY
+<br>
+
+\newpage
+
+## Appendix 3 - Early access details
+
+<br>
+
+**Pre-Release Access**
+
+Under terms of the "Pre-Release Access to Official Statistics (Scotland) Order 2008", PHS is obliged to publish information on those receiving Pre-Release Access ("Pre-Release Access" refers to statistics in their final form prior to publication). The standard maximum Pre-Release Access is five working days. Shown below are details of those receiving standard Pre-Release Access.
+
+<br>
+
+**Standard Pre-Release Access:**
+
+Scottish Government Health Department
+
+NHS Board Chief Executives
+
+NHS Board Communication leads
+
+<br>
+
+**Early Access for Management Information**
+
+These statistics will also have been made available to those who needed access to 'management information', ie as part of the delivery of health and care:
+
+<br>
+
+**Early Access for Quality Assurance**
+
+These statistics will also have been made available to those who needed access to help quality assure the publication:
+
+\newpage
+
+## Appendix 4 – PHS and Official Statistics
+
+<br>
+
+**About Public Health Scotland (PHS)**
+
+PHS is a knowledge-based and intelligence driven organisation with a critical reliance on data and information to enable it to be an independent voice for the public's health, leading collaboratively and effectively across the Scottish public health system, accountable at local and national levels, and providing leadership and focus for achieving better health and wellbeing outcomes for the population. Our statistics comply with the [Code of Practice for Statistics](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/) in terms of trustworthiness, high quality and public value. This also means that we keep data secure at all stages, through collection, processing, analysis and output production, and adhere to the '[five safes](https://blog.ons.gov.uk/2017/01/27/the-five-safes-data-privacy-at-ons/)'.
