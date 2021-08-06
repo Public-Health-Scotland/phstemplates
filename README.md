@@ -66,7 +66,11 @@ This template is also intended to be flexible, so you may not require every file
   * `r-project.Proj` - R project
 
 ## RMarkdown Templates
-This package currently provides a number of RMarkdown templates including templates for PHS national statistics report and summary documents but please note that these require pandoc v2 (or RStudio v1.2 which comes with the required version of pandoc). You can access these templates in RStudio by clicking File -> New File -> R Markdown -> From Template.
+This package currently provides a number of RMarkdown templates including templates for PHS national statistics report and summary documents but please note that these require pandoc v2 (or RStudio v1.2 which comes with the required version of pandoc). 
+
+You can access these templates in RStudio by clicking File -> New File -> R Markdown -> From Template. Then you can give it a template name.
+
+**Please note that after loading the report templates, you need to update your working directory by going to Session -> Set Working Directory -> To Source File Location. Then navigate to that working directory and edit your report contents in "template name you just gave.Rmd". Once you are ready to create the report, open "create_report.R" and change the parameters as required (e.g. rmd_filename = "template name you just gave.Rmd"). Finally run all the codes to create the report.**
 
 ### Adding a new template
 1. Clone phstemplates and load it up in RStudio
