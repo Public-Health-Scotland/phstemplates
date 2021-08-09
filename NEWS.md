@@ -1,3 +1,8 @@
+# phstemplates 0.9.4
+
+* Added PHS official stats summary and report documents.
+* Added PHS Powerpoint 16:9 template.
+
 # phstemplates 0.9.3
 
 * Removed use of renv global cache directories.
