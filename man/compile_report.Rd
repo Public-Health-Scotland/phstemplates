@@ -5,7 +5,7 @@
 \title{compile_report}
 \usage{
 compile_report(
-  rmd_filename = list.files(pattern = "\\\\.Rmd$"),
+  rmd_filename = list.files(pattern = "\\\\.Rmd$")[1],
   cover_filename = "Cover_Page.docx",
   title = "My Title",
   subtitle = "My Subtitle",

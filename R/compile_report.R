@@ -14,7 +14,7 @@
 #' \dontrun{
 #' compile_report()
 #' }
-compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$"),
+compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$")[1],
                            cover_filename = "Cover_Page.docx",
                            title = "My Title",
                            subtitle = "My Subtitle",
@@ -77,6 +77,7 @@ compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$"),
             "This document contains fields that may refer to other files. ",
             "Do you want to update the fields in this document?\n",
             "Click Yes\n",
+            "This appears because the table of contents was added programatically\n",
             "If you want to get rid of this warning, re-save the file after opening it")
 
     if (auto_open) {
