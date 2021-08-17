@@ -5,7 +5,19 @@ output:
     fig_caption: no
 ---
 
-<!-- PLEASE NOTE THAT YOU FIRST NEED TO UPDATE YOUR WORKING DIRECTORY BY GOING TO Session -> Set Working Directory -> To Source File Location. THEN EDIT THIS FILE FOR YOUR REPORT CONTENTS. ONCE YOU ARE READY TO CREATE THE REPORT, NAVIGATE TO YOUR WORKING DIRECTORY AND OPEN 'create_report.R'. CHANGE THE PARAMETERS AS REQUIRED (e.g. rmd_filename = "template name you gave.Rmd") AND RUN ALL THE CODES TO COMPILE THE WHOLE REPORT WITH COVER PAGE AND TABLE OF CONTENTS. -->
+<!-- INSTRUCTIONS -->
+<!-- PLEASE NOTE THAT YOU FIRST NEED TO UPDATE YOUR WORKING DIRECTORY -->
+<!-- YOU CAN DO THIS BY RUNNING THE CHUNK DIRECTLY BELOW CALLED run_this_chunk OR BY GOING TO Session -> Set Working Directory -> To Source File Location -->
+<!-- THEN EDIT THIS RMARKDOWN FILE FOR YOUR REPORT CONTENTS -->
+<!-- ONCE YOU ARE READY TO CREATE THE REPORT, RUN 'create_report.R', CHANGING THE PARAMETERS AS REQUIRED -->
+<!-- THIS COMPILES THE WHOLE REPORT WITH COVER PAGE AND TABLE OF CONTENTS INCLUDED -->
+```{r run_this_chunk, include = FALSE}
+if (interactive() && rstudioapi::isAvailable()) {
+  setwd(dirname(rstudioapi::documentPath()))
+  rstudioapi::filesPaneNavigate(getwd())
+  file.edit("create_report.R")
+}
+```
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE)

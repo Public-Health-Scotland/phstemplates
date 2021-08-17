@@ -1,3 +1,8 @@
+# phstemplates 0.9.5
+
+* Added compile_report() function to handle creating reports.
+* Added a code chunk at the top of report templates to help set the working directory.
+
 # phstemplates 0.9.4
 
 * Added PHS official stats summary and report documents.

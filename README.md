@@ -70,7 +70,7 @@ This package currently provides a number of RMarkdown templates including templa
 
 You can access these templates in RStudio by clicking File -> New File -> R Markdown -> From Template. Then you can give it a template name.
 
-**Please note that after loading the report templates, you need to update your working directory by going to Session -> Set Working Directory -> To Source File Location. Then navigate to that working directory and edit your report contents in "template name you just gave.Rmd". Once you are ready to create the report, open "create_report.R" and change the parameters as required (e.g. rmd_filename = "template name you just gave.Rmd"). Finally run all the codes to create the report.**
+**Please note that after loading the report templates, you need to update your working directory. Instructions to do this are included at the top of the RMarkdown template file.**
 
 ### Adding a new template
 1. Clone phstemplates and load it up in RStudio
