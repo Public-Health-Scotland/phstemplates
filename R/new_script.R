@@ -31,7 +31,7 @@ new_script <- function() {
   }
 
   if (!is.null(author) & rstudioapi::getVersion() >= 1.2) {
-    rstudioapi::documentNew(r_code, type = "r")
+    invisible(rstudioapi::documentNew(r_code, type = "r"))
   } else if (!is.null(author) & rstudioapi::getVersion() < 1.2) {
     filename <- rstudioapi::showPrompt(title = "Filename",
                                        message = "Filename for new script\nYou can choose a folder to store this in after this",
