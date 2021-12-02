@@ -51,22 +51,24 @@ compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$")[1],
     officer::read_docx("temp_report.docx") %>%
       officer::cursor_reach(keyword = "Introduction") %>%
       officer::body_add_toc(pos = "before") %>%
-      officer::body_add_par("Contents", pos = "before", style = "Contents Header") %>%
+      officer::body_add_par("Contents", pos = "before", style = "TOC Heading") %>%
       officer::cursor_reach(keyword = "Introduction") %>%
       officer::body_add_break(pos = "before") %>%
       print("temp_report2.docx")
 
     # Cover Page
     cover_page <- officer::read_docx(cover_filename) %>%
-      officer::body_replace_all_text("Insert publication title here", title) %>%
+      officer::body_replace_all_text("Title", title) %>%
       officer::body_replace_all_text("Subtitle", subtitle) %>%
       officer::body_replace_all_text("DD Month YYYY", date)
 
     # Combine Cover and Report
     cover_page %>%
       officer::cursor_end() %>%
+      officer::body_remove() %>%
       officer::body_add_break() %>%
       officer::body_add_docx("temp_report2.docx") %>%
+      officer::set_doc_properties(title = title) %>%
       print(filename_out)
 
     # Remove Temporary Files
@@ -77,7 +79,7 @@ compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$")[1],
             "This document contains fields that may refer to other files. ",
             "Do you want to update the fields in this document?\n",
             "Click Yes\n",
-            "This appears because the table of contents was added programatically\n",
+            "This appears because the table of contents was added programmatically\n",
             "If you want to get rid of this warning, re-save the file after opening it")
 
     if (auto_open) {

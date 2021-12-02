@@ -1,3 +1,7 @@
+# phstemplates 0.9.6
+
+* Added PHS officials stats summary and report documents for 2022.
+
 # phstemplates 0.9.5
 
 * Added compile_report() function to handle creating reports.
