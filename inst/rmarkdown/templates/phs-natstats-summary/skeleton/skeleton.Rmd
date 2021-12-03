@@ -58,7 +58,7 @@ chart <- ggplot(data = ChartData,
 ```
 
 <Div custom-style = "Publication subtitle">Subtitle</Div>
-<Div custom-style = "Stats designation">An National Statistics release for Scotland</Div>
+<Div custom-style = "Stats designation">A National Statistics release for Scotland</Div>
 <Div custom-style = "Publication date">Publication date: DD Month YYYY</Div>
 <Div custom-style = "Restricted Stats">RESTRICTED STATISTICS: embargoed to 09:30 dd/mm/yyyy</Div>
 
