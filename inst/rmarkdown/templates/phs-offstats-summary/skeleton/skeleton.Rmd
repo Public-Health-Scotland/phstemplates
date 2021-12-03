@@ -1,5 +1,5 @@
 ---
-title: "Publication title"
+title: "Title"
 output: 
   word_document:
     reference_docx: "phs-offstats-summary.docx"
