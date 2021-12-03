@@ -201,7 +201,7 @@ Phone number
 
 **Name, Job Title**  
 Service  
-Phone  
+Phone number  
 [phs.generic-team-email@phs.scot](mailto:phs.generic-team-email@phs.scot)
 
 For all media enquiries please email [phs.comms@phs.scot](mailto:phs.comms@phs.scot) or call 0131 275 6105.
