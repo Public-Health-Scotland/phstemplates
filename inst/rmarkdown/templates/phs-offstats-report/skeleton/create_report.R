@@ -5,7 +5,7 @@
 # working directory
 phstemplates::compile_report(
   rmd_filename   = list.files(pattern = "\\.Rmd$")[1],
-  cover_filename = "Cover_Page.docx",
+  cover_filename = "phs-offstats-cover.docx",
   title          = "My Title",
   subtitle       = "My Subtitle",
   date           = "DD Month YYYY",
