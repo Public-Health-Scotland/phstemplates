@@ -173,14 +173,6 @@ Pellentesque aliquam imperdiet neque et interdum. Nulla sodales tellus magna, id
 ### Heading 3
 Mauris ac neque vel erat varius cursus. Praesent at molestie felis. Nunc eget ipsum non lectus facilisis dictum quis viverra magna. Pellentesque elementum condimentum accumsan. Nunc vel pharetra augue. Pellentesque vitae lectus cursus magna blandit aliquet. In aliquet sapien sit amet viverra aliquam.
 
-<!-- <Div custom-style = "TableChart title">`r fig_nums("cancer")`</Div> -->
-<!-- <Div custom-style = "Figure_Style"> -->
-<!-- ```{r fig-cancer, fig.width = 7, fig.height = 5.6, fig.cap = "Trend in invasive cancer detection rates for Scotland, three-year rolling periods (2007/10 to 2013/16). There is a bar for each three-year rolling period."} -->
-<!-- FigureTwo -->
-<!-- ``` -->
-<!-- </div> -->
-
-
 \newpage
 
 # Glossary  
