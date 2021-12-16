@@ -43,7 +43,7 @@ install.packages("phstemplates")
 ## How to use
 To use this project template, install the package by following the instructions above. After doing this you will then be able to create new R projects with the recommended PHS structure within RStudio by clicking File -> New Project... -> New Directory and selecting PHS R Project Template. As usual, name the project and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in subsequent sections of this README.
 
-This template aims to instil best practice within PHS and therefore git has been initialised for version control. However, if you are not using this then you can delete the .gitignore file. More information about [version control](https://github.com/Public-Health-Scotland/resources/blob/master/version-control.md).
+This template aims to instill best practice within PHS and therefore git has been initialised for version control. However, if you are not using this then you can delete the .gitignore file. More information about [version control](https://github.com/Public-Health-Scotland/resources/blob/master/version-control.md).
 
 If you are using git for version control then please be aware that the .gitignore contains the minimum recommended file types and folders to stop data being tracked and pushed to GitHub. Further guidance on using git and GitHub securely can be found [here](https://github.com/Public-Health-Scotland/GitHub-guidance).
 
