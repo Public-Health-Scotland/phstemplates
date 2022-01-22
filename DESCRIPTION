@@ -19,7 +19,8 @@ Suggests:
     tidyr,
     lubridate,
     ggplot2,
-    janitor
+    janitor,
+    gdtools
 Imports: 
     magrittr,
     rmarkdown,
