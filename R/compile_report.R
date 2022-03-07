@@ -46,7 +46,7 @@ compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$")[1],
 
     # Create Report and Add Table of Contents
     rmarkdown::render(rmd_filename, output_file = "temp_report.docx",
-                      envir = new.env())
+                      envir = new.env(), output_dir = getwd())
 
     officer::read_docx("temp_report.docx") %>%
       officer::cursor_reach(keyword = "Introduction") %>%
