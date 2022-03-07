@@ -12,7 +12,7 @@ output:
 <!-- THEN EDIT THIS RMARKDOWN FILE FOR YOUR REPORT CONTENTS -->
 <!-- ONCE YOU ARE READY TO CREATE THE REPORT, RUN 'create_report.R', CHANGING THE PARAMETERS AS REQUIRED -->
 <!-- THIS COMPILES THE WHOLE REPORT WITH COVER PAGE AND TABLE OF CONTENTS INCLUDED -->
-```{r run_this_chunk, include = FALSE}
+```{r run_this_chunk, include = FALSE, eval = FALSE}
 if (interactive() && rstudioapi::isAvailable()) {
   setwd(dirname(rstudioapi::documentPath()))
   rstudioapi::filesPaneNavigate(getwd())
