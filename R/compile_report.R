@@ -8,7 +8,7 @@
 #' @param date Date of Publication.
 #' @param filename_out Output filename for compiled report.
 #' @param auto_open Automatically open the report after it is compiled?
-#' @param toc_level Option to change the levels in the table of contents
+#' @param toc_level Maximum title level to use for table of contents.
 #' @return Report with table of contents and front cover included in docx format.
 #' @export
 #' @examples
