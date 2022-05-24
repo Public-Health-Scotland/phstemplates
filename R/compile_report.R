@@ -8,6 +8,7 @@
 #' @param date Date of Publication.
 #' @param filename_out Output filename for compiled report.
 #' @param auto_open Automatically open the report after it is compiled?
+#' @param toc_level Maximum title level to use for table of contents.
 #' @return Report with table of contents and front cover included in docx format.
 #' @export
 #' @examples
@@ -20,7 +21,8 @@ compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$")[1],
                            subtitle = "My Subtitle",
                            date = "DD Month YYYY",
                            filename_out = "Report_and_Cover.docx",
-                           auto_open = TRUE) {
+                           auto_open = TRUE,
+                           toc_level = 3) {
 
   rmd_exists <- file.exists(rmd_filename)
   cover_exists <- file.exists(cover_filename)
@@ -50,7 +52,7 @@ compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$")[1],
 
     officer::read_docx("temp_report.docx") %>%
       officer::cursor_reach(keyword = "Introduction") %>%
-      officer::body_add_toc(pos = "before") %>%
+      officer::body_add_toc(pos = "before", level = toc_level) %>%
       officer::body_add_par("Contents", pos = "before", style = "TOC Heading") %>%
       officer::cursor_reach(keyword = "Introduction") %>%
       officer::body_add_break(pos = "before") %>%

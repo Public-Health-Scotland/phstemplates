@@ -11,7 +11,8 @@ compile_report(
   subtitle = "My Subtitle",
   date = "DD Month YYYY",
   filename_out = "Report_and_Cover.docx",
-  auto_open = TRUE
+  auto_open = TRUE,
+  toc_level = 3
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ compile_report(
 \item{filename_out}{Output filename for compiled report.}
 
 \item{auto_open}{Automatically open the report after it is compiled?}
+
+\item{toc_level}{Maximum title level to use for table of contents.}
 }
 \value{
 Report with table of contents and front cover included in docx format.
