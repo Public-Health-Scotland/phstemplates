@@ -2,7 +2,6 @@
 
 * Added the phs_report_docx RMarkdown document type.
 * Updated the PHS official and national stats report templates to use the phs_report_docx RMarkdown document type.
-* Removed the compile_report() function.
 * Removed the ISD national stats summary and report templates.
 
 # phstemplates 0.9.6

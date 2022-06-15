@@ -25,6 +25,6 @@ Suggests:
     gdtools
 Imports: 
     magrittr,
-    rmarkdown,
+    rmarkdown (>= 2.12),
     officer,
     renv
