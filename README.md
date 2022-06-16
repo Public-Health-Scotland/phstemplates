@@ -41,7 +41,7 @@ install.packages("phstemplates")
 ```
 
 ## How to use
-To use this project template, install the package by following the instructions above. After doing this you will then be able to create new R projects with the recommended PHS structure within RStudio by clicking File -> New Project... -> New Directory and selecting PHS R Project Template. As usual, name the project and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in subsequent sections of this README.
+To use this project template, install the package by following the instructions above. After doing this you will then be able to create new R projects with the recommended PHS structure within RStudio by clicking **File -> New Project... -> New Directory and selecting PHS R Project Template**. Name the project and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in subsequent sections of this README.
 
 This template aims to instil best practice within PHS and therefore git has been initialised for version control. However, if you are not using this then you can delete the .gitignore file. More information about [version control](https://github.com/Public-Health-Scotland/resources/blob/master/version-control.md).
 
@@ -66,11 +66,9 @@ This template is also intended to be flexible, so you may not require every file
   * `r-project.Proj` - R project
 
 ## RMarkdown Templates
-This package currently provides a number of RMarkdown templates including templates for PHS national statistics report and summary documents but please note that these require pandoc v2 (or RStudio v1.2 which comes with the required version of pandoc). 
+This package currently provides a number of RMarkdown templates including templates for PHS national statistics report and summary documents but please note that these require pandoc v2 (or RStudio v1.2 which comes with the required version of pandoc). You can check the version of pandoc that you have with `rmarkdown::pandoc_version()`.
 
-You can access these templates in RStudio by clicking File -> New File -> R Markdown -> From Template. Then you can give it a template name.
-
-**Please note that after loading the report templates, you need to update your working directory. Instructions to do this are included at the top of the RMarkdown template file.**
+You can access these templates in RStudio by clicking **File -> New File -> R Markdown -> From Template**.
 
 ### Adding a new template
 1. Clone phstemplates and load it up in RStudio
