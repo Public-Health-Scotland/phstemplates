@@ -12,7 +12,7 @@ Encoding: UTF-8
 URL: https://github.com/Public-Health-Scotland/phstemplates
 BugReports: https://github.com/Public-Health-Scotland/phstemplates/issues
 LazyData: true
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
 Suggests: 
     rstudioapi,
     dplyr,
