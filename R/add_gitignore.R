@@ -1,13 +1,13 @@
-#' add_ignore_file
+#' add_gitignore
 #' @description Add PHS template .gitignore file to chosen directory. This function is intended for use in R Studio.
 #'
 #' @return Adds .gitignore file to directory, or appends content to existing file.
 
 #' @examples
 #' \dontrun{
-#' add_ignore_file()
+#' add_gitignore()
 #' }
-add_ignore_file <- function() {
+add_gitignore <- function() {
 
   project_directory <- rstudioapi::selectDirectory(caption="Select folder to add .gitignore")
 
