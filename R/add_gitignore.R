@@ -1,3 +1,10 @@
+#' add_gitignore
+#'
+#' @description Add PHS template .gitignore file or append to existing file. This function is meant to be used within RStudio.
+#' @return PHS .gitignore content added to .gitignore file
+#' @export
+#'
+#' @examples
 add_gitignore <- function() {
 
   project_directory <- rstudioapi::selectDirectory(caption="Select folder to add .gitignore")
