@@ -7,11 +7,9 @@
 #' \dontrun{
 #' add_gitignore()
 #' }
-add_gitignore <- function() {
+add_gitignore <- function(path=rstudioapi::selectDirectory(caption="Select folder to add .gitignore")) {
 
-  project_directory <- rstudioapi::selectDirectory(caption="Select folder to add .gitignore")
-
-  if(is.null(project_directory)){
+  if(is.null(path)){
     return(message(".gitignore file not added."))
   }
 
@@ -48,18 +46,20 @@ add_gitignore <- function() {
   gitignore <- paste(gitignore, collapse = "\n")
 
   # Search for existing gitignore in path
-  if(file.exists(paste0(project_directory, ".gitignore"))){
+  if(file.exists(paste0(path, ".gitignore"))){
     append <- rstudioapi::showQuestion(title = "Append to existing .gitignore?",
                                        message = "You already have a .gitignore file. Should I append the PHS gitignore or overwrite?",
                                        "Append", "Overwrite")
     if(is.null(append)){
       return(message(".gitignore file not added. Please set correct directory and try again."))
     }
+  } else {
+    append <- FALSE
   }
 
   opencon <- ifelse(append, "a", "w")
 
-  filecon <- file(paste0(project_directory, "/.gitignore"), open=opencon)
+  filecon <- file(paste0(path, "/.gitignore"), open=opencon)
   writeLines(gitignore, con = filecon)
   close(filecon)
 
