@@ -12,7 +12,7 @@ add_gitignore <- function() {
   project_directory <- rstudioapi::selectDirectory(caption="Select folder to add .gitignore")
 
   if(is.null(project_directory)){
-    return(message(".gitignore file not added. Please set correct directory and try again."))
+    return(message(".gitignore file not added."))
   }
 
   # gitignore content to add
