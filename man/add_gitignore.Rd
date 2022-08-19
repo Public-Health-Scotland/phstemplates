@@ -4,13 +4,22 @@
 \alias{add_gitignore}
 \title{add_gitignore}
 \usage{
-add_gitignore()
+add_gitignore(
+  path = rstudioapi::selectDirectory(caption = "Select folder to add .gitignore"),
+  append = NULL
+)
+}
+\arguments{
+\item{path}{String: path to add .gitignore file. If left blank, will prompt the user within R Studio}
+
+\item{append}{Logical: if a .gitignore already exists, whether to append contents (TRUE) or overwrite (FALSE).
+If left blank will prompt the user within R Studio.}
 }
 \value{
 Adds .gitignore file to directory, or appends content to existing file.
 }
 \description{
-Add PHS template .gitignore file to chosen directory. This function is intended for use in R Studio.
+Add PHS template .gitignore file to chosen directory.
 }
 \examples{
 \dontrun{
