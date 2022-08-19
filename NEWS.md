@@ -1,4 +1,10 @@
-# phstemplate 1.0.0
+# phstemplates 1.0.1
+
+* Added add_gitignore() function which allows the user to add a PHS style .gitignore file to a given directory
+* Minor updates to template text and fixed README link
+
+
+# phstemplates 1.0.0
 
 * Added the phs_report_docx RMarkdown document type.
 * Updated the PHS official and national stats report templates to use the phs_report_docx RMarkdown document type.
@@ -43,7 +49,7 @@
 
 # phstemplates 0.8.2
 
-* Renamed project function to `phsproject()` in preparation for package name change.
+* Renamed project function to phsproject() in preparation for package name change.
 * Better error checking of filepaths for the RStudio 1.2 HPS report template.
 
 # phstemplates 0.8.1
