@@ -6,7 +6,7 @@
 #' If left blank will prompt the user within R Studio.
 #'
 #' @return Adds .gitignore file to directory, or appends content to existing file.
-#'
+#' @export
 #' @examples
 #' \dontrun{
 #' add_gitignore()
