@@ -1,4 +1,9 @@
-Name: New phsproject R Script
+Name: New phstemplates R Script
 Description: create new R script from phsproject template
 Binding: new_script
+Interactive: true
+
+Name: Add PHS .gitignore file
+Description: Add a PHS style .gitignore file to a chosen directory
+Binding: add_gitignore
 Interactive: true

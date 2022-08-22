@@ -1,5 +1,5 @@
 script_template <- function(author = Sys.info()[["user"]]) {
-  author <- paste("#", author)
+  author <- paste("# Original author(s):", author)
   orig_date <- paste("# Original date:", Sys.Date())
   run_on <- paste0("# Written/run on RStudio " , RStudio.Version()$mode, " ",
                    RStudio.Version()$version, " and R ",
