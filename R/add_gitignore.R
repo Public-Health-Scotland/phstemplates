@@ -7,7 +7,6 @@
 #'
 #' @return Adds .gitignore file to directory, or appends content to existing file.
 #' @export
-#'
 #' @examples
 #' \dontrun{
 #' add_gitignore()
