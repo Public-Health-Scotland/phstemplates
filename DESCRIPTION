@@ -27,4 +27,5 @@ Imports:
     magrittr,
     rmarkdown (>= 2.12),
     officer,
-    renv
+    renv,
+    utils

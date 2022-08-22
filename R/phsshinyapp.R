@@ -305,11 +305,11 @@ phsshinyapp <- function(path, author, app_name = "WRITE APP NAME HERE",
 
   # Getting images needed for shiny app by downloading from Github
   # TODO: change branch from shiny_template to master just before merge
-  download_logo <- download.file(
+  download_logo <- utils::download.file(
     url="https://raw.githubusercontent.com/Public-Health-Scotland/phstemplates/shiny_template/images/phs-logo.png",
     destfile=file.path(path, "www", "phs-logo.png"),
     method="auto")
-  download_favicon <- download.file(
+  download_favicon <- utils::download.file(
     url="https://raw.githubusercontent.com/Public-Health-Scotland/phstemplates/shiny_template/images/favicon_phs.ico",
     destfile=file.path(path, "www", "favicon_phs.ico"),
     method="auto")
