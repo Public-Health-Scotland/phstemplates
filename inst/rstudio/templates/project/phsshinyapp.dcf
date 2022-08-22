@@ -1,0 +1,28 @@
+Binding: phsshinyapp
+Title: PHS R Shiny App
+OpenFiles: app.R
+
+Parameter: author
+Widget: TextInput
+Label: Author
+Default: Original author(s)
+
+Parameter: app_name
+Widget: TextInput
+Label: App Name
+Default: WRITE APP NAME HERE
+
+Parameter: git
+Widget: CheckboxInput
+Label: Initialise with Git
+Default: Off
+
+Parameter: renv
+Widget: CheckboxInput
+Label: Initialise with renv (package management)
+Default: Off
+
+Parameter: overwrite
+Widget: CheckboxInput
+Label: Overwrite existing directory (if present)
+Default: Off
