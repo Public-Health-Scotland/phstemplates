@@ -9,7 +9,8 @@ phsshinyapp(
   author,
   app_name = "WRITE APP NAME HERE",
   git = FALSE,
-  renv = FALSE
+  renv = FALSE,
+  overwrite = FALSE
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ phsshinyapp(
 \item{git}{Logical: Initialise the project with Git.}
 
 \item{renv}{Logical: Initialise the project with package management using renv.}
+
+\item{overwrite}{Logical: Whether to overwrite directory at existing path when creating directory.}
 }
 \value{
 New project created according to the PHS R project structure.
