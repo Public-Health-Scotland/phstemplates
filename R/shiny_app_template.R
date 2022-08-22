@@ -54,7 +54,7 @@ shiny_app_template <- function(app_name, author = Sys.info()[['user']]) {
     '    value = "intro",',
     '',
     '    h1("Page 1 title"),',
-    '    uiOutput("intro_page_ui")',
+    '    uiOutput("page_1_ui")',
     '',
     '    ) # tabpanel',
     '    ) # navbar',

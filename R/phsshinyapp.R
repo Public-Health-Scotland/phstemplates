@@ -126,6 +126,36 @@ phsshinyapp <- function(path, author, app_name = "WRITE APP NAME HERE",
     '}'
   )
 
+  intro_page_code <- c(
+    '####################### Intro Page #######################',
+    '',
+    'output$intro_page_ui <-  renderUI({',
+    '',
+    '  div(',
+    '	     fluidRow(',
+    '            h3("This is a header"),',
+    '	           p("This is some text"), ',
+    '	           p(strong("This is some bold text"))',
+    '	      ) #fluidrow',
+    '   ) # div',
+    '}) # renderUI'
+  )
+
+  page_1_code <- c(
+    '####################### Page 1 #######################',
+    '',
+    'output$page_1_ui <-  renderUI({',
+    '',
+    '  div(',
+    '	     fluidRow(',
+    '            h3("This is a header"),',
+    '	           p("This is some text"), ',
+    '	           p(strong("This is some bold text"))',
+    '	      ) #fluidrow',
+    '   ) # div',
+    '}) # renderUI'
+  )
+
   # Read css
 
   css_code <- c(
@@ -298,8 +328,8 @@ phsshinyapp <- function(path, author, app_name = "WRITE APP NAME HERE",
   writeLines("", con = file.path(path, "functions", "page_1_functions.R"))
   writeLines(core_functions_code, con = file.path(path, "functions", "core_functions.R"))
 
-  writeLines("", con = file.path(path, "pages", "intro_page.R"))
-  writeLines("", con = file.path(path, "pages", "page_1.R"))
+  writeLines(intro_page_code, con = file.path(path, "pages", "intro_page.R"))
+  writeLines(page_1_code, con = file.path(path, "pages", "page_1.R"))
 
   writeLines(css_code, con = file.path(path, "www", "styles.css"))
 
