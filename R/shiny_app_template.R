@@ -7,7 +7,7 @@ shiny_app_template <- function(app_name, author = Sys.info()[['user']]) {
 
   r_code <- c(
     '##########################################################',
-    '# Name of app',
+    paste0('# ', app_name),
     author,
     orig_date,
     run_on,
