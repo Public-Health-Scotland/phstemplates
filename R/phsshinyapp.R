@@ -7,6 +7,7 @@
 #' @param app_name String: name of application.
 #' @param git Logical: Initialise the project with Git.
 #' @param renv Logical: Initialise the project with package management using renv.
+#' @param overwrite Logical: Whether to overwrite directory at existing path when creating directory.
 #' @return New project created according to the PHS R project structure.
 #' @export
 #' @examples
@@ -14,9 +15,24 @@
 #' phsshinyapp(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
 #' }
 phsshinyapp <- function(path, author, app_name = "WRITE APP NAME HERE",
-                           git = FALSE, renv = FALSE) {
+                           git = FALSE, renv = FALSE, overwrite = FALSE) {
+
+  # Checking if path already exists
   if (dir.exists(path)) {
-    stop("This directory already exists")
+    if (overwrite){
+      message("Overwriting existing directory")
+    } else {
+      overwrite <- rstudioapi::showQuestion(title = "Overwrite existing directory?",
+                               message = "Path already exists. Overwrite existing directory?",
+                               "Yes", "No")
+    }
+    if (overwrite){
+      # Delete files so they can be overwritten
+      deletefiles <- list.files(path, include.dirs = F, full.names = T, recursive = T)
+      file.remove(deletefiles)
+    } else {
+      stop("Directory already exists")
+    }
   }
 
   # Making directory structure
