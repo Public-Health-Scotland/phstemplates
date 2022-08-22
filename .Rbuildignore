@@ -1,6 +1,7 @@
-.git
-.gitignore
+^\\.git$
+^\\.gitignore$
 ^README\.Rmd$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.github$
+\.css$
