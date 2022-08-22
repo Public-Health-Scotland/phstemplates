@@ -303,6 +303,22 @@ phsshinyapp <- function(path, author, app_name = "WRITE APP NAME HERE",
 
   writeLines(css_code, con = file.path(path, "www", "styles.css"))
 
+  # Getting images needed for shiny app by downloading from Github
+  # TODO: change branch from shiny_template to master just before merge
+  download_logo <- download.file(
+    url="https://raw.githubusercontent.com/Public-Health-Scotland/phstemplates/shiny_template/images/phs-logo.png",
+    destfile=file.path(path, "www", "phs-logo.png"),
+    method="auto")
+  download_favicon <- download.file(
+    url="https://raw.githubusercontent.com/Public-Health-Scotland/phstemplates/shiny_template/images/favicon_phs.ico",
+    destfile=file.path(path, "www", "favicon_phs.ico"),
+    method="auto")
+
+  if (download_logo | download_favicon){
+    message("PHS logo and favicon download failed. Please obtain these images \
+            for them to show in the shiny app")
+  }
+
 
   if (git) {
     if (Sys.info()[["sysname"]] == "Windows") {
