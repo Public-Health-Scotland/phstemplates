@@ -1,6 +1,6 @@
 Binding: phsshinyapp
 Title: PHS R Shiny App
-OpenFiles: app.R
+OpenFiles: README.md
 
 Parameter: author
 Widget: TextInput

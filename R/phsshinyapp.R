@@ -71,6 +71,27 @@ phsshinyapp <- function(path, author, app_name = "WRITE APP NAME HERE",
     ".DS_Store"
   )
 
+  readme <- c(
+    paste("#", app_name),
+    "",
+    "PHS shiny app template",
+    "",
+    "## Instructions for use",
+    "",
+    "* Run the app by opening app.R and clicking 'Run' in the top right hand corner",
+    "* `setup.R` contains required packages and is where any data should be read in",
+    "* `data` is a folder for storing data to be read in",
+    "* `www` contains the app stylesheet and PHS icon images",
+    "* `pages` should contain an R script for each tab in your app with the content of that tab. This needs to be linked back to the ui in app.R",
+    "* `functions` contains R scripts with functions for the app",
+    "",
+    "## PHS shiny app examples",
+    "",
+    "* [COVID-19 dashboard](https://github.com/Public-Health-Scotland/COVID-19-Publication-Dashboard)",
+    "* [COVID-19 wider impacts dashboard](https://github.com/Public-Health-Scotland/covid-wider-impacts/tree/master/shiny_app)",
+    "* [ScotPHO profiles](https://github.com/Public-Health-Scotland/scotpho-profiles-tool)"
+  )
+
   r_code <- shiny_app_template(app_name = app_name, author = author)
 
   rproj_settings <- c(
@@ -320,6 +341,7 @@ phsshinyapp <- function(path, author, app_name = "WRITE APP NAME HERE",
   if (git){
     writeLines(gitignore, con = file.path(path, ".gitignore"))
   }
+  writeLines(readme, con = file.path(path, "README.md"))
   writeLines(rproj_settings, con = file.path(path, paste0(basename(path), ".Rproj")))
   writeLines(r_code, con = file.path(path, "app.R"))
   writeLines(setup_code, con = file.path(path, "setup.R"))
