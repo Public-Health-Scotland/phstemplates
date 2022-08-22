@@ -4,7 +4,7 @@ Authors@R: c(
     person("Alan", "Yeung", email = "alan.yeung@phs.scot", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5226-3695")),
     person("Anna", "Price", email = "Anna.Price@Statistics.gov.uk", role = "aut")
     )
-Version: 1.0.0
+Version: 1.0.1
 Description: Templates for Public Health Scotland.
 Depends: R (>= 3.2.0)
 License: GPL (>= 2)
