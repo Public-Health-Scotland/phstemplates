@@ -13,8 +13,22 @@
 #' phsproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
 #' }
 phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
+    # Checking if path already exists
     if (dir.exists(path)) {
-        stop("This directory already exists")
+      if (overwrite){
+        message("Overwriting existing directory")
+      } else {
+        overwrite <- rstudioapi::showQuestion(title = "Overwrite existing directory?",
+                                              message = "Path already exists. Overwrite existing directory?",
+                                              "Yes", "No")
+      }
+      if (overwrite){
+        # Delete files so they can be overwritten
+        deletefiles <- list.files(path, include.dirs = F, full.names = T, recursive = T)
+        file.remove(deletefiles)
+      } else {
+        stop("Directory already exists")
+      }
     }
 
     n_scripts <- as.numeric(n_scripts)
