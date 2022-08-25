@@ -11,10 +11,10 @@
 #' \dontrun{
 #' add_gitignore()
 #' }
-add_gitignore <- function(path=rstudioapi::selectDirectory(caption="Select folder to add .gitignore"),
-                          append=NULL) {
+add_gitignore <- function(path = rstudioapi::selectDirectory(caption = "Select folder to add .gitignore"),
+                          append = NULL) {
 
-  if(is.null(path)){
+  if (is.null(path)) {
     return(message(".gitignore file not added."))
   }
 
@@ -51,15 +51,17 @@ add_gitignore <- function(path=rstudioapi::selectDirectory(caption="Select folde
   gitignore <- paste(gitignore, collapse = "\n")
 
   # Search for existing gitignore in path
-  if(file.exists(paste0(path, "/.gitignore"))){
+  if (file.exists(paste0(path, "/.gitignore"))) {
     # If append not set by user, prompt for whether to append
-    if(is.null(append)){
-      append <- rstudioapi::showQuestion(title = "Append to existing .gitignore?",
-                                         message = "You already have a .gitignore file. Should I append the PHS gitignore or overwrite?",
-                                         "Append", "Overwrite")
+    if (is.null(append)) {
+      append <- rstudioapi::showQuestion(
+        title = "Append to existing .gitignore?",
+        message = "You already have a .gitignore file. Should I append the PHS gitignore or overwrite?",
+        "Append", "Overwrite"
+      )
     }
     # If user has still not set whether to append, don't add .gitignore
-    if(is.null(append)){
+    if (is.null(append)) {
       return(message(".gitignore file not added."))
     }
   } else {
@@ -68,7 +70,7 @@ add_gitignore <- function(path=rstudioapi::selectDirectory(caption="Select folde
 
   opencon <- ifelse(append, "a", "w")
 
-  filecon <- file(paste0(path, "/.gitignore"), open=opencon)
+  filecon <- file(paste0(path, "/.gitignore"), open = opencon)
   writeLines(gitignore, con = filecon)
   close(filecon)
 

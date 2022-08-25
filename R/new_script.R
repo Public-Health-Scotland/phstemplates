@@ -9,13 +9,15 @@
 #' }
 new_script <- function() {
 
-  author = rstudioapi::showPrompt(title = "Author",
-                                  message = "Name of Author",
-                                  default = Sys.info()[["user"]])
+  author <- rstudioapi::showPrompt(title = "Author",
+                                   message = "Name of Author",
+                                   default = Sys.info()[["user"]])
 
-  git <- rstudioapi::showQuestion(title = "Git",
-                                  message = "Are you version controlling using git?",
-                                  "Yes", "No")
+  git <- rstudioapi::showQuestion(
+    title = "Git",
+    message = "Are you version controlling using git?",
+    "Yes", "No"
+  )
 
   r_code <- script_template(author = author)
 
@@ -30,12 +32,14 @@ new_script <- function() {
     r_code <- paste0(r_code_part1, r_code_part2, collapse = "")
   }
 
-  if (!is.null(author) & rstudioapi::getVersion() >= 1.2) {
+  if (!is.null(author) && rstudioapi::getVersion() >= 1.2) {
     invisible(rstudioapi::documentNew(r_code, type = "r"))
-  } else if (!is.null(author) & rstudioapi::getVersion() < 1.2) {
-    filename <- rstudioapi::showPrompt(title = "Filename",
-                                       message = "Filename for new script\nYou can choose a folder to store this in after this",
-                                       default = "code.R")
+  } else if (!is.null(author) && rstudioapi::getVersion() < 1.2) {
+    filename <- rstudioapi::showPrompt(
+      title = "Filename",
+      message = "Filename for new script\nYou can choose a folder to store this in after this",
+      default = "code.R"
+    )
     folder <- rstudioapi::selectDirectory()
 
     writeLines(r_code, con = file.path(folder, filename))

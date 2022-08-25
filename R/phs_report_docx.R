@@ -56,7 +56,7 @@ phs_report_docx <- function(toc = FALSE,
 
   # knitr options and hooks
   knitr <- rmarkdown::knitr_options(
-    opts_chunk = list(dev = 'png',
+    opts_chunk = list(dev = "png",
                       dpi = 96,
                       fig.width = fig_width,
                       fig.height = fig_height)
@@ -132,10 +132,12 @@ phs_report_docx <- function(toc = FALSE,
   # return output format
   rmarkdown::output_format(
     knitr = knitr,
-    pandoc = rmarkdown::pandoc_options(to = "docx",
-                                       from = rmarkdown::from_rmarkdown(fig_caption, md_extensions),
-                                       args = args,
-                                       lua_filters = lua_filters),
+    pandoc = rmarkdown::pandoc_options(
+      to = "docx",
+      from = rmarkdown::from_rmarkdown(fig_caption, md_extensions),
+      args = args,
+      lua_filters = lua_filters
+    ),
     keep_md = keep_md,
     df_print = df_print,
     pre_processor = pre_processor,
