@@ -6,13 +6,14 @@
 #' @param n_scripts Number of code files to start the project with.
 #' @param git Initialise the project with Git.
 #' @param renv Initialise the project with package management using renv.
+#' @param overwrite Logical: Whether to overwrite directory at existing path when creating directory.
 #' @return New project created according to the PHS R project structure.
 #' @export
 #' @examples
 #' \dontrun{
 #' phsproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
 #' }
-phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
+phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, overwrite = FALSE) {
     # Checking if path already exists
     if (dir.exists(path)) {
       if (overwrite){
