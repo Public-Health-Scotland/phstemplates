@@ -6,7 +6,7 @@
 \usage{
 phsshinyapp(
   path,
-  author,
+  author = Sys.info()[["user"]],
   app_name = "WRITE APP NAME HERE",
   git = FALSE,
   renv = FALSE,
@@ -35,6 +35,7 @@ This function is meant to be used within RStudio by going to the File menu, then
 }
 \examples{
 \dontrun{
-phsshinyapp(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
+phsshinyapp(path = file.path(getwd(), "testproj"), app_name = "My lovely app",
+author = "A Person", n_scripts = 1)
 }
 }
