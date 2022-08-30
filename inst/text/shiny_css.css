@@ -1,0 +1,145 @@
+/* CSS styles used in the shiny app */
+  :root{
+    --white: #ffffff;
+      --black: #000000;
+      --phs-purple: #3F3685;
+      --phs-blue: #0078D4;
+      --phs-green: #83BB26;
+      --phs-graphite: #948DA3;
+      --phs-magenta: #9B4393;
+      --phs-teal-30: #BCD9DA;
+      --phs-teal-50: #8FBFC2;
+      --phs-teal-80: #4B999D;
+      --phs-purple-80: #655E9D;
+      --phs-purple-30: #C5C3DA;
+      --phs-magenta-30: #E1C7DF;
+      --phs-liberty-10: #F0EFF3;
+      --light-grey: #ddd;
+  }
+
+/* Setting header colour */
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    color: var(--phs-purple);
+  }
+/* Body styles */
+  body {
+    font-family: Arial;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--black);
+    background-color: var(--white);
+  }
+
+/* Style sidebars/well panels */
+  .well {background-color:var(--white); border: 0 solid var(--phs-blue);
+    padding: 5px; box-shadow: none; }
+
+/* Navigation bar following PHS colour scheme */
+  .navbar-default {color: var(--white); background-color: var(--phs-purple); }
+.navbar-default .navbar-brand, .navbar-default:hover .navbar-brand:hover, .navbar-brand {color: var(--phs-purple); background-color: var(--white)}
+.navbar-default .navbar-nav > li > a {color: var(--white);}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+  color: var(--white);
+  background-color: var(--phs-purple-80);
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: var(--white);     background-color: var(--phs-purple-80);}
+
+/* Style hyperlinks */
+  .externallink {color: var(--phs-purple); font-weight: bold;}
+.externallink:hover {color: var(--phs-teal-50);}
+
+/* Border tables - th, td puts within the table as well */
+  .border-table{border:1px solid var(--phs-purple);}
+th, td {
+  border: 1px solid var(--phs-purple-30);
+  padding-right: 1px;
+}
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 20px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+/* Button styles */
+  .btn {
+    background-color: var(--phs-teal-50);
+    color: black; background-image:none;
+    border: 2px solid var(--phs-purple);
+    border-radius: 10px;
+  }
+.btn:hover{background-color:#9F9BC2; border: 2px solid var(--phs-purple-30);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 8px 20px 0 rgba(0,0,0,0.19);
+}
+.btn:focus{background-color:#9F9BC2; border: 2px solid var(--phs-purple-30);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 8px 20px 0 rgba(0,0,0,0.19);}
+.btn:active{background-color:#9F9BC2; border: 2px solid var(--phs-purple-30);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 8px 20px 0 rgba(0,0,0,0.19);}
+.btn:checked{background-color:#9F9BC2; border: 2px solid var(--phs-purple-30);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 8px 20px 0 rgba(0,0,0,0.19);}
+
+/* Title of selectize input boxes*/
+  label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--phs-purple);
+  }
+/* Links */
+  a {
+    color: var(--phs-purple);
+    text-decoration: none;
+  }
+
+/* Dropdown menu */
+  .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+    color: var(--white);
+    text-decoration: none;
+    background-color: var(--phs-teal-50);
+    outline: 0;
+  }
+
+/* Data table page selectors */
+
+  .pagination > li > a
+{
+  background-color: var(--phs-liberty-10);
+  color: var(--phs-purple);
+  transition: background-color .3s;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+  color:var(--phs-purple);
+  background-color: var(--phs-teal-50);
+  border-color: var(--phs-teal-80);
+  border-radius: 5px;
+}
+
+.pagination > .active > a
+{
+  color: var(--phs-purple);
+  background-color: var(--phs-teal-50) !Important;
+  border: solid 1px var(--phs-teal-50) !Important;
+}
+
+.pagination > .active > a:hover
+{
+  background-color: var(--phs-teal-50) !Important;
+  border: solid 1px var(--phs-teal-50);
+}
+
+/* data table */
+
+  .table > .tbody > tr.active th,
+.table > .tbody > tr.active td{
+  background-color: var(--phs-purple);
+  color: var(--white);
+}
+
+/*
