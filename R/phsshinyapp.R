@@ -14,7 +14,7 @@
 #' \dontrun{
 #' phsshinyapp(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
 #' }
-phsshinyapp <- function(path, author, app_name = "WRITE APP NAME HERE",
+phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE APP NAME HERE",
                            git = FALSE, renv = FALSE, overwrite = FALSE) {
 
   # Checking if path already exists
@@ -43,56 +43,9 @@ phsshinyapp <- function(path, author, app_name = "WRITE APP NAME HERE",
   dir.create(file.path(path, "www"), showWarnings = FALSE)
 
 
-  gitignore <- c(
-    ".Rproj.user",
-    ".Rhistory",
-    ".RData",
-    ".Ruserdata",
-    "",
-    "# 'data' folder #",
-    "data/",
-    "",
-    "# Common text files that may contain data #",
-    "*.[cC][sS][vV]",
-    "*.[tT][xX][tT]",
-    "",
-    "# Excel files #",
-    "*.[xX][lL][sS]*",
-    "",
-    "# SPSS formats #",
-    "*.[sS][aA][vV]",
-    "*.[zZ][sS][aA][vV]",
-    "",
-    "# R data files #",
-    "*.[rR][dD][aA][tT][aA]",
-    "*.[rR][dD][sS]",
-    "",
-    "# MacOS folder attributes files #",
-    ".DS_Store"
-  )
-
-  readme <- c(
-    paste("#", app_name),
-    "",
-    "PHS shiny app template",
-    "",
-    "## Instructions for use",
-    "",
-    "* Run the app by opening app.R and clicking 'Run' in the top right hand corner",
-    "* `setup.R` contains required packages and is where any data should be read in",
-    "* `data` is a folder for storing data to be read in",
-    "* `www` contains the app stylesheet and PHS icon images",
-    "* `pages` should contain an R script for each tab in your app with the content of that tab. This needs to be linked back to the ui in app.R",
-    "* `functions` contains R scripts with functions for the app",
-    "",
-    "## PHS shiny app examples",
-    "",
-    "* [COVID-19 dashboard](https://github.com/Public-Health-Scotland/COVID-19-Publication-Dashboard)",
-    "* [COVID-19 wider impacts dashboard](https://github.com/Public-Health-Scotland/covid-wider-impacts/tree/master/shiny_app)",
-    "* [ScotPHO profiles](https://github.com/Public-Health-Scotland/scotpho-profiles-tool)"
-  )
-
-  r_code <- shiny_app_template(app_name = app_name, author = author)
+  # Getting text from inst/
+  gitignore <- readLines("inst/text/.gitignore")
+  css_code <- readLines("inst/text/shiny_css.css")
 
   rproj_settings <- c(
     "Version: 1.0",
@@ -110,231 +63,21 @@ phsshinyapp <- function(path, author, app_name = "WRITE APP NAME HERE",
     "LaTeX: pdfLaTeX"
   )
 
-  setup_code <- c(
-    '####################### Setup #######################',
-    '',
-    '# Shiny packages',
-    'library(shiny)',
-    'library(shinycssloaders)',
-    '',
-    '# Data wrangling packages',
-    'library(dplyr)',
-    'library(magrittr)',
-    '',
-    '# Plotting packages',
-    'library(plotly)',
-    '',
-    '# PHS styling packages',
-    'library(phsstyles)',
-    '',
-    '# Load core functions',
-    'source("functions/core_functions.R")',
-    '',
-    '# LOAD IN DATA HERE',
-    '',
-    ''
-  )
-
-  core_functions_code <- c(
-    '####################### Core functions #######################',
-    '',
-    '# Add n linebreaks',
-    'linebreaks <- function(n){HTML(strrep(br(), n))}',
-    '',
-    '# Remove warnings from icons ----',
-    'icon_no_warning_fn = function(icon_name) {',
-    '  icon(icon_name, verify_fa=FALSE)',
-    '}'
-  )
-
-  intro_page_code <- c(
-    '####################### Intro Page #######################',
-    '',
-    'output$intro_page_ui <-  renderUI({',
-    '',
-    '  div(',
-    '	     fluidRow(',
-    '            h3("This is a header"),',
-    '	           p("This is some text"), ',
-    '	           p(strong("This is some bold text"))',
-    '	      ) #fluidrow',
-    '   ) # div',
-    '}) # renderUI'
-  )
-
-  page_1_code <- c(
-    '####################### Page 1 #######################',
-    '',
-    'output$page_1_ui <-  renderUI({',
-    '',
-    '  div(',
-    '	     fluidRow(',
-    '            h3("This is a header"),',
-    '	           p("This is some text"), ',
-    '	           p(strong("This is some bold text"))',
-    '	      ) #fluidrow',
-    '   ) # div',
-    '}) # renderUI'
-  )
-
-  # Read css
-
-  css_code <- c(
-     "/* CSS styles used in the shiny app */",
-     "  :root{",
-     "    --white: #ffffff;",
-     "      --black: #000000;",
-     "      --phs-purple: #3F3685;",
-     "      --phs-blue: #0078D4;",
-     "      --phs-green: #83BB26;",
-     "      --phs-graphite: #948DA3;",
-     "      --phs-magenta: #9B4393;",
-     "      --phs-teal-30: #BCD9DA;",
-     "      --phs-teal-50: #8FBFC2;",
-     "      --phs-teal-80: #4B999D;",
-     "      --phs-purple-80: #655E9D;",
-     "      --phs-purple-30: #C5C3DA;",
-     "      --phs-magenta-30: #E1C7DF;",
-     "      --phs-liberty-10: #F0EFF3;",
-     "      --light-grey: #ddd;",
-     "  }",
-     "",
-     "/* Setting header colour */",
-     "  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {",
-     "    color: var(--phs-purple);",
-     "  }",
-     "/* Body styles */",
-     "  body {",
-     "    font-family: Arial;",
-     "    font-size: 16px;",
-     "    line-height: 1.5;",
-     "    color: var(--black);",
-     "    background-color: var(--white);",
-     "  }",
-     "",
-     "/* Style sidebars/well panels */",
-     "  .well {background-color:var(--white); border: 0 solid var(--phs-blue);",
-     "    padding: 5px; box-shadow: none; }",
-     "",
-     "/* Navigation bar following PHS colour scheme */",
-     "  .navbar-default {color: var(--white); background-color: var(--phs-purple); }",
-     ".navbar-default .navbar-brand, .navbar-default:hover .navbar-brand:hover, .navbar-brand {color: var(--phs-purple); background-color: var(--white)}",
-     ".navbar-default .navbar-nav > li > a {color: var(--white);}",
-     ".navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {",
-     "  color: var(--white);",
-     "  background-color: var(--phs-purple-80);",
-     "}",
-     ".navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {",
-     "  color: var(--white);     background-color: var(--phs-purple-80);}",
-     "",
-     "/* Style hyperlinks */",
-     "  .externallink {color: var(--phs-purple); font-weight: bold;}",
-     ".externallink:hover {color: var(--phs-teal-50);}",
-     "",
-     "/* Border tables - th, td puts within the table as well */",
-     "  .border-table{border:1px solid var(--phs-purple);}",
-     "th, td {",
-     "  border: 1px solid var(--phs-purple-30);",
-     "  padding-right: 1px;",
-     "}",
-     ".container-fluid {",
-     "  padding-right: 15px;",
-     "  padding-left: 20px;",
-     "  margin-right: 15px;",
-     "  margin-left: 15px;",
-     "}",
-     "",
-     "/* Button styles */",
-     "  .btn {",
-     "    background-color: var(--phs-teal-50);",
-     "    color: black; background-image:none;",
-     "    border: 2px solid var(--phs-purple);",
-     "    border-radius: 10px;",
-     "  }",
-     ".btn:hover{background-color:#9F9BC2; border: 2px solid var(--phs-purple-30);",
-     "    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 8px 20px 0 rgba(0,0,0,0.19);",
-     "}",
-     ".btn:focus{background-color:#9F9BC2; border: 2px solid var(--phs-purple-30);",
-   "    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 8px 20px 0 rgba(0,0,0,0.19);}",
-     ".btn:active{background-color:#9F9BC2; border: 2px solid var(--phs-purple-30);",
-     "    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 8px 20px 0 rgba(0,0,0,0.19);}",
-     ".btn:checked{background-color:#9F9BC2; border: 2px solid var(--phs-purple-30);",
-     "    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 8px 20px 0 rgba(0,0,0,0.19);}",
-     "",
-     "/* Title of selectize input boxes*/",
-     "  label {",
-     "    display: inline-block;",
-     "    max-width: 100%;",
-     "    margin-bottom: 5px;",
-     "    font-weight: bold;",
-     "    color: var(--phs-purple);",
-     "  }",
-     "/* Links */",
-     "  a {",
-     "    color: var(--phs-purple);",
-     "    text-decoration: none;",
-     "  }",
-     "",
-     "/* Dropdown menu */",
-     "  .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {",
-     "    color: var(--white);",
-     "    text-decoration: none;",
-     "    background-color: var(--phs-teal-50);",
-     "    outline: 0;",
-     "  }",
-     "",
-     "/* Data table page selectors */",
-     "",
-     "  .pagination > li > a",
-     "{",
-     "  background-color: var(--phs-liberty-10);",
-     "  color: var(--phs-purple);",
-     "  transition: background-color .3s;",
-     "}",
-     "",
-     ".pagination > li > a:focus,",
-     ".pagination > li > a:hover,",
-     ".pagination > li > span:focus,",
-     ".pagination > li > span:hover",
-     "{",
-     "  color:var(--phs-purple);",
-     "  background-color: var(--phs-teal-50);",
-     "  border-color: var(--phs-teal-80);",
-     "  border-radius: 5px;",
-     "}",
-     "",
-     ".pagination > .active > a",
-     "{",
-     "  color: var(--phs-purple);",
-     "  background-color: var(--phs-teal-50) !Important;",
-     "  border: solid 1px var(--phs-teal-50) !Important;",
-     "}",
-     "",
-     ".pagination > .active > a:hover",
-     "{",
-     "  background-color: var(--phs-teal-50) !Important;",
-     "  border: solid 1px var(--phs-teal-50);",
-     "}",
-     "",
-     "/* data table */",
-     "",
-     "  .table > .tbody > tr.active th,",
-     ".table > .tbody > tr.active td{",
-     "  background-color: var(--phs-purple);",
-     "  color: var(--white);",
-     "}",
-     "",
-     "/*"
-  )
-
-  # collect into single text string
+  # Collect into single text string
   gitignore <- paste(gitignore, collapse = "\n")
   rproj_settings <- paste(rproj_settings, collapse = "\n")
-  r_code <- paste(r_code, collapse = "\n")
-  setup_code <- paste(setup_code, collapse="\n")
-  core_functions_code <- paste(core_functions_code, collapse="\n")
+  css_code <- paste(css_code, collapse="\n")
 
-  # write to index file
+  # Getting shiny app files from shiny_app_template function
+  readme <- shiny_app_template(file_to_get = "README.md")
+  setup_code <- shiny_app_template(file_to_get = "setup.R")
+  core_functions_code <- shiny_app_template(file_to_get = "core_functions.R")
+  intro_page_code <- shiny_app_template(file_to_get = "intro.R")
+  page_1_code <- shiny_app_template(file_to_get = "page_1.R")
+  r_code <- shiny_app_template(file_to_get = "app.R", app_name = app_name, author = author)
+
+
+  # Write to index file
   if (!renv) {
     writeLines("", con = file.path(path, ".Rprofile"))
   }
@@ -355,19 +98,18 @@ phsshinyapp <- function(path, author, app_name = "WRITE APP NAME HERE",
 
   writeLines(css_code, con = file.path(path, "www", "styles.css"))
 
-  # Getting images needed for shiny app by downloading from Github
+  # Getting images needed for shiny app from inst
   # TODO: change branch from shiny_template to master just before merge
-  download_logo <- utils::download.file(
-    url="https://raw.githubusercontent.com/Public-Health-Scotland/phstemplates/shiny_template/images/phs-logo.png",
-    destfile=file.path(path, "www", "phs-logo.png"),
-    method="auto")
-  download_favicon <- utils::download.file(
-    url="https://raw.githubusercontent.com/Public-Health-Scotland/phstemplates/shiny_template/images/favicon_phs.ico",
-    destfile=file.path(path, "www", "favicon_phs.ico"),
-    method="auto")
+  logo <- file.copy(
+    from = "/inst/images/phs-logo.png",
+    to = file.path(path, "www", "phs-logo.png"))
+  favicon <- file.copy(
+    from = "/inst/images/favicon_phs.ico",
+    to = file.path(path, "www", "favicon_phs.ico"))
 
-  if (download_logo | download_favicon){
-    message("PHS logo and favicon download failed. Please obtain these images \
+
+  if (!logo | !favicon){
+    message("PHS logo and favicon could not be copied. Please obtain these images \
             for them to show in the shiny app")
   }
 
