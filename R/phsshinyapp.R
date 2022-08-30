@@ -46,21 +46,33 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
 
   # Getting text from inst/
   gitignore <- readLines("inst/text/.gitignore")
-  css_code <- readLines("inst/text/shiny_css.css")
   rproj_settings <- readLines("inst/text/rproject_settings.txt")
+
+  # Getting shiny files from inst/
+  readme <- readLines("inst/text/shiny/README.md")
+  setup_code <- readLines("inst/text/shiny/setup.R")
+  css_code <- readLines("inst/text/shiny/shiny_css.css")
+  core_functions <- readLines("inst/text/shiny/core_functions.R")
+  intro_page_code <- readLines("inst/text/shiny/intro_page.R")
+  page_1_code <- readLines("inst/text/shiny/page_1.R")
+  page_1_functions <- readLines("inst/text/shiny/page_1_functions.R")
+  app_code <- readLines("inst/text/shiny/app.R")
 
   # Collect into single text string
   gitignore <- paste(gitignore, collapse = "\n")
   rproj_settings <- paste(rproj_settings, collapse = "\n")
   css_code <- paste(css_code, collapse="\n")
+  readme <- paste(readme, collapse = "\n")
+  setup_code <- paste(setup_code, collapse = "\n")
+  core_functions <- paste(core_functions, collapse = "\n")
+  intro_page_code <- paste(intro_page_code, collapse = "\n")
+  page_1_code <- paste(page_1_code, collapse = "\n")
+  page_1_functions <- paste(page_1_functions, collapse = "\n")
+  app_code <- paste(app_code, collapse = "\n")
 
-  # Getting shiny app files from shiny_app_template function
-  readme <- shiny_app_template(file_to_get = "README.md")
-  setup_code <- shiny_app_template(file_to_get = "setup.R")
-  core_functions_code <- shiny_app_template(file_to_get = "core_functions.R")
-  intro_page_code <- shiny_app_template(file_to_get = "intro.R")
-  page_1_code <- shiny_app_template(file_to_get = "page_1.R")
-  r_code <- shiny_app_template(file_to_get = "app.R", app_name = app_name, author = author)
+  # Getting app preamble
+  app_preamble <- shiny_app_template(app_name = app_name, author = author)
+  app_code <- paste(app_preamble, app_code, collapse = "\n")
 
 
   # Write to index file
@@ -72,12 +84,12 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
   }
   writeLines(readme, con = file.path(path, "README.md"))
   writeLines(rproj_settings, con = file.path(path, paste0(basename(path), ".Rproj")))
-  writeLines(r_code, con = file.path(path, "app.R"))
+  writeLines(app_code, con = file.path(path, "app.R"))
   writeLines(setup_code, con = file.path(path, "setup.R"))
 
   writeLines("", con = file.path(path, "functions", "intro_page_functions.R"))
-  writeLines("", con = file.path(path, "functions", "page_1_functions.R"))
-  writeLines(core_functions_code, con = file.path(path, "functions", "core_functions.R"))
+  writeLines(page_1_functions, con = file.path(path, "functions", "page_1_functions.R"))
+  writeLines(core_functions, con = file.path(path, "functions", "core_functions.R"))
 
   writeLines(intro_page_code, con = file.path(path, "pages", "intro_page.R"))
   writeLines(page_1_code, con = file.path(path, "pages", "page_1.R"))
