@@ -109,8 +109,7 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
 
 
   if (!logo | !favicon){
-    message("PHS logo and favicon could not be copied. Please obtain these images \
-            for them to show in the shiny app")
+    message("PHS logo and favicon could not be copied. Please obtain these images for them to show in the shiny app")
   }
 
 
