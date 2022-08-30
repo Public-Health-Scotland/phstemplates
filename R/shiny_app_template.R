@@ -22,7 +22,7 @@ shiny_app_template <- function(app_name, author = Sys.info()[['user']]) {
     'ui <- fluidPage(',
     'tagList(',
     '# Specify most recent fontawesome library - change version as needed',
-    'tags$style("@import url(https://use.fontawesome.com/releases/v6.1.1/css/all.css);"),',
+    'tags$style("@import url(https://use.fontawesome.com/releases/v6.1.2/css/all.css);"),',
     'navbarPage(',
     '    id = "intabset", # id used for jumping between tabs',
     '    title = div(',
