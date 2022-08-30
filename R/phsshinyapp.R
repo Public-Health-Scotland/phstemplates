@@ -45,18 +45,18 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
 
 
   # Getting text from inst/
-  gitignore <- readLines("inst/text/.gitignore")
-  rproj_settings <- readLines("inst/text/rproject_settings.txt")
+  gitignore <- readLines(system.file(package="phstemplates", "text", ".gitignore"))
+  rproj_settings <- readLines(system.file(package="phstemplates", "text", "rproject_settings.txt"))
 
   # Getting shiny files from inst/
-  readme <- readLines("inst/text/shiny/README.md")
-  setup_code <- readLines("inst/text/shiny/setup.R")
-  css_code <- readLines("inst/text/shiny/shiny_css.css")
-  core_functions <- readLines("inst/text/shiny/core_functions.R")
-  intro_page_code <- readLines("inst/text/shiny/intro_page.R")
-  page_1_code <- readLines("inst/text/shiny/page_1.R")
-  page_1_functions <- readLines("inst/text/shiny/page_1_functions.R")
-  app_code <- readLines("inst/text/shiny/app.R")
+  readme <- readLines(system.file(package="phstemplates", "text", "shiny", "README.md"))
+  setup_code <- readLines(system.file(package="phstemplates", "text", "shiny", "setup.R"))
+  css_code <- readLines(system.file(package="phstemplates", "text", "shiny", "shiny_css.css"))
+  core_functions <- readLines(system.file(package="phstemplates", "text", "shiny", "core_functions.R"))
+  intro_page_code <- readLines(system.file(package="phstemplates", "text", "shiny", "intro_page.R"))
+  page_1_code <- readLines(system.file(package="phstemplates", "text", "shiny", "page_1.R"))
+  page_1_functions <- readLines(system.file(package="phstemplates", "text", "shiny", "page_1_functions.R"))
+  app_code <- readLines(system.file(package="phstemplates", "text", "shiny", "app.R"))
 
   # Collect into single text string
   gitignore <- paste(gitignore, collapse = "\n")
@@ -98,10 +98,10 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
 
   # Getting images needed for shiny app from inst
   logo <- file.copy(
-    from = "/inst/images/phs-logo.png",
+    from = system.file(package="phstemplates", "images", "phs-logo.png"),
     to = file.path(path, "www", "phs-logo.png"))
   favicon <- file.copy(
-    from = "/inst/images/favicon_phs.ico",
+    from = system.file(package="phstemplates", "images", "favicon_phs.ico"),
     to = file.path(path, "www", "favicon_phs.ico"))
 
 

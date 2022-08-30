@@ -42,7 +42,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
     dir.create(file.path(path, "data", "output"), showWarnings = FALSE)
     dir.create(file.path(path, "data", "temp"), showWarnings = FALSE)
 
-    gitignore <- readLines("inst/text/.gitignore")
+    gitignore <- readLines(system.file(package="phstemplates", "text", ".gitignore"))
 
     r_code <- script_template(author = author)
 
@@ -57,7 +57,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
         r_code <- paste0(r_code_part1, r_code_part2, collapse = "")
     }
 
-    rproj_settings <- readLines("inst/text/rproject_settings.txt")
+    rproj_settings <- readLines(system.file(package="phstemplates", "text", "rproject_settings.txt"))
 
     # collect into single text string
     gitignore <- paste(gitignore, collapse = "\n")

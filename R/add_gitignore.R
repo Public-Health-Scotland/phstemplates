@@ -19,7 +19,7 @@ add_gitignore <- function(path=rstudioapi::selectDirectory(caption="Select folde
   }
 
   # gitignore content to add
-  gitignore <- readLines("inst/text/.gitignore")
+  gitignore <- readLines(system.file(package="phstemplates", "text", ".gitignore"))
 
   # collect into single text string
   gitignore <- paste(gitignore, collapse = "\n")

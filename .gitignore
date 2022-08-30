@@ -8,7 +8,6 @@ data/
 
 # Common text files that may contain data #
 *.[cC][sS][vV]
-*.[tT][xX][tT]
 
 # Excel files #
 *.[xX][lL][sS]*
@@ -24,4 +23,3 @@ data/
 # MacOS folder attributes files #
 .DS_Store
 
-!inst/text/rproject_settings.txt

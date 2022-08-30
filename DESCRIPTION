@@ -2,7 +2,8 @@ Package: phstemplates
 Title: PHS R Templates
 Authors@R: c(
     person("Alan", "Yeung", email = "alan.yeung@phs.scot", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5226-3695")),
-    person("Anna", "Price", email = "Anna.Price@Statistics.gov.uk", role = "aut")
+    person("Anna", "Price", email = "Anna.Price@Statistics.gov.uk", role = "aut"),
+    person("Rosalyn", "Pearson", email="rosalyn.pearson@phs.scot", role="aut")
     )
 Version: 1.0.1
 Description: Templates for Public Health Scotland.
