@@ -42,33 +42,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
     dir.create(file.path(path, "data", "output"), showWarnings = FALSE)
     dir.create(file.path(path, "data", "temp"), showWarnings = FALSE)
 
-    gitignore <- c(
-        ".Rproj.user",
-        ".Rhistory",
-        ".RData",
-        ".Ruserdata",
-        "",
-        "# 'data' folder #",
-        "data/",
-        "",
-        "# Common text files that may contain data #",
-        "*.[cC][sS][vV]",
-        "*.[tT][xX][tT]",
-        "",
-        "# Excel files #",
-        "*.[xX][lL][sS]*",
-        "",
-        "# SPSS formats #",
-        "*.[sS][aA][vV]",
-        "*.[zZ][sS][aA][vV]",
-        "",
-        "# R data files #",
-        "*.[rR][dD][aA][tT][aA]",
-        "*.[rR][dD][sS]",
-        "",
-        "# MacOS folder attributes files #",
-        ".DS_Store"
-    )
+    gitignore <- readLines("inst/text/.gitignore")
 
     r_code <- script_template(author = author)
 
@@ -83,21 +57,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
         r_code <- paste0(r_code_part1, r_code_part2, collapse = "")
     }
 
-    rproj_settings <- c(
-        "Version: 1.0",
-        "",
-        "RestoreWorkspace: No",
-        "SaveWorkspace: No",
-        "AlwaysSaveHistory: Default",
-        "",
-        "EnableCodeIndexing: Yes",
-        "UseSpacesForTab: Yes",
-        "NumSpacesForTab: 2",
-        "Encoding: UTF-8",
-        "",
-        "RnwWeave: Sweave",
-        "LaTeX: pdfLaTeX"
-    )
+    rproj_settings <- readLines("inst/text/rproject_settings.txt")
 
     # collect into single text string
     gitignore <- paste(gitignore, collapse = "\n")

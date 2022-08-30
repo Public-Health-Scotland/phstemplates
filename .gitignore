@@ -23,3 +23,5 @@ data/
 
 # MacOS folder attributes files #
 .DS_Store
+
+!inst/text/rproject_settings.txt

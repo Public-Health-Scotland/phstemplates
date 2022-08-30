@@ -12,7 +12,8 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' phsshinyapp(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
+#' phsshinyapp(path = file.path(getwd(), "testproj"), app_name = "My lovely app",
+#' author = "A Person", n_scripts = 1)
 #' }
 phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE APP NAME HERE",
                            git = FALSE, renv = FALSE, overwrite = FALSE) {
@@ -46,22 +47,7 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
   # Getting text from inst/
   gitignore <- readLines("inst/text/.gitignore")
   css_code <- readLines("inst/text/shiny_css.css")
-
-  rproj_settings <- c(
-    "Version: 1.0",
-    "",
-    "RestoreWorkspace: No",
-    "SaveWorkspace: No",
-    "AlwaysSaveHistory: Default",
-    "",
-    "EnableCodeIndexing: Yes",
-    "UseSpacesForTab: Yes",
-    "NumSpacesForTab: 2",
-    "Encoding: UTF-8",
-    "",
-    "RnwWeave: Sweave",
-    "LaTeX: pdfLaTeX"
-  )
+  rproj_settings <- readLines("inst/text/rproject_settings.txt")
 
   # Collect into single text string
   gitignore <- paste(gitignore, collapse = "\n")
@@ -99,7 +85,6 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
   writeLines(css_code, con = file.path(path, "www", "styles.css"))
 
   # Getting images needed for shiny app from inst
-  # TODO: change branch from shiny_template to master just before merge
   logo <- file.copy(
     from = "/inst/images/phs-logo.png",
     to = file.path(path, "www", "phs-logo.png"))
@@ -109,7 +94,7 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
 
 
   if (!logo | !favicon){
-    message("PHS logo and favicon could not be copied. Please obtain these images for them to show in the shiny app")
+    message("PHS logo and favicon could not be copied. Please obtain these images for them to show in the shiny app.")
   }
 
 
