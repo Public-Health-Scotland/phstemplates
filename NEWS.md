@@ -1,6 +1,6 @@
 # phstemplates 1.1.0
 
-* Added PHS shiny app template, accessible through the RStudio menus or through shiny_app_template().
+* Added PHS shiny app template, accessible through the RStudio menus or through phsshinyapp().
 
 # phstemplates 1.0.1
 
