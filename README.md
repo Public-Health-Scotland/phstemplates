@@ -5,11 +5,9 @@
 
 ## Contents
 - [Installation](#installation)
-- [How to use](#making-a-new-phs-project)
-- [Directories](#directories)
-- [Files](#files)
+- [Making a new PHS project](#making-a-new-phs-project)
 - [Making a new PHS shiny app](#making-a-new-phs-shiny-app)
-- [Adding a new PHS .gitignore](#adding-a-new-phs-.gitignore-file-to-an-existing-directory)
+- [Adding a new PHS .gitignore](#adding-a-new-phs-\.gitignore-file-to-an-existing-directory)
 - [RMarkdown Templates](#rmarkdown-templates)
 
 ## Installation
@@ -71,7 +69,7 @@ This template is also intended to be flexible, so you may not require every file
 ## Making a new PHS shiny app
 After installation you will then be able to create new R shiny apps with PHS styling within RStudio by clicking **File -> New Project... -> New Directory** and selecting **PHS R Shiny App**. Name the app and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in the README which is created inside the new shiny app template.
 
-## Adding a PHS `.gitignore` file to an existing directory
+## Adding a PHS .gitignore file to an existing directory
 If you want to add a PHS style `.gitignore` to a given directory, you can do this in R Studio by selecting `Addins` on the top banner then scrolling down to the PHSTEMPLATES section and choosing **Add PHS .gitignore file**. This will allow you to choose the location of your new `.gitignore` file. You can also do this directly from the R console using the command `phstemplates::add_gitignore()`.
 
 
