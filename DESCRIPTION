@@ -5,7 +5,7 @@ Authors@R: c(
     person("Anna", "Price", email = "Anna.Price@Statistics.gov.uk", role = "aut"),
     person("Rosalyn", "Pearson", email="rosalyn.pearson@phs.scot", role="aut")
     )
-Version: 1.0.1
+Version: 1.1.0
 Description: Templates for Public Health Scotland.
 Depends: R (>= 3.2.0)
 License: GPL (>= 2)

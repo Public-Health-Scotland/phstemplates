@@ -66,7 +66,7 @@ This template is also intended to be flexible, so you may not require every file
   * `.gitignore` - tells git what files and folders *not* to track or upload to GitHub
   * `README.md` - this page
   * `.Rprofile` - R profile settings
-  * `r-project.Proj` - R project]
+  * `r-project.Proj` - R project
   
 ## Making a new PHS shiny app
 After installation you will then be able to create new R shiny apps with PHS styling within RStudio by clicking **File -> New Project... -> New Directory** and selecting **PHS R Shiny App**. Name the app and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in the README which is created inside the new shiny app template.
