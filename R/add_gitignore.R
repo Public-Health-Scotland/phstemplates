@@ -19,33 +19,7 @@ add_gitignore <- function(path = rstudioapi::selectDirectory(caption = "Select f
   }
 
   # gitignore content to add
-  gitignore <- c(
-    ".Rproj.user",
-    ".Rhistory",
-    ".RData",
-    ".Ruserdata",
-    "",
-    "# 'data' folder #",
-    "data/",
-    "",
-    "# Common text files that may contain data #",
-    "*.[cC][sS][vV]",
-    "*.[tT][xX][tT]",
-    "",
-    "# Excel files #",
-    "*.[xX][lL][sS]*",
-    "",
-    "# SPSS formats #",
-    "*.[sS][aA][vV]",
-    "*.[zZ][sS][aA][vV]",
-    "",
-    "# R data files #",
-    "*.[rR][dD][aA][tT][aA]",
-    "*.[rR][dD][sS]",
-    "",
-    "# MacOS folder attributes files #",
-    ".DS_Store"
-  )
+  gitignore <- readLines(system.file(package="phstemplates", "text", "gitignore.txt"))
 
   # collect into single text string
   gitignore <- paste(gitignore, collapse = "\n")

@@ -6,15 +6,30 @@
 #' @param n_scripts Number of code files to start the project with.
 #' @param git Initialise the project with Git.
 #' @param renv Initialise the project with package management using renv.
+#' @param overwrite Logical: Whether to overwrite directory at existing path when creating directory.
 #' @return New project created according to the PHS R project structure.
 #' @export
 #' @examples
 #' \dontrun{
 #' phsproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
 #' }
-phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
+phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, overwrite = FALSE) {
+    # Checking if path already exists
     if (dir.exists(path)) {
-        stop("This directory already exists")
+      if (overwrite){
+        message("Overwriting existing directory")
+      } else {
+        overwrite <- rstudioapi::showQuestion(title = "Overwrite existing directory?",
+                                              message = "Path already exists. Overwrite existing directory?",
+                                              "Yes", "No")
+      }
+      if (overwrite){
+        # Delete files so they can be overwritten
+        deletefiles <- list.files(path, include.dirs = F, full.names = T, recursive = T)
+        file.remove(deletefiles)
+      } else {
+        stop("Directory already exists")
+      }
     }
 
     n_scripts <- as.numeric(n_scripts)
@@ -27,33 +42,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
     dir.create(file.path(path, "data", "output"), showWarnings = FALSE)
     dir.create(file.path(path, "data", "temp"), showWarnings = FALSE)
 
-    gitignore <- c(
-        ".Rproj.user",
-        ".Rhistory",
-        ".RData",
-        ".Ruserdata",
-        "",
-        "# 'data' folder #",
-        "data/",
-        "",
-        "# Common text files that may contain data #",
-        "*.[cC][sS][vV]",
-        "*.[tT][xX][tT]",
-        "",
-        "# Excel files #",
-        "*.[xX][lL][sS]*",
-        "",
-        "# SPSS formats #",
-        "*.[sS][aA][vV]",
-        "*.[zZ][sS][aA][vV]",
-        "",
-        "# R data files #",
-        "*.[rR][dD][aA][tT][aA]",
-        "*.[rR][dD][sS]",
-        "",
-        "# MacOS folder attributes files #",
-        ".DS_Store"
-    )
+    gitignore <- readLines(system.file(package="phstemplates", "text", "gitignore.txt"))
 
     r_code <- script_template(author = author)
 
@@ -68,21 +57,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE) {
         r_code <- paste0(r_code_part1, r_code_part2, collapse = "")
     }
 
-    rproj_settings <- c(
-        "Version: 1.0",
-        "",
-        "RestoreWorkspace: No",
-        "SaveWorkspace: No",
-        "AlwaysSaveHistory: Default",
-        "",
-        "EnableCodeIndexing: Yes",
-        "UseSpacesForTab: Yes",
-        "NumSpacesForTab: 2",
-        "Encoding: UTF-8",
-        "",
-        "RnwWeave: Sweave",
-        "LaTeX: pdfLaTeX"
-    )
+    rproj_settings <- readLines(system.file(package="phstemplates", "text", "rproject_settings.txt"))
 
     # collect into single text string
     gitignore <- paste(gitignore, collapse = "\n")

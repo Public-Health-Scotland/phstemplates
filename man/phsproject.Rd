@@ -4,7 +4,14 @@
 \alias{phsproject}
 \title{phsproject}
 \usage{
-phsproject(path, author, n_scripts = 1, git = FALSE, renv = FALSE)
+phsproject(
+  path,
+  author,
+  n_scripts = 1,
+  git = FALSE,
+  renv = FALSE,
+  overwrite = FALSE
+)
 }
 \arguments{
 \item{path}{Filepath for the project.}
@@ -16,6 +23,8 @@ phsproject(path, author, n_scripts = 1, git = FALSE, renv = FALSE)
 \item{git}{Initialise the project with Git.}
 
 \item{renv}{Initialise the project with package management using renv.}
+
+\item{overwrite}{Logical: Whether to overwrite directory at existing path when creating directory.}
 }
 \value{
 New project created according to the PHS R project structure.
