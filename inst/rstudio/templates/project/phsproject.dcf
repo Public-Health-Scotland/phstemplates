@@ -22,3 +22,8 @@ Parameter: renv
 Widget: CheckboxInput
 Label: Initialise with renv (package management)
 Default: Off
+
+Parameter: overwrite
+Widget: CheckboxInput
+Label: Overwrite existing directory (if present)
+Default: Off

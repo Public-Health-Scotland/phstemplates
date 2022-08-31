@@ -42,7 +42,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
     dir.create(file.path(path, "data", "output"), showWarnings = FALSE)
     dir.create(file.path(path, "data", "temp"), showWarnings = FALSE)
 
-    gitignore <- readLines(system.file(package="phstemplates", "text", ".gitignore"))
+    gitignore <- readLines(system.file(package="phstemplates", "text", "gitignore.txt"))
 
     r_code <- script_template(author = author)
 

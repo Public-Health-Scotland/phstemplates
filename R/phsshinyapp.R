@@ -45,7 +45,7 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
 
 
   # Getting text from inst/
-  gitignore <- readLines(system.file(package="phstemplates", "text", ".gitignore"))
+  gitignore <- readLines(system.file(package="phstemplates", "text", "gitignore.txt"))
   rproj_settings <- readLines(system.file(package="phstemplates", "text", "rproject_settings.txt"))
 
   # Getting shiny files from inst/
