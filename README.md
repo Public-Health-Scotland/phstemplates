@@ -5,9 +5,11 @@
 
 ## Contents
 - [Installation](#installation)
-- [How to use](#how-to-use)
+- [How to use](#making-a-new-phs-project)
 - [Directories](#directories)
 - [Files](#files)
+- [Making a new PHS shiny app](#making-a-new-phs-shiny-app)
+- [Adding a new PHS .gitignore](#adding-a-new-phs-.gitignore-file-to-an-existing-directory)
 - [RMarkdown Templates](#rmarkdown-templates)
 
 ## Installation
