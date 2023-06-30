@@ -22,5 +22,10 @@ data/
 *.[rR][dD][aA][tT][aA]
 *.[rR][dD][sS]
 
+# Cross platform data files #
+*.[pP][aA][rR][qQ][uU][eE][tT]
+*.[fF][sS][tT]
+*.[qQ][sQ]
+
 # MacOS folder attributes files #
 .DS_Store
