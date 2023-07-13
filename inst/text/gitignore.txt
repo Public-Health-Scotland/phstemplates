@@ -2,12 +2,14 @@
 .Rhistory
 .RData
 .Ruserdata
+*.Rproj
 
 # 'data' folder #
 data/
 
 # Common text files that may contain data #
 *.[cC][sS][vV]
+*.[cC][sS][vV].*
 *.[tT][xX][tT]
 
 # Excel files #
@@ -20,6 +22,11 @@ data/
 # R data files #
 *.[rR][dD][aA][tT][aA]
 *.[rR][dD][sS]
+
+# Cross platform data files #
+*.[pP][aA][rR][qQ][uU][eE][tT]
+*.[fF][sS][tT]
+*.[qQ][sS]
 
 # MacOS folder attributes files #
 .DS_Store
