@@ -1,10 +1,12 @@
 script_template <- function(author = Sys.info()[["user"]]) {
   author <- paste("# Original author(s):", author)
   orig_date <- paste("# Original date:", Sys.Date())
-  run_on <- paste0("# Written/run on RStudio ",
-                   rstudioapi::versionInfo()$mode, " ",
-                   rstudioapi::versionInfo()$version, " and R ",
-                   version$major, ".", version$minor)
+  run_on <- paste0(
+    "# Written/run on RStudio ",
+    rstudioapi::versionInfo()$mode, " ",
+    rstudioapi::versionInfo()$version, " and R ",
+    version$major, ".", version$minor
+  )
 
   r_code <- c(
     "##########################################################",
