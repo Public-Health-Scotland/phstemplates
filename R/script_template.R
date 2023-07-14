@@ -1,8 +1,9 @@
 script_template <- function(author = Sys.info()[["user"]]) {
   author <- paste("# Original author(s):", author)
   orig_date <- paste("# Original date:", Sys.Date())
-  run_on <- paste0("# Written/run on RStudio ", RStudio.Version()$mode, " ",
-                   RStudio.Version()$version, " and R ",
+  run_on <- paste0("# Written/run on RStudio ",
+                   rstudioapi::versionInfo()$mode, " ",
+                   rstudioapi::versionInfo()$version, " and R ",
                    version$major, ".", version$minor)
 
   r_code <- c(
@@ -18,6 +19,10 @@ script_template <- function(author = Sys.info()[["user"]]) {
     run_on,
     "# Description of content",
     "# Approximate run time",
+    "# ",
+    "# PWB recommended options #",
+    "# CPUs: ",
+    "# Memory: ",
     "##########################################################",
     "",
     "",
@@ -38,6 +43,8 @@ script_template <- function(author = Sys.info()[["user"]]) {
     "",
     "### 3 Section Heading ----",
     "",
+    "",
+    "# quit(save = \"no\") # Uncomment this to automatically close the R session when finished",
     "",
     "### END OF SCRIPT ###"
   )

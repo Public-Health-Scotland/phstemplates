@@ -7,3 +7,8 @@ Name: Add PHS .gitignore file
 Description: Add a PHS style .gitignore file to a chosen directory
 Binding: add_gitignore
 Interactive: true
+
+Name: Update PHS metadata
+Description: Updates metadata in R scripts for latest update date and R version run
+Binding: update_metadata
+Interactive: true

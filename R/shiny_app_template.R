@@ -3,8 +3,9 @@ shiny_app_template <- function(app_name="WRITE APP NAME HERE",
 
     author <- paste("# Original author(s):", author)
     orig_date <- paste('# Original date:', Sys.Date())
-    run_on <- paste0('# Written/run on RStudio ' , RStudio.Version()$mode, ' ',
-                     RStudio.Version()$version, ' and R ',
+    run_on <- paste0('# Written/run on RStudio ' ,
+                     rstudioapi::versionInfo()$mode, ' ',
+                     rstudioapi::versionInfo()$version, ' and R ',
                      version$major, '.', version$minor)
 
     r_code <- c(
