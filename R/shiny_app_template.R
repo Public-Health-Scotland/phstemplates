@@ -1,20 +1,16 @@
 shiny_app_template <- function(app_name = "WRITE APP NAME HERE",
-                               author = Sys.info()[["user"]]) {
+                               author = ifelse(!is.null(git2r::config()$global$user.name),
+                                               git2r::config()$global$user.name, Sys.info()[["user"]]
+                               )) {
   author <- paste("# Original author(s):", author)
   orig_date <- paste("# Original date:", Sys.Date())
-  run_on <- paste0(
-    "# Written/run on RStudio ",
-    rstudioapi::versionInfo()$mode, " ",
-    rstudioapi::versionInfo()$version, " and R ",
-    version$major, ".", version$minor
-  )
 
   r_code <- c(
     "##########################################################",
     paste0("# ", app_name),
     author,
     orig_date,
-    run_on,
+    run_on(),
     "# Description of content",
     "##########################################################",
     "",

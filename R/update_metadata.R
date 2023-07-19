@@ -8,18 +8,11 @@
 #' update_metadata()
 #' }
 update_metadata <- function() {
-  run_on <- paste0(
-    "# Written/run on RStudio ",
-    rstudioapi::versionInfo()$mode, " ",
-    rstudioapi::versionInfo()$version, " and R ",
-    version$major, ".", version$minor, "\n"
-  )
-
   pos <- grep("^# Written", rstudioapi::getSourceEditorContext()$contents, )
   if (length(pos) > 0) {
     pos <- min(pos)
     pos_range <- rstudioapi::document_range(c(pos, 0), c((pos + 1), 0))
-    rstudioapi::insertText(pos_range, run_on,
+    rstudioapi::insertText(pos_range, run_on(),
       id = rstudioapi::documentId(allowConsole = FALSE)
     )
   } else {

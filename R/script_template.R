@@ -3,12 +3,6 @@ script_template <- function(author = ifelse(!is.null(git2r::config()$global$user
                             )) {
   author <- paste("# Original author(s):", author)
   orig_date <- paste("# Original date:", Sys.Date())
-  run_on <- paste0(
-    "# Written/run on RStudio ",
-    rstudioapi::versionInfo()$mode, " ",
-    rstudioapi::versionInfo()$version, " and R ",
-    version$major, ".", version$minor
-  )
 
   r_code <- c(
     "##########################################################",
@@ -20,7 +14,7 @@ script_template <- function(author = ifelse(!is.null(git2r::config()$global$user
     "# Latest update date (delete if using version control)",
     "# Latest update description (delete if using version control)",
     "# Type of script (e.g. extraction, preparation, modelling)",
-    run_on,
+    run_on(),
     "# Description of content",
     "# Approximate run time",
     "# ",

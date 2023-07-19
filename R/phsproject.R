@@ -86,7 +86,9 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
 
   if (renv) {
     if (!"renv" %in% utils::installed.packages()[, 1]) {
-      rlang::check_installed(pkg = "renv")
+      warning("renv is not installed. Now attempting to install...",
+              immediate. = TRUE)
+      utils::install.packages("renv")
     }
 
     options(renv.consent = TRUE)
