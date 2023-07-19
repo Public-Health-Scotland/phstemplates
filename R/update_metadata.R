@@ -23,7 +23,7 @@ update_metadata <- function() {
       id = rstudioapi::documentId(allowConsole = FALSE)
     )
   } else {
-    message("PHS R script metadata for R version not detected")
+    warning("The default PHS R script metadata was not detected, so the R version was not updated.")
   }
 
   if (!git2r::in_repository()) {
@@ -40,7 +40,7 @@ update_metadata <- function() {
         id = rstudioapi::documentId(allowConsole = FALSE)
       )
     } else {
-      message("PHS R script metadata for latest date not detected")
+         warning("The default PHS R script metadata was not detected, so the 'latest date' was not updated.")
     }
   }
 }
