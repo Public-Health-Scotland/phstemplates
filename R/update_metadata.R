@@ -8,17 +8,20 @@
 #' update_metadata()
 #' }
 update_metadata <- function() {
-  run_on <- paste0("# Written/run on RStudio ",
-                   rstudioapi::versionInfo()$mode, " ",
-                   rstudioapi::versionInfo()$version, " and R ",
-                   version$major, ".", version$minor, "\n")
+  run_on <- paste0(
+    "# Written/run on RStudio ",
+    rstudioapi::versionInfo()$mode, " ",
+    rstudioapi::versionInfo()$version, " and R ",
+    version$major, ".", version$minor, "\n"
+  )
 
-  pos <- grep("^# Written", rstudioapi::getSourceEditorContext()$contents,)
+  pos <- grep("^# Written", rstudioapi::getSourceEditorContext()$contents, )
   if (length(pos) > 0) {
     pos <- min(pos)
     pos_range <- rstudioapi::document_range(c(pos, 0), c((pos + 1), 0))
     rstudioapi::insertText(pos_range, run_on,
-                           id = rstudioapi::documentId(allowConsole = FALSE))
+      id = rstudioapi::documentId(allowConsole = FALSE)
+    )
   } else {
     message("PHS R script metadata for R version not detected")
   }
@@ -26,13 +29,16 @@ update_metadata <- function() {
   if (!git2r::in_repository()) {
     latest_date <- paste0("# Latest update date: ", Sys.Date(), "\n")
 
-    pos <- grep("^# Latest update date",
-                rstudioapi::getSourceEditorContext()$contents)
+    pos <- grep(
+      "^# Latest update date",
+      rstudioapi::getSourceEditorContext()$contents
+    )
     if (length(pos) > 0) {
       pos <- min(pos)
       pos_range <- rstudioapi::document_range(c(pos, 0), c((pos + 1), 0))
       rstudioapi::insertText(pos_range, latest_date,
-                             id = rstudioapi::documentId(allowConsole = FALSE))
+        id = rstudioapi::documentId(allowConsole = FALSE)
+      )
     } else {
       message("PHS R script metadata for latest date not detected")
     }

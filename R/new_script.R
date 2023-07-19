@@ -12,7 +12,8 @@ new_script <- function() {
     title = "Author",
     message = "Name of Author",
     default = ifelse(!is.null(git2r::config()$global$user.name),
-                     git2r::config()$global$user.name, Sys.info()[["user"]])
+      git2r::config()$global$user.name, Sys.info()[["user"]]
+    )
   )
 
   r_code <- script_template(author = author)

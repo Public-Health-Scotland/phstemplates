@@ -12,22 +12,25 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' phsshinyapp(path = file.path(getwd(), "testproj"), app_name = "My lovely app",
-#' author = "A Person", n_scripts = 1)
+#' phsshinyapp(
+#'   path = file.path(getwd(), "testproj"), app_name = "My lovely app",
+#'   author = "A Person", n_scripts = 1
+#' )
 #' }
-phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE APP NAME HERE",
-                           git = FALSE, renv = FALSE, overwrite = FALSE) {
-
+phsshinyapp <- function(path, author = Sys.info()[["user"]], app_name = "WRITE APP NAME HERE",
+                        git = FALSE, renv = FALSE, overwrite = FALSE) {
   # Checking if path already exists
   if (dir.exists(path)) {
-    if (overwrite){
+    if (overwrite) {
       message("Overwriting existing directory")
     } else {
-      overwrite <- rstudioapi::showQuestion(title = "Overwrite existing directory?",
-                               message = "Path already exists. Overwrite existing directory?",
-                               "Yes", "No")
+      overwrite <- rstudioapi::showQuestion(
+        title = "Overwrite existing directory?",
+        message = "Path already exists. Overwrite existing directory?",
+        "Yes", "No"
+      )
     }
-    if (overwrite){
+    if (overwrite) {
       # Delete files so they can be overwritten
       deletefiles <- list.files(path, include.dirs = F, full.names = T, recursive = T)
       file.remove(deletefiles)
@@ -45,23 +48,23 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
 
 
   # Getting text from inst/
-  gitignore <- readLines(system.file(package="phstemplates", "text", "gitignore.txt"))
-  rproj_settings <- readLines(system.file(package="phstemplates", "text", "rproject_settings.txt"))
+  gitignore <- readLines(system.file(package = "phstemplates", "text", "gitignore.txt"))
+  rproj_settings <- readLines(system.file(package = "phstemplates", "text", "rproject_settings.txt"))
 
   # Getting shiny files from inst/
-  readme <- readLines(system.file(package="phstemplates", "text", "shiny", "README.md"))
-  setup_code <- readLines(system.file(package="phstemplates", "text", "shiny", "setup.R"))
-  css_code <- readLines(system.file(package="phstemplates", "text", "shiny", "shiny_css.css"))
-  core_functions <- readLines(system.file(package="phstemplates", "text", "shiny", "core_functions.R"))
-  intro_page_code <- readLines(system.file(package="phstemplates", "text", "shiny", "intro_page.R"))
-  page_1_code <- readLines(system.file(package="phstemplates", "text", "shiny", "page_1.R"))
-  page_1_functions <- readLines(system.file(package="phstemplates", "text", "shiny", "page_1_functions.R"))
-  app_code <- readLines(system.file(package="phstemplates", "text", "shiny", "app.R"))
+  readme <- readLines(system.file(package = "phstemplates", "text", "shiny", "README.md"))
+  setup_code <- readLines(system.file(package = "phstemplates", "text", "shiny", "setup.R"))
+  css_code <- readLines(system.file(package = "phstemplates", "text", "shiny", "shiny_css.css"))
+  core_functions <- readLines(system.file(package = "phstemplates", "text", "shiny", "core_functions.R"))
+  intro_page_code <- readLines(system.file(package = "phstemplates", "text", "shiny", "intro_page.R"))
+  page_1_code <- readLines(system.file(package = "phstemplates", "text", "shiny", "page_1.R"))
+  page_1_functions <- readLines(system.file(package = "phstemplates", "text", "shiny", "page_1_functions.R"))
+  app_code <- readLines(system.file(package = "phstemplates", "text", "shiny", "app.R"))
 
   # Collect into single text string
   gitignore <- paste(gitignore, collapse = "\n")
   rproj_settings <- paste(rproj_settings, collapse = "\n")
-  css_code <- paste(css_code, collapse="\n")
+  css_code <- paste(css_code, collapse = "\n")
   readme <- paste(readme, collapse = "\n")
   setup_code <- paste(setup_code, collapse = "\n")
   core_functions <- paste(core_functions, collapse = "\n")
@@ -79,7 +82,7 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
   if (!renv) {
     writeLines("", con = file.path(path, ".Rprofile"))
   }
-  if (git){
+  if (git) {
     writeLines(gitignore, con = file.path(path, ".gitignore"))
   }
   writeLines(readme, con = file.path(path, "README.md"))
@@ -98,14 +101,16 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
 
   # Getting images needed for shiny app from inst
   logo <- file.copy(
-    from = system.file(package="phstemplates", "images", "phs-logo.png"),
-    to = file.path(path, "www", "phs-logo.png"))
+    from = system.file(package = "phstemplates", "images", "phs-logo.png"),
+    to = file.path(path, "www", "phs-logo.png")
+  )
   favicon <- file.copy(
-    from = system.file(package="phstemplates", "images", "favicon_phs.ico"),
-    to = file.path(path, "www", "favicon_phs.ico"))
+    from = system.file(package = "phstemplates", "images", "favicon_phs.ico"),
+    to = file.path(path, "www", "favicon_phs.ico")
+  )
 
 
-  if (!logo | !favicon){
+  if (!logo | !favicon) {
     message("PHS logo and favicon could not be copied. Please obtain these images for them to show in the shiny app.")
   }
 
@@ -121,7 +126,8 @@ phsshinyapp <- function(path, author = Sys.info()[['user']], app_name = "WRITE A
   if (renv) {
     if (!"renv" %in% utils::installed.packages()[, 1]) {
       warning("renv is not installed. Now attempting to install...",
-              immediate. = TRUE)
+        immediate. = TRUE
+      )
       utils::install.packages("renv")
     }
 
