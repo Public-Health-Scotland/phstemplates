@@ -40,7 +40,7 @@ update_metadata <- function() {
         id = rstudioapi::documentId(allowConsole = FALSE)
       )
     } else {
-         warning("The default PHS R script metadata was not detected, so the 'latest date' was not updated.")
+      warning("The default PHS R script metadata was not detected, so the 'latest date' was not updated.")
     }
   }
 }
