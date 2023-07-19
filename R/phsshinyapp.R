@@ -18,7 +18,8 @@
 #' )
 #' }
 phsshinyapp <- function(path, author = ifelse(!is.null(git2r::config()$global$user.name),
-                                              git2r::config()$global$user.name, Sys.info()[["user"]]),
+                          git2r::config()$global$user.name, Sys.info()[["user"]]
+                        ),
                         app_name = "WRITE APP NAME HERE",
                         git = FALSE, renv = FALSE, overwrite = FALSE) {
   # Checking if path already exists
@@ -124,7 +125,7 @@ phsshinyapp <- function(path, author = ifelse(!is.null(git2r::config()$global$us
   if (renv) {
     if (!"renv" %in% utils::installed.packages()[, 1]) {
       warning("renv is not installed. Now attempting to install...",
-              immediate. = TRUE
+        immediate. = TRUE
       )
       utils::install.packages("renv")
     }

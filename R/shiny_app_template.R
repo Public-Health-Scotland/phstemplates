@@ -1,6 +1,6 @@
 shiny_app_template <- function(app_name = "WRITE APP NAME HERE",
                                author = ifelse(!is.null(git2r::config()$global$user.name),
-                                               git2r::config()$global$user.name, Sys.info()[["user"]]
+                                 git2r::config()$global$user.name, Sys.info()[["user"]]
                                )) {
   author <- paste("# Original author(s):", author)
   orig_date <- paste("# Original date:", Sys.Date())
