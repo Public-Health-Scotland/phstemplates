@@ -1,5 +1,6 @@
 # phstemplates 1.1.1
 
+* Uses git2r functions for working with git.
 * Added Posit Workbench options and quit() to script template.
 * New addin to update the metadata in existing R scripts for latest update date and R version run on.
 

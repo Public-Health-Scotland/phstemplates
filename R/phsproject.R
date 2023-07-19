@@ -47,7 +47,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
     r_code <- script_template(author = author)
 
     if (git) {
-        remove_start <- gregexpr("# Original", r_code)[[1]][1] - 1
+        remove_start <- gregexpr("# Latest", r_code)[[1]][1] - 1
         remove_end <- gregexpr("Latest update description \\(delete if using version control\\)\n", r_code)[[1]]
         remove_end <- as.integer(remove_end + attr(remove_end, "match.length"))
 
@@ -79,11 +79,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
     }
 
     if (git) {
-        if (Sys.info()[["sysname"]] == "Windows") {
-            shell(paste("cd", path, "&&", "git init"))
-        } else {
-            system(paste("cd", path, "&&", "git init"))
-        }
+        git2r::init(file.path(getwd(), path))
     }
 
     if (renv) {

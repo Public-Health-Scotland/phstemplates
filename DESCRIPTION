@@ -15,6 +15,7 @@ BugReports: https://github.com/Public-Health-Scotland/phstemplates/issues
 LazyData: true
 RoxygenNote: 7.2.3
 Imports: 
+    git2r,
     magrittr,
     officer,
     rmarkdown (>= 2.12),
