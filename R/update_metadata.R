@@ -12,7 +12,7 @@ update_metadata <- function() {
   if (length(pos) > 0) {
     pos <- min(pos)
     pos_range <- rstudioapi::document_range(c(pos, 0), c((pos + 1), 0))
-    rstudioapi::insertText(pos_range, run_on(),
+    rstudioapi::insertText(pos_range, run_on(linebreak = TRUE),
       id = rstudioapi::documentId(allowConsole = FALSE)
     )
   } else {
