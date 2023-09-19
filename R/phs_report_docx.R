@@ -49,17 +49,18 @@ phs_report_docx <- function(toc = FALSE,
                             cover_title = "Title",
                             cover_subtitle = "Subtitle",
                             cover_date = "DD Month YYYY") {
-
   resolve_highlight <- utils::getFromNamespace("resolve_highlight", "rmarkdown")
   highlighters <- utils::getFromNamespace("highlighters", "rmarkdown")
   reference_intermediates_generator <- utils::getFromNamespace("reference_intermediates_generator", "rmarkdown")
 
   # knitr options and hooks
   knitr <- rmarkdown::knitr_options(
-    opts_chunk = list(dev = "png",
-                      dpi = 96,
-                      fig.width = fig_width,
-                      fig.height = fig_height)
+    opts_chunk = list(
+      dev = "png",
+      dpi = 96,
+      fig.width = fig_width,
+      fig.height = fig_height
+    )
   )
 
   # base pandoc options for all docx output
@@ -104,7 +105,6 @@ phs_report_docx <- function(toc = FALSE,
                              cover = cover_page, title = cover_title,
                              stitle = cover_subtitle, dt = cover_date,
                              tocd = toc_depth) {
-
     officer::read_docx(output_file) %>%
       officer::cursor_reach(keyword = "Introduction") %>%
       officer::body_add_toc(pos = "before", level = tocd) %>%
@@ -147,8 +147,12 @@ phs_report_docx <- function(toc = FALSE,
 }
 
 reference_doc_args <- function(type, doc) {
-  if (is.null(doc) || identical(doc, "default")) return()
-  c(paste0("--reference-", if (rmarkdown::pandoc_available("2.0")) "doc" else {
+  if (is.null(doc) || identical(doc, "default")) {
+    return()
+  }
+  c(paste0("--reference-", if (rmarkdown::pandoc_available("2.0")) {
+    "doc"
+  } else {
     match.arg(type, c("docx", "odt", "doc"))
   }), rmarkdown::pandoc_path_arg(doc))
 }
