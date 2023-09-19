@@ -8,12 +8,12 @@ Authors@R: c(
 Version: 1.1.0
 Description: Templates for Public Health Scotland.
 Depends: R (>= 3.2.0)
-License: GPL (>= 2)
+License: MIT + file LICENSE
 Encoding: UTF-8
 URL: https://github.com/Public-Health-Scotland/phstemplates
 BugReports: https://github.com/Public-Health-Scotland/phstemplates/issues
 LazyData: true
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Suggests: 
     rstudioapi,
     dplyr,

@@ -13,13 +13,12 @@
 #' }
 add_gitignore <- function(path = rstudioapi::selectDirectory(caption = "Select folder to add .gitignore"),
                           append = NULL) {
-
   if (is.null(path)) {
     return(message(".gitignore file not added."))
   }
 
   # gitignore content to add
-  gitignore <- readLines(system.file(package="phstemplates", "text", "gitignore.txt"))
+  gitignore <- readLines(system.file(package = "phstemplates", "text", "gitignore.txt"))
 
   # collect into single text string
   gitignore <- paste(gitignore, collapse = "\n")
@@ -47,5 +46,4 @@ add_gitignore <- function(path = rstudioapi::selectDirectory(caption = "Select f
   filecon <- file(paste0(path, "/.gitignore"), open = opencon)
   writeLines(gitignore, con = filecon)
   close(filecon)
-
 }
