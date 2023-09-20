@@ -25,7 +25,6 @@ Imports:
     rstudioapi,
     utils
 Suggests: 
-    captioner,
     dplyr,
     flextable (>= 0.5.7),
     ggplot2,
