@@ -1,32 +1,34 @@
 Package: phstemplates
 Title: PHS R Templates
 Authors@R: c(
+    person("Public Health Scotland", , , "phs.datascience@phs.scot", role = "cph"),
     person("Alan", "Yeung", email = "alan.yeung@phs.scot", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5226-3695")),
     person("Anna", "Price", email = "Anna.Price@Statistics.gov.uk", role = "aut"),
-    person("Rosalyn", "Pearson", email="rosalyn.pearson@phs.scot", role="aut")
+    person("Rosalyn", "Pearson", email = "rosalyn.pearson@phs.scot", role = "aut"),
+    person("James", "McMahon", , "James.McMahon@phs.scot", role = "ctb",
+           comment = c(ORCID = "0000-0002-5380-2029"))
     )
 Version: 1.1.0
 Description: Templates for Public Health Scotland.
 Depends: R (>= 3.2.0)
-License: GPL (>= 2)
+License: MIT + file LICENSE
 Encoding: UTF-8
 URL: https://github.com/Public-Health-Scotland/phstemplates
 BugReports: https://github.com/Public-Health-Scotland/phstemplates/issues
 LazyData: true
-RoxygenNote: 7.2.1
-Suggests: 
-    rstudioapi,
-    dplyr,
-    tidyr,
-    lubridate,
-    ggplot2,
-    janitor,
-    flextable (>= 0.5.7),
-    captioner,
-    gdtools
+RoxygenNote: 7.2.3
 Imports: 
     magrittr,
-    rmarkdown (>= 2.12),
     officer,
+    rmarkdown (>= 2.12),
     renv,
+    rstudioapi,
     utils
+Suggests: 
+    captioner,
+    dplyr,
+    flextable (>= 0.5.7),
+    ggplot2,
+    janitor,
+    lubridate,
+    tidyr
