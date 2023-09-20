@@ -23,7 +23,6 @@ compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$")[1],
                            filename_out = "Report_and_Cover.docx",
                            auto_open = TRUE,
                            toc_level = 3) {
-
   rmd_exists <- file.exists(rmd_filename)
   cover_exists <- file.exists(cover_filename)
 
@@ -47,8 +46,10 @@ compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$")[1],
     message("Found all required input files. Compiling report...")
 
     # Create Report and Add Table of Contents
-    rmarkdown::render(rmd_filename, output_file = "temp_report.docx",
-                      envir = new.env(), output_dir = getwd())
+    rmarkdown::render(rmd_filename,
+      output_file = "temp_report.docx",
+      envir = new.env(), output_dir = getwd()
+    )
 
     officer::read_docx("temp_report.docx") %>%
       officer::cursor_reach(keyword = "Introduction") %>%
@@ -77,12 +78,14 @@ compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$")[1],
     unlink(c("temp_report.docx", "temp_report2.docx"))
 
     message("Report saved as ", filename_out)
-    message("When the report opens, you may get a warning popup saying:\n",
-            "This document contains fields that may refer to other files. ",
-            "Do you want to update the fields in this document?\n",
-            "Click Yes\n",
-            "This appears because the table of contents was added programmatically\n",
-            "If you want to get rid of this warning, re-save the file after opening it")
+    message(
+      "When the report opens, you may get a warning popup saying:\n",
+      "This document contains fields that may refer to other files. ",
+      "Do you want to update the fields in this document?\n",
+      "Click Yes\n",
+      "This appears because the table of contents was added programmatically\n",
+      "If you want to get rid of this warning, re-save the file after opening it"
+    )
 
     if (auto_open) {
       file.show(filename_out)
