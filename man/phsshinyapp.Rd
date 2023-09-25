@@ -35,7 +35,9 @@ This function is meant to be used within RStudio by going to the File menu, then
 }
 \examples{
 \dontrun{
-phsshinyapp(path = file.path(getwd(), "testproj"), app_name = "My lovely app",
-author = "A Person", n_scripts = 1)
+phsshinyapp(
+  path = file.path(getwd(), "testproj"), app_name = "My lovely app",
+  author = "A Person", n_scripts = 1
+)
 }
 }
