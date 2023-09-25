@@ -3,7 +3,7 @@
 #' Collates RStudio and R version information into
 #' a character vector which can be used elsewhere.
 #'
-#' @param linebreak (Default: FALSE) - Should a 
+#' @param linebreak (Default: FALSE) - Should a
 #' linebreak be appended to the 'run on' text?
 #'
 #' @noRd

@@ -8,10 +8,11 @@
 #' new_script()
 #' }
 new_script <- function() {
-
-  author <- rstudioapi::showPrompt(title = "Author",
-                                   message = "Name of Author",
-                                   default = Sys.info()[["user"]])
+  author <- rstudioapi::showPrompt(
+    title = "Author",
+    message = "Name of Author",
+    default = Sys.info()[["user"]]
+  )
 
   git <- rstudioapi::showQuestion(
     title = "Git",
