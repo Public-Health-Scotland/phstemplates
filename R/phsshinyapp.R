@@ -17,11 +17,14 @@
 #'   author = "A Person", n_scripts = 1
 #' )
 #' }
-phsshinyapp <- function(path, author = ifelse(!is.null(git2r::config()$global$user.name),
+phsshinyapp <- function(path, 
+                        author = ifelse(!is.null(git2r::config()$global$user.name),
                           git2r::config()$global$user.name, Sys.info()[["user"]]
                         ),
                         app_name = "WRITE APP NAME HERE",
-                        git = FALSE, renv = FALSE, overwrite = FALSE) {
+                        git = FALSE, 
+                        renv = FALSE, 
+                        overwrite = FALSE) {
   # Checking if path already exists
   if (dir.exists(path)) {
     if (overwrite) {
