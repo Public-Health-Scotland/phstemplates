@@ -1,5 +1,4 @@
 ---
-title: "Title"
 output: 
   word_document:
     reference_docx: "phs-mngtinfo-summary.docx"
@@ -62,6 +61,7 @@ chart <- ggplot(data = chart_data,
   )
 ```
 
+<Div custom-style = "Publication Title">Publication Title</Div>
 <Div custom-style = "Publication subtitle">Subtitle</Div>
 <Div custom-style = "Stats designation">A Management Information release for Scotland</Div>
 <Div custom-style = "Publication date">Publication date: DD Month YYYY</Div>
