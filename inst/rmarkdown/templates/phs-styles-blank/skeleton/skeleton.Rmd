@@ -88,10 +88,6 @@ fig_nums(name = "chart",
          caption = "title ^1,2,\\*,\\ \\*\\*\\ +\\ footnote\\ reference^")
 ```
 
-<Div custom-style = "Publication Title">My Title</Div>
-<Div custom-style = "Publication subtitle">Subtitle</Div>
-<Div custom-style = "Publication date">Publication date: DD Month YYYY</Div>
-<Div custom-style = "Restricted Stats">RESTRICTED STATISTICS: embargoed to 09:30 dd/mm/yyyy</Div>
 
 
 # Introduction
