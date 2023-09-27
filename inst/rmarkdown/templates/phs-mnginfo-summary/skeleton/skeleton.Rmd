@@ -1,0 +1,115 @@
+---
+title: "Title"
+output: 
+  word_document:
+    reference_docx: "phs-mngtinfo-summary.docx"
+    fig_caption: no
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, dpi = 300)
+library(ggplot2)
+
+# Create a pseudo chart
+yr <- c(rep("2014-15", times = 8), rep("2015-16", times = 8))
+mth <- rep(c("Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov"),
+           times = 2)
+counts <- c(1100, 1220, 1240, 1250, 1290, 1300, 1380, 1350,
+            1100, 1140, 1150, 1150, 1190, 1260, 1270, 1280)
+
+chart_data <- data.frame(yr, mth, counts)
+
+chart <- ggplot(data = chart_data,
+                aes(x = mth, y = counts, group = yr, color = yr,
+                    shape = yr)) +
+  geom_line(size = 0.75) +
+  geom_point(size = c(rep(3, 8), rep(2.5, 8))) +
+  xlab("Month") +
+  scale_x_discrete(limits =  c("Apr", "May", "Jun", "July", "Aug", "Sep",
+                               "Oct", "Nov"),
+                   labels =  c("Apr", "May", "Jun", "July", "Aug", "Sep",
+                               "Oct", "Nov")) +
+  scale_y_continuous(breaks = c(200, 400, 600, 800, 1000, 1200, 1400, 1600),
+                     labels = c("200", "400", "600", "800", "1,000", "1,200",
+                                "1,400", "1,600"),
+                     limits = c(0, 1600),  expand = expansion(mult = 0)) +
+  scale_color_manual(values = c("#9B4393", "#0078D4")) +
+  scale_shape_manual(values = c("diamond", "square")) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 12,
+                              colour = "#6C2383"),
+    plot.margin = margin(l = 30, b = 10),
+    panel.background = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_line(size = 0.4, color = "#969696"),
+    panel.border = element_rect(colour = "#969696", fill = NA, size = 0.75),
+    legend.position = "top",
+    legend.title = element_blank(),
+    legend.box.spacing = unit(0, "cm"),
+    legend.box.margin = margin(b = 0),
+    legend.key.height = unit(10, "pt"),
+    legend.key.width = unit(30, "pt"),
+    legend.text = element_text(size = 8),
+    axis.title.x = element_text(size = 8, face = "bold",
+                                margin = margin(t = 10)),
+    axis.title.y = element_blank(),
+    axis.text.x = element_text(size = 7.5, color = "black"),
+    axis.text.y = element_text(size = 7, color = "black"),
+    axis.line = element_line(colour = "grey"),
+    axis.ticks = element_line(colour = "grey")
+  )
+```
+
+<Div custom-style = "Publication subtitle">Subtitle</Div>
+<Div custom-style = "Stats designation">A Management Information release for Scotland</Div>
+<Div custom-style = "Publication date">Publication date: DD Month YYYY</Div>
+<Div custom-style = "Restricted Stats">RESTRICTED STATISTICS: embargoed to 09:30 dd/mm/yyyy</Div>
+
+# About this release
+Vestibulum lacinia, turpis eu sagittis lacinia, justo orci blandit orci, ut suscipit tortor turpis et metus. Pellentesque sollicitudin nisl et porttitor laoreet. Nunc id purus pretium, suscipit justo vitae, pretium dui. Quisque congue ex dignissim tellus pulvinar, a interdum libero fermentum.
+
+# Main Points
+Proin nec ultricies dolor. Maecenas pulvinar, enim et imperdiet cursus, mi
+
+<Div custom-style = "Bullet 1">Maecenas ut sagittis mi. Vestibulum faucibus ligula sit amet facilisis pulvinar. Morbi mollis odio id est consequat, a convallis quam finibus. Morbi id congue turpis, sit amet ultrices tortor. Phasellus vel nisi.</Div>
+<Div custom-style = "Bullet 1">Quisque iaculis congue aliquet. Aenean in dictum nisl. Etiam quis ullamcorper ex. Aenean mollis ante eget.</Div>
+
+<Div custom-style = "Table or chart caption">`Chart title`</Div>
+```{r chart, fig.width=7.18, fig.height=3.31, fig.cap="Appropriate ALT Text to be added."}
+chart
+```
+
+Maecenas bibendum consequat vehicula. Fusce id viverra lorem, et
+
+<Div custom-style = "Bullet 1">Curabitur luctus luctus lorem, at commodo mauris rutrum quis. Mauris aliquet turpis vel magna bibendum hendrerit. Nulla finibus porta sapien ut pretium. Aliquam elementum mauris.</Div>
+<Div custom-style = "Bullet 1">Vivamus bibendum ut tellus rhoncus porttitor. Nam id nibh et.</Div>
+<Div custom-style = "Bullet 1">Ut in dapibus massa, ut gravida ligula. Vestibulum ut consectetur:</Div>
+<Div custom-style = "Bullet 2">Vivamus luctus varius nibh, a scelerisque ex tincidunt non. Etiam dignissim.</Div>
+<Div custom-style = "Bullet 2">Curabitur laoreet viverra magna eget dapibus. Maecenas scelerisque euismod mattis. Sed cursus.</Div>
+<Div custom-style = "Bullet 2">Sed in iaculis lectus, sed fermentum urna. Donec efficitur diam eu ipsum viverra, eu ornare justo mollis. Phasellus in dictum tellus.</Div>
+
+# Background
+Aliquam sed maximus ante, a imperdiet est. Vivamus vel diam facilisis, pulvinar erat consequat, consequat nulla. Praesent lorem dolor, luctus ut libero vitae, venenatis congue tortor.
+
+Nunc at mauris euismod, mattis tellus sed, vehicula dolor. Duis quis auctor elit. Fusce eu dui eu magna convallis porttitor in ac purus. Proin sed tellus massa. In pulvinar augue sit amet faucibus maximus. Aenean porttitor arcu vitae lacus fringilla condimentum. Praesent laoreet, felis non dignissim viverra, libero nunc eleifend sapien, sed dignissim felis risus et tellus.
+
+# Contact
+Name | Role | Number | [phs.generic-team-email@phs.scot](mailto:phs.generic-team-email@phs.scot)
+
+Name | Role | Number | [phs.generic-team-email@phs.scot](mailto:phs.generic-team-email@phs.scot)
+
+For all media enquiries please email [phs.comms@phs.scot](mailto:phs.comms@phs.scot) or call 0131 275 6105.
+
+# Further information
+Data from this publication are available from the [publication page](https://beta.isdscotland.org/find-publications-and-data/YOUR-PUBLICATION-URL) on our website.
+
+Open data from this publication is available from the [Scottish Health and Social Care Open Data platform](https://www.opendata.nhs.scot/).
+
+The next release of this publication will be DD Month YYYY.
+
+Other formats of this publication are available on request by calling 0131 314 5300 or emailing [phs.otherformats@phs.scot](mailto:phs.otherformats@phs.scot).
+
+# NHS Performs
+A selection of information from this publication is included in [NHS Performs](http://www.nhsperforms.scot). NHS Performs is a website that brings together a range of information on how hospitals and NHS Boards within NHSScotland are performing.
