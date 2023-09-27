@@ -3,8 +3,6 @@
 on:
   push:
     paths: ["R/**"]
-  pull_request:
-    paths: ["R/**"]
 
 name: Document
 
@@ -15,7 +13,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
@@ -38,7 +36,7 @@ jobs:
         run: |
           git config --local user.name "$GITHUB_ACTOR"
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git add man/\* NAMESPACE
+          git add man/\* NAMESPACE DESCRIPTION
           git commit -m "Update documentation" || echo "No changes to commit"
           git pull --ff-only
           git push origin
