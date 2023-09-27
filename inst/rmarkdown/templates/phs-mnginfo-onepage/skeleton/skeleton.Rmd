@@ -1,0 +1,31 @@
+---
+output: 
+  word_document:
+    reference_docx: "phs-mngtinfo-onepage.docx"
+    fig_caption: no
+---
+
+<Div custom-style = "Publication Title">Publication Title</Div>
+<Div custom-style = "Publication subtitle">Subtitle</Div>
+<Div custom-style = "Stats designation">A Management Information release for Scotland</Div>
+<Div custom-style = "Publication date">Publication date: DD Month YYYY</Div>
+<Div custom-style = "Restricted Stats">RESTRICTED STATISTICS: embargoed to 09:30 dd/mm/yyyy</Div>
+
+# About this release
+Vestibulum lacinia, turpis eu sagittis lacinia, justo orci blandit orci, ut suscipit tortor turpis et metus. Pellentesque sollicitudin nisl et porttitor laoreet. Nunc id purus pretium, suscipit justo vitae, pretium dui. Quisque congue ex dignissim tellus pulvinar, a interdum libero fermentum.
+
+<Div custom-style = "Bullet 1">Curabitur luctus luctus lorem, at commodo mauris rutrum quis. Mauris aliquet turpis vel magna bibendum hendrerit. Nulla finibus porta sapien ut pretium. Aliquam elementum mauris.</Div>
+<Div custom-style = "Bullet 2">Vivamus luctus varius nibh, a scelerisque ex tincidunt non. Etiam dignissim.</Div>
+
+# Further information
+Vestibulum lacinia, turpis eu sagittis lacinia, justo orci blandit orci, ut suscipit tortor turpis et metus. 
+The next release of this publication will be DD Month YYYY.
+
+Other formats of this publication are available on request by calling 0131 314 5300 or emailing [phs.otherformats@phs.scot](mailto:phs.otherformats@phs.scot).
+
+# Contact
+Name | Role | Number | [phs.generic-team-email@phs.scot](mailto:phs.generic-team-email@phs.scot)
+
+Name | Role | Number | [phs.generic-team-email@phs.scot](mailto:phs.generic-team-email@phs.scot)
+
+For all media enquiries please email [phs.comms@phs.scot](mailto:phs.comms@phs.scot) or call 0131 275 6105.
