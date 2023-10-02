@@ -1,0 +1,346 @@
+---
+output: 
+  phstemplates::phs_report_docx:
+    reference_docx: "phs-mngtinfo-report.docx"
+    fig_caption: no
+    cover_page: "phs-mngtinfo-cover.docx"
+    cover_title: "My Title"
+    cover_subtitle: "My subtitle"
+    cover_date: "DD MM YYYY"
+    toc_depth: 3
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, dpi = 300)
+library(ggplot2)
+library(scales)
+library(captioner)
+library(flextable)
+library(officer)
+library(magrittr)
+```
+
+```{r table-data, include = FALSE}
+table_data <- data.frame(
+  stringsAsFactors = FALSE,
+  Table.Head = c(
+    "Table body", "Table body", "Table body",
+    "Table body (with Total Row option in Table Style options ticked)"
+  ),
+  Table.Head = c("Table body right aligned (for numbers) 22", "22", "22",
+                 "221"),
+  Table.Head = c(72081L, 72081L, 72081L, 910937L),
+  Table.Head = c(30.5, 30.5, 30.5, 24.3),
+  Table.Head = c(19L, 19L, 19L, 257L)
+)
+```
+
+```{r figure, include = FALSE}
+# Create a pseudo chart
+yr <- c(rep("2014-15", times = 8), rep("2015-16", times = 8))
+mth <- rep(c("Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov"),
+           times = 2)
+counts <- c(1100, 1220, 1240, 1250, 1290, 1300, 1380, 1350,
+            1100, 1140, 1150, 1150, 1190, 1260, 1270, 1280)
+
+chart_data <- data.frame(yr, mth, counts)
+
+chart <- ggplot(data = chart_data,
+                aes(x = mth, y = counts, group = yr, color = yr,
+                    shape = yr)) +
+  geom_line(size = 0.75) +
+  geom_point(size = c(rep(3, 8), rep(2.5, 8))) +
+  xlab("Month") +
+  scale_x_discrete(limits =  c("Apr", "May", "Jun", "July", "Aug", "Sep",
+                               "Oct", "Nov"),
+                   labels =  c("Apr", "May", "Jun", "July", "Aug", "Sep",
+                               "Oct", "Nov")) +
+  scale_y_continuous(breaks = c(200, 400, 600, 800, 1000, 1200, 1400, 1600),
+                     labels = c("200", "400", "600", "800", "1,000", "1,200",
+                                "1,400", "1,600"),
+                     limits = c(0, 1600),  expand = expansion(mult = 0)) +
+  scale_color_manual(values = c("#9B4393", "#0078D4")) +
+  scale_shape_manual(values = c("diamond", "square")) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 12,
+                              colour = "#6C2383"),
+    plot.margin = margin(l = 30, b = 10),
+    panel.background = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_line(size = 0.4, color = "#969696"),
+    panel.border = element_rect(colour = "#969696", fill = NA, size = 0.75),
+    legend.position = "top",
+    legend.title = element_blank(),
+    legend.box.spacing = unit(0, "cm"),
+    legend.box.margin = margin(b = 0),
+    legend.key.height = unit(10, "pt"),
+    legend.key.width = unit(30, "pt"),
+    legend.text = element_text(size = 8),
+    axis.title.x = element_text(size = 8, face = "bold",
+                                margin = margin(t = 10)),
+    axis.title.y = element_blank(),
+    axis.text.x = element_text(size = 7.5, color = "black"),
+    axis.text.y = element_text(size = 7, color = "black"),
+    axis.line = element_line(colour = "grey"),
+    axis.ticks = element_line(colour = "grey")
+  )
+
+# Figure numbering using the captioner package
+fig_nums <- captioner(prefix = "Figure", infix = ":")
+fig_nums(name = "chart",
+         caption = "title ^1,2,\\*,\\ \\*\\*\\ +\\ footnote\\ reference^")
+```
+
+# Introduction
+In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem. Donec a dolor gravida, lobortis ligula vitae, pulvinar ante. Integer faucibus eros ut luctus tristique.
+
+Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus. [Donec sodales lacus in erat elementum viverra](https://publichealthscotland.scot/). Phasellus faucibus faucibus erat vitae pharetra. Mauris sed blandit dolor. Duis consequat fermentum diam quis elementum. Maecenas euismod non lorem sit amet ornare.
+
+Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus. Vivamus molestie massa in quam porttitor viverra. Nulla facilisi. Suspendisse fermentum metus justo, vel elementum ante rutrum eget.
+
+\newpage
+
+# Main Points
+<Div custom-style = "Bullet 1">In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem.</Div>
+<Div custom-style = "Bullet 1">Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.</Div>
+<Div custom-style = "Bullet 1">Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus.</Div>
+
+\newpage
+
+# Results and Commentary
+Suspendisse velit nisi, tempor ut posuere ut, blandit in mauris. Suspendisse commodo sagittis pretium. Nullam.
+
+## Heading 2
+Suspendisse potenti. Donec sit amet porttitor urna. Fusce egestas et elit quis imperdiet. Quisque tempor, metus vel gravida fermentum, odio neque imperdiet justo, vitae sagittis turpis velit vitae velit. Nulla iaculis egestas tellus, non efficitur lorem molestie at. Donec urna sem, pharetra ut nunc non, tempor ullamcorper dolor. Duis fringilla mi eu erat lobortis, ac sagittis ipsum eleifend. Fusce eget rhoncus lorem.
+
+Sed suscipit nisl vel orci scelerisque mattis. Proin ut tortor et purus bibendum pharetra vel elementum dolor. Morbi orci massa, egestas vel dictum quis, maximus id justo. Fusce eu sem consequat, mollis nulla in, mollis nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at facilisis augue.
+
+<Div custom-style = "Table or chart caption">Table or chart caption</Div>
+```{r flextable-table-data, ft.align = "left"}
+# Set up some formatting for flextable to be applied to most tables
+my_ft_format <- function(ft) {
+  ft %>%
+    bold(part = "header") %>%
+    bg(bg = "#43358B", part = "header") %>%
+    color(color = "white", part = "header") %>%
+    align(align = "left", part = "header") %>%
+    valign(valign = "center", part = "header") %>%
+    valign(valign = "top", part = "body") %>%
+    colformat_num(big.mark = "") %>%
+    fontsize(size = 12, part = "all") %>%
+    border(border = fp_border_default(color = "#000000", width = 0.5),
+           part = "all")
+}
+
+headings <- list("Table Head", "Table Head", "Table Head", "Table Head",
+                 "Table Head")
+names(headings) <- names(table_data)
+
+flextable(table_data, theme_fun = NULL) %>%
+  my_ft_format() %>%
+  set_header_labels(values = headings) %>%
+  bold(i = nrow(table_data)) %>%
+  align(j = 2, align = "right", part = "body") %>%
+  height(height = 0.236, part = "body") %>%
+  hrule(rule = "atleast", part = "body") %>%
+  width(width = 1.26)
+```
+
+<br>
+
+<Div custom-style = "Table or chart caption">`r fig_nums("chart")`</Div>
+```{r chart, fig.width=7.18, fig.height=3.31, fig.cap="Appropriate ALT Text to be added."}
+chart
+```
+<Div custom-style = "Footnote Text">
+1 Footnote text one.
+
+2 Footnote text two.
+
+\* Footnote text three.
+
+\*\* Footnote text four.
+</Div>
+
+### Heading 3
+Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam non libero eu orci viverra rhoncus eu sed massa.
+
+Mauris ac neque vel erat varius cursus. Praesent at molestie felis. Nunc eget ipsum non lectus facilisis dictum quis viverra magna. Pellentesque elementum condimentum accumsan. Nunc vel pharetra augue. Pellentesque vitae lectus cursus magna blandit aliquet. In aliquet sapien sit amet viverra aliquam.
+
+Pellentesque aliquam imperdiet neque et interdum. Nulla sodales tellus magna, id venenatis justo pulvinar ut. Etiam luctus facilisis auctor. Curabitur interdum feugiat convallis. Nullam mi libero, hendrerit vitae condimentum in, iaculis porta purus. Suspendisse potenti. Donec sed molestie nisi, ut blandit ex. Proin tempor, mauris sit amet consectetur placerat, elit lorem placerat dui, sed placerat mi ante a purus.
+
+Suspendisse potenti. Donec sed molestie nisi, ut blandit ex. Proin tempor, mauris sit amet consectetur placerat, elit lorem placerat dui, sed placerat mi ante a purus.
+
+### Heading 3
+Mauris ac neque vel erat varius cursus. Praesent at molestie felis. Nunc eget ipsum non lectus facilisis dictum quis viverra magna. Pellentesque elementum condimentum accumsan. Nunc vel pharetra augue. Pellentesque vitae lectus cursus magna blandit aliquet. In aliquet sapien sit amet viverra aliquam.
+
+\newpage
+
+# Glossary  
+
+**Glossary item name**  
+Glossary item description
+
+**Glossary item name**  
+Glossary item description  
+
+\newpage
+
+# Contact
+**Name, Job Title**  
+Service  
+Phone number  
+[phs.generic-team-email@phs.scot](mailto:phs.generic-team-email@phs.scot)
+
+**Name, Job Title**  
+Service  
+Phone number  
+[phs.generic-team-email@phs.scot](mailto:phs.generic-team-email@phs.scot)
+
+For all media enquiries please email [phs.comms@phs.scot](mailto:phs.comms@phs.scot) or call 0131 275 6105.
+
+# Further Information
+Further information and data for this publication are available from the [publication page](https://publichealthscotland.scot/ADD-THE-LINK-TO-YOUR-PUBLICATION-PAGE) on our website.
+
+The next release of this publication will be DD Month YYYY.
+
+# Open data
+Data from this publication is available to download from the [Scottish Health and Social Care Open Data Portal](https://www.opendata.nhs.scot/).
+
+# Rate this publication
+Let us know what you think about this publication via. the link at the bottom of this [publication page](https://publichealthscotland.scot/ADD-THE-LINK-TO-YOUR-PUBLICATION-PAGE) on the PHS website.
+
+\newpage
+
+# Appendices
+## Appendix 1 - Background information
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.
+
+Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.
+
+Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna.
+
+\newpage
+
+## Appendix 2 - Publication metadata
+
+**Publication title**  
+[Insert publication title]
+
+**Description**  
+[Insert publication description]
+
+**Theme**  
+[Insert publication theme]
+
+**Topic**  
+[Insert publication topic]
+
+**Format**  
+[Insert publication format]
+
+**Data source(s)**  
+[Insert data source]
+
+**Date that data are acquired**  
+DD Month YYYY
+
+**Release date**  
+DD Month YYYY
+
+**Frequency**  
+[Insert frequency of publication]
+
+**Timeframe of data and timeliness**  
+[Insert description of data and timeliness in relation to publication]
+
+**Continuity of data**  
+[Insert description of continuity of data in relation to publication]
+
+**Revisions statement**  
+[Only to be filled in if there has been a revision made to this publication after initial release. Please include a description of the revision]
+
+**Revisions relevant to this publication**  
+<br>
+
+**Concepts and definitions**  
+[Insert concepts and definitions in relation to publication]
+
+**Relevance and key uses of the statistics**  
+[Insert relevance and key uses for these statistics]
+
+**Accuracy**  
+[Insert details about the accuracy of these statistics]
+
+**Completeness**  
+[Insert details about the completeness of these statistics]
+
+**Comparability**  
+[Insert details about how these statistics can be compared]
+
+**Accessibility**  
+It is the policy of Public Health Scotland to make its web sites and products accessible according to published guidelines. More information on accessibility can be found on the [PHS website](https://beta.isdscotland.org/front-matter/accessibility-statement/).
+
+**Coherence and clarity**  
+[Insert details about how the coherence and clarity of this publication]
+
+**Value type and unit of measurement**  
+[Insert details about the value types and unit of measurement used within this publication]
+
+**Disclosure**  
+[Insert details about disclosure levels of risk in relation to this publication]
+
+**Official Statistics designation**  
+Experimental Statistics
+
+**UK Statistics Authority Assessment**  
+[Insert details about the UK Stats Authority assessment of this publication]
+
+**Last published**  
+DD Month YYYY
+
+**Next published**  
+DD Month YYYY
+
+**Date of first publication**  
+DD Month YYYY
+
+**Help email**  
+[phs.generic-team-email@phs.scot](mailto:phs.generic-team-email@phs.scot)
+<br>
+
+**Date form completed**  
+DD Month YYYY
+
+\newpage
+
+## Appendix 3 - Early access details
+
+### Pre-Release Access
+
+Under terms of the "Pre-Release Access to Official Statistics (Scotland) Order 2008", PHS is obliged to publish information on those receiving Pre-Release Access ("Pre-Release Access" refers to statistics in their final form prior to publication). The standard maximum Pre-Release Access is five working days. Shown below are details of those receiving standard Pre-Release Access.
+
+### Standard Pre-Release Access
+
+Scottish Government Health Department
+
+NHS Board Chief Executives
+
+NHS Board Communication leads
+
+### Early Access for Management Information
+
+These statistics will also have been made available to those who needed access to 'management information', ie as part of the delivery of health and care:
+
+### Early Access for Quality Assurance
+
+These statistics will also have been made available to those who needed access to help quality assure the publication:
+
+\newpage
+
+## Appendix 4 – PHS and Official Statistics
+
+### About Public Health Scotland (PHS)
+
+PHS is a knowledge-based and intelligence driven organisation with a critical reliance on data and information to enable it to be an independent voice for the public's health, leading collaboratively and effectively across the Scottish public health system, accountable at local and national levels, and providing leadership and focus for achieving better health and wellbeing outcomes for the population. Our statistics comply with the [Code of Practice for Statistics](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/) in terms of trustworthiness, high quality and public value. This also means that we keep data secure at all stages, through collection, processing, analysis and output production, and adhere to the '[five safes](https://blog.ons.gov.uk/2017/01/27/the-five-safes-data-privacy-at-ons/)'.

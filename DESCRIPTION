@@ -1,6 +1,6 @@
 Package: phstemplates
 Title: PHS R Templates
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: c(
     person("Public Health Scotland", , , "phs.datascience@phs.scot", role = "cph"),
     person("Alan", "Yeung", , "alan.yeung@phs.scot", role = c("aut", "cre"),
@@ -8,8 +8,10 @@ Authors@R: c(
     person("Anna", "Price", , "Anna.Price@Statistics.gov.uk", role = "aut"),
     person("Rosalyn", "Pearson", , "rosalyn.pearson@phs.scot", role = "aut"),
     person("James", "McMahon", , "James.McMahon@phs.scot", role = "ctb",
-           comment = c(ORCID = "0000-0002-5380-2029"))
-  )
+           comment = c(ORCID = "0000-0002-5380-2029")),
+    person("Ellie", "Bates", , "Ellie.Bates@phs.scot", role = "ctb")
+           )
+  
 Description: Templates for Public Health Scotland.
 License: MIT + file LICENSE
 URL: https://github.com/Public-Health-Scotland/phstemplates
