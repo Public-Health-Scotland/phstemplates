@@ -1,3 +1,9 @@
+# phstemplates 1.1.1
+
+* Added three Management information templates for word documents, accessible through R studio menu: a Management Info Report, A Management Info Summary, and, a Management Info One Page template
+* The Management Info One Page template will accommodate using more than one page, and applies page numbers from page 2 onwards, so could also be used as a template for a simple information request response 
+
+
 # phstemplates 1.1.0
 
 * Added PHS shiny app template, accessible through the RStudio menus or through phsshinyapp().
@@ -7,7 +13,6 @@
 * Added add_gitignore() function which allows the user to add a PHS style .gitignore file to a given directory
 * R Studio addin for add_gitignore() so users can add .gitignore directly from R Studio
 * Minor updates to template text and fixed README link
-
 
 # phstemplates 1.0.0
 
