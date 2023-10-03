@@ -7,3 +7,8 @@ Name: Add PHS .gitignore file
 Description: Add a PHS style .gitignore file to a chosen directory
 Binding: add_gitignore
 Interactive: true
+
+Name: Add PHS style.css file
+Description: Add a PHS style.css file to a chosen directory
+Binding: add_stylecss
+Interactive: true
