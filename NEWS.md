@@ -1,8 +1,10 @@
 # phstemplates 1.1.1
 
+* Uses git2r functions for working with git.
+* Added Posit Workbench options and quit() to script template.
+* New addin to update the metadata in existing R scripts for latest update date and R version run on.
 * Added three Management information templates for word documents, accessible through R studio menu: a Management Info Report, A Management Info Summary, and, a Management Info One Page template
 * The Management Info One Page template will accommodate using more than one page, and applies page numbers from page 2 onwards, so could also be used as a template for a simple information request response 
-
 
 # phstemplates 1.1.0
 
