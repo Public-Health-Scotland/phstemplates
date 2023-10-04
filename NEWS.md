@@ -12,7 +12,7 @@
 # phstemplates 1.0.1
 
 * Added add_gitignore() function which allows the user to add a PHS style .gitignore file to a given directory
-* RStudio addin for add_gitignore() so users can add .gitignore directly from RStudio
+* RStudio addin for `add_gitignore()` so users can add `.gitignore` directly from RStudio.
 * Minor updates to template text and fixed README link
 
 # phstemplates 1.0.0
