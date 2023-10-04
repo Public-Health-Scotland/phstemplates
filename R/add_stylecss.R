@@ -9,9 +9,9 @@
 #' \dontrun{
 #' add_stylecss()
 #' }
-add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select folder to add style.css")) {
+add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select folder to add phs_style.css")) {
   if (is.null(path)) {
-    message("style.css file not added.")
+    message("phs_style.css file not added.")
     return(NULL)
   }
 
@@ -22,18 +22,18 @@ add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select fo
   stylecss <- paste(stylecss, collapse = "\n")
 
   # Search for existing stylecss in path
-  if (file.exists(file.path(path, "style.css"))) {
+  if (file.exists(file.path(path, "phs_style.css"))) {
     overwrite <- rstudioapi::showQuestion(
       title = "Overwrite?",
       message = "A style.css file already exists. Select OK to overwrite this file."
     )
 
     if (!overwrite) {
-      message("style.css has not been overwritten.")
+      message("phs_style.css has not been overwritten.")
       return(NULL)
     }
   }
 
-  writeLines(stylecss, con = file.path(path, "style.css"))
+  writeLines(stylecss, con = file.path(path, "phs_style.css"))
   return(NULL)
 }
