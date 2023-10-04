@@ -16,7 +16,7 @@ add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select fo
   }
 
   # style.css content to add
-  stylecss <- readLines(system.file(package = "phstemplates", "text", "stylecss.txt"))
+  stylecss <- readLines(system.file(package = "phstemplates", "text", "phs_style.css"))
 
   # collect into single text string
   stylecss <- paste(stylecss, collapse = "\n")
