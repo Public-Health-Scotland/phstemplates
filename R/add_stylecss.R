@@ -11,7 +11,8 @@
 #' }
 add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select folder to add style.css")) {
   if (is.null(path)) {
-    return(message("style.css file not added."))
+    message("style.css file not added.")
+    return(NULL)
   }
 
   # style.css content to add
