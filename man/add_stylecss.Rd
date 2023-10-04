@@ -9,13 +9,13 @@ add_stylecss(
 )
 }
 \arguments{
-\item{path}{String: path to add style.css file. If left blank, RStudio will prompt the user.}
+\item{path}{String: path to add phs_style.css file. If left blank, RStudio will prompt the user.}
 }
 \value{
-NULL - Adds style.css file to the directory.
+NULL - Adds phs_style.css file to the directory.
 }
 \description{
-Add PHS template style.css file to chosen directory.
+Add PHS template phs_style.css file to chosen directory.
 }
 \examples{
 \dontrun{

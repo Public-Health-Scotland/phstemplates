@@ -1,9 +1,9 @@
 #' add_stylecss
-#' @description Add PHS template style.css file to chosen directory.
+#' @description Add PHS template phs_style.css file to chosen directory.
 #'
-#' @param path String: path to add style.css file. If left blank, RStudio will prompt the user.
+#' @param path String: path to add phs_style.css file. If left blank, RStudio will prompt the user.
 #'
-#' @return NULL - Adds style.css file to the directory.
+#' @return NULL - Adds phs_style.css file to the directory.
 #' @export
 #' @examples
 #' \dontrun{
@@ -15,13 +15,13 @@ add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select fo
     return(NULL)
   }
 
-  # style.css content to add
+  # phs_style.css content to add
   stylecss <- readLines(system.file(package = "phstemplates", "text", "phs_style.css"))
 
   # collect into single text string
   stylecss <- paste(stylecss, collapse = "\n")
 
-  # Search for existing stylecss in path
+  # Search for existing file in path
   if (file.exists(file.path(path, "phs_style.css"))) {
     overwrite <- rstudioapi::showQuestion(
       title = "Overwrite?",
