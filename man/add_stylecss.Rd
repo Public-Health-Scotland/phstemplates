@@ -5,7 +5,7 @@
 \title{add_stylecss}
 \usage{
 add_stylecss(
-  path = rstudioapi::selectDirectory(caption = "Select folder to add style.css")
+  path = rstudioapi::selectDirectory(caption = "Select folder to add phs_style.css")
 )
 }
 \arguments{
