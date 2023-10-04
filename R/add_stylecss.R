@@ -1,7 +1,7 @@
 #' add_stylecss
 #' @description Add PHS template style.css file to chosen directory.
 #'
-#' @param path String: path to add style.css file. If left blank, will prompt the user within R Studio
+#' @param path String: path to add style.css file. If left blank, RStudio will prompt the user.
 #'
 #' @return NULL - Adds style.css file to the directory.
 #' @export
