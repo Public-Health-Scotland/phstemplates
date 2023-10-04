@@ -27,13 +27,13 @@ add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select fo
       title = "Overwrite?",
       message = "A style.css file already exists. Select OK to overwrite this file."
     )
-  
+
     if (!overwrite) {
       message("style.css has not been overwritten.")
       return(NULL)
     }
   }
-  
+
   writeLines(stylecss, con = file.path(path, "style.css"))
   return(NULL)
 }
