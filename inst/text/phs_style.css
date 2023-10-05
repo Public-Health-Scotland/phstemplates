@@ -2,6 +2,7 @@
   :root{
       --white: #ffffff;
       --black: #000000;
+      --darkblue: #004785;
       --phs-purple: #3F3685;
       --phs-blue: #0078D4;
       --phs-green: #83BB26;
@@ -52,10 +53,11 @@
     padding: 4px;
 }
 
+/* Table of Contents List Items */
 .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
     z-index: 2;
     color: var(--white);
     background-color: var(--phs-purple-80);
-    border-color: #004785;
+    border-color: var(--darkblue);
     text-decoration: underline;
 }
