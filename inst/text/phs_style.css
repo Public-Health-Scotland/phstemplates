@@ -37,6 +37,7 @@
   .externallink {color: var(--phs-purple); font-weight: bold;}
 .externallink:hover {color: var(--phs-teal-50);}
 
+/* Table of Contents */
 .tocify {
     width: 20%;
     max-height: 90%;
