@@ -35,5 +35,6 @@ add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select fo
   }
 
   writeLines(stylecss, con = file.path(path, "phs_style.css"))
+  rstudioapi::documentOpen(file.path(path, "phs_style.css"))
   return(invisible(NULL))
 }
