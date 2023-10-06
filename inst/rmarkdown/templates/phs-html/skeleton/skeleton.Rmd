@@ -7,10 +7,16 @@ output:
     css: phs_style.css
     toc: true
     toc_float: true
+keep_md: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+# Copy in the PHS style CSS file if required
+if (!file.exists(file.path(getwd(), "phs_style.css"))) {
+  phstemplates::add_stylecss(getwd(), auto_open = FALSE)
+}
 ```
 
 # R Markdown
