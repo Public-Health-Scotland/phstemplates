@@ -2,6 +2,7 @@
 
 * Added three Management information templates for Word documents, accessible through RStudio menu: a Management Info Report, A Management Info Summary, and, a Management Info One Page template.
 * The Management Info One Page template will accommodate using more than one page and applies page numbers from page 2 onwards, so could also be used as a template for a simple information request response.
+* Basic PHS style HTML template.
 * RStudio addin for `add_stylecss()` so users can add a PHS style.css file directly from RStudio.
 
 
