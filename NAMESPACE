@@ -2,6 +2,7 @@
 
 export("%>%")
 export(add_gitignore)
+export(add_stylecss)
 export(compile_report)
 export(new_script)
 export(phs_report_docx)
