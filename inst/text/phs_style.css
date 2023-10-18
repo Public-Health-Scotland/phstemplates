@@ -1,27 +1,53 @@
 /* Define colours */
   :root{
-      --white: #ffffff;
+      --white: #FFFFFF;
       --black: #000000;
+      --light-grey: #DDDDDD;
       --darkblue: #004785;
       --phs-purple: #3F3685;
+      --phs-magenta: #9B4393;
       --phs-blue: #0078D4;
       --phs-green: #83BB26;
       --phs-graphite: #948DA3;
-      --phs-magenta: #9B4393;
-      --phs-teal-30: #BCD9DA;
-      --phs-teal-50: #8FBFC2;
-      --phs-teal-80: #4B999D;
+      --phs-teal: #1E7F84;
+      --phs-liberty: #6B5C85;
+      --phs-rust: #C73918;
       --phs-purple-80: #655E9D;
+      --phs-purple-50: #9F9BC2;
       --phs-purple-30: #C5C3DA;
+      --phs-purple-10: #ECEBF3;
+      --phs-magenta-80: #AF69A9;
+      --phs-magenta-50: #CDA1C9;
       --phs-magenta-30: #E1C7DF;
+      --phs-magenta-10: #F5ECF4;
+      --phs-blue-80: #3393DD;
+      --phs-blue-50: #80BCEA;
+      --phs-blue-30: #B3D7F2;
+      --phs-blue-10: #E6F2FB;
+      --phs-green-80: #9CC951;
+      --phs-green-50: #C1DD93;
+      --phs-green-30: #DAEBBE;
+      --phs-green-10: #F3F8E9;
+      --phs-graphite-80: #A9A4B5;
+      --phs-graphite-50: #CAC6D1;
+      --phs-graphite-30: #DFDDE3;
+      --phs-graphite-10: #F4F4F6;
+      --phs-teal-80: #4B999D;
+      --phs-teal-50: #8FBFC2;
+      --phs-teal-30: #BCD9DA;
+      --phs-teal-10: #E9F2F3;
+      --phs-liberty-80: #897D9D;
+      --phs-liberty-50: #B5AEC2;
+      --phs-liberty-30: #D3CEDA;
       --phs-liberty-10: #F0EFF3;
-      --light-grey: #ddd;
+      --phs-rust-80: #D26146;
+      --phs-rust-50: #E39C8C;
+      --phs-rust-30: #EEC4BA;
+      --phs-rust-10: #F9EBE8;
   }
 
 /* Setting header colour */
   h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    margin-top: 20px;
-    margin-bottom: 10px;
     color: var(--phs-purple);
   }
 
@@ -60,4 +86,49 @@
     background-color: var(--phs-purple-80);
     border-color: var(--darkblue);
     text-decoration: underline;
+}
+
+/* Button styles */
+
+/* Regular button styles */
+.btn{
+  background-color: var(--phs-purple);
+  color: var(--white);
+  background-image:none;
+  border: 2px solid var(--white);
+  border-radius: 10px;
+}
+
+.btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default, .btn-default.hover, .btn-default:hover, .btn-default.focus, .btn-default:focus {
+    background-color: var(--phs-purple-10);
+    border-color: var(phs-purple);
+}
+
+/* tabset panel update, pills style in phs colours */
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: var(--white);
+    background-color: var(--phs-purple);
+}
+
+.nav-pills>li>a {
+    border-radius: 4px;
+    color: var(--phs-purple);
+}
+
+/* Navtabs - one tab with two+ indicators */
+.nav-tabs {
+    float: left;
+    margin-bottom: -1px;
+    color: var(--phs-purple);
+    background-color: var(--phs-purple-10);
+    font-size: 22px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: var(--phs-purple);
+    cursor: default;
+    background-color: var(--white);
+    border: 1px solid var(--light-grey);
+    border-bottom-color: transparent;
+    font-weight: bold;
 }
