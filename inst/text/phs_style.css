@@ -83,9 +83,8 @@
 .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
     z-index: 2;
     color: var(--white);
-    background-color: var(--phs-purple-80);
+    background-color: var(--phs-purple-50);
     border-color: var(--darkblue);
-    text-decoration: underline;
 }
 
 /* Button styles */
@@ -113,6 +112,7 @@
 .nav-pills>li>a {
     border-radius: 4px;
     color: var(--phs-purple);
+    font-size: 20px;
 }
 
 /* Navtabs - one tab with two+ indicators */
@@ -121,7 +121,15 @@
     margin-bottom: -1px;
     color: var(--phs-purple);
     background-color: var(--phs-purple-10);
-    font-size: 22px;
+    font-size: 20px;
+}
+
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    color: var(--phs-purple);
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
