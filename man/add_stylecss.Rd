@@ -7,7 +7,7 @@
 add_stylecss(
   path = rstudioapi::selectDirectory(caption = "Select folder to add phs_style.css"),
   shinycss = rstudioapi::showQuestion(title = "Shiny CSS", message =
-    "Do you want to append shiny CSS code to the file?")
+    "Do you want to append shiny CSS code to the file?", ok = "Yes", cancel = "No")
 )
 }
 \arguments{
