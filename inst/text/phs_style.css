@@ -47,12 +47,12 @@
   }
 
 /* Setting header colour */
-  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     color: var(--phs-purple);
   }
 
 /* Body styles */
-  body {
+body {
     font-family: Arial;
     font-size: 16px;
     line-height: 1.5;
@@ -61,7 +61,7 @@
   }
 
 /* Style hyperlinks */
-  .externallink {color: var(--phs-purple); font-weight: bold;}
+.externallink {color: var(--phs-purple); font-weight: bold;}
 .externallink:hover {color: var(--phs-teal-50);}
 
 /* Table of Contents */
@@ -80,7 +80,8 @@
 }
 
 /* Table of Contents List Items */
-.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+.list-group-item.active, .list-group-item.active:focus,
+  .list-group-item.active:hover {
     z-index: 2;
     color: var(--white);
     background-color: var(--phs-purple-50);
@@ -98,23 +99,26 @@
   border-radius: 10px;
 }
 
-.btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default, .btn-default.hover, .btn-default:hover, .btn-default.focus, .btn-default:focus {
+/* Hover/active/focus, change text colour purple, background light purple*/
+.btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default,
+  .btn-default.hover, .btn-default:hover, .btn-default.focus,
+  .btn-default:focus {
     background-color: var(--phs-purple-10);
     border-color: var(phs-purple);
 }
 
 /* tabset panel update, pills style in phs colours */
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
-    color: var(--white);
-    background-color: var(--phs-purple);
-}
-
 .nav-pills>li>a {
     border-radius: 4px;
     color: var(--phs-purple);
     font-size: 20px;
 }
 
+/* When a tab is active/focus/hover, white text purple background*/
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: var(--white);
+    background-color: var(--phs-purple);
+}
 
 /* Navtabs - the tab styles for tabset panels (default) */
 .nav-tabs {
@@ -125,6 +129,7 @@
     font-size: 20px;
 }
 
+/* Specific styles for the hyperlink within a tab */
 .nav-tabs>li>a {
     margin-right: 2px;
     line-height: 1.42857143;
@@ -133,6 +138,7 @@
     color: var(--phs-purple);
 }
 
+/* When the tab is either focused or active (selected) */
 .nav-tabs>li.active>a, .nav-tabs>li.focus>a, .nav-tabs>li.active>a:focus {
     color: var(--phs-purple);
     cursor: default;
@@ -142,8 +148,8 @@
     font-weight: bold;
 }
 
-
-
+/* When the tab is being hovered over */
+/* Mostly adds an underline to be clear content can be clicked */
 .nav-tabs>li>a:hover {
     text-decoration: underline;
     color: var(--phs-purple);
