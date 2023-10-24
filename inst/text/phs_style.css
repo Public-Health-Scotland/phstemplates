@@ -139,7 +139,7 @@ body {
 }
 
 /* When the tab is either focused or active (selected) */
-.nav-tabs>li.active>a, .nav-tabs>li.focus>a, .nav-tabs>li.active>a:focus {
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
     color: var(--phs-purple);
     cursor: default;
     background-color: var(--white);
