@@ -115,7 +115,8 @@
     font-size: 20px;
 }
 
-/* Navtabs - one tab with two+ indicators */
+
+/* Navtabs - the tab styles for tabset panels (default) */
 .nav-tabs {
     float: left;
     margin-bottom: -1px;
@@ -132,11 +133,20 @@
     color: var(--phs-purple);
 }
 
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+.nav-tabs>li.active>a, .nav-tabs>li.focus>a, .nav-tabs>li.active>a:focus {
     color: var(--phs-purple);
     cursor: default;
     background-color: var(--white);
     border: 1px solid var(--light-grey);
     border-bottom-color: transparent;
     font-weight: bold;
+}
+
+
+
+.nav-tabs>li>a:hover {
+    text-decoration: underline;
+    color: var(--phs-purple);
+    cursor: default;
+    border-bottom-color: transparent;
 }
