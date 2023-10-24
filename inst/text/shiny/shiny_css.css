@@ -1,34 +1,4 @@
 /* CSS styles used in the shiny app */
-  :root{
-    --white: #ffffff;
-      --black: #000000;
-      --phs-purple: #3F3685;
-      --phs-blue: #0078D4;
-      --phs-green: #83BB26;
-      --phs-graphite: #948DA3;
-      --phs-magenta: #9B4393;
-      --phs-teal-30: #BCD9DA;
-      --phs-teal-50: #8FBFC2;
-      --phs-teal-80: #4B999D;
-      --phs-purple-80: #655E9D;
-      --phs-purple-30: #C5C3DA;
-      --phs-magenta-30: #E1C7DF;
-      --phs-liberty-10: #F0EFF3;
-      --light-grey: #ddd;
-  }
-
-/* Setting header colour */
-  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    color: var(--phs-purple);
-  }
-/* Body styles */
-  body {
-    font-family: Arial;
-    font-size: 16px;
-    line-height: 1.5;
-    color: var(--black);
-    background-color: var(--white);
-  }
 
 /* Style sidebars/well panels */
   .well {background-color:var(--white); border: 0 solid var(--phs-blue);
@@ -45,10 +15,6 @@
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: var(--white);     background-color: var(--phs-purple-80);}
 
-/* Style hyperlinks */
-  .externallink {color: var(--phs-purple); font-weight: bold;}
-.externallink:hover {color: var(--phs-teal-50);}
-
 /* Border tables - th, td puts within the table as well */
   .border-table{border:1px solid var(--phs-purple);}
 th, td {
@@ -61,23 +27,6 @@ th, td {
   margin-right: 15px;
   margin-left: 15px;
 }
-
-/* Button styles */
-  .btn {
-    background-color: var(--phs-teal-50);
-    color: black; background-image:none;
-    border: 2px solid var(--phs-purple);
-    border-radius: 10px;
-  }
-.btn:hover{background-color:#9F9BC2; border: 2px solid var(--phs-purple-30);
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 8px 20px 0 rgba(0,0,0,0.19);
-}
-.btn:focus{background-color:#9F9BC2; border: 2px solid var(--phs-purple-30);
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 8px 20px 0 rgba(0,0,0,0.19);}
-.btn:active{background-color:#9F9BC2; border: 2px solid var(--phs-purple-30);
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 8px 20px 0 rgba(0,0,0,0.19);}
-.btn:checked{background-color:#9F9BC2; border: 2px solid var(--phs-purple-30);
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 8px 20px 0 rgba(0,0,0,0.19);}
 
 /* Title of selectize input boxes*/
   label {
@@ -143,3 +92,109 @@ th, td {
 }
 
 /*
+
+
+/* CSS styles from flexdashboard */
+
+/*
+Comes from https://github.com/rstudio/shinydashboard/blob/main/inst/AdminLTE/AdminLTE.css
+* Component: Small Box
+* --------------------
+*/
+.small-box {
+  border-radius: 10px;
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.small-box > .inner {
+  padding: 10px;
+  max-width: 100%;
+}
+.small-box > .small-box-footer {
+  position: relative;
+  text-align: center;
+  padding: 3px 0;
+  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+.small-box > .small-box-footer:hover {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.15);
+}
+.small-box h3 {
+  color: white;
+  font-size: 38px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  white-space: nowrap;
+  padding: 0;
+}
+.small-box p {
+  color: white;
+  font-size: 20px;
+}
+.small-box p > small {
+  display: block;
+  color: #f9f9f9;
+  font-size: 13px;
+  margin-top: 5px;
+}
+.small-box h3,
+.small-box p {
+  z-index: 5;
+}
+.small-box .icon {
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  z-index: 0;
+  font-size: 90px;
+  color: rgba(0, 0, 0, 0.15);
+}
+.small-box:hover {
+  text-decoration: none;
+  color: #F9F9F9;
+}
+.small-box:hover .icon {
+  font-size: 95px;
+}
+@media (max-width: 767px) {
+  .small-box {
+    text-align: center;
+  }
+  .small-box .icon {
+    display: none;
+    color: white;
+  }
+  .small-box p {
+    font-size: 12px;
+  }
+}
+
+.small-box .icon-large {
+  position: absolute;
+  top: auto;
+  bottom: 5px;
+  right: 5px;
+  font-size: 70px;
+  color: white;
+  /*color: rgba(0, 0, 0, 0.15);*/
+}
+
+/* Hack to get the colours we want on shinydashboard varBox */
+.small-box.bg-green { background-color:var(--phs-green); !important; color:#000000 !important; }
+.small-box.bg-purple { background-color:var(--phs-purple); !important; color:#000000 !important; }
+.small-box.bg-blue { background-color:var(--phs-blue); !important; color:#000000 !important; }
+.small-box.bg-fuchsia { background-color:var(--phs-magenta); !important; color:#000000 !important; }
+.small-box.bg-olive { background-color:var(--phs-graphite); !important; color:#000000 !important; }
+.small-box.bg-teal { background-color:var(--phs-teal); !important; color:#000000 !important; }
+.small-box.bg-red { background-color:var(--phs-rust); !important; color:#000000 !important; }
