@@ -12,15 +12,6 @@
 #' }
 add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select folder to add phs_style.css"),
                          shinycss = FALSE) {
-
-if (missing(shinycss) && interactive()) {
-shinycss <- rstudioapi::showQuestion(
-                           title = "Shiny CSS",
-                           message = "Do you want to append Shiny CSS code to the file?",
-                           ok = "Yes", 
-                           cancel = "No"
-                         )
-                         }                                    
   if (is.null(path)) {
     message("phs_style.css file not added.")
     return(invisible(NULL))
@@ -31,6 +22,15 @@ shinycss <- rstudioapi::showQuestion(
 
   # collect into single text string
   stylecss <- paste(stylecss, collapse = "\n")
+
+  if (missing(shinycss) && interactive()) {
+    shinycss <- rstudioapi::showQuestion(
+      title = "Shiny CSS",
+      message = "Do you want to append Shiny CSS code to the file?",
+      ok = "Yes",
+      cancel = "No"
+    )
+  }
 
   # Append shiny CSS if required
   if (shinycss) {
