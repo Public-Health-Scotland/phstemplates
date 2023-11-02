@@ -5,11 +5,14 @@
 \title{add_stylecss}
 \usage{
 add_stylecss(
-  path = rstudioapi::selectDirectory(caption = "Select folder to add phs_style.css")
+  path = rstudioapi::selectDirectory(caption = "Select folder to add phs_style.css"),
+  shinycss = FALSE
 )
 }
 \arguments{
 \item{path}{String: path to add phs_style.css file. If left blank, RStudio will prompt the user.}
+
+\item{shinycss}{Logical: Whether to append shiny CSS code to the file (TRUE) or not (FALSE). If left blank, RStudio will prompt the user.}
 }
 \value{
 NULL - Adds phs_style.css file to the directory.
