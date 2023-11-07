@@ -1,0 +1,40 @@
+---
+title: "My PHS HTML Document"
+author: "My Name"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output: 
+  html_document:
+    css: phs_style.css
+    toc: true
+    toc_float: true
+keep_md: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Copy in the PHS style CSS file if required
+if (!file.exists(file.path(getwd(), "phs_style.css"))) {
+  phstemplates::add_stylecss(getwd(), auto_open = FALSE)
+}
+```
+
+# R Markdown
+
+This is an R Markdown document with basic PHS styles included for output to HTML.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
