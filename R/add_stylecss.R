@@ -2,6 +2,7 @@
 #' @description Add PHS template phs_style.css file to chosen directory.
 #'
 #' @param path String: path to add phs_style.css file. If left blank, RStudio will prompt the user.
+#' @param shinycss Logical: Whether to append shiny CSS code to the file (TRUE) or not (FALSE). If left blank, RStudio will prompt the user.
 #' @param auto_open Logical: Automatically open the phs_style.css after it is compiled?
 #'
 #' @return NULL - Adds phs_style.css file to the directory.
@@ -11,7 +12,7 @@
 #' add_stylecss()
 #' }
 add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select folder to add phs_style.css"),
-                         auto_open = TRUE) {
+                         shinycss = FALSE, auto_open = TRUE) {
   if (is.null(path)) {
     message("phs_style.css file not added.")
     return(invisible(NULL))
@@ -22,6 +23,22 @@ add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select fo
 
   # collect into single text string
   stylecss <- paste(stylecss, collapse = "\n")
+
+  if (missing(shinycss) && interactive()) {
+    shinycss <- rstudioapi::showQuestion(
+      title = "Shiny CSS",
+      message = "Do you want to append Shiny CSS code to the file?",
+      ok = "Yes",
+      cancel = "No"
+    )
+  }
+
+  # Append shiny CSS if required
+  if (shinycss) {
+    shinycss <- readLines(system.file(package = "phstemplates", "text", "shiny", "shiny_css.css"))
+    shinycss <- paste(shinycss, collapse = "\n")
+    stylecss <- paste(stylecss, shinycss, sep = "\n\n\n")
+  }
 
   # Search for existing file in path
   if (file.exists(file.path(path, "phs_style.css"))) {
