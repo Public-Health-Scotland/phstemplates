@@ -119,12 +119,22 @@ phs_report_docx <- function(toc = FALSE,
       officer::body_replace_all_text("Subtitle", stitle) %>%
       officer::body_replace_all_text("DD Month YYYY", dt)
 
+    # Convert characters in output file path that need escaped for XML
+    xml_elt <- officer::to_wml(officer::block_pour_docx(output_file),
+      add_ns = TRUE
+    )
+
+    if (grepl("&", output_file)) {
+      output_escape <- gsub("&", "&amp;", output_file)
+      xml_elt <- gsub(output_file, output_escape, xml_elt)
+    }
+
     # Combine Cover and Report
     cover_page %>%
       officer::cursor_end() %>%
       officer::body_remove() %>%
       officer::body_add_break() %>%
-      officer::body_add_docx(output_file) %>%
+      officer::body_add_xml(str = xml_elt) %>%
       officer::set_doc_properties(title = title) %>%
       print(output_file)
   }
