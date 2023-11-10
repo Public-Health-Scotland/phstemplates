@@ -121,10 +121,11 @@ phs_report_docx <- function(toc = FALSE,
 
     # Convert characters in output file path that need escaped for XML
     xml_elt <- officer::to_wml(officer::block_pour_docx(output_file),
-                               add_ns = TRUE)
+      add_ns = TRUE
+    )
 
     if (grepl("&", output_file)) {
-      output_escape <-   gsub("&", "&amp;", output_file)
+      output_escape <- gsub("&", "&amp;", output_file)
       xml_elt <- gsub(output_file, output_escape, xml_elt)
     }
 
