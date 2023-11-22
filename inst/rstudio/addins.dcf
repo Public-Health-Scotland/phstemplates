@@ -12,3 +12,8 @@ Name: Add PHS style CSS file
 Description: Add a PHS style CSS file to a chosen directory.
 Binding: add_stylecss
 Interactive: true
+
+Name: Update PHS metadata
+Description: Updates metadata in R scripts for latest update date and R version run
+Binding: update_metadata
+Interactive: true

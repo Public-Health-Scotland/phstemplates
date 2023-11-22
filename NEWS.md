@@ -4,7 +4,7 @@
 * The Management Info One Page template will accommodate using more than one page and applies page numbers from page 2 onwards, so could also be used as a template for a simple information request response.
 * Basic PHS style HTML template.
 * RStudio addin for `add_stylecss()` so users can add a PHS style.css file directly from RStudio.
-
+* RStudio addin to update the metadata in existing R scripts for latest update date and R version run on.
 
 # phstemplates 1.1.0
 
