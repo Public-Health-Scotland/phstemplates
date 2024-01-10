@@ -10,10 +10,11 @@ Authors@R: c(
     person("James", "McMahon", , "James.McMahon@phs.scot", role = "ctb",
            comment = c(ORCID = "0000-0002-5380-2029")),
     person("Ellie", "Bates", , "Ellie.Bates@phs.scot", role = "ctb")
-           )
+  )
 Description: Templates for Public Health Scotland.
 License: MIT + file LICENSE
-URL: https://github.com/Public-Health-Scotland/phstemplates
+URL: https://github.com/Public-Health-Scotland/phstemplates,
+    https://public-health-scotland.github.io/phstemplates/
 BugReports: https://github.com/Public-Health-Scotland/phstemplates/issues
 Depends: 
     R (>= 3.2.0)
