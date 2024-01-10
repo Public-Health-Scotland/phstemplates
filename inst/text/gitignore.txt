@@ -1,7 +1,21 @@
-.Rproj.user
+# History files
 .Rhistory
+.Rapp.history
+
+# Session Data files
 .RData
+.RDataTmp
+
+# User-specific files
 .Ruserdata
+
+# RStudio files
+.Rproj.user/
+
+# R Environment Variables
+.Renviron
+
+# R Project file
 *.Rproj
 
 # 'data' folder #
@@ -23,10 +37,43 @@ data/
 *.[rR][dD][aA][tT][aA]
 *.[rR][dD][sS]
 
-# Cross platform data files #
+# Cross-platform data files #
 *.[pP][aA][rR][qQ][uU][eE][tT]
 *.[fF][sS][tT]
 *.[qQ][sS]
 
 # MacOS folder attributes files #
 .DS_Store
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# knitr and R markdown default cache directories
+*_cache/
+/cache/
+
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+
+# pkgdown site
+docs/
+
+# translation temp files
+po/*~
+
+# Example code in the package build process
+*-Ex.R
+
+# Output files from R CMD build
+/*.tar.gz
+
+# Output files from R CMD check
+/*.Rcheck/
+
+# RStudio Connect folder
+rsconnect/
