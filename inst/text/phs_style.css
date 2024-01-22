@@ -107,7 +107,7 @@ a:hover {color: var(--phs-teal-50);}
   .btn-default.hover, .btn-default:hover, .btn-default.focus,
   .btn-default:focus {
     background-color: var(--phs-purple-10);
-    border-color: var(phs-purple);
+    border-color: var(--phs-purple);
 }
 
 /* tabset panel update, pills style in phs colours */
