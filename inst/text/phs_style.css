@@ -60,12 +60,22 @@ body {
     background-color: var(--white);
   }
 
-/* Style hyperlinks */
-.externallink {color: var(--phs-purple); font-weight: bold;}
-.externallink:hover {color: var(--phs-teal-50);}
+/* Style external links */
+.externallink {
+  color: var(--phs-purple);
+  font-weight: bold;
+}
+.externallink:hover {
+  color: var(--phs-teal-50);
 
-a {color: var(--phs-purple); font-weight: bold;}
-a:hover {color: var(--phs-teal-50);}
+}
+/* Style in-line hyperlinks (e.g., rmarkdowns using [text](link)) */
+a {
+  color: var(--phs-purple);
+  font-weight: bold;}
+a:hover {
+  color: var(--phs-teal-50);
+}
 
 /* Table of Contents */
 .tocify {
