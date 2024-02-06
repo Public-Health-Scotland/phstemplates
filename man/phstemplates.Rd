@@ -2,6 +2,7 @@
 % Please edit documentation in R/phstemplates.R
 \docType{package}
 \name{phstemplates}
+\alias{phstemplates-package}
 \alias{phstemplates}
 \title{\code{phstemplates} package}
 \description{
@@ -10,4 +11,30 @@ Standard Templates for use in PHS.
 \details{
 See the README on
 \href{https://github.com/Public-Health-Scotland/phstemplates#readme}{GitHub}.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/Public-Health-Scotland/phstemplates}
+  \item \url{https://public-health-scotland.github.io/phstemplates/}
+  \item Report bugs at \url{https://github.com/Public-Health-Scotland/phstemplates/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Alan Yeung \email{alan.yeung@phs.scot} (\href{https://orcid.org/0000-0001-5226-3695}{ORCID})
+
+Authors:
+\itemize{
+  \item Anna Price \email{Anna.Price@Statistics.gov.uk}
+  \item Rosalyn Pearson \email{rosalyn.pearson@phs.scot}
+}
+
+Other contributors:
+\itemize{
+  \item Public Health Scotland \email{phs.datascience@phs.scot} [copyright holder]
+  \item James McMahon \email{James.McMahon@phs.scot} (\href{https://orcid.org/0000-0002-5380-2029}{ORCID}) [contributor]
+  \item Ellie Bates \email{Ellie.Bates@phs.scot} [contributor]
+}
+
 }

@@ -1,5 +1,4 @@
 ---
-title: "Title"
 output: 
   word_document:
     reference_docx: "phs-offstats-summary.docx"
@@ -62,6 +61,7 @@ chart <- ggplot(data = chart_data,
   )
 ```
 
+<Div custom-style = "Publication Title">Publication title</Div>
 <Div custom-style = "Publication subtitle">Subtitle</Div>
 <Div custom-style = "Stats designation">An Official Statistics release for Scotland</Div>
 <Div custom-style = "Publication date">Publication date: DD Month YYYY</Div>
@@ -106,6 +106,10 @@ For all media enquiries please email [phs.comms@phs.scot](mailto:phs.comms@phs.s
 Data from this publication are available from the [publication page](https://beta.isdscotland.org/find-publications-and-data/YOUR-PUBLICATION-URL) on our website.
 
 Open data from this publication is available from the [Scottish Health and Social Care Open Data platform](https://www.opendata.nhs.scot/).
+
+Our statistical practice is regulated by the Office for Statistics Regulation (OSR).
+
+[Further information about our statistics and PHS as an Official Statistics producer.](https://publichealthscotland.scot/our-organisation/about-our-statistics/official-statistics/)
 
 The next release of this publication will be DD Month YYYY.
 
