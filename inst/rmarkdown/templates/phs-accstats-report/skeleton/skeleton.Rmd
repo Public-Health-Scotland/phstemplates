@@ -1,9 +1,9 @@
 ---
 output: 
   phstemplates::phs_report_docx:
-    reference_docx: "phs-natstats-report.docx"
+    reference_docx: "phs-accstats-report.docx"
     fig_caption: no
-    cover_page: "phs-natstats-cover.docx"
+    cover_page: "phs-accstats-cover.docx"
     cover_title: "My Title"
     cover_subtitle: "My Subtitle"
     cover_date: "DD MM YYYY"
@@ -32,6 +32,23 @@ table_data <- data.frame(
   Table.Head = c(72081L, 72081L, 72081L, 910937L),
   Table.Head = c(30.5, 30.5, 30.5, 24.3),
   Table.Head = c(19L, 19L, 19L, 257L)
+)
+```
+
+```{r table-data2, include = FALSE}
+table_data2 <- data.frame(
+  stringsAsFactors = FALSE,
+  Table.Head = c(
+    "Table Body text\nIn tristique lobortis sagittis. Phasellus mollis mattis iaculis.", 
+    "Table Body text\nIn tristique lobortis sagittis. Phasellus mollis mattis iaculis", 
+    "Table Body"
+  ),
+  Table.Head = c("Table Body text\nIn tristique lobortis sagittis. Phasellus mollis mattis iaculis.",
+                 "1.   Table bullet\n      numbered 1 (123)\n    a. Table bullet\n          numbered 2 (abc)",
+                 "2.   Table bullet\n      numbered 1 (123)\n    a. Table bullet\n          numbered 2 (abc)"),
+  Table.Head = c("Table Body text\nIn tristique lobortis sagittis. Phasellus mollis mattis iaculis.",
+                 "  • Table bullet 1\n  • Table bullet 1\n      ○ Table bullet 2\n      ○ Table bullet 2",
+                 "  • Table bullet 1\n  • Table bullet 1\n      ○ Table bullet 2\n      ○ Table bullet 2")
 )
 ```
 
@@ -103,7 +120,7 @@ Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. 
 
 # Main Points
 <Div custom-style = "Bullet 1">In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem.</Div>
-<Div custom-style = "Bullet 1">Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.</Div>
+<Div custom-style = "Bullet 2">Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.</Div>
 <Div custom-style = "Bullet 1">Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus.</Div>
 
 \newpage
@@ -133,8 +150,8 @@ my_ft_format <- function(ft) {
            part = "all")
 }
 
-headings <- list("Table Head", "Table Head", "Table Head", "Table Head",
-                 "Table Head")
+headings <- list("Table head", "Table head", "Table head", "Table head",
+                 "Table head")
 names(headings) <- names(table_data)
 
 flextable(table_data, theme_fun = NULL) %>%
@@ -149,19 +166,39 @@ flextable(table_data, theme_fun = NULL) %>%
 
 <br>
 
+<Div custom-style = "Table or chart caption">Table or chart caption</Div>
+```{r flextable-table-data2, ft.align = "left"}
+headings2 <- list("Table Head", "Table Head", "Table Head")
+names(headings2) <- names(table_data2)
+
+flextable(table_data2, theme_fun = NULL) %>%
+  my_ft_format() %>%
+  set_header_labels(values = headings2) %>%
+  height(height = 0.236, part = "body") %>%
+  hrule(rule = "atleast", part = "body") %>%
+  width(width = 2.1) %>% 
+    append_chunks(
+    part = "body", i = 3, j = 1,
+     as_chunk(" text + hyperlink", 
+              props = fp_text(color = "#005c99", bold = TRUE, font.size = 12))
+  )
+```
+
+\newpage
+
 <Div custom-style = "Table or chart caption">`r fig_nums("chart")`</Div>
 ```{r chart, fig.width=7.18, fig.height=3.31, fig.cap="Appropriate ALT Text to be added."}
 chart
 ```
-<Div custom-style = "Footnote Text">
-1 Footnote text one.
+<Div custom-style = "Table or chart note">
+1. \ \ \ Vivamus molestie massa in quam porttitor viverra. Nulla facilisi. Suspendisse fermentum metus justo, vel elementum ante rutrum eget.
 
-2 Footnote text two.
+2. \ \ \ Vivamus molestie massa in quam porttitor viverra. Nulla facilisi. Suspendisse fermentum metus justo, vel Vivamus molestie massa in quam porttitor viverra. Nulla facilisi. Suspendisse fermentum metus justo.
 
-\* Footnote text three.
-
-\*\* Footnote text four.
+3. \ \ \ Vivamus molestie massa in quam porttitor viverra. Nulla facilisi. Suspendisse fermentum metus justo, vel elementum ante rutrum eget.
 </Div>
+
+<br>
 
 ### Heading 3
 Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam non libero eu orci viverra rhoncus eu sed massa.
@@ -291,8 +328,8 @@ It is the policy of Public Health Scotland to make its web sites and products ac
 **Disclosure**  
 [Insert details about disclosure levels of risk in relation to this publication]
 
-**Official Statistics designation**  
-Experimental Statistics
+**Official Statistics accreditation**  
+Accredited official statistics
 
 **UK Statistics Authority Assessment**  
 [Insert details about the UK Stats Authority assessment of this publication]
@@ -323,7 +360,7 @@ Under terms of the "Pre-Release Access to Official Statistics (Scotland) Order 2
 
 ### Standard Pre-Release Access
 
-Scottish Government Health Department
+Scottish Government Department of Health and Social Care (DHSC)
 
 NHS Board Chief Executives
 
@@ -343,4 +380,27 @@ These statistics will also have been made available to those who needed access t
 
 ### About Public Health Scotland (PHS)
 
-PHS is a knowledge-based and intelligence driven organisation with a critical reliance on data and information to enable it to be an independent voice for the public's health, leading collaboratively and effectively across the Scottish public health system, accountable at local and national levels, and providing leadership and focus for achieving better health and wellbeing outcomes for the population. Our statistics comply with the [Code of Practice for Statistics](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/) in terms of trustworthiness, high quality and public value. This also means that we keep data secure at all stages, through collection, processing, analysis and output production, and adhere to the '[five safes](https://blog.ons.gov.uk/2017/01/27/the-five-safes-data-privacy-at-ons/)'.
+PHS is a knowledge-based and intelligence driven organisation with a critical reliance on data and information to enable it to be an independent voice for the public's health, leading collaboratively and effectively across the Scottish public health system, accountable at local and national levels, and providing leadership and focus for achieving better health and wellbeing outcomes for the population. Our statistics comply with the [Code of Practice for Statistics](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/) in terms of trustworthiness, high quality and public value. This also means that we keep data secure at all stages, through collection, processing, analysis and output production, and adhere to the Office for National Statistics '[Five Safes](https://blog.ons.gov.uk/2017/01/27/the-five-safes-data-privacy-at-ons/)' of data privacy.
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<Div custom-style = "*Other formats textbox (only for RMarkdown use)">
+Translations and other formats are available on request at:  
+phs.otherformats@phs.scot or 0131 314 5300.
+
+This publication is licensed for re-use under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence/). For more information, visit [www.publichealthscotland.scot/ogl](http://www.publichealthscotland.scot/ogl)
+</Div>

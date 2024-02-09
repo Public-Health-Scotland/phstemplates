@@ -164,6 +164,8 @@ flextable(table_data, theme_fun = NULL) %>%
   width(width = 1.26)
 ```
 
+<br>
+
 <Div custom-style = "Table or chart caption">Table or chart caption</Div>
 ```{r flextable-table-data2, ft.align = "left"}
 headings2 <- list("Table Head", "Table Head", "Table Head")

@@ -115,7 +115,7 @@ phs_report_docx <- function(toc = FALSE,
 
     # Cover Page
     cover_page <- officer::read_docx(cover) %>%
-      officer::body_replace_all_text("Title", title) %>%
+      officer::body_replace_all_text("Publication title", title) %>%
       officer::body_replace_all_text("Subtitle", stitle) %>%
       officer::body_replace_all_text("DD Month YYYY", dt)
 
