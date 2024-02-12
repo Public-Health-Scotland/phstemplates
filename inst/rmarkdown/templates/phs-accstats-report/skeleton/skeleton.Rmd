@@ -311,7 +311,7 @@ DD Month YYYY
 [Insert details about how these statistics can be compared]
 
 **Accessibility**  
-It is the policy of Public Health Scotland to make its web sites and products accessible according to published guidelines. More information on accessibility can be found on the [PHS website](https://beta.isdscotland.org/front-matter/accessibility-statement/).
+It is the policy of Public Health Scotland to make its web sites and products accessible according to published guidelines. More information on accessibility can be found on the [PHS website](https://publichealthscotland.scot/accessibility/).
 
 **Coherence and clarity**  
 [Insert details about how the coherence and clarity of this publication]
@@ -325,7 +325,7 @@ It is the policy of Public Health Scotland to make its web sites and products ac
 **Official Statistics accreditation**  
 Accredited official statistics
 
-**UK Statistics Authority Assessment**  
+**UK Statistics Authority assessment**  
 [Insert details about the UK Stats Authority assessment of this publication]
 
 **Last published**  

@@ -1,6 +1,6 @@
 # phstemplates 1.2.0
 
-* Updated official statistics and accredited official statistics (formerly national statistics) templates to 2024 versions.
+* Updated official statistics, accredited official statistics (formerly national statistics) and management information templates to 2024 versions.
 
 # phstemplates 1.1.1
 
