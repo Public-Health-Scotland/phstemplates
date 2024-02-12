@@ -132,7 +132,6 @@ phs_report_docx <- function(toc = FALSE,
     # Combine Cover and Report
     cover_page %>%
       officer::cursor_end() %>%
-      officer::body_remove() %>%
       officer::body_add_break() %>%
       officer::body_add_xml(str = xml_elt) %>%
       officer::set_doc_properties(title = title) %>%

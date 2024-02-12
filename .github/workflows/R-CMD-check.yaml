@@ -24,14 +24,11 @@ jobs:
         config:
             # Windows
           - {os: windows-latest, r: 'release', allow_fail: false}
-            # Use 3.6 to trigger usage of RTools35
-          - {os: windows-latest, r: '3.6', allow_fail: true}
             # Linux
           - {os: ubuntu-latest, r: 'devel', http-user-agent: 'release', allow_fail: true}
           - {os: ubuntu-latest, r: 'release', allow_fail: false}
           - {os: ubuntu-latest, r: '4.1.2', allow_fail: false}
           - {os: ubuntu-latest, r: '4.0.2', allow_fail: false}
-          - {os: ubuntu-latest, r: '3.6.1', allow_fail: true}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes

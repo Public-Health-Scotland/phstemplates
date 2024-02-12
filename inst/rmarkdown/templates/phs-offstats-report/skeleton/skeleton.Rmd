@@ -14,7 +14,6 @@ output:
 knitr::opts_chunk$set(echo = FALSE, dpi = 300)
 library(ggplot2)
 library(scales)
-library(captioner)
 library(flextable)
 library(officer)
 library(magrittr)
@@ -102,11 +101,6 @@ chart <- ggplot(data = chart_data,
     axis.line = element_line(colour = "grey"),
     axis.ticks = element_line(colour = "grey")
   )
-
-# Figure numbering using the captioner package
-fig_nums <- captioner(prefix = "Figure", infix = ":")
-fig_nums(name = "chart",
-         caption = "title ^1,2,\\*,\\ \\*\\*\\ +\\ footnote\\ reference^")
 ```
 
 # Introduction
@@ -121,7 +115,7 @@ Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. 
 # Main Points
 <Div custom-style = "Bullet 1">In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem.</Div>
 <Div custom-style = "Bullet 2">Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.</Div>
-<Div custom-style = "Bullet 1">Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus.</Div>
+<Div custom-style = "Bullet 1">Praesent congue molestie nisi, ut congue dui mattis in. **Vivamus vel urna risus**. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus.</Div>
 
 \newpage
 
@@ -186,7 +180,7 @@ flextable(table_data2, theme_fun = NULL) %>%
 
 \newpage
 
-<Div custom-style = "Table or chart caption">`r fig_nums("chart")`</Div>
+<Div custom-style = "Table or chart caption">Figure 1: title ^1,2,\*,\ \*\*\ +\ footnote\ reference^</Div>
 ```{r chart, fig.width=7.18, fig.height=3.31, fig.cap="Appropriate ALT Text to be added."}
 chart
 ```
@@ -354,11 +348,11 @@ DD Month YYYY
 
 ## Appendix 3 - Early access details
 
-### Pre-Release Access
+### Pre-release access
 
 Under terms of the "Pre-Release Access to Official Statistics (Scotland) Order 2008", PHS is obliged to publish information on those receiving Pre-Release Access ("Pre-Release Access" refers to statistics in their final form prior to publication). The standard maximum Pre-Release Access is five working days. Shown below are details of those receiving standard Pre-Release Access.
 
-### Standard Pre-Release Access
+### Standard pre-release access
 
 Scottish Government Department of Health and Social Care (DHSC)
 
@@ -366,11 +360,11 @@ NHS Board Chief Executives
 
 NHS Board Communication leads
 
-### Early Access for Management Information
+### Early access for management information
 
 These statistics will also have been made available to those who needed access to 'management information', i.e. as part of the delivery of health and care:
 
-### Early Access for Quality Assurance
+### Early access for quality assurance
 
 These statistics will also have been made available to those who needed access to help quality assure the publication:
 

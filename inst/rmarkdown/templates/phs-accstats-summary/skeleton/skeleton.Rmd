@@ -105,7 +105,7 @@ For all media enquiries please email [phs.comms@phs.scot](mailto:phs.comms@phs.s
 # Further information
 Our statistical practice is regulated by the Office for Statistics Regulation (OSR). These accredited official statistics were independently reviewed by the Office for Statistics Regulation in [month/year]. They comply with the standards of trustworthiness, quality and value in the Code of Practice for Statistics and should be labelled 'accredited official statistics'.
 
-Accredited official statistics are called National Statistics in the Statistics and Registration Service Act 2007. Visit the UK Statistics Authority website for more information about the [Code of Practice and Accredited official statistics](https://code.statisticsauthority.gov.uk/).
+Accredited official statistics are called National Statistics in the Statistics and Registration Service Act 2007. Visit the UK Statistics Authority website for more information about the [Code of Practice](https://code.statisticsauthority.gov.uk/) and [Accredited official statistics](https://code.statisticsauthority.gov.uk/glossary/#pid-accredited-official-statistics).
 
 Visit our website for [further information about our statistics and PHS as an Official Statistics producer.](https://publichealthscotland.scot/our-organisation/about-our-statistics/official-statistics/)
 

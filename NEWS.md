@@ -1,3 +1,7 @@
+# phstemplates 1.2.0
+
+* Updated official statistics and accredited official statistics (formerly national statistics) templates to 2024 versions.
+
 # phstemplates 1.1.1
 
 * Added three Management information templates for Word documents, accessible through RStudio menu: a Management Info Report, A Management Info Summary, and, a Management Info One Page template.
