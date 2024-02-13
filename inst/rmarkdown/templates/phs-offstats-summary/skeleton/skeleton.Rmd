@@ -63,7 +63,7 @@ chart <- ggplot(data = chart_data,
 
 <Div custom-style = "Publication Title">Publication title</Div>
 <Div custom-style = "Publication subtitle">Subtitle</Div>
-<Div custom-style = "Stats designation">An Official Statistics release for Scotland</Div>
+<Div custom-style = "Stats designation">An Official statistics release for Scotland</Div>
 <Div custom-style = "Publication date">Publication date: DD Month YYYY</Div>
 <Div custom-style = "Restricted Stats">RESTRICTED STATISTICS: embargoed to 09:30 dd/mm/yyyy</Div>
 
@@ -103,7 +103,7 @@ Name | Role | Number | [phs.generic-team-email@phs.scot](mailto:phs.generic-team
 For all media enquiries please email [phs.comms@phs.scot](mailto:phs.comms@phs.scot) or call 0131 275 6105.
 
 # Further information
-Data from this publication are available from the [publication page](https://beta.isdscotland.org/find-publications-and-data/YOUR-PUBLICATION-URL) on our website.
+Data from this publication are available from the [publication page](https://publichealthscotland.scot/publications/YOUR-PUBLICATION-URL) on our website.
 
 Open data from this publication is available from the [Scottish Health and Social Care Open Data platform](https://www.opendata.nhs.scot/).
 
