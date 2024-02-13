@@ -219,12 +219,12 @@ Glossary item description
 \newpage
 
 # Contact
-**Name, Job Title**  
+**Name, Job title**  
 Service  
 Phone number  
 [phs.generic-team-email@phs.scot](mailto:phs.generic-team-email@phs.scot)
 
-**Name, Job Title**  
+**Name, Job title**  
 Service  
 Phone number  
 [phs.generic-team-email@phs.scot](mailto:phs.generic-team-email@phs.scot)
@@ -350,15 +350,15 @@ DD Month YYYY
 
 ### Pre-release access
 
-Under terms of the "Pre-Release Access to Official Statistics (Scotland) Order 2008", PHS is obliged to publish information on those receiving Pre-Release Access ("Pre-Release Access" refers to statistics in their final form prior to publication). The standard maximum Pre-Release Access is five working days. Shown below are details of those receiving standard Pre-Release Access.
+Under terms of the 'Pre-release Access to Official Statistics (Scotland) Order 2008', PHS is obliged to publish information on those receiving pre-release access ('pre-release access' refers to statistics in their final form prior to publication). The standard maximum pre-release access is five working days. Shown below are details of those receiving standard pre-release access.
 
-### Standard pre-release access
+### Standard pre-release access:
 
 Scottish Government Department of Health and Social Care (DHSC)
 
-NHS Board Chief Executives
+NHS board chief executives
 
-NHS Board Communication leads
+NHS board communication leads
 
 ### Early access for management information
 

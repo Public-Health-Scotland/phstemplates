@@ -114,7 +114,7 @@ Praesent congue molestie nisi, ut congue dui mattis in. Vivamus vel urna risus. 
 
 # Main Points
 <Div custom-style = "Bullet 1">In tristique lobortis sagittis. Phasellus mollis mattis iaculis. Vivamus nunc justo, finibus nec maximus vel, ultricies vel urna. Ut ac mi sit amet augue fringilla egestas et ut mauris. Morbi volutpat, felis vel egestas scelerisque, nunc purus auctor ligula, non lobortis nulla felis in tortor. In nec commodo sem.</Div>
-<Div custom-style = "Bullet 1">Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.</Div>
+<Div custom-style = "Bullet 2">Proin vitae vehicula purus. Cras consequat iaculis venenatis. Morbi vel risus vestibulum, aliquet mi in, volutpat massa. Sed urna sem, posuere eu semper vitae, ullamcorper quis leo. Mauris nisi metus, scelerisque sed urna eu, maximus porttitor ante. Sed scelerisque accumsan commodo. Sed interdum justo volutpat, sodales nisi sed, consectetur arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.</Div>
 <Div custom-style = "Bullet 1">Praesent congue molestie nisi, ut congue dui mattis in. **Vivamus vel urna risus**. Donec sed blandit ex. Donec vel aliquam velit, in vestibulum lectus.</Div>
 
 \newpage
@@ -199,7 +199,7 @@ Fusce hendrerit nibh sit amet tellus tincidunt vehicula. Class aptent taciti soc
 
 Mauris ac neque vel erat varius cursus. Praesent at molestie felis. Nunc eget ipsum non lectus facilisis dictum quis viverra magna. Pellentesque elementum condimentum accumsan. Nunc vel pharetra augue. Pellentesque vitae lectus cursus magna blandit aliquet. In aliquet sapien sit amet viverra aliquam.
 
-Pellentesque aliquam imperdiet neque et interdum. Nulla sodales tellus magna, id venenatis justo pulvinar ut. Etiam luctus facilisis auctor. Curabitur interdum feugiat convallis. Nullam mi libero, hendrerit vitae condimentum in, iaculis porta purus. Suspendisse potenti. Donec sed molestie nisi, ut blandit ex. Proin tempor, mauris sit amet consectetur placerat, elit lorem placerat dui, sed placerat mi ante a purus.
+Pellentesque aliquam imperdiet neque et interdum. Nulla sodales tellus magna, id venenatis justo pulvinar ut. Etiam luctus facilisis auctor. Curabitur interdum feugiat convallis. Nullam mi libero, hendrerit vitae condimentum in, iaculis porta purus.
 
 Suspendisse potenti. Donec sed molestie nisi, ut blandit ex. Proin tempor, mauris sit amet consectetur placerat, elit lorem placerat dui, sed placerat mi ante a purus.
 
@@ -219,12 +219,12 @@ Glossary item description
 \newpage
 
 # Contact
-**Name, Job Title**  
+**Name, Job title**  
 Service  
 Phone number  
 [phs.generic-team-email@phs.scot](mailto:phs.generic-team-email@phs.scot)
 
-**Name, Job Title**  
+**Name, Job title**  
 Service  
 Phone number  
 [phs.generic-team-email@phs.scot](mailto:phs.generic-team-email@phs.scot)
@@ -350,15 +350,15 @@ DD Month YYYY
 
 ### Pre-release access
 
-Under terms of the "Pre-Release Access to Official Statistics (Scotland) Order 2008", PHS is obliged to publish information on those receiving Pre-Release Access ("Pre-Release Access" refers to statistics in their final form prior to publication). The standard maximum Pre-Release Access is five working days. Shown below are details of those receiving standard Pre-Release Access.
+Under terms of the 'Pre-release Access to Official Statistics (Scotland) Order 2008', PHS is obliged to publish information on those receiving pre-release access ('pre-release access' refers to statistics in their final form prior to publication). The standard maximum pre-release access is five working days. Shown below are details of those receiving standard pre-release access.
 
-### Standard pre-release access
+### Standard pre-release access:
 
 Scottish Government Department of Health and Social Care (DHSC)
 
-NHS Board Chief Executives
+NHS board chief executives
 
-NHS Board Communication leads
+NHS board communication leads
 
 ### Early access for management information
 

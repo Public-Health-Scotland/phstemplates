@@ -1,6 +1,7 @@
 # phstemplates 1.2.0
 
 * Updated official statistics, accredited official statistics (formerly national statistics), official statistics in development and management information templates to 2024 versions.
+* Removed the use of the captioner package in report templates as it is no longer on CRAN.
 
 # phstemplates 1.1.1
 
