@@ -5,9 +5,9 @@ output:
     fig_caption: no
 ---
 
-<Div custom-style = "Publication Title">Publication Title</Div>
+<Div custom-style = "Publication Title">Publication title</Div>
 <Div custom-style = "Publication subtitle">Subtitle</Div>
-<Div custom-style = "Stats designation">A Management Information release for Scotland</Div>
+<Div custom-style = "Stats designation">A Management information release for Scotland</Div>
 <Div custom-style = "Publication date">Publication date: DD Month YYYY</Div>
 <Div custom-style = "Restricted Stats">RESTRICTED STATISTICS: embargoed to 09:30 dd/mm/yyyy</Div>
 

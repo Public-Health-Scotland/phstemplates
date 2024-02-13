@@ -1,7 +1,7 @@
 ---
 output: 
   word_document:
-    reference_docx: "phs-mngtinfo-summary.docx"
+    reference_docx: "phs-offdev-summary.docx"
     fig_caption: no
 ---
 
@@ -28,7 +28,7 @@ chart <- ggplot(data = chart_data,
   scale_x_discrete(limits =  c("Apr", "May", "Jun", "July", "Aug", "Sep",
                                "Oct", "Nov"),
                    labels =  c("Apr", "May", "Jun", "July", "Aug", "Sep",
-                               "Oct", "Nov")) +
+                               "Oct", "Nov"))  +
   scale_y_continuous(breaks = c(200, 400, 600, 800, 1000, 1200, 1400, 1600),
                      labels = c("200", "400", "600", "800", "1,000", "1,200",
                                 "1,400", "1,600"),
@@ -61,9 +61,9 @@ chart <- ggplot(data = chart_data,
   )
 ```
 
-<Div custom-style = "Publication title">Publication Title</Div>
+<Div custom-style = "Publication Title">Publication title</Div>
 <Div custom-style = "Publication subtitle">Subtitle</Div>
-<Div custom-style = "Stats designation">A Management information release for Scotland</Div>
+<Div custom-style = "Stats designation">An Official statistics in development release for Scotland</Div>
 <Div custom-style = "Publication date">Publication date: DD Month YYYY</Div>
 <Div custom-style = "Restricted Stats">RESTRICTED STATISTICS: embargoed to 09:30 dd/mm/yyyy</Div>
 
@@ -107,7 +107,7 @@ Data from this publication are available from the [publication page](https://pub
 
 Open data from this publication is available from the [Scottish Health and Social Care Open Data platform](https://www.opendata.nhs.scot/).
 
-Our statistical practice is regulated by the Office for Statistics Regulation (OSR).
+Our statistical practice is regulated by the Office for Statistics Regulation (OSR). Official Statistics in development are official statistics which are undergoing a development. 
 
 Visit our website for [further information about our statistics and PHS as an Official Statistics producer.](https://publichealthscotland.scot/our-organisation/about-our-statistics/official-statistics/)
 

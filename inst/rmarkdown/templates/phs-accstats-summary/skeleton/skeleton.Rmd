@@ -1,8 +1,7 @@
 ---
-title: "Title"
 output: 
   word_document:
-    reference_docx: "phs-natstats-summary.docx"
+    reference_docx: "phs-accstats-summary.docx"
     fig_caption: no
 ---
 
@@ -62,8 +61,9 @@ chart <- ggplot(data = chart_data,
   )
 ```
 
+<Div custom-style = "Publication title">Publication title</Div>
 <Div custom-style = "Publication subtitle">Subtitle</Div>
-<Div custom-style = "Stats designation">A National Statistics release for Scotland</Div>
+<Div custom-style = "Stats designation">An Accredited official statistics release for Scotland</Div>
 <Div custom-style = "Publication date">Publication date: DD Month YYYY</Div>
 <Div custom-style = "Restricted Stats">RESTRICTED STATISTICS: embargoed to 09:30 dd/mm/yyyy</Div>
 
@@ -103,7 +103,13 @@ Name | Role | Number | [phs.generic-team-email@phs.scot](mailto:phs.generic-team
 For all media enquiries please email [phs.comms@phs.scot](mailto:phs.comms@phs.scot) or call 0131 275 6105.
 
 # Further information
-Data from this publication are available from the [publication page](https://beta.isdscotland.org/find-publications-and-data/YOUR-PUBLICATION-URL) on our website.
+Our statistical practice is regulated by the Office for Statistics Regulation (OSR). These accredited official statistics were independently reviewed by the Office for Statistics Regulation in [month/year]. They comply with the standards of trustworthiness, quality and value in the Code of Practice for Statistics and should be labelled 'accredited official statistics'.
+
+Accredited official statistics are called National Statistics in the Statistics and Registration Service Act 2007. Visit the UK Statistics Authority website for more information about the [Code of Practice](https://code.statisticsauthority.gov.uk/) and [Accredited official statistics](https://code.statisticsauthority.gov.uk/glossary/#pid-accredited-official-statistics).
+
+Visit our website for [further information about our statistics and PHS as an Official Statistics producer.](https://publichealthscotland.scot/our-organisation/about-our-statistics/official-statistics/)
+
+Data from this publication are available from the [publication page](https://publichealthscotland.scot/publications/YOUR-PUBLICATION-URL) on our website.
 
 Open data from this publication is available from the [Scottish Health and Social Care Open Data platform](https://www.opendata.nhs.scot/).
 

@@ -5,6 +5,5 @@
 #' See the README on
 #' \href{https://github.com/Public-Health-Scotland/phstemplates#readme}{GitHub}.
 #'
-#' @docType package
 #' @name phstemplates
-NULL
+"_PACKAGE"
