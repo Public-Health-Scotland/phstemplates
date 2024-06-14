@@ -1,3 +1,7 @@
+# phstemplates 1.2.1
+
+* Updated accredited official statistics templates to include the accredited badge.
+
 # phstemplates 1.2.0
 
 * Updated official statistics, accredited official statistics (formerly national statistics), official statistics in development and management information templates to 2024 versions.
