@@ -1,5 +1,5 @@
 <!-- badges: start -->
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Public-Health-Scotland/phstemplates)](https://github.com/Public-Health-Scotland/phstemplates/releases/latest)
+[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/Public-Health-Scotland/phstemplates)](https://github.com/Public-Health-Scotland/phstemplates/tags)
 [![R-CMD-check](https://github.com/Public-Health-Scotland/phstemplates/workflows/R-CMD-check/badge.svg)](https://github.com/Public-Health-Scotland/phstemplates/actions)
 <!-- badges: end -->
 
