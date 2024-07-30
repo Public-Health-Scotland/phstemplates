@@ -12,7 +12,7 @@
 
 ## Installation
 Install this package by running the following code in R:
-```r install
+```{r install, eval = FALSE}
 remotes::install_github("Public-Health-Scotland/phstemplates", ref = "main")
 ```
 
@@ -23,19 +23,19 @@ If you are working inside the PHS network then this may not work in which case f
 4. Unzip the zip file
 5. Replace the sections marked `<>` below (including the arrows themselves) and run the following code in R:
 
-```r source-installation
+```{r source-installation, eval = FALSE}
 install.packages("<FILEPATH OF UNZIPPED FILE>/phstemplates-main", repos = NULL,
                  type = "source")
 ```
 If you encounter any issues with the automatic installation of package dependencies using this method, you may need to install these manually prior to running the code to install phstemplates. In this case, it should tell you which packages you need. For example, if you need [flextable](https://davidgohel.github.io/flextable) and [officer](https://davidgohel.github.io/officer), install these first:
 
-```r source-installation-issues
+```{r source-installation-issues, eval = FALSE}
 install.packages(c("flextable", "officer"))
 ```
 
 A further option is to install this package using [drat](https://github.com/eddelbuettel/drat). The advantage of this method is that it should work from within the PHS network but the disadvantage is that it may not always be completely in sync with the latest version of the package on GitHub. Note that the first line to install the drat package is only needed if you don't already have it installed.
 
-```r drat-installation
+```{r drat-installation, eval = FALSE}
 install.packages("drat")
 drat::addRepo("alan-y")
 install.packages("phstemplates")
@@ -86,7 +86,7 @@ You can access these templates in RStudio by clicking **File -> New File -> R Ma
 
 Once the template has been loaded, the document can be produced by clicking the **Knit** button. Alternatively, you can use the `render()` function to produce the document. This may be preferable if you want to automate the production of several different reports. This is some example code for doing this with the official statistics template.
 
-```r render-example
+```{r render-example, eval = FALSE}
 rmarkdown::render(
   input = "my_report.Rmd",
   output_format = phstemplates::phs_report_docx(
