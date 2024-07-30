@@ -21,25 +21,20 @@ date)](https://img.shields.io/github/v/tag/Public-Health-Scotland/phstemplates)]
 
 ## Installation
 
-Install this package by running the following code in R:
+If you are working inside the PHS network, with R set up to install
+packages from the internal package manager repository (for example, if
+you are using R from Posit Workbench), you can install the package by
+running
+
+``` r
+install.packages("phstemplates")
+```
+
+Otherwise, install the package from Github by running the following code
+in R:
 
 ``` r
 remotes::install_github("Public-Health-Scotland/phstemplates", ref = "main")
-```
-
-If you are working inside the PHS network then this may not work in
-which case follow these steps:
-
-1.  Click **Clone or download**
-2.  Click **Download ZIP**
-3.  Save the zip file locally
-4.  Unzip the zip file
-5.  Replace the sections marked `<>` below (including the arrows
-    themselves) and run the following code in R:
-
-``` r
-install.packages("<FILEPATH OF UNZIPPED FILE>/phstemplates-main", repos = NULL,
-                 type = "source")
 ```
 
 If you encounter any issues with the automatic installation of package
@@ -51,20 +46,6 @@ should tell you which packages you need. For example, if you need
 
 ``` r
 install.packages(c("flextable", "officer"))
-```
-
-A further option is to install this package using
-[drat](https://github.com/eddelbuettel/drat). The advantage of this
-method is that it should work from within the PHS network but the
-disadvantage is that it may not always be completely in sync with the
-latest version of the package on GitHub. Note that the first line to
-install the drat package is only needed if you don’t already have it
-installed.
-
-``` r
-install.packages("drat")
-drat::addRepo("alan-y")
-install.packages("phstemplates")
 ```
 
 ## Making a new PHS project
