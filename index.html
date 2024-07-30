@@ -65,30 +65,15 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Install this package by running the following code in R:</p>
+<p>If you are working inside the PHS network, with R set up to install packages from the internal package manager repository (for example, if you are using R from Posit Workbench), you can install the package by running</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"Public-Health-Scotland/phstemplates"</span>, ref <span class="op">=</span> <span class="st">"main"</span><span class="op">)</span></span></code></pre></div>
-<p>If you are working inside the PHS network then this may not work in which case follow these steps:</p>
-<ol style="list-style-type: decimal">
-<li>Click <strong>Clone or download</strong>
-</li>
-<li>Click <strong>Download ZIP</strong>
-</li>
-<li>Save the zip file locally</li>
-<li>Unzip the zip file</li>
-<li>Replace the sections marked <code>&lt;&gt;</code> below (including the arrows themselves) and run the following code in R:</li>
-</ol>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"phstemplates"</span><span class="op">)</span></span></code></pre></div>
+<p>Otherwise, install the package from Github by running the following code in R:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"&lt;FILEPATH OF UNZIPPED FILE&gt;/phstemplates-main"</span>, repos <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>                 type <span class="op">=</span> <span class="st">"source"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"Public-Health-Scotland/phstemplates"</span>, ref <span class="op">=</span> <span class="st">"main"</span><span class="op">)</span></span></code></pre></div>
 <p>If you encounter any issues with the automatic installation of package dependencies using this method, you may need to install these manually prior to running the code to install phstemplates. In this case, it should tell you which packages you need. For example, if you need <a href="https://davidgohel.github.io/flextable" class="external-link">flextable</a> and <a href="https://davidgohel.github.io/officer" class="external-link">officer</a>, install these first:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"flextable"</span>, <span class="st">"officer"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>A further option is to install this package using <a href="https://github.com/eddelbuettel/drat" class="external-link">drat</a>. The advantage of this method is that it should work from within the PHS network but the disadvantage is that it may not always be completely in sync with the latest version of the package on GitHub. Note that the first line to install the drat package is only needed if you don’t already have it installed.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"drat"</span><span class="op">)</span></span>
-<span><span class="fu">drat</span><span class="fu">::</span><span class="fu">addRepo</span><span class="op">(</span><span class="st">"alan-y"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"phstemplates"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="making-a-new-phs-project">Making a new PHS project<a class="anchor" aria-label="anchor" href="#making-a-new-phs-project"></a>
@@ -164,7 +149,7 @@
 <p>Please note that these templates require pandoc v2 (or RStudio v1.2 which comes with the required version of pandoc). You can check the version of pandoc that you have with <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/pandoc_available.html" class="external-link">rmarkdown::pandoc_version()</a></code>.</p>
 <p>You can access these templates in RStudio by clicking <strong>File -&gt; New File -&gt; R Markdown -&gt; From Template</strong>.</p>
 <p>Once the template has been loaded, the document can be produced by clicking the <strong>Knit</strong> button. Alternatively, you can use the <code>render()</code> function to produce the document. This may be preferable if you want to automate the production of several different reports. This is some example code for doing this with the official statistics template.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html" class="external-link">render</a></span><span class="op">(</span></span>
 <span>  input <span class="op">=</span> <span class="st">"my_report.Rmd"</span>,</span>
 <span>  output_format <span class="op">=</span> <span class="fu">phstemplates</span><span class="fu">::</span><span class="fu"><a href="reference/phs_report_docx.html">phs_report_docx</a></span><span class="op">(</span></span>
