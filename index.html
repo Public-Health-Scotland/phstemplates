@@ -61,12 +61,12 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Install this package by running the following code in R: <code>r install remotes::install_github("Public-Health-Scotland/phstemplates", ref = "main")</code></p>
+<p>Install this package by running the following code in R: <code>{r install, eval = FALSE} remotes::install_github("Public-Health-Scotland/phstemplates", ref = "main")</code></p>
 <p>If you are working inside the PHS network then this may not work in which case follow these steps: 1. Click <strong>Clone or download</strong> 2. Click <strong>Download ZIP</strong> 3. Save the zip file locally 4. Unzip the zip file 5. Replace the sections marked <code>&lt;&gt;</code> below (including the arrows themselves) and run the following code in R:</p>
-<p><code>r source-installation install.packages("&lt;FILEPATH OF UNZIPPED FILE&gt;/phstemplates-main", repos = NULL,                  type = "source")</code> If you encounter any issues with the automatic installation of package dependencies using this method, you may need to install these manually prior to running the code to install phstemplates. In this case, it should tell you which packages you need. For example, if you need <a href="https://davidgohel.github.io/flextable" class="external-link">flextable</a> and <a href="https://davidgohel.github.io/officer" class="external-link">officer</a>, install these first:</p>
-<p><code>r source-installation-issues install.packages(c("flextable", "officer"))</code></p>
+<p><code>{r source-installation, eval = FALSE} install.packages("&lt;FILEPATH OF UNZIPPED FILE&gt;/phstemplates-main", repos = NULL,                  type = "source")</code> If you encounter any issues with the automatic installation of package dependencies using this method, you may need to install these manually prior to running the code to install phstemplates. In this case, it should tell you which packages you need. For example, if you need <a href="https://davidgohel.github.io/flextable" class="external-link">flextable</a> and <a href="https://davidgohel.github.io/officer" class="external-link">officer</a>, install these first:</p>
+<p><code>{r source-installation-issues, eval = FALSE} install.packages(c("flextable", "officer"))</code></p>
 <p>A further option is to install this package using <a href="https://github.com/eddelbuettel/drat" class="external-link">drat</a>. The advantage of this method is that it should work from within the PHS network but the disadvantage is that it may not always be completely in sync with the latest version of the package on GitHub. Note that the first line to install the drat package is only needed if you don’t already have it installed.</p>
-<p><code>r drat-installation install.packages("drat") drat::addRepo("alan-y") install.packages("phstemplates")</code></p>
+<p><code>{r drat-installation, eval = FALSE} install.packages("drat") drat::addRepo("alan-y") install.packages("phstemplates")</code></p>
 </div>
 <div class="section level2">
 <h2 id="making-a-new-phs-project">Making a new PHS project<a class="anchor" aria-label="anchor" href="#making-a-new-phs-project"></a>
@@ -138,7 +138,7 @@
 <p>Please note that these templates require pandoc v2 (or RStudio v1.2 which comes with the required version of pandoc). You can check the version of pandoc that you have with <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/pandoc_available.html" class="external-link">rmarkdown::pandoc_version()</a></code>.</p>
 <p>You can access these templates in RStudio by clicking <strong>File -&gt; New File -&gt; R Markdown -&gt; From Template</strong>.</p>
 <p>Once the template has been loaded, the document can be produced by clicking the <strong>Knit</strong> button. Alternatively, you can use the <code>render()</code> function to produce the document. This may be preferable if you want to automate the production of several different reports. This is some example code for doing this with the official statistics template.</p>
-<p><code>r render-example rmarkdown::render(   input = "my_report.Rmd",   output_format = phstemplates::phs_report_docx(     reference_docx = "phs-offstats-report.docx",     cover_page = "phs-offstats-cover.docx",     cover_title = "My Report Title",     cover_subtitle = "My Report Subtitle",     cover_date = "01 01 2024",     toc_depth = 3   ),   output_file = "my_report.docx" )</code></p>
+<p><code>{r render-example, eval = FALSE} rmarkdown::render(   input = "my_report.Rmd",   output_format = phstemplates::phs_report_docx(     reference_docx = "phs-offstats-report.docx",     cover_page = "phs-offstats-cover.docx",     cover_title = "My Report Title",     cover_subtitle = "My Report Subtitle",     cover_date = "01 01 2024",     toc_depth = 3   ),   output_file = "my_report.docx" )</code></p>
 <div class="section level3">
 <h3 id="adding-a-new-template">Adding a new template<a class="anchor" aria-label="anchor" href="#adding-a-new-template"></a>
 </h3>
