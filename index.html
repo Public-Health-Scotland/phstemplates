@@ -46,7 +46,11 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="phstemplates">phstemplates<a class="anchor" aria-label="anchor" href="#phstemplates"></a>
+</h1></div>
+<!-- badges: start -->
+
 <div class="section level2">
 <h2 id="contents">Contents<a class="anchor" aria-label="anchor" href="#contents"></a>
 </h2>
@@ -61,17 +65,37 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Install this package by running the following code in R: <code>{r install, eval = FALSE} remotes::install_github("Public-Health-Scotland/phstemplates", ref = "main")</code></p>
-<p>If you are working inside the PHS network then this may not work in which case follow these steps: 1. Click <strong>Clone or download</strong> 2. Click <strong>Download ZIP</strong> 3. Save the zip file locally 4. Unzip the zip file 5. Replace the sections marked <code>&lt;&gt;</code> below (including the arrows themselves) and run the following code in R:</p>
-<p><code>{r source-installation, eval = FALSE} install.packages("&lt;FILEPATH OF UNZIPPED FILE&gt;/phstemplates-main", repos = NULL,                  type = "source")</code> If you encounter any issues with the automatic installation of package dependencies using this method, you may need to install these manually prior to running the code to install phstemplates. In this case, it should tell you which packages you need. For example, if you need <a href="https://davidgohel.github.io/flextable" class="external-link">flextable</a> and <a href="https://davidgohel.github.io/officer" class="external-link">officer</a>, install these first:</p>
-<p><code>{r source-installation-issues, eval = FALSE} install.packages(c("flextable", "officer"))</code></p>
+<p>Install this package by running the following code in R:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"Public-Health-Scotland/phstemplates"</span>, ref <span class="op">=</span> <span class="st">"main"</span><span class="op">)</span></span></code></pre></div>
+<p>If you are working inside the PHS network then this may not work in which case follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Click <strong>Clone or download</strong>
+</li>
+<li>Click <strong>Download ZIP</strong>
+</li>
+<li>Save the zip file locally</li>
+<li>Unzip the zip file</li>
+<li>Replace the sections marked <code>&lt;&gt;</code> below (including the arrows themselves) and run the following code in R:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"&lt;FILEPATH OF UNZIPPED FILE&gt;/phstemplates-main"</span>, repos <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>                 type <span class="op">=</span> <span class="st">"source"</span><span class="op">)</span></span></code></pre></div>
+<p>If you encounter any issues with the automatic installation of package dependencies using this method, you may need to install these manually prior to running the code to install phstemplates. In this case, it should tell you which packages you need. For example, if you need <a href="https://davidgohel.github.io/flextable" class="external-link">flextable</a> and <a href="https://davidgohel.github.io/officer" class="external-link">officer</a>, install these first:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"flextable"</span>, <span class="st">"officer"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>A further option is to install this package using <a href="https://github.com/eddelbuettel/drat" class="external-link">drat</a>. The advantage of this method is that it should work from within the PHS network but the disadvantage is that it may not always be completely in sync with the latest version of the package on GitHub. Note that the first line to install the drat package is only needed if you don’t already have it installed.</p>
-<p><code>{r drat-installation, eval = FALSE} install.packages("drat") drat::addRepo("alan-y") install.packages("phstemplates")</code></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"drat"</span><span class="op">)</span></span>
+<span><span class="fu">drat</span><span class="fu">::</span><span class="fu">addRepo</span><span class="op">(</span><span class="st">"alan-y"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"phstemplates"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="making-a-new-phs-project">Making a new PHS project<a class="anchor" aria-label="anchor" href="#making-a-new-phs-project"></a>
 </h2>
-<p>To use this project template, install the package by following the instructions above. After doing this you will then be able to create new R projects with the recommended PHS structure within RStudio by clicking <strong>File -&gt; New Project… -&gt; New Directory</strong> and selecting <strong>PHS R Project Template</strong>. Name the project and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in subsequent sections of this README.</p>
+<p>To use this project template, install the package by following the instructions above. After doing this you will then be able to create new R projects with the recommended PHS structure within RStudio by clicking</p>
+<p><strong>File -&gt; New Project… -&gt; New Directory</strong> and selecting <strong>PHS R Project Template</strong></p>
+<p>Name the project and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in subsequent sections of this README.</p>
 <p>This template aims to instill best practice within PHS and therefore git has been initialised for version control. However, if you are not using this then you can delete the .gitignore file. More information about <a href="https://github.com/Public-Health-Scotland/resources/blob/master/version-control.md" class="external-link">version control</a>.</p>
 <p>If you are using git for version control then please be aware that the .gitignore contains the minimum recommended file types and folders to stop data being tracked and pushed to GitHub. Further guidance on using git and GitHub securely can be found <a href="https://github.com/Public-Health-Scotland/GitHub-guidance" class="external-link">here</a>.</p>
 <p>This template is also intended to be flexible, so you may not require every file or folder. For example, if you have written long or multiple functions then we would recommend saving these in the dedicated <code>functions.R</code> file, which can then be sourced within the main script(s). Additionally, if you are using many packages then these could be saved within the <code>packages.R</code> file and sourced similarly. However, decisions on whether these files are required and the exact structure of the folders and scripts should be left up to the analyst’s discretion. For more guidance on structuring and writing R scripts follow the organisation’s <a href="https://github.com/Public-Health-Scotland/R-Resources/blob/master/PHS%20R%20style%20guide.md" class="external-link">R Style Guide</a>.</p>
@@ -118,7 +142,9 @@
 <div class="section level2">
 <h2 id="making-a-new-phs-shiny-app">Making a new PHS shiny app<a class="anchor" aria-label="anchor" href="#making-a-new-phs-shiny-app"></a>
 </h2>
-<p>After installation you will then be able to create new R shiny apps with PHS styling within RStudio by clicking <strong>File -&gt; New Project… -&gt; New Directory</strong> and selecting <strong>PHS R Shiny App</strong>. Name the app and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in the README which is created inside the new shiny app template.</p>
+<p>After installation you will then be able to create new R shiny apps with PHS styling within RStudio by clicking</p>
+<p><strong>File -&gt; New Project… -&gt; New Directory</strong> and selecting <strong>PHS R Shiny App</strong></p>
+<p>Name the app and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in the README which is created inside the new shiny app template.</p>
 </div>
 <div class="section level2">
 <h2 id="adding-a-phs-gitignore-file-to-an-existing-directory">Adding a PHS gitignore file to an existing directory<a class="anchor" aria-label="anchor" href="#adding-a-phs-gitignore-file-to-an-existing-directory"></a>
@@ -138,7 +164,19 @@
 <p>Please note that these templates require pandoc v2 (or RStudio v1.2 which comes with the required version of pandoc). You can check the version of pandoc that you have with <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/pandoc_available.html" class="external-link">rmarkdown::pandoc_version()</a></code>.</p>
 <p>You can access these templates in RStudio by clicking <strong>File -&gt; New File -&gt; R Markdown -&gt; From Template</strong>.</p>
 <p>Once the template has been loaded, the document can be produced by clicking the <strong>Knit</strong> button. Alternatively, you can use the <code>render()</code> function to produce the document. This may be preferable if you want to automate the production of several different reports. This is some example code for doing this with the official statistics template.</p>
-<p><code>{r render-example, eval = FALSE} rmarkdown::render(   input = "my_report.Rmd",   output_format = phstemplates::phs_report_docx(     reference_docx = "phs-offstats-report.docx",     cover_page = "phs-offstats-cover.docx",     cover_title = "My Report Title",     cover_subtitle = "My Report Subtitle",     cover_date = "01 01 2024",     toc_depth = 3   ),   output_file = "my_report.docx" )</code></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html" class="external-link">render</a></span><span class="op">(</span></span>
+<span>  input <span class="op">=</span> <span class="st">"my_report.Rmd"</span>,</span>
+<span>  output_format <span class="op">=</span> <span class="fu">phstemplates</span><span class="fu">::</span><span class="fu"><a href="reference/phs_report_docx.html">phs_report_docx</a></span><span class="op">(</span></span>
+<span>    reference_docx <span class="op">=</span> <span class="st">"phs-offstats-report.docx"</span>,</span>
+<span>    cover_page <span class="op">=</span> <span class="st">"phs-offstats-cover.docx"</span>,</span>
+<span>    cover_title <span class="op">=</span> <span class="st">"My Report Title"</span>,</span>
+<span>    cover_subtitle <span class="op">=</span> <span class="st">"My Report Subtitle"</span>,</span>
+<span>    cover_date <span class="op">=</span> <span class="st">"01 01 2024"</span>,</span>
+<span>    toc_depth <span class="op">=</span> <span class="fl">3</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  output_file <span class="op">=</span> <span class="st">"my_report.docx"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="adding-a-new-template">Adding a new template<a class="anchor" aria-label="anchor" href="#adding-a-new-template"></a>
 </h3>
@@ -173,7 +211,7 @@
 </ol>
 </div>
 </div>
-
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
