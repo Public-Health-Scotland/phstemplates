@@ -7,12 +7,12 @@
 - [Installation](#installation)
 - [Making a new PHS project](#making-a-new-phs-project)
 - [Making a new PHS shiny app](#making-a-new-phs-shiny-app)
-- [Adding a new PHS .gitignore](#adding-a-new-phs-\.gitignore-file-to-an-existing-directory)
+- [Adding a new PHS gitignore](#adding-a-phs-gitignore-file-to-an-existing-directory)
 - [RMarkdown Templates](#rmarkdown-templates)
 
 ## Installation
 Install this package by running the following code in R:
-```{r install, eval = FALSE}
+```r install
 remotes::install_github("Public-Health-Scotland/phstemplates", ref = "main")
 ```
 
@@ -23,19 +23,19 @@ If you are working inside the PHS network then this may not work in which case f
 4. Unzip the zip file
 5. Replace the sections marked `<>` below (including the arrows themselves) and run the following code in R:
 
-```{r source-installation, eval = FALSE}
+```r source-installation
 install.packages("<FILEPATH OF UNZIPPED FILE>/phstemplates-main", repos = NULL,
                  type = "source")
 ```
 If you encounter any issues with the automatic installation of package dependencies using this method, you may need to install these manually prior to running the code to install phstemplates. In this case, it should tell you which packages you need. For example, if you need [flextable](https://davidgohel.github.io/flextable) and [officer](https://davidgohel.github.io/officer), install these first:
 
-```{r source-installation-issues, eval = FALSE}
+```r source-installation-issues
 install.packages(c("flextable", "officer"))
 ```
 
 A further option is to install this package using [drat](https://github.com/eddelbuettel/drat). The advantage of this method is that it should work from within the PHS network but the disadvantage is that it may not always be completely in sync with the latest version of the package on GitHub. Note that the first line to install the drat package is only needed if you don't already have it installed.
 
-```{r drat-installation, eval = FALSE}
+```r drat-installation
 install.packages("drat")
 drat::addRepo("alan-y")
 install.packages("phstemplates")
@@ -69,14 +69,37 @@ This template is also intended to be flexible, so you may not require every file
 ## Making a new PHS shiny app
 After installation you will then be able to create new R shiny apps with PHS styling within RStudio by clicking **File -> New Project... -> New Directory** and selecting **PHS R Shiny App**. Name the app and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in the README which is created inside the new shiny app template.
 
-## Adding a PHS .gitignore file to an existing directory
+## Adding a PHS gitignore file to an existing directory
 If you want to add a PHS style `.gitignore` to a given directory, you can do this in R Studio by selecting `Addins` on the top banner then scrolling down to the PHSTEMPLATES section and choosing **Add PHS .gitignore file**. This will allow you to choose the location of your new `.gitignore` file. You can also do this directly from the R console using the command `phstemplates::add_gitignore()`.
 
-
 ## RMarkdown Templates
-This package currently provides a number of RMarkdown templates including templates for PHS national statistics report and summary documents but please note that these require pandoc v2 (or RStudio v1.2 which comes with the required version of pandoc). You can check the version of pandoc that you have with `rmarkdown::pandoc_version()`.
+This package currently provides RMarkdown templates for:
+
+* PHS official statistics report and summary documents
+* PHS accredited official statistics report and summary documents
+* PHS official statistics in development report and summary documents
+* PHS management information report, summary and one-page documents
+
+Please note that these templates require pandoc v2 (or RStudio v1.2 which comes with the required version of pandoc). You can check the version of pandoc that you have with `rmarkdown::pandoc_version()`.
 
 You can access these templates in RStudio by clicking **File -> New File -> R Markdown -> From Template**.
+
+Once the template has been loaded, the document can be produced by clicking the **Knit** button. Alternatively, you can use the `render()` function to produce the document. This may be preferable if you want to automate the production of several different reports. This is some example code for doing this with the official statistics template.
+
+```r render-example
+rmarkdown::render(
+  input = "my_report.Rmd",
+  output_format = phstemplates::phs_report_docx(
+    reference_docx = "phs-offstats-report.docx",
+    cover_page = "phs-offstats-cover.docx",
+    cover_title = "My Report Title",
+    cover_subtitle = "My Report Subtitle",
+    cover_date = "01 01 2024",
+    toc_depth = 3
+  ),
+  output_file = "my_report.docx"
+)
+```
 
 ### Adding a new template
 1. Clone phstemplates and load it up in RStudio
