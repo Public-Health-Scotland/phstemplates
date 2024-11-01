@@ -58,7 +58,7 @@
 <li><a href="#installation">Installation</a></li>
 <li><a href="#making-a-new-phs-project">Making a new PHS project</a></li>
 <li><a href="#making-a-new-phs-shiny-app">Making a new PHS shiny app</a></li>
-<li><a href="#adding-a-phs-gitignore-file-to-an-existing-directory">Adding a new PHS gitignore</a></li>
+<li><a href="#adding-a-phs-gitignore-or-css-file-to-an-existing-directory">Adding a PHS gitignore or CSS file</a></li>
 <li><a href="#rmarkdown-templates">RMarkdown Templates</a></li>
 </ul>
 </div>
@@ -132,9 +132,10 @@
 <p>Name the app and select a location for the project folder. The original author can also be input - this will automatically add the name to the top section of default scripts within the project. You can then edit the files and folders as appropriate, e.g. rename the R script files or create new sub-folders. The default files and folders contained within the project are described in the README which is created inside the new shiny app template.</p>
 </div>
 <div class="section level2">
-<h2 id="adding-a-phs-gitignore-file-to-an-existing-directory">Adding a PHS gitignore file to an existing directory<a class="anchor" aria-label="anchor" href="#adding-a-phs-gitignore-file-to-an-existing-directory"></a>
+<h2 id="adding-a-phs-gitignore-or-css-file-to-an-existing-directory">Adding a PHS gitignore or CSS file to an existing directory<a class="anchor" aria-label="anchor" href="#adding-a-phs-gitignore-or-css-file-to-an-existing-directory"></a>
 </h2>
 <p>If you want to add a PHS style <code>.gitignore</code> to a given directory, you can do this in R Studio by selecting <code>Addins</code> on the top banner then scrolling down to the PHSTEMPLATES section and choosing <strong>Add PHS .gitignore file</strong>. This will allow you to choose the location of your new <code>.gitignore</code> file. You can also do this directly from the R console using the command <code><a href="reference/add_gitignore.html">phstemplates::add_gitignore()</a></code>.</p>
+<p>To add a PHS style <code>CSS</code> file, use the <code>Addins</code> menu and choose <strong>Add PHS style CSS file</strong>, which will then allow you to choose a location to save the file. It will also ask you if you want to include Shiny CSS styles to the file – these are optional. You can also do this by running <code><a href="reference/add_stylecss.html">phstemplates::add_stylecss()</a></code>.</p>
 </div>
 <div class="section level2">
 <h2 id="rmarkdown-templates">RMarkdown Templates<a class="anchor" aria-label="anchor" href="#rmarkdown-templates"></a>
