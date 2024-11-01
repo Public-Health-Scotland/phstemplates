@@ -15,8 +15,8 @@ date)](https://img.shields.io/github/v/tag/Public-Health-Scotland/phstemplates)]
 - [Installation](#installation)
 - [Making a new PHS project](#making-a-new-phs-project)
 - [Making a new PHS shiny app](#making-a-new-phs-shiny-app)
-- [Adding a new PHS
-  gitignore](#adding-a-phs-gitignore-file-to-an-existing-directory)
+- [Adding a PHS gitignore or CSS
+  file](#adding-a-phs-gitignore-or-css-file-to-an-existing-directory)
 - [RMarkdown Templates](#rmarkdown-templates)
 
 ## Installation
@@ -123,7 +123,7 @@ create new sub-folders. The default files and folders contained within
 the project are described in the README which is created inside the new
 shiny app template.
 
-## Adding a PHS gitignore file to an existing directory
+## Adding a PHS gitignore or CSS file to an existing directory
 
 If you want to add a PHS style `.gitignore` to a given directory, you
 can do this in R Studio by selecting `Addins` on the top banner then
@@ -131,6 +131,12 @@ scrolling down to the PHSTEMPLATES section and choosing **Add PHS
 .gitignore file**. This will allow you to choose the location of your
 new `.gitignore` file. You can also do this directly from the R console
 using the command `phstemplates::add_gitignore()`.
+
+To add a PHS style `CSS` file, use the `Addins` menu and choose **Add
+PHS style CSS file**, which will then allow you to choose a location to
+save the file. It will also ask you if you want to include Shiny CSS
+styles to the file – these are optional. You can also do this by running
+`phstemplates::add_stylecss()`.
 
 ## RMarkdown Templates
 
