@@ -52,11 +52,10 @@ compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$")[1],
     )
 
     officer::read_docx("temp_report.docx") %>%
-      officer::cursor_reach(keyword = "Introduction") %>%
-      officer::body_add_toc(pos = "before", level = toc_level) %>%
+      officer::cursor_begin() %>%
       officer::body_add_par("Contents", pos = "before", style = "TOC Heading") %>%
-      officer::cursor_reach(keyword = "Introduction") %>%
-      officer::body_add_break(pos = "before") %>%
+      officer::body_add_toc(pos = "after", level = toc_level) %>%
+      officer::body_add_break(pos = "after") %>%
       print("temp_report2.docx")
 
     # Cover Page
