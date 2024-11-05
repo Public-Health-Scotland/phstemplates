@@ -53,6 +53,7 @@ phsshinyapp <- function(path, author = Sys.info()[["user"]], app_name = "WRITE A
 
   # Getting shiny files from inst/
   readme <- readLines(system.file(package = "phstemplates", "text", "shiny", "README.md"))
+  readme <- gsub("WRITE APP NAME HERE", app_name, readme)
   setup_code <- readLines(system.file(package = "phstemplates", "text", "shiny", "setup.R"))
   css_code <- readLines(system.file(package = "phstemplates", "text", "shiny", "shiny_css.css"))
   css_code_phs <- readLines(system.file(package = "phstemplates", "text", "phs_style.css"))
