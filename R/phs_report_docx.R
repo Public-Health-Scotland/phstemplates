@@ -106,11 +106,10 @@ phs_report_docx <- function(toc = FALSE,
                              stitle = cover_subtitle, dt = cover_date,
                              tocd = toc_depth) {
     officer::read_docx(output_file) %>%
-      officer::cursor_reach(keyword = "Introduction") %>%
-      officer::body_add_toc(pos = "before", level = tocd) %>%
+      officer::cursor_begin() %>%
       officer::body_add_par("Contents", pos = "before", style = "TOC Heading") %>%
-      officer::cursor_reach(keyword = "Introduction") %>%
-      officer::body_add_break(pos = "before") %>%
+      officer::body_add_toc(pos = "after", level = tocd) %>%
+      officer::body_add_break(pos = "after") %>%
       print(output_file)
 
     # Cover Page
