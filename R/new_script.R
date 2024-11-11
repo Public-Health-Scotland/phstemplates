@@ -33,7 +33,7 @@ new_script <- function() {
     r_code <- paste0(r_code_part1, r_code_part2, collapse = "")
   }
 
-  dated_version <- grepl("[0-9]{4}\\.[0-9]+\\.",  rstudioapi::getVersion())
+  dated_version <- grepl("[0-9]{4}\\.[0-9]+\\.", rstudioapi::getVersion())
 
   if (dated_version) {
     required_version <- TRUE
