@@ -15,7 +15,7 @@ tabPanel(title = "Introduction",
 tabPanel(title = "Page 1",
     # Look at https://fontawesome.com/search?m=free for icons
     icon = icon_no_warning_fn("stethoscope"),
-    value = "intro",
+    value = "page1",
 
     h1("Page 1 title"),
     uiOutput("page_1_ui"),
