@@ -79,7 +79,7 @@ phsshinyapp <- function(path, author = Sys.info()[["user"]], app_name = "WRITE A
 
   # Getting app preamble
   app_preamble <- shiny_app_template(app_name = app_name, author = author)
-  app_code <- paste(app_preamble, app_code, collapse = "\n")
+  app_code <- paste0(app_preamble, app_code, collapse = "\n")
 
 
   # Write to index file
