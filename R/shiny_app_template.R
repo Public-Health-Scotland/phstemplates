@@ -32,8 +32,7 @@ shiny_app_template <- function(app_name = "WRITE APP NAME HERE",
     paste0("    windowTitle = ", '"', app_name, '"', ",", "# Title for browser tab"),
     '    header = tags$head(includeCSS("www/styles.css"),  # CSS stylesheet',
     '    tags$link(rel = "shortcut icon", href = "favicon_phs.ico") # Icon for browser tab',
-    "),",
-    ""
+    "),\n"
   )
 
   r_code <- paste(r_code, collapse = "\n")
