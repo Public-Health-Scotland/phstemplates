@@ -14,6 +14,10 @@ new_script <- function() {
     default = Sys.info()[["user"]]
   )
 
+  if (is.null(author)) {
+    stop("Please enter a name for the script author")
+  }
+
   git <- rstudioapi::showQuestion(
     title = "Git",
     message = "Are you version controlling using git?",
@@ -33,9 +37,17 @@ new_script <- function() {
     r_code <- paste0(r_code_part1, r_code_part2, collapse = "")
   }
 
-  if (!is.null(author) && rstudioapi::getVersion() >= 1.2) {
+  dated_version <- grepl("[0-9]{4}\\.[0-9]+\\.", rstudioapi::getVersion())
+
+  if (dated_version) {
+    required_version <- TRUE
+  } else {
+    required_version <- rstudioapi::getVersion() >= 1.2
+  }
+
+  if (required_version) {
     invisible(rstudioapi::documentNew(r_code, type = "r"))
-  } else if (!is.null(author) && rstudioapi::getVersion() < 1.2) {
+  } else {
     filename <- rstudioapi::showPrompt(
       title = "Filename",
       message = "Filename for new script\nYou can choose a folder to store this in after this",
