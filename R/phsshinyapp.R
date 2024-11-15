@@ -61,6 +61,7 @@ phsshinyapp <- function(path, author = Sys.info()[["user"]], app_name = "WRITE A
   intro_page_code <- readLines(system.file(package = "phstemplates", "text", "shiny", "intro_page.R"))
   page_1_code <- readLines(system.file(package = "phstemplates", "text", "shiny", "page_1.R"))
   page_1_functions <- readLines(system.file(package = "phstemplates", "text", "shiny", "page_1_functions.R"))
+  contact_page_code <- readLines(system.file(package = "phstemplates", "text", "shiny", "contact_page.R"))
   app_code <- readLines(system.file(package = "phstemplates", "text", "shiny", "app.R"))
 
   # Collect into single text string
@@ -75,6 +76,7 @@ phsshinyapp <- function(path, author = Sys.info()[["user"]], app_name = "WRITE A
   intro_page_code <- paste(intro_page_code, collapse = "\n")
   page_1_code <- paste(page_1_code, collapse = "\n")
   page_1_functions <- paste(page_1_functions, collapse = "\n")
+  contact_page_code <- paste(contact_page_code, collapse = "\n")
   app_code <- paste(app_code, collapse = "\n")
 
   # Getting app preamble
@@ -100,6 +102,7 @@ phsshinyapp <- function(path, author = Sys.info()[["user"]], app_name = "WRITE A
 
   writeLines(intro_page_code, con = file.path(path, "pages", "intro_page.R"))
   writeLines(page_1_code, con = file.path(path, "pages", "page_1.R"))
+  writeLines(contact_page_code, con = file.path(path, "pages", "contact_page.R"))
 
   writeLines(css_code, con = file.path(path, "www", "styles.css"))
 

@@ -27,6 +27,17 @@ tabPanel(title = "Page 1",
     DT::dataTableOutput("test_data_table"),
     linebreaks(2)
 
+    ), # tabpanel
+##############################################.
+# CONTACT PAGE ----
+##############################################.
+tabPanel(title = "Contact",
+    icon = icon_no_warning_fn("envelope"),
+    value = "contact",
+
+    h1("Contact us"),
+    uiOutput("contact_page_ui")
+
     ) # tabpanel
     ) # navbar
   ) # taglist
@@ -45,6 +56,7 @@ server <- function(input, output, session) {
     # Get content for individual pages
     source(file.path("pages/intro_page.R"), local = TRUE)$value
     source(file.path("pages/page_1.R"), local = TRUE)$value
+    source(file.path("pages/contact_page.R"), local = TRUE)$value
 
 }
 
