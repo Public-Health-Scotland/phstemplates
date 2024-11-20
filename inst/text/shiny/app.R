@@ -15,7 +15,7 @@ tabPanel(title = "Introduction",
 tabPanel(title = "Page 1",
     # Look at https://fontawesome.com/search?m=free for icons
     icon = icon_no_warning_fn("stethoscope"),
-    value = "intro",
+    value = "page1",
 
     h1("Page 1 title"),
     uiOutput("page_1_ui"),
@@ -26,6 +26,17 @@ tabPanel(title = "Page 1",
     h2("An example data table using mtcars data"),
     DT::dataTableOutput("test_data_table"),
     linebreaks(2)
+
+    ), # tabpanel
+##############################################.
+# CONTACT PAGE ----
+##############################################.
+tabPanel(title = "Contact",
+    icon = icon_no_warning_fn("envelope"),
+    value = "contact",
+
+    h1("Contact us"),
+    uiOutput("contact_page_ui")
 
     ) # tabpanel
     ) # navbar
@@ -45,6 +56,7 @@ server <- function(input, output, session) {
     # Get content for individual pages
     source(file.path("pages/intro_page.R"), local = TRUE)$value
     source(file.path("pages/page_1.R"), local = TRUE)$value
+    source(file.path("pages/contact_page.R"), local = TRUE)$value
 
 }
 
