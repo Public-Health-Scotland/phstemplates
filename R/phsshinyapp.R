@@ -145,7 +145,7 @@ phsshinyapp <- function(path, author = Sys.info()[["user"]], app_name = "WRITE A
   if (renv) {
     if (!"renv" %in% utils::installed.packages()[, 1]) {
       warning("renv is not installed. Now attempting to install...",
-              immediate. = TRUE
+        immediate. = TRUE
       )
       utils::install.packages("renv")
     }
