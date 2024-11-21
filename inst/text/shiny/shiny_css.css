@@ -6,7 +6,7 @@
 
 /* Navigation bar following PHS colour scheme */
   .navbar-default {color: var(--white); background-color: var(--phs-purple); }
-.navbar-default .navbar-brand, .navbar-default:hover .navbar-brand:hover, .navbar-brand {color: var(--phs-purple); background-color: var(--white)}
+.navbar-default .navbar-brand, .navbar-default:hover .navbar-brand:hover, .navbar-brand {color: var(--phs-purple); background-color: var(--phs-purple)}
 .navbar-default .navbar-nav > li > a {color: var(--white);}
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
   color: var(--white);

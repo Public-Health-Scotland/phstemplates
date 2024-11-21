@@ -5,6 +5,7 @@
 #' @param path String: Filepath for the project.
 #' @param author String: Name of the main author for the project.
 #' @param app_name String: name of application.
+#' @param phs_white_logo Logical: Use a white PHS logo.
 #' @param git Logical: Initialise the project with Git.
 #' @param renv Logical: Initialise the project with package management using renv.
 #' @param overwrite Logical: Whether to overwrite directory at existing path when creating directory.
@@ -18,7 +19,7 @@
 #' )
 #' }
 phsshinyapp <- function(path, author = Sys.info()[["user"]], app_name = "WRITE APP NAME HERE",
-                        git = FALSE, renv = FALSE, overwrite = FALSE) {
+                        phs_white_logo = TRUE, git = FALSE, renv = FALSE, overwrite = FALSE) {
   # Checking if path already exists
   if (dir.exists(path)) {
     if (overwrite) {
@@ -83,6 +84,14 @@ phsshinyapp <- function(path, author = Sys.info()[["user"]], app_name = "WRITE A
   app_preamble <- shiny_app_template(app_name = app_name, author = author)
   app_code <- paste0(app_preamble, app_code, collapse = "\n")
 
+  if (!phs_white_logo) {
+    app_code <- gsub("phs-logo-white", "phs-logo", app_code)
+    css_code <- gsub(
+      "navbar-brand \\{color: var\\(--phs-purple\\); background-color: var\\(--phs-purple\\)\\}",
+      "navbar-brand \\{color: var\\(--phs-purple\\); background-color: var\\(--white\\)\\}",
+      css_code
+    )
+  }
 
   # Write to index file
   if (!renv) {
@@ -111,16 +120,19 @@ phsshinyapp <- function(path, author = Sys.info()[["user"]], app_name = "WRITE A
     from = system.file(package = "phstemplates", "images", "phs-logo.png"),
     to = file.path(path, "www", "phs-logo.png")
   )
+  logo_white <- file.copy(
+    from = system.file(package = "phstemplates", "images", "phs-logo-white.png"),
+    to = file.path(path, "www", "phs-logo-white.png")
+  )
   favicon <- file.copy(
     from = system.file(package = "phstemplates", "images", "favicon_phs.ico"),
     to = file.path(path, "www", "favicon_phs.ico")
   )
 
 
-  if (!logo | !favicon) {
+  if (!logo | !favicon | !logo_white) {
     message("PHS logo and favicon could not be copied. Please obtain these images for them to show in the shiny app.")
   }
-
 
   if (git) {
     if (Sys.info()[["sysname"]] == "Windows") {
@@ -133,7 +145,7 @@ phsshinyapp <- function(path, author = Sys.info()[["user"]], app_name = "WRITE A
   if (renv) {
     if (!"renv" %in% utils::installed.packages()[, 1]) {
       warning("renv is not installed. Now attempting to install...",
-        immediate. = TRUE
+              immediate. = TRUE
       )
       utils::install.packages("renv")
     }
