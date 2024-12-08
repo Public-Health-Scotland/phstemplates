@@ -1,11 +1,21 @@
 /* CSS styles used in the shiny app */
 
+.row {
+  margin-left: 0px;
+}
+
 /* Style sidebars/well panels */
   .well {background-color:var(--white); border: 0 solid var(--phs-blue);
     padding: 5px; box-shadow: none; }
 
 /* Navigation bar following PHS colour scheme */
-  .navbar-default {color: var(--white); background-color: var(--phs-purple); }
+.navbar {position: relative;
+  /* order is top right bottom left */
+  margin: 0em -4em 0em -4em;
+  padding: 0em 0.5em 0em 4em;
+}
+
+.navbar-default {color: var(--white); background-color: var(--phs-purple); }
 .navbar-default .navbar-brand, .navbar-default:hover .navbar-brand:hover, .navbar-brand {color: var(--phs-purple); background-color: var(--phs-purple)}
 .navbar-default .navbar-nav > li > a {color: var(--white);}
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
