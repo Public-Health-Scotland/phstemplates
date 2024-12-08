@@ -12,6 +12,11 @@ Widget: TextInput
 Label: App Name
 Default: WRITE APP NAME HERE
 
+Parameter: phs_white_logo
+Widget: CheckboxInput
+Label: Use PHS White Logo
+Default: On
+
 Parameter: git
 Widget: CheckboxInput
 Label: Initialise with Git

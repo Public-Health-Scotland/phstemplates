@@ -8,6 +8,7 @@ phsshinyapp(
   path,
   author = Sys.info()[["user"]],
   app_name = "WRITE APP NAME HERE",
+  phs_white_logo = TRUE,
   git = FALSE,
   renv = FALSE,
   overwrite = FALSE
@@ -19,6 +20,8 @@ phsshinyapp(
 \item{author}{String: Name of the main author for the project.}
 
 \item{app_name}{String: name of application.}
+
+\item{phs_white_logo}{Logical: Use a white PHS logo.}
 
 \item{git}{Logical: Initialise the project with Git.}
 
