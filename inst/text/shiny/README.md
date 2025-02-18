@@ -16,3 +16,21 @@ This app was created using the PHS Shiny app template from the [`{phstemplates}`
 * [COVID-19 dashboard](https://github.com/Public-Health-Scotland/COVID-19-Publication-Dashboard)
 * [COVID-19 wider impacts dashboard](https://github.com/Public-Health-Scotland/covid-wider-impacts/tree/master/shiny_app)
 * [ScotPHO profiles](https://github.com/Public-Health-Scotland/scotpho-profiles-tool)
+
+## Accessibility
+
+An aim of any app is making sure it can be used by as many people as possible.
+
+This includes those with:
+
+* impaired vision
+* motor difficulties
+* cognitive impairments or learning disabilities
+* deafness or impaired hearing
+
+For example, someone with impaired vision might use a screen reader.
+
+PHS has created guidance on how to make your app as accessible as possible. It can be found in the knowledge base from this 
+[link](https://public-health-scotland.github.io/knowledge-base/docs/Information%20Sharing?doc=Dashboard%20Accessibility%20Guidance.md).
+
+We hope to build-in some of these basic features into this template in the future.
