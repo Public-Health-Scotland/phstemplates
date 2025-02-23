@@ -1,3 +1,7 @@
+# phstemplates 1.2.3
+
+* Added accessibility guidance to shiny template.
+
 # phstemplates 1.2.2
 
 * The `compile_report()` and `phs_report_docx()` no longer need to search for the word 'Introduction' to add in the table of contents to PHS report templates.
