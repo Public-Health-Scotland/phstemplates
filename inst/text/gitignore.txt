@@ -83,3 +83,4 @@ rsconnect/
 /*.jpeg
 /*.png
 /*.gif
+/*.tiff
