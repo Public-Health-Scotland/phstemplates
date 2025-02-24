@@ -77,3 +77,9 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Images in root directory
+/*.jpg
+/*.jpeg
+/*.png
+/*.gif
