@@ -81,11 +81,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
   }
 
   if (git) {
-    if (Sys.info()[["sysname"]] == "Windows") {
-      shell(paste("cd", path, "&&", "git init"))
-    } else {
-      system(paste("cd", path, "&&", "git init"))
-    }
+    git2r::init(file.path(getwd(), path))
   }
 
   if (renv) {

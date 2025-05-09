@@ -9,7 +9,7 @@
 #'
 #' R Markdown documents can have optional metadata that is used to generate a
 #' document header that includes the title, author, and date. For more details
-#' see the documentation on R Markdown \link[=rmd_metadata]{metadata}.
+#' see the documentation on R Markdown \link[rmarkdown:rmd_metadata]{metadata}.
 #'
 #' R Markdown documents also support citations. You can find more information on
 #' the markdown syntax for citations in the
@@ -25,7 +25,7 @@
 #' @param cover_title Title to be used in the cover page.
 #' @param cover_subtitle Subtitle to be used in the cover page.
 #' @param cover_date Date to be used in the cover page.
-#' @return R Markdown output format to pass to \code{\link{render}}
+#' @return R Markdown output format to pass to \code{\link[rmarkdown]{render}}
 #' @examples
 #' \dontrun{
 #' library(rmarkdown)

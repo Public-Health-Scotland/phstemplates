@@ -1,3 +1,7 @@
+# phstemplates 1.2.4
+
+* Uses git2r functions for working with git.
+
 # phstemplates 1.2.3
 
 * Added accessibility guidance to shiny template.

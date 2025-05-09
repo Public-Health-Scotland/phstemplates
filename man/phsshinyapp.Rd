@@ -6,7 +6,8 @@
 \usage{
 phsshinyapp(
   path,
-  author = Sys.info()[["user"]],
+  author = ifelse(!is.null(git2r::config()$global$user.name),
+    git2r::config()$global$user.name, Sys.info()[["user"]]),
   app_name = "WRITE APP NAME HERE",
   phs_white_logo = TRUE,
   git = FALSE,
