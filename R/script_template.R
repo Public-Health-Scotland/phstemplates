@@ -1,5 +1,4 @@
-script_template <- function(author = ifelse(!is.null(git2r::config()$global$user.name),
-                                            git2r::config()$global$user.name, Sys.info()[["user"]])) {
+script_template <- function(author = get_name()) {
   author <- paste("# Original author(s):", author)
   orig_date <- paste("# Original date:", Sys.Date())
 

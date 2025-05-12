@@ -11,8 +11,7 @@ new_script <- function() {
   author <- rstudioapi::showPrompt(
     title = "Author",
     message = "Name of Author",
-    default = ifelse(!is.null(git2r::config()$global$user.name),
-                     git2r::config()$global$user.name, Sys.info()[["user"]])
+    default = get_name()
   )
 
   if (is.null(author)) {

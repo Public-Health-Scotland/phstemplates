@@ -19,7 +19,7 @@ BugReports: https://github.com/Public-Health-Scotland/phstemplates/issues
 Depends: 
     R (>= 4.0.0)
 Imports: 
-    git2r,
+    git2r (>= 0.36.2),
     magrittr,
     officer,
     renv,
