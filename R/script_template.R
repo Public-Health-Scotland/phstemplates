@@ -1,4 +1,4 @@
-script_template <- function(author = Sys.info()[["user"]]) {
+script_template <- function(author = get_name()) {
   author <- paste("# Original author(s):", author)
   orig_date <- paste("# Original date:", Sys.Date())
 
