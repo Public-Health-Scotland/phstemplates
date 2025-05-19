@@ -11,15 +11,24 @@
 #' \dontrun{
 #' add_stylecss()
 #' }
-add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select folder to add phs_style.css"),
-                         shinycss = FALSE, auto_open = TRUE) {
+add_stylecss <- function(
+  path = rstudioapi::selectDirectory(
+    caption = "Select folder to add phs_style.css"
+  ),
+  shinycss = FALSE,
+  auto_open = TRUE
+) {
   if (is.null(path)) {
     message("phs_style.css file not added.")
     return(invisible(NULL))
   }
 
   # phs_style.css content to add
-  stylecss <- readLines(system.file(package = "phstemplates", "text", "phs_style.css"))
+  stylecss <- readLines(system.file(
+    package = "phstemplates",
+    "text",
+    "phs_style.css"
+  ))
 
   # collect into single text string
   stylecss <- paste(stylecss, collapse = "\n")
@@ -35,7 +44,12 @@ add_stylecss <- function(path = rstudioapi::selectDirectory(caption = "Select fo
 
   # Append shiny CSS if required
   if (shinycss) {
-    shinycss <- readLines(system.file(package = "phstemplates", "text", "shiny", "shiny_css.css"))
+    shinycss <- readLines(system.file(
+      package = "phstemplates",
+      "text",
+      "shiny",
+      "shiny_css.css"
+    ))
     shinycss <- paste(shinycss, collapse = "\n")
     stylecss <- paste(stylecss, shinycss, sep = "\n\n\n")
   }

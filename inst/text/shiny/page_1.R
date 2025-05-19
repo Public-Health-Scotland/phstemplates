@@ -1,15 +1,13 @@
 ####################### Page 1 #######################
 
-output$page_1_ui <-  renderUI({
-
+output$page_1_ui <- renderUI({
   div(
-	     fluidRow(
-            h3("This is a header"),
-	           p("This is some text"),
-	           p(strong("This is some bold text"))
-
-	      ) #fluidrow
-   ) # div
+    fluidRow(
+      h3("This is a header"),
+      p("This is some text"),
+      p(strong("This is some bold text"))
+    ) #fluidrow
+  ) # div
 }) # renderUI
 
 

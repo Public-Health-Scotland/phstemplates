@@ -11,24 +11,21 @@ new_script <- function() {
   author <- rstudioapi::showPrompt(
     title = "Author",
     message = "Name of Author",
-    default = Sys.info()[["user"]]
+    default = get_name()
   )
 
   if (is.null(author)) {
     stop("Please enter a name for the script author")
   }
 
-  git <- rstudioapi::showQuestion(
-    title = "Git",
-    message = "Are you version controlling using git?",
-    "Yes", "No"
-  )
-
   r_code <- script_template(author = author)
 
-  if (git) {
+  if (git2r::in_repository()) {
     remove_start <- gregexpr("# Latest", r_code)[[1]][1] - 1
-    remove_end <- gregexpr("Latest update description \\(delete if using version control\\)\n", r_code)[[1]]
+    remove_end <- gregexpr(
+      "Latest update description \\(delete if using version control\\)\n",
+      r_code
+    )[[1]]
     remove_end <- as.integer(remove_end + attr(remove_end, "match.length"))
 
     r_code_part1 <- substr(r_code, 1, remove_start)

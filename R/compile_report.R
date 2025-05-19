@@ -15,23 +15,29 @@
 #' \dontrun{
 #' compile_report()
 #' }
-compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$")[1],
-                           cover_filename = "Cover_Page.docx",
-                           title = "My Title",
-                           subtitle = "My Subtitle",
-                           date = "DD Month YYYY",
-                           filename_out = "Report_and_Cover.docx",
-                           auto_open = TRUE,
-                           toc_level = 3) {
+compile_report <- function(
+  rmd_filename = list.files(pattern = "\\.Rmd$")[1],
+  cover_filename = "Cover_Page.docx",
+  title = "My Title",
+  subtitle = "My Subtitle",
+  date = "DD Month YYYY",
+  filename_out = "Report_and_Cover.docx",
+  auto_open = TRUE,
+  toc_level = 3
+) {
   rmd_exists <- file.exists(rmd_filename)
   cover_exists <- file.exists(cover_filename)
 
   if (!rmd_exists) {
-    message("Error: Cannot find the input Rmd file. Have you input the wrong filename?")
+    message(
+      "Error: Cannot find the input Rmd file. Have you input the wrong filename?"
+    )
   }
 
   if (!cover_exists) {
-    message("Error: Cannot find the input Cover Page file. Have you input the wrong filename?")
+    message(
+      "Error: Cannot find the input Cover Page file. Have you input the wrong filename?"
+    )
   }
 
   if (!(rmd_exists && cover_exists)) {
@@ -41,19 +47,27 @@ compile_report <- function(rmd_filename = list.files(pattern = "\\.Rmd$")[1],
     message("and here are the files in it")
     print(list.files())
 
-    message("If the input files you expect to see are not listed, the working directory will be wrong")
+    message(
+      "If the input files you expect to see are not listed, the working directory will be wrong"
+    )
   } else {
     message("Found all required input files. Compiling report...")
 
     # Create Report and Add Table of Contents
-    rmarkdown::render(rmd_filename,
+    rmarkdown::render(
+      rmd_filename,
       output_file = "temp_report.docx",
-      envir = new.env(), output_dir = getwd()
+      envir = new.env(),
+      output_dir = getwd()
     )
 
     officer::read_docx("temp_report.docx") %>%
       officer::cursor_begin() %>%
-      officer::body_add_par("Contents", pos = "before", style = "TOC Heading") %>%
+      officer::body_add_par(
+        "Contents",
+        pos = "before",
+        style = "TOC Heading"
+      ) %>%
       officer::body_add_toc(pos = "after", level = toc_level) %>%
       officer::body_add_break(pos = "after") %>%
       print("temp_report2.docx")
