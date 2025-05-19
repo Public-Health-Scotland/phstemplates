@@ -4,7 +4,9 @@
 #'
 #' @noRd
 get_name <- function() {
-  ifelse(!is.null(git2r::config()$global$user.name),
-    git2r::config()$global$user.name, Sys.info()[["user"]]
+  ifelse(
+  !is.null(git2r::config()$global$user.name),
+    git2r::config()$global$user.name, 
+    Sys.info()[["user"]]
   )
 }
