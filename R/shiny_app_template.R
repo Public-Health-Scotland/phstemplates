@@ -1,5 +1,7 @@
-shiny_app_template <- function(app_name = "WRITE APP NAME HERE",
-                               author = get_name()) {
+shiny_app_template <- function(
+  app_name = "WRITE APP NAME HERE",
+  author = get_name()
+) {
   author <- paste("# Original author(s):", author)
   orig_date <- paste("# Original date:", Sys.Date())
 

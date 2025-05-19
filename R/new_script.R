@@ -22,7 +22,10 @@ new_script <- function() {
 
   if (git2r::in_repository()) {
     remove_start <- gregexpr("# Latest", r_code)[[1]][1] - 1
-    remove_end <- gregexpr("Latest update description \\(delete if using version control\\)\n", r_code)[[1]]
+    remove_end <- gregexpr(
+      "Latest update description \\(delete if using version control\\)\n",
+      r_code
+    )[[1]]
     remove_end <- as.integer(remove_end + attr(remove_end, "match.length"))
 
     r_code_part1 <- substr(r_code, 1, remove_start)

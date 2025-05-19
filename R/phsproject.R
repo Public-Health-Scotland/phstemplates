@@ -13,7 +13,14 @@
 #' \dontrun{
 #' phsproject(path = file.path(getwd(), "testproj"), author = "A Person", n_scripts = 1)
 #' }
-phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, overwrite = FALSE) {
+phsproject <- function(
+  path,
+  author,
+  n_scripts = 1,
+  git = FALSE,
+  renv = FALSE,
+  overwrite = FALSE
+) {
   # Checking if path already exists
   if (dir.exists(path)) {
     if (overwrite) {
@@ -22,12 +29,18 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
       overwrite <- rstudioapi::showQuestion(
         title = "Overwrite existing directory?",
         message = "Path already exists. Overwrite existing directory?",
-        "Yes", "No"
+        "Yes",
+        "No"
       )
     }
     if (overwrite) {
       # Delete files so they can be overwritten
-      deletefiles <- list.files(path, include.dirs = F, full.names = T, recursive = T)
+      deletefiles <- list.files(
+        path,
+        include.dirs = F,
+        full.names = T,
+        recursive = T
+      )
       file.remove(deletefiles)
     } else {
       stop("Directory already exists")
@@ -44,13 +57,20 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
   dir.create(file.path(path, "data", "output"), showWarnings = FALSE)
   dir.create(file.path(path, "data", "temp"), showWarnings = FALSE)
 
-  gitignore <- readLines(system.file(package = "phstemplates", "text", "gitignore.txt"))
+  gitignore <- readLines(system.file(
+    package = "phstemplates",
+    "text",
+    "gitignore.txt"
+  ))
 
   r_code <- script_template(author = author)
 
   if (git) {
     remove_start <- gregexpr("# Latest", r_code)[[1]][1] - 1
-    remove_end <- gregexpr("Latest update description \\(delete if using version control\\)\n", r_code)[[1]]
+    remove_end <- gregexpr(
+      "Latest update description \\(delete if using version control\\)\n",
+      r_code
+    )[[1]]
     remove_end <- as.integer(remove_end + attr(remove_end, "match.length"))
 
     r_code_part1 <- substr(r_code, 1, remove_start)
@@ -59,7 +79,11 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
     r_code <- paste0(r_code_part1, r_code_part2, collapse = "")
   }
 
-  rproj_settings <- readLines(system.file(package = "phstemplates", "text", "rproject_settings.txt"))
+  rproj_settings <- readLines(system.file(
+    package = "phstemplates",
+    "text",
+    "rproject_settings.txt"
+  ))
 
   # collect into single text string
   gitignore <- paste(gitignore, collapse = "\n")
@@ -70,14 +94,20 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
     writeLines("", con = file.path(path, ".Rprofile"))
   }
   writeLines(gitignore, con = file.path(path, ".gitignore"))
-  writeLines(rproj_settings, con = file.path(path, paste0(basename(path), ".Rproj")))
+  writeLines(
+    rproj_settings,
+    con = file.path(path, paste0(basename(path), ".Rproj"))
+  )
   writeLines(r_code, con = file.path(path, "code", "code.R"))
   writeLines("", con = file.path(path, "code", "functions.R"))
   writeLines("", con = file.path(path, "code", "packages.R"))
 
   if (n_scripts > 1) {
     script_name <- paste0("code", 2:n_scripts, ".R")
-    lapply(file.path(path, "code", script_name), function(x) writeLines(r_code, x))
+    lapply(
+      file.path(path, "code", script_name),
+      function(x) writeLines(r_code, x)
+    )
   }
 
   if (git) {
@@ -87,7 +117,8 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
 
   if (renv) {
     if (!"renv" %in% utils::installed.packages()[, 1]) {
-      warning("renv is not installed. Now attempting to install...",
+      warning(
+        "renv is not installed. Now attempting to install...",
         immediate. = TRUE
       )
       utils::install.packages("renv")
