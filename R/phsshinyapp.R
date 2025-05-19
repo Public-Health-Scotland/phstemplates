@@ -141,6 +141,7 @@ phsshinyapp <- function(path,
 
   if (git) {
     git2r::init(file.path(getwd(), path))
+    git2r::commit(message = "Initial commit", all = TRUE, session = TRUE)
   }
 
   if (renv) {
