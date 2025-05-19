@@ -82,7 +82,7 @@ phsproject <- function(path, author, n_scripts = 1, git = FALSE, renv = FALSE, o
 
   if (git) {
     git2r::init(file.path(getwd(), path))
-    
+
     git2r::commit(message = "Initial commit", all = TRUE, session = TRUE)
   }
 
