@@ -6,7 +6,7 @@
 \usage{
 phsshinyapp(
   path,
-  author = Sys.info()[["user"]],
+  author = get_name(),
   app_name = "WRITE APP NAME HERE",
   phs_white_logo = TRUE,
   git = FALSE,

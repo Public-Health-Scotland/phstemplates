@@ -1,6 +1,6 @@
 Package: phstemplates
 Title: PHS R Templates
-Version: 1.2.3
+Version: 1.2.4
 Authors@R: c(
     person("Public Health Scotland", , , "phs.datascience@phs.scot", role = "cph"),
     person("Alan", "Yeung", , "alan.yeung@phs.scot", role = c("aut", "cre"),
@@ -19,6 +19,7 @@ BugReports: https://github.com/Public-Health-Scotland/phstemplates/issues
 Depends: 
     R (>= 4.0.0)
 Imports: 
+    git2r (>= 0.36.2),
     magrittr,
     officer,
     renv,

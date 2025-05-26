@@ -9,7 +9,7 @@
 #'
 #' R Markdown documents can have optional metadata that is used to generate a
 #' document header that includes the title, author, and date. For more details
-#' see the documentation on R Markdown \link[=rmd_metadata]{metadata}.
+#' see the documentation on R Markdown \link[rmarkdown:rmd_metadata]{metadata}.
 #'
 #' R Markdown documents also support citations. You can find more information on
 #' the markdown syntax for citations in the
@@ -25,7 +25,7 @@
 #' @param cover_title Title to be used in the cover page.
 #' @param cover_subtitle Subtitle to be used in the cover page.
 #' @param cover_date Date to be used in the cover page.
-#' @return R Markdown output format to pass to \code{\link{render}}
+#' @return R Markdown output format to pass to \code{\link[rmarkdown]{render}}
 #' @examples
 #' \dontrun{
 #' library(rmarkdown)
@@ -33,25 +33,30 @@
 #' render("input.Rmd", phs_report_docx())
 #' }
 #' @export
-phs_report_docx <- function(toc = FALSE,
-                            toc_depth = 3,
-                            number_sections = FALSE,
-                            fig_width = 5,
-                            fig_height = 4,
-                            fig_caption = TRUE,
-                            df_print = "default",
-                            highlight = "default",
-                            reference_docx = "default",
-                            keep_md = FALSE,
-                            md_extensions = NULL,
-                            pandoc_args = NULL,
-                            cover_page = NULL,
-                            cover_title = "Title",
-                            cover_subtitle = "Subtitle",
-                            cover_date = "DD Month YYYY") {
+phs_report_docx <- function(
+  toc = FALSE,
+  toc_depth = 3,
+  number_sections = FALSE,
+  fig_width = 5,
+  fig_height = 4,
+  fig_caption = TRUE,
+  df_print = "default",
+  highlight = "default",
+  reference_docx = "default",
+  keep_md = FALSE,
+  md_extensions = NULL,
+  pandoc_args = NULL,
+  cover_page = NULL,
+  cover_title = "Title",
+  cover_subtitle = "Subtitle",
+  cover_date = "DD Month YYYY"
+) {
   resolve_highlight <- utils::getFromNamespace("resolve_highlight", "rmarkdown")
   highlighters <- utils::getFromNamespace("highlighters", "rmarkdown")
-  reference_intermediates_generator <- utils::getFromNamespace("reference_intermediates_generator", "rmarkdown")
+  reference_intermediates_generator <- utils::getFromNamespace(
+    "reference_intermediates_generator",
+    "rmarkdown"
+  )
 
   # knitr options and hooks
   knitr <- rmarkdown::knitr_options(
@@ -77,12 +82,16 @@ phs_report_docx <- function(toc = FALSE,
     if (rmarkdown::pandoc_available("2.10.1")) {
       args <- c(args, "--number-sections")
     } else {
-      lua_filters <- c(lua_filters, rmarkdown::pkg_file_lua("number-sections.lua"))
+      lua_filters <- c(
+        lua_filters,
+        rmarkdown::pkg_file_lua("number-sections.lua")
+      )
     }
   }
 
   # highlighting
-  if (!is.null(highlight)) highlight <- resolve_highlight(highlight, highlighters())
+  if (!is.null(highlight))
+    highlight <- resolve_highlight(highlight, highlighters())
   args <- c(args, rmarkdown::pandoc_highlight_args(highlight))
 
   # reference docx
@@ -92,7 +101,14 @@ phs_report_docx <- function(toc = FALSE,
   args <- c(args, pandoc_args)
 
   saved_files_dir <- NULL
-  pre_processor <- function(metadata, input_file, runtime, knit_meta, files_dir, output_dir) {
+  pre_processor <- function(
+    metadata,
+    input_file,
+    runtime,
+    knit_meta,
+    files_dir,
+    output_dir
+  ) {
     saved_files_dir <<- files_dir
     NULL
   }
@@ -101,13 +117,25 @@ phs_report_docx <- function(toc = FALSE,
     reference_intermediates_generator(saved_files_dir, ..., reference_docx)
   }
 
-  post_processor <- function(metadata, input_file, output_file, clean, verbose,
-                             cover = cover_page, title = cover_title,
-                             stitle = cover_subtitle, dt = cover_date,
-                             tocd = toc_depth) {
+  post_processor <- function(
+    metadata,
+    input_file,
+    output_file,
+    clean,
+    verbose,
+    cover = cover_page,
+    title = cover_title,
+    stitle = cover_subtitle,
+    dt = cover_date,
+    tocd = toc_depth
+  ) {
     officer::read_docx(output_file) %>%
       officer::cursor_begin() %>%
-      officer::body_add_par("Contents", pos = "before", style = "TOC Heading") %>%
+      officer::body_add_par(
+        "Contents",
+        pos = "before",
+        style = "TOC Heading"
+      ) %>%
       officer::body_add_toc(pos = "after", level = tocd) %>%
       officer::body_add_break(pos = "after") %>%
       print(output_file)
@@ -119,7 +147,8 @@ phs_report_docx <- function(toc = FALSE,
       officer::body_replace_all_text("DD Month YYYY", dt)
 
     # Convert characters in output file path that need escaped for XML
-    xml_elt <- officer::to_wml(officer::block_pour_docx(output_file),
+    xml_elt <- officer::to_wml(
+      officer::block_pour_docx(output_file),
       add_ns = TRUE
     )
 
@@ -158,9 +187,15 @@ reference_doc_args <- function(type, doc) {
   if (is.null(doc) || identical(doc, "default")) {
     return()
   }
-  c(paste0("--reference-", if (rmarkdown::pandoc_available("2.0")) {
-    "doc"
-  } else {
-    match.arg(type, c("docx", "odt", "doc"))
-  }), rmarkdown::pandoc_path_arg(doc))
+  c(
+    paste0(
+      "--reference-",
+      if (rmarkdown::pandoc_available("2.0")) {
+        "doc"
+      } else {
+        match.arg(type, c("docx", "odt", "doc"))
+      }
+    ),
+    rmarkdown::pandoc_path_arg(doc)
+  )
 }

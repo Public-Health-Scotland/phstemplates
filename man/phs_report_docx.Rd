@@ -85,7 +85,7 @@ additional details.}
 \item{cover_date}{Date to be used in the cover page.}
 }
 \value{
-R Markdown output format to pass to \code{\link{render}}
+R Markdown output format to pass to \code{\link[rmarkdown]{render}}
 }
 \description{
 Format for converting from R Markdown to a PHS report in MS Word document format.
@@ -98,7 +98,7 @@ documentation} for additional details on using the \code{word_document} format.
 
 R Markdown documents can have optional metadata that is used to generate a
 document header that includes the title, author, and date. For more details
-see the documentation on R Markdown \link[=rmd_metadata]{metadata}.
+see the documentation on R Markdown \link[rmarkdown:rmd_metadata]{metadata}.
 
 R Markdown documents also support citations. You can find more information on
 the markdown syntax for citations in the
