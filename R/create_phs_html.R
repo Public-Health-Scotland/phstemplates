@@ -1,3 +1,16 @@
+#' create_phs_html
+#' @description Creates template `.qmd` file for a html report with PHS formatting.
+#'
+#' @param file_name Character string of name given to output `.qmd` file.
+#' @param ext_name Character string of extension folder name (default = "phs-html-quarto")
+#'
+#' @return Quarto document for html with PHS formatting.
+#' @export
+#' @examples
+#' \dontrun{
+#' create_phs_html()
+#' }
+
 create_phs_html <- function(file_name = NULL,
                               ext_name = "phs-html-quarto") {
 
