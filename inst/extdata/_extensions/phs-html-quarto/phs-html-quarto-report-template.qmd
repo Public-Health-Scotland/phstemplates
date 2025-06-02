@@ -1,13 +1,16 @@
 ---
 title: "My PHS HTML Document"
+subtitle: "This is a template subtitle"
 author: "My Name"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
+css: phs_style.css
 format: 
   html:
-    css: phs_style.css
     toc: true
     toc_float: true
-keep-md: true
+editor: visual
+title-block-banner: "#3F3685"
+title-block-style: manuscript
 execute: 
   echo: true
   freeze: true
@@ -33,3 +36,7 @@ You can add options to executable code like this
 ```
 
 The `echo: false` option disables the printing of code (only output is displayed).
+
+------------------------------------------------------------------------
+
+![](phs-logo.png){.column-margin fig-align="right" width="150"}
