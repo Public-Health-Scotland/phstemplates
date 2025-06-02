@@ -30,7 +30,7 @@ create_phs_html <- function(file_name = NULL,
 
   # copy from internals
   file.copy(
-    from = system.file(paste0("extdata/_extensions/", ext_name), package = "hockeyutils"),
+    from = system.file(paste0("extdata/_extensions/", ext_name), package = "phstemplates"),
     to = paste0("_extensions/"),
     overwrite = TRUE,
     recursive = TRUE,
