@@ -8,7 +8,6 @@ format:
   html:
     toc: true
     toc_float: true
-editor: visual
 title-block-banner: "#3F3685"
 title-block-style: manuscript
 execute: 

@@ -24,23 +24,23 @@ create_phs_html <- function(file_name = NULL, ext_name = "phs-html-quarto") {
   message("Created '_extensions' folder")
 
   # create folder
-  if (!file.exists(paste0("_extensions/", ext_name)))
-    dir.create(paste0("_extensions/", ext_name))
+  if (!file.exists(file.path("_extensions", ext_name)))
+    dir.create(file.path("_extensions", ext_name))
 
   # copy from internals
   file.copy(
     from = system.file(
-      paste0("extdata/_extensions/", ext_name),
+      file.path("extdata", "_extensions", ext_name),
       package = "phstemplates"
     ),
-    to = paste0("_extensions/"),
+    to = "_extensions",
     overwrite = TRUE,
     recursive = TRUE,
     copy.mode = TRUE
   )
 
   # logic check to make sure extension files were moved
-  n_files <- length(dir(paste0("_extensions/", ext_name)))
+  n_files <- length(dir(file.path("_extensions", ext_name)))
 
   if (n_files >= 2) {
     message(paste(
@@ -53,7 +53,7 @@ create_phs_html <- function(file_name = NULL, ext_name = "phs-html-quarto") {
 
   # create new qmd report based on skeleton
   file.copy(
-    "_extensions/phs-html-quarto/phs-html-quarto-report-template.qmd",
+    file.path("_extensions", "phs-html-quarto", "phs-html-quarto-report-template.qmd"),
     paste0(file_name, ".qmd", collapse = "")
   )
 
