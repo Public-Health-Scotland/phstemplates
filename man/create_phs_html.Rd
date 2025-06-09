@@ -4,12 +4,10 @@
 \alias{create_phs_html}
 \title{create_phs_html}
 \usage{
-create_phs_html(file_name = NULL, ext_name = "phs-html-quarto")
+create_phs_html(file_name = NULL)
 }
 \arguments{
 \item{file_name}{Character string of name given to output `.qmd` file.}
-
-\item{ext_name}{Character string of extension folder name (default = "phs-html-quarto")}
 }
 \value{
 Quarto document for html with PHS formatting.
