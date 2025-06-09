@@ -3,7 +3,7 @@ title: "My PHS HTML Document"
 subtitle: "This is a template subtitle"
 author: "My Name"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
-css: phs_style.css
+css: _extensions/phs-html-quarto/phs_style.css
 format: 
   html:
     toc: true
@@ -17,7 +17,9 @@ execute:
 
 ## Quarto
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+Quarto enables you to weave together content and executable code into a finished document.
+
+To learn more about Quarto see <https://quarto.org>.
 
 ## Running Code
 
@@ -38,4 +40,4 @@ The `echo: false` option disables the printing of code (only output is displayed
 
 ------------------------------------------------------------------------
 
-![](phs-logo.png){.column-margin fig-align="right" width="150"}
+![](_extensions/phs-html-quarto/phs-logo.png){.column-margin fig-align="right"}
