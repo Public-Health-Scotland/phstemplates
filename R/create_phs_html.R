@@ -20,12 +20,15 @@ create_phs_html <- function(file_name = NULL, ext_name = "phs-html-quarto") {
   stopifnot("Extension not in package" = ext_name %in% c("phs-html-quarto"))
 
   # check for existing _extensions directory
-  if (!file.exists("_extensions")) dir.create("_extensions")
+  if (!file.exists("_extensions")) {
+    dir.create("_extensions")
+  }
   message("Created '_extensions' folder")
 
   # create folder
-  if (!file.exists(file.path("_extensions", ext_name)))
+  if (!file.exists(file.path("_extensions", ext_name))) {
     dir.create(file.path("_extensions", ext_name))
+  }
 
   # copy from internals
   file.copy(
@@ -53,7 +56,11 @@ create_phs_html <- function(file_name = NULL, ext_name = "phs-html-quarto") {
 
   # create new qmd report based on skeleton
   file.copy(
-    file.path("_extensions", "phs-html-quarto", "phs-html-quarto-report-template.qmd"),
+    file.path(
+      "_extensions",
+      "phs-html-quarto",
+      "phs-html-quarto-report-template.qmd"
+    ),
     paste0(file_name, ".qmd", collapse = "")
   )
 

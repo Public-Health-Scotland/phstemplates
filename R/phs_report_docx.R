@@ -90,8 +90,9 @@ phs_report_docx <- function(
   }
 
   # highlighting
-  if (!is.null(highlight))
+  if (!is.null(highlight)) {
     highlight <- resolve_highlight(highlight, highlighters())
+  }
   args <- c(args, rmarkdown::pandoc_highlight_args(highlight))
 
   # reference docx
