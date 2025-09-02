@@ -9,15 +9,15 @@ format:
     toc: true
     toc_float: true
 title-block-banner: "#3F3685"
-title-block-style: manuscript
+title-block-style: default
 execute: 
   echo: true
-  freeze: true
+  freeze: auto
 ---
 
 ## Quarto
 
-Quarto enables you to weave together content and executable code into a finished document.
+Quarto enables you to weave together content and executable code into a finished document. Writing a Quarto document will feel very familiar if you've used RMarkdown, as Quarto is the next evolution of RMarkdown. While the core syntax for rendering prose and code remains largely the same, Quarto introduces several key differences that improve flexibility and reproducibility. One of the most significant changes is Quarto's **unified syntax** for both code execution engines (like R, Python, Julia, and Observable JS) and document outputs (including HTML, PDF, and Word), which is all handled by the `quarto` command-line interface. Unlike RMarkdown, which relies on the `rmarkdown` R package and often requires separate tools for different languages, Quarto's approach simplifies the workflow.  
 
 To learn more about Quarto see <https://quarto.org>.
 

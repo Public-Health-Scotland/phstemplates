@@ -18,6 +18,7 @@ date)](https://img.shields.io/github/v/tag/Public-Health-Scotland/phstemplates)]
 - [Adding a PHS gitignore or CSS
   file](#adding-a-phs-gitignore-or-css-file-to-an-existing-directory)
 - [RMarkdown Templates](#rmarkdown-templates)
+- [Quarto Templates](#quarto-templates)
 
 ## Installation
 
@@ -220,3 +221,12 @@ rmarkdown::render(
 6.  Push to Github
 7.  Create a pull request and ask for a review from an appropriate staff
     member so the changes can be merged
+
+## Quarto Templates
+
+This package currently provides Quarto templates for creating HTML
+documents with PHS formatting. This can be accessed by running
+`phstemplates::create_phs_html("my_html_doc")`. Note that by default,
+this will add the template to your current R working directory so it is
+advisable to switch your working directory to the folder where you want
+to put your template before running the function.

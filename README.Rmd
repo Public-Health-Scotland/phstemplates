@@ -26,6 +26,7 @@ knitr::opts_chunk$set(
 - [Making a new PHS shiny app](#making-a-new-phs-shiny-app)
 - [Adding a PHS gitignore or CSS file](#adding-a-phs-gitignore-or-css-file-to-an-existing-directory)
 - [RMarkdown Templates](#rmarkdown-templates)
+- [Quarto Templates](#quarto-templates)
 
 ## Installation
 If you are working inside the PHS network, with R set up to install packages from the internal package manager repository (for example, if you are using R from Posit Workbench), you can install the package by running
@@ -135,3 +136,6 @@ rmarkdown::render(
 5. Run `devtools::install()`, then restart RStudio and check that your templates can be loaded from the RStudio menus
 6. Push to Github
 7. Create a pull request and ask for a review from an appropriate staff member so the changes can be merged
+
+## Quarto Templates
+This package currently provides Quarto templates for creating HTML documents with PHS formatting. This can be accessed by running `phstemplates::create_phs_html("my_html_doc")`. Note that by default, this will add the template to your current R working directory so it is advisable to switch your working directory to the folder where you want to put your template before running the function.

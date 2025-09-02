@@ -86,5 +86,5 @@ create_phs_html <- function(file_name = NULL) {
   )
 
   # open the new file in the editor
-  file.edit(paste0(file_name, ".qmd", collapse = ""))
+  utils::file.edit(paste0(file_name, ".qmd", collapse = ""))
 }
