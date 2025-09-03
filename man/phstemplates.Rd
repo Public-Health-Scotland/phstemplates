@@ -33,7 +33,7 @@ Authors:
 Other contributors:
 \itemize{
   \item Public Health Scotland \email{phs.datascience@phs.scot} [copyright holder]
-  \item James McMahon \email{James.McMahon@phs.scot} (\href{https://orcid.org/0000-0002-5380-2029}{ORCID}) [contributor]
+  \item James Hayes \email{James.Hayes2@phs.scot} (\href{https://orcid.org/0000-0002-5380-2029}{ORCID}) [contributor]
   \item Ellie Bates \email{Ellie.Bates@phs.scot} [contributor]
 }
 
