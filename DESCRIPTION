@@ -20,9 +20,11 @@ BugReports: https://github.com/Public-Health-Scotland/phstemplates/issues
 Depends: 
     R (>= 4.0.0)
 Imports: 
+    cli,
     git2r (>= 0.36.2),
     magrittr,
     officer,
+    openxlsx2 (>= 1.6),
     renv,
     rmarkdown (>= 2.12),
     rstudioapi,
@@ -33,7 +35,9 @@ Suggests:
     ggplot2,
     janitor,
     lubridate,
+    testthat (>= 3.0.0),
     tidyr
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.3
+Config/testthat/edition: 3
