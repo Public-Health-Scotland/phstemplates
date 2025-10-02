@@ -157,5 +157,9 @@ apply_sensitivity_label <- function(file, label) {
   wb <- openxlsx2::wb_add_mips(wb, xml)
   openxlsx2::wb_save(wb, file)
 
+  cli::cli_alert_success(
+      "Sensitivity label {.val {label}} successfully applied to {.path {basename(file)}}."
+    )
+
   invisible(file)
 }
