@@ -158,8 +158,8 @@ apply_sensitivity_label <- function(file, label) {
   openxlsx2::wb_save(wb, file)
 
   cli::cli_alert_success(
-      "Sensitivity label {.val {label}} successfully applied to {.path {basename(file)}}."
-    )
+    "Sensitivity label {.val {label}} successfully applied to {.path {basename(file)}}."
+  )
 
   invisible(file)
 }
