@@ -79,15 +79,15 @@ read_sensitivity_label <- function(file) {
 
 
 #' Apply Sensitivity Label
-#' @description Applies a sensitivity label to an Excel file using openxlsx2
+#' @description Applies a sensitivity label to a Word or Excel file using openxlsx2
 #' and built-in XML. Supported labels are 'Personal', 'OFFICIAL', and
 #' 'OFFICIAL_SENSITIVE_VMO' (visual markings only).
 #'
-#' The function loads the Excel file, applies the specified sensitivity label
+#' The function loads the file, applies the specified sensitivity label
 #' using the appropriate XML, and saves the modified file. If successful, it
 #' silently returns the file path.
 #'
-#' @param file Path to the Excel file (.xlsx or .xls)
+#' @param file Path to the file (.xlsx, .xls, ".docx")
 #' @param label Sensitivity label. One of: 'Personal', 'OFFICIAL',
 #' 'OFFICIAL_SENSITIVE_VMO'.
 #' @return Silently returns the file path if successful.
