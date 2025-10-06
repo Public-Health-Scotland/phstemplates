@@ -1,9 +1,9 @@
 #' Read Sensitivity Label
-#' @description Reads the sensitivity label from an Excel file using
-#' openxlsx2::wb_get_mips. Returns the label name, 'no label' if none is found,
+#' @description Reads the sensitivity label from a Excel or Word file using
+#' openxlsx2 package functions. Returns the label name, 'no label' if none is found,
 #' or errors if unexpected.
 #'
-#' @param file Path to the Excel file (.xlsx or .xls)
+#' @param file Path to the file (.xlsx, .xls, ".docx")
 #' @return The sensitivity label name, or 'no label' if none is found.
 #' @examples
 #' \dontrun{
