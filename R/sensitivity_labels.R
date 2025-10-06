@@ -40,16 +40,26 @@ read_sensitivity_label <- function(file) {
     )
   }
 
-  # Check file is Excel workbook
+  # Check file is valid
   file_extension <- tolower(tools::file_ext(file))
-  if (!file_extension %in% c("xlsx", "xls")) {
+  if (!file_extension %in% c("xlsx", "xls", "docx")) {
     cli::cli_abort(
-      "{.arg file} must be an Excel workbook with {.val .xlsx} or {.val .xls} extension, not {.val .{file_extension}}."
+      "{.arg file} must be an Excel workbook or Word document with {.val .xlsx}, {.val .xls}, or {.val .docx} extension, not {.val .{file_ext}}."
     )
   }
 
-  wb <- openxlsx2::wb_load(file)
-  mips <- openxlsx2::wb_get_mips(wb)
+  ## Extracting label within Excel workbooks ----
+
+  if(file_ext %in% c("xlsx", "xls")){
+    wb <- openxlsx2::wb_load(file)
+    mips <- openxlsx2::wb_get_mips(wb)
+  }
+
+  ## Extracting label within Word docs ----
+
+  if(file_ext == "docx"){
+    mips <- openxlsx2::read_xml(unzip(file,'docMetadata/LabelInfo.xml'))
+  }
 
   if (is.null(mips) || length(mips) == 0L || mips == "") {
     return("No label")
