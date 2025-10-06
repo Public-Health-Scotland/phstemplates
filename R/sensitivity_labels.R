@@ -153,19 +153,102 @@ apply_sensitivity_label <- function(file, label) {
     )
   }
 
-  # Check file is Excel workbook
-  file_extension <- tolower(tools::file_ext(file))
-  if (!file_extension %in% c("xlsx", "xls")) {
-    cli::cli_abort(
-      "{.arg file} must be an Excel workbook with {.val .xlsx} or {.val .xls} extension, not {.val .{file_extension}}."
-    )
+  # Check file is valid
+  file_ext <- tolower(tools::file_ext(file))
+  if (!file_ext %in% c("xlsx", "xls", "docx")) {
+    cli::cli_abort("{.arg file} must be an Excel workbook or Word document with{.val .xlsx}, {.val .xls}, or {.val .docx} extension, not {.val .{file_ext}}.")
   }
 
-  # Load workbook and apply label
-  wb <- openxlsx2::wb_load(file)
-  xml <- sensitivity_label_xml[[label]]
-  wb <- openxlsx2::wb_add_mips(wb, xml)
-  openxlsx2::wb_save(wb, file)
+  ## Apply label to Excel workbooks ----
+
+  if(file_ext %in% c("xlsx", "xls")){
+    wb <- openxlsx2::wb_load(file)
+    xml_map <- .get_sensitivity_xml_map()
+    xml <- xml_map[[label]]
+    wb <- openxlsx2::wb_add_mips(wb, xml)
+    openxlsx2::wb_save(wb, file)
+  }
+
+  ## Apply label to Word docs ----
+
+  if(file_ext == "docx"){
+    # Parsing input
+    file_path <- dirname(file)
+    file_name <- basename(file)
+    file_type <- tools::file_ext(file)
+    # Removing file type from actual name
+    file_name <- sub(paste0(".", file_type), "", file_name)
+
+    # Zipping process needs its own directory
+    # We'll reset it using on.exit later
+    current_wd <- getwd()
+
+    zipdir <- paste0(file_path, "/", file_name)
+
+    # Create the dir using that name
+    dir.create(zipdir)
+
+    # Unzip the file into the dir
+    unzip(file, exdir= zipdir)
+
+    xml_map <- .get_sensitivity_xml_map()
+    xml <- xml_map[[label]]
+
+    # Create the dir using that name
+    dir.create(paste0(zipdir, "/docMetadata"), showWarnings = FALSE, recursive = TRUE)
+
+    # Write the XML data to the temp directory
+    write_xml(xml, paste0(zipdir, "/docMetadata/LabelInfo.xml"), useBytes = TRUE)
+
+    # Update content file with new child node
+    openxlsx2:::write_file(
+      head = "",
+      body = xml_add_child(
+        xml_node = paste0(zipdir, "/[Content_Types].xml"),
+        xml_child = '<Override PartName="/docMetadata/LabelInfo.xml" ContentType="application/vnd.ms-office.classificationlabels+xml"/>'
+      ),
+      tail = "",
+      fl = paste0(zipdir, "/[Content_Types].xml")
+    )
+
+    # Update .rels file with new child node
+    openxlsx2:::write_file(
+      head = "",
+      body = xml_add_child(
+        xml_node = paste0(zipdir, "/_rels/.rels"),
+        xml_child = '<Relationship Id="rId6" Type="http://schemas.microsoft.com/office/2020/02/relationships/classificationlabels" Target="docMetadata/LabelInfo.xml" />'
+      ),
+      tail = "",
+      fl = paste0(zipdir, "/_rels/.rels")
+    )
+
+    # Delete original file
+    file.remove(file)
+
+    newzip <- paste0(file_path, "/", file_name, ".zip")
+    file.create(newzip)
+
+    setwd(zipdir) # Setting new base directory to avoid needless recursion in file zipping
+    # will be reset on.exit() anyway so don't change.
+
+    suppressWarnings(
+      zip::zip(zipfile = newzip,
+               files = list.files(zipdir, all.files = TRUE, full.names = FALSE, recursive = TRUE, include.dirs = TRUE),
+               recurse = FALSE,
+               include_directories = FALSE,
+               root = ".") # end of zip()
+    ) # End of suppressWarnings
+
+    # Delete un-zipped files
+    unlink(zipdir, recursive = TRUE)
+
+    # Re-naming file
+    file.rename(from = newzip,
+                to = file)
+
+    # Keep this as last-evaluated function - keeps files stable
+    on.exit(setwd(current_wd))
+  }
 
   cli::cli_alert_success(
     "Sensitivity label {.val {label}} successfully applied to {.path {basename(file)}}."
