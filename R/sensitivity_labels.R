@@ -193,34 +193,36 @@ apply_sensitivity_label <- function(file, label) {
 
     xml_map <- .get_sensitivity_xml_map()
     xml <- xml_map[[label]]
+    xml <- xml2::as_xml_document(xml)
 
     # Create the dir using that name
     dir.create(paste0(zipdir, "/docMetadata"), showWarnings = FALSE, recursive = TRUE)
 
     # Write the XML data to the temp directory
-    write_xml(xml, paste0(zipdir, "/docMetadata/LabelInfo.xml"), useBytes = TRUE)
+    xml2::write_xml(xml, paste0(zipdir, "/docMetadata/LabelInfo.xml"), useBytes = TRUE)
 
     # Update content file with new child node
-    openxlsx2:::write_file(
-      head = "",
-      body = xml_add_child(
-        xml_node = paste0(zipdir, "/[Content_Types].xml"),
-        xml_child = '<Override PartName="/docMetadata/LabelInfo.xml" ContentType="application/vnd.ms-office.classificationlabels+xml"/>'
-      ),
-      tail = "",
-      fl = paste0(zipdir, "/[Content_Types].xml")
-    )
+    content <- xml2::read_xml(paste0(zipdir, "/[Content_Types].xml"))
+    new_node <- xml2::xml_add_child(content, .value = "Override")
+
+    xml2::xml_set_attrs(new_node, c(
+      PartName = "/docMetadata/LabelInfo.xml",
+      ContentType = "application/vnd.ms-office.classificationlabels+xml"
+    ))
+
+    xml2::write_xml(content, paste0(zipdir, "/[Content_Types].xml"), useBytes = TRUE)
 
     # Update .rels file with new child node
-    openxlsx2:::write_file(
-      head = "",
-      body = xml_add_child(
-        xml_node = paste0(zipdir, "/_rels/.rels"),
-        xml_child = '<Relationship Id="rId6" Type="http://schemas.microsoft.com/office/2020/02/relationships/classificationlabels" Target="docMetadata/LabelInfo.xml" />'
-      ),
-      tail = "",
-      fl = paste0(zipdir, "/_rels/.rels")
-    )
+    rels_file <- xml2::read_xml(paste0(zipdir, "/_rels/.rels"))
+
+    xml2::xml_set_attrs(xml2::xml_add_child(rels_file, .value = "Relationship"), c(
+      Id = "rId6",
+      Type="http://schemas.microsoft.com/office/2020/02/relationships/classificationlabels",
+      Target="docMetadata/LabelInfo.xml"
+    ))
+
+
+    xml2::write_xml(rels_file, paste0(zipdir, "/_rels/.rels"), useBytes = TRUE)
 
     # Delete original file
     file.remove(file)
