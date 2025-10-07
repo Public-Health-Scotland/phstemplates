@@ -237,7 +237,7 @@ apply_sensitivity_label <- function(file, label) {
     # Delete original file
     file.remove(file)
 
-    newzip <- paste0(file_path, "/", file_name, ".zip")
+    newzip <- paste0("../", file_name, ".zip")
     file.create(newzip)
 
     setwd(zipdir) # Setting new base directory to avoid needless recursion in file zipping
@@ -245,7 +245,7 @@ apply_sensitivity_label <- function(file, label) {
 
     suppressWarnings(
       zip::zip(zipfile = newzip,
-               files = list.files(zipdir, all.files = TRUE, full.names = FALSE, recursive = TRUE, include.dirs = TRUE),
+               files = list.files(".", all.files = TRUE, full.names = FALSE, recursive = TRUE, include.dirs = TRUE),
                recurse = FALSE,
                include_directories = FALSE,
                root = ".") # end of zip()
