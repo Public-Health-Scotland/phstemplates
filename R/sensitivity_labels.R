@@ -168,12 +168,14 @@ apply_sensitivity_label <- function(file, label) {
     cli::cli_abort("{.arg file} must be an Excel workbook or Word document with{.val .xlsx}, {.val .xls}, or {.val .docx} extension, not {.val .{file_ext}}.")
   }
 
+  xml_map <- .get_sensitivity_xml_map()
+  xml <- xml_map[[label]]
+
+
   ## Apply label to Excel workbooks ----
 
   if(file_ext %in% c("xlsx", "xls")){
     wb <- openxlsx2::wb_load(file)
-    xml_map <- .get_sensitivity_xml_map()
-    xml <- xml_map[[label]]
     wb <- openxlsx2::wb_add_mips(wb, xml)
     openxlsx2::wb_save(wb, file)
   }
@@ -200,8 +202,7 @@ apply_sensitivity_label <- function(file, label) {
     # Unzip the file into the dir
     unzip(file, exdir= zipdir)
 
-    xml_map <- .get_sensitivity_xml_map()
-    xml <- xml_map[[label]]
+    # Formatting as xml, not character data.
     xml <- xml2::as_xml_document(xml)
 
     # Create the dir using that name
