@@ -8,7 +8,7 @@
 }
 
 #' Read Sensitivity Label
-#' @description Reads the sensitivity label from a Excel or Word file using
+#' @description Reads the sensitivity label from a Word or Excel file using
 #' openxlsx2 package functions. Returns the label name, 'no label' if none is found,
 #' or errors if unexpected.
 #'
