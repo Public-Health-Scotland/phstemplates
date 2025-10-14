@@ -21,6 +21,7 @@
 #' label <- read_sensitivity_label("myfile.xlsx")
 #' print(label)  # "Personal"
 #' }
+#' @family {Sensitivity Label functions}
 #' @export
 read_sensitivity_label <- function(file) {
   # Parameter validation
@@ -100,6 +101,7 @@ read_sensitivity_label <- function(file) {
 #' @param label Sensitivity label. One of: 'Personal', 'OFFICIAL',
 #' 'OFFICIAL_SENSITIVE_VMO'.
 #' @return Silently returns the file path if successful.
+#' @family {Sensitivity Label functions}
 #' @export
 #' @examples
 #' \dontrun{
