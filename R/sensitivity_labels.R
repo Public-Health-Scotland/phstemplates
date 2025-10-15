@@ -52,7 +52,7 @@ read_sensitivity_label <- function(file) {
 
   # Check file is valid
   file_ext <- tolower(tools::file_ext(file))
-  if (!file_extension %in% c("xlsx", "xls", "docx")) {
+  if (!file_ext %in% c("xlsx", "xls", "docx")) {
     cli::cli_abort(
       "{.arg file} must be an Excel workbook or Word document with {.val .xlsx}, {.val .xls}, or {.val .docx} extension, not {.val .{file_ext}}."
     )
