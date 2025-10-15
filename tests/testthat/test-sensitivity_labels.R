@@ -442,3 +442,73 @@ test_that("comprehensive parameter validation for read_sensitivity_label", {
   # Clean up
   unlink(c(tmp, txt_file, pdf_file, no_ext_file))
 })
+
+# Helper function for DOCX creation
+create_empty_docx <- function(path) {
+  doc <- officer::read_docx()
+  print(doc, target = path) 
+}
+
+test_that("apply_sensitivity_label returns file path and applies label for DOCX", {
+  # Create a temporary Word file
+  tmp <- tempfile(fileext = ".docx")
+  create_empty_docx(tmp)
+
+  # Apply Personal label
+  result <- apply_sensitivity_label(tmp, "Personal")
+  expect_equal(result, tmp)
+  expect_equal(read_sensitivity_label(tmp), "Personal")
+
+  # Apply OFFICIAL label
+  result <- apply_sensitivity_label(tmp, "OFFICIAL")
+  expect_equal(result, tmp)
+  expect_equal(read_sensitivity_label(tmp), "OFFICIAL")
+
+  # Apply OFFICIAL_SENSITIVE_VMO label
+  result <- apply_sensitivity_label(tmp, "OFFICIAL_SENSITIVE_VMO")
+  expect_equal(result, tmp)
+  expect_equal(read_sensitivity_label(tmp), "OFFICIAL_SENSITIVE_VMO")
+
+  # Clean up
+  unlink(tmp)
+})
+
+test_that("functions work with .docx extension", {
+  # Test .docx files
+  tmp_docx <- tempfile(fileext = ".docx")
+  create_empty_docx(tmp_docx)
+
+  result <- apply_sensitivity_label(tmp_docx, "Personal")
+  expect_equal(result, tmp_docx)
+  expect_equal(read_sensitivity_label(tmp_docx), "Personal")
+
+  # Clean up
+  unlink(tmp_docx)
+})
+
+test_that("read_sensitivity_label handles no label and errors for DOCX", {
+  # Create a temp Word file with no label
+  tmp_docx <- tempfile(fileext = ".docx")
+  create_empty_docx(tmp_docx)
+
+  # Check for no label
+  expect_equal(read_sensitivity_label(tmp_docx), "No label")
+
+  # Test for non-existent file
+  non_existent_file <- tempfile(fileext = ".docx")
+  expect_error(read_sensitivity_label(non_existent_file), "not exist")
+
+  # Test invalid file extensions
+  txt_file <- tempfile(fileext = ".txt")
+  file.create(txt_file)
+  
+  expect_error(
+    read_sensitivity_label(txt_file),
+    # This assumes the function's internal validation will be updated
+    "`file` must be an Excel workbook or Word document" 
+  )
+   
+  # Clean up
+  unlink(tmp_docx)
+  unlink(txt_file)
+})
