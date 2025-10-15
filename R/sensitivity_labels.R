@@ -192,7 +192,7 @@ apply_sensitivity_label <- function(file, label) {
     file_name <- sub(paste0(".", file_ext), "", file_name)
 
     # Zipping process needs its own directory
-    zipdir <- file.path(file_path, tempdir())
+    zipdir <- file.path(file_path, tempdir(), fsep = "") # keep fsep as blank
 
     # Create the dir using that name
     dir.create(zipdir)
@@ -204,13 +204,13 @@ apply_sensitivity_label <- function(file, label) {
     xml <- xml2::as_xml_document(xml)
 
     # Create the dir using that name
-    dir.create(file.path(zipdir, "docMetadata"), showWarnings = FALSE, recursive = TRUE)
+    dir.create(file.path(zipdir, "/docMetadata"), showWarnings = FALSE, recursive = TRUE)
 
     # Write the XML data to the temp directory
-    xml2::write_xml(xml, paste0(zipdir, "docMetadata/LabelInfo.xml"), useBytes = TRUE)
+    xml2::write_xml(xml, paste0(zipdir, "/docMetadata/LabelInfo.xml"), useBytes = TRUE)
 
     # Update content file with new child node
-    content <- xml2::read_xml(file.path(zipdir, "[Content_Types].xml"))
+    content <- xml2::read_xml(file.path(zipdir, "/[Content_Types].xml"))
     new_node <- xml2::xml_add_child(content, .value = "Override")
 
     xml2::xml_set_attrs(new_node, c(
@@ -218,10 +218,10 @@ apply_sensitivity_label <- function(file, label) {
       ContentType = "application/vnd.ms-office.classificationlabels+xml"
     ))
 
-    xml2::write_xml(content, file.path(zipdir, "[Content_Types].xml"), useBytes = TRUE)
+    xml2::write_xml(content, file.path(zipdir, "/[Content_Types].xml"), useBytes = TRUE)
 
     # Update .rels file with new child node
-    rels_file <- xml2::read_xml(file.path(zipdir, "_rels/.rels"))
+    rels_file <- xml2::read_xml(file.path(zipdir, "/_rels/.rels"))
 
     xml2::xml_set_attrs(xml2::xml_add_child(rels_file, .value = "Relationship"), c(
       Id = "rId6",
@@ -230,7 +230,7 @@ apply_sensitivity_label <- function(file, label) {
     ))
 
 
-    xml2::write_xml(rels_file, file.path(zipdir, "_rels/.rels"), useBytes = TRUE)
+    xml2::write_xml(rels_file, file.path(zipdir, "/_rels/.rels"), useBytes = TRUE)
 
     # Delete original file
     file.remove(file)
