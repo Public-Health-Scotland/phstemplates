@@ -170,8 +170,8 @@ apply_sensitivity_label <- function(file, label) {
     cli::cli_abort("{.arg file} must be an Excel workbook or Word document with{.val .xlsx}, {.val .xls}, or {.val .docx} extension, not {.val .{file_ext}}.")
   }
 
-  xml_map <- .get_sensitivity_xml_map()
-  xml <- xml_map[[label]]
+  # Get label data
+  xml <- sensitivity_label_xml[[label]]
 
 
   ## Apply label to Excel workbooks ----
