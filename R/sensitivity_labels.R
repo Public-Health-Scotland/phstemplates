@@ -188,15 +188,11 @@ apply_sensitivity_label <- function(file, label) {
     # Parsing input
     file_path <- dirname(file)
     file_name <- basename(file)
-    file_type <- tools::file_ext(file)
     # Removing file type from actual name
-    file_name <- sub(paste0(".", file_type), "", file_name)
+    file_name <- sub(paste0(".", file_ext), "", file_name)
 
     # Zipping process needs its own directory
-    # We'll reset it using on.exit later
-    current_wd <- getwd()
-
-    zipdir <- paste0(file_path, "/", file_name)
+    zipdir <- file.path(file_path, tempdir())
 
     # Create the dir using that name
     dir.create(zipdir)
@@ -208,13 +204,13 @@ apply_sensitivity_label <- function(file, label) {
     xml <- xml2::as_xml_document(xml)
 
     # Create the dir using that name
-    dir.create(paste0(zipdir, "/docMetadata"), showWarnings = FALSE, recursive = TRUE)
+    dir.create(file.path(zipdir, "docMetadata"), showWarnings = FALSE, recursive = TRUE)
 
     # Write the XML data to the temp directory
-    xml2::write_xml(xml, paste0(zipdir, "/docMetadata/LabelInfo.xml"), useBytes = TRUE)
+    xml2::write_xml(xml, paste0(zipdir, "docMetadata/LabelInfo.xml"), useBytes = TRUE)
 
     # Update content file with new child node
-    content <- xml2::read_xml(paste0(zipdir, "/[Content_Types].xml"))
+    content <- xml2::read_xml(file.path(zipdir, "[Content_Types].xml"))
     new_node <- xml2::xml_add_child(content, .value = "Override")
 
     xml2::xml_set_attrs(new_node, c(
@@ -222,10 +218,10 @@ apply_sensitivity_label <- function(file, label) {
       ContentType = "application/vnd.ms-office.classificationlabels+xml"
     ))
 
-    xml2::write_xml(content, paste0(zipdir, "/[Content_Types].xml"), useBytes = TRUE)
+    xml2::write_xml(content, file.path(zipdir, "[Content_Types].xml"), useBytes = TRUE)
 
     # Update .rels file with new child node
-    rels_file <- xml2::read_xml(paste0(zipdir, "/_rels/.rels"))
+    rels_file <- xml2::read_xml(file.path(zipdir, "_rels/.rels"))
 
     xml2::xml_set_attrs(xml2::xml_add_child(rels_file, .value = "Relationship"), c(
       Id = "rId6",
@@ -234,34 +230,28 @@ apply_sensitivity_label <- function(file, label) {
     ))
 
 
-    xml2::write_xml(rels_file, paste0(zipdir, "/_rels/.rels"), useBytes = TRUE)
+    xml2::write_xml(rels_file, file.path(zipdir, "_rels/.rels"), useBytes = TRUE)
 
     # Delete original file
     file.remove(file)
 
-    newzip <- paste0("../", file_name, ".zip")
+    newzip <- file.path(file_path, paste0(file_name, ".docx"))
     file.create(newzip)
 
-    setwd(zipdir) # Setting new base directory to avoid needless recursion in file zipping
-    # will be reset on.exit() anyway so don't change.
 
-    suppressWarnings(
-      zip::zip(zipfile = newzip,
-               files = list.files(".", all.files = TRUE, full.names = FALSE, recursive = TRUE, include.dirs = TRUE),
-               recurse = FALSE,
-               include_directories = FALSE,
-               root = ".") # end of zip()
-    ) # End of suppressWarnings
+    zip::zip(zipfile = newzip,
+             files = list.files(zipdir),
+             recurse = TRUE,
+             include_directories = FALSE,
+             root = zipdir,
+             mode = "mirror") # end of zip()
 
     # Delete un-zipped files
     unlink(zipdir, recursive = TRUE)
 
-    # Re-naming file
-    file.rename(from = newzip,
-                to = file)
+    # Delete tmp folder
+    unlink(file.path(file_path, "tmp"), recursive = TRUE)
 
-    # Keep this as last-evaluated function - keeps files stable
-    on.exit(setwd(current_wd))
   }
 
   cli::cli_alert_success(
@@ -270,3 +260,4 @@ apply_sensitivity_label <- function(file, label) {
 
   invisible(file)
 }
+
