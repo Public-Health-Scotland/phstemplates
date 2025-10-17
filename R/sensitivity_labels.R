@@ -235,7 +235,7 @@ apply_sensitivity_label <- function(file, label) {
     # Delete original file
     file.remove(file)
 
-    newzip <- file.path(file_path, paste0(file_name, ".docx"))
+    newzip <- file.path(file_path, paste0(file_name, ".docx"), fsep = "")
     file.create(newzip)
 
 
