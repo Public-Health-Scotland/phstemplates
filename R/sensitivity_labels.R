@@ -185,9 +185,6 @@ apply_sensitivity_label <- function(file, label) {
     # Zipping process needs its own directory
     zipdir <- file.path(file_dir, tempdir(), fsep = "") # keep fsep as blank
 
-    # Create the dir using that name
-    dir.create(zipdir)
-
     # Unzip the file into the dir
     unzip(file, exdir= zipdir)
 
@@ -226,7 +223,7 @@ apply_sensitivity_label <- function(file, label) {
     # Delete original file
     file.remove(file)
 
-    newzip <- file.path(file_dir, paste0(file_name, ".docx"), fsep = "")
+    newzip <- file.path(file_dir, paste0(file_name, ".docx"))
     file.create(newzip)
 
 
