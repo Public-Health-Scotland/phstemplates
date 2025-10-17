@@ -86,7 +86,7 @@ read_sensitivity_label <- function(file) {
       return("No label")
     }
 
-    unlink(zipdir, recursive = TRUE)
+    unlink(list.files(zipdir, full.names = TRUE), recursive = TRUE)
   }
 
   if (length(label_name) == 0L) {
@@ -275,7 +275,7 @@ apply_sensitivity_label <- function(file, label) {
     # Delete original file
     file.remove(file)
 
-    newzip <- paste0(file_name, ".zip")
+    newzip <- file.path(normalizePath(file_dir), paste0(file_name, ".docx"))
 
     zip::zip(
       zipfile = newzip,
@@ -286,15 +286,8 @@ apply_sensitivity_label <- function(file, label) {
       mode = "mirror"
     ) # end of zip()
 
-    file.copy(
-      from = file.path(zipdir, newzip, fsep = "\\"),
-      to = file.path(file_dir, newzip)
-    )
-
-    file.rename(from = newzip, to = file)
-
     # Delete un-zipped files
-    unlink(zipdir, recursive = TRUE)
+    unlink(list.files(zipdir, full.names = TRUE), recursive = TRUE)
   }
 
   cli::cli_alert_success(
