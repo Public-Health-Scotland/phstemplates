@@ -183,7 +183,7 @@ apply_sensitivity_label <- function(file, label) {
     file_name <- sub(paste0(".", file_ext), "", file_name)
 
     # Zipping process needs its own directory
-    zipdir <- file.path(file_path, tempdir(), fsep = "") # keep fsep as blank
+    zipdir <- file.path(file_dir, tempdir(), fsep = "") # keep fsep as blank
 
     # Create the dir using that name
     dir.create(zipdir)
@@ -226,7 +226,7 @@ apply_sensitivity_label <- function(file, label) {
     # Delete original file
     file.remove(file)
 
-    newzip <- file.path(file_path, paste0(file_name, ".docx"), fsep = "")
+    newzip <- file.path(file_dir, paste0(file_name, ".docx"), fsep = "")
     file.create(newzip)
 
 
@@ -241,7 +241,7 @@ apply_sensitivity_label <- function(file, label) {
     unlink(zipdir, recursive = TRUE)
 
     # Delete tmp folder
-    unlink(file.path(file_path, "tmp"), recursive = TRUE)
+    unlink(file.path(file_dir, "tmp"), recursive = TRUE)
 
   }
 
