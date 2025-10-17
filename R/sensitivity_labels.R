@@ -186,7 +186,7 @@ apply_sensitivity_label <- function(file, label) {
 
   if(file_ext == "docx"){
     # Parsing input
-    file_path <- dirname(file)
+    file_dir <- dirname(file)
     file_name <- basename(file)
     # Removing file type from actual name
     file_name <- sub(paste0(".", file_ext), "", file_name)
