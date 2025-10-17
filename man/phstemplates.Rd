@@ -36,6 +36,7 @@ Other contributors:
   \item James Hayes \email{James.Hayes2@phs.scot} (\href{https://orcid.org/0000-0002-5380-2029}{ORCID}) [contributor]
   \item Ellie Bates \email{Ellie.Bates@phs.scot} [contributor]
   \item Matthew Hoyle \email{matthew.hoyle@phs.scot} [contributor]
+  \item James Kilgour \email{james.kilgour2@phs.scot} [contributor]
 }
 
 }

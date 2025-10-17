@@ -1,12 +1,3 @@
-#' @keywords internal
-.get_sensitivity_xml_map <- function() {
-  list(
-    Personal = '<clbl:labelList xmlns:clbl="http://schemas.microsoft.com/office/2020/mipLabelMetadata"><clbl:label id="{9569d428-cde8-4093-8c72-538d9175bce5}" enabled="1" method="Privileged" siteId="{10efe0bd-a030-4bca-809c-b5e6745e499a}" contentBits="0" removed="0"/></clbl:labelList>',
-    OFFICIAL = '<clbl:labelList xmlns:clbl="http://schemas.microsoft.com/office/2020/mipLabelMetadata"><clbl:label id="{b4199b9c-a89e-442f-9799-431511f14748}" enabled="1" method="Privileged" siteId="{10efe0bd-a030-4bca-809c-b5e6745e499a}" contentBits="0" removed="0"/></clbl:labelList>',
-    OFFICIAL_SENSITIVE_VMO = '<clbl:labelList xmlns:clbl="http://schemas.microsoft.com/office/2020/mipLabelMetadata"><clbl:label id="{155b7326-c67d-4d6b-b15a-6628f0f8cfe7}" enabled="1" method="Privileged" siteId="{10efe0bd-a030-4bca-809c-b5e6745e499a}" contentBits="3" removed="0"/></clbl:labelList>'
-  )
-}
-
 #' Read Sensitivity Label
 #' @description Reads the sensitivity label from a Word or Excel file using
 #' openxlsx2 package functions. Returns the label name, 'no label' if none is found,
@@ -21,7 +12,7 @@
 #' label <- read_sensitivity_label("myfile.xlsx")
 #' print(label)  # "Personal"
 #' }
-#' @family {Sensitivity Label functions}
+#' @family Sensitivity Label functions
 #' @export
 read_sensitivity_label <- function(file) {
   # Parameter validation
@@ -60,23 +51,43 @@ read_sensitivity_label <- function(file) {
 
   ## Extracting label within Excel workbooks ----
 
-  if(file_ext %in% c("xlsx", "xls")){
+  if (file_ext %in% c("xlsx", "xls")) {
     wb <- openxlsx2::wb_load(file)
     mips <- openxlsx2::wb_get_mips(wb)
+
+    if (is.null(mips) || length(mips) == 0L || mips == "") {
+      return("No label")
+    }
+
+    # Try to extract label name from XML
+    label_name <- which(sensitivity_label_xml == mips) |> names()
   }
 
   ## Extracting label within Word docs ----
 
-  if(file_ext == "docx"){
-    mips <- openxlsx2::read_xml(unzip(file,'docMetadata/LabelInfo.xml'))
-  }
+  if (file_ext == "docx") {
+    zipdir <- tempdir()
+    utils::unzip(file, exdir = zipdir)
 
-  if (is.null(mips) || length(mips) == 0L || mips == "") {
-    return("No label")
-  }
+    label_file_exists <- file.exists(file.path(
+      zipdir,
+      "docMetadata",
+      "LabelInfo.xml"
+    ))
 
-  # Try to extract label name from XML
-  label_name <- which(sensitivity_label_xml == mips) |> names()
+    if (label_file_exists) {
+      mips <- xml2::read_xml(file.path(zipdir, "docMetadata", "LabelInfo.xml"))
+      label_node <- xml2::xml_find_first(mips, "//clbl:label")
+      id_value <- xml2::xml_attr(label_node, "id")
+      id_value <- substr(id_value, 2, nchar(id_value) - 1)
+      label_id <- grep(id_value, unlist(sensitivity_label_xml))
+      label_name <- names(sensitivity_label_xml)[label_id]
+    } else {
+      return("No label")
+    }
+
+    unlink(zipdir, recursive = TRUE)
+  }
 
   if (length(label_name) == 0L) {
     cli::cli_abort(
@@ -101,7 +112,7 @@ read_sensitivity_label <- function(file) {
 #' @param label Sensitivity label. One of: 'Personal', 'OFFICIAL',
 #' 'OFFICIAL_SENSITIVE_VMO'.
 #' @return Silently returns the file path if successful.
-#' @family {Sensitivity Label functions}
+#' @family Sensitivity Label functions
 #' @export
 #' @examples
 #' \dontrun{
@@ -167,16 +178,17 @@ apply_sensitivity_label <- function(file, label) {
   # Check file is valid
   file_ext <- tolower(tools::file_ext(file))
   if (!file_ext %in% c("xlsx", "xls", "docx")) {
-    cli::cli_abort("{.arg file} must be an Excel workbook or Word document with{.val .xlsx}, {.val .xls}, or {.val .docx} extension, not {.val .{file_ext}}.")
+    cli::cli_abort(
+      "{.arg file} must be an Excel workbook or Word document with{.val .xlsx}, {.val .xls}, or {.val .docx} extension, not {.val .{file_ext}}."
+    )
   }
 
   # Get label data
   xml <- sensitivity_label_xml[[label]]
 
-
   ## Apply label to Excel workbooks ----
 
-  if(file_ext %in% c("xlsx", "xls")){
+  if (file_ext %in% c("xlsx", "xls")) {
     wb <- openxlsx2::wb_load(file)
     wb <- openxlsx2::wb_add_mips(wb, xml)
     openxlsx2::wb_save(wb, file)
@@ -184,74 +196,105 @@ apply_sensitivity_label <- function(file, label) {
 
   ## Apply label to Word docs ----
 
-  if(file_ext == "docx"){
+  if (file_ext == "docx") {
     # Parsing input
-    file_path <- dirname(file)
+    file_dir <- dirname(file)
     file_name <- basename(file)
     # Removing file type from actual name
-    file_name <- sub(paste0(".", file_ext), "", file_name)
+    file_name <- tools::file_path_sans_ext(file_name)
 
     # Zipping process needs its own directory
-    zipdir <- file.path(file_path, tempdir(), fsep = "") # keep fsep as blank
-
-    # Create the dir using that name
-    dir.create(zipdir)
+    # Creates the temporary directory at the same time
+    zipdir <- tempdir()
 
     # Unzip the file into the dir
-    unzip(file, exdir= zipdir)
+    utils::unzip(file, exdir = zipdir)
 
     # Formatting as xml, not character data.
     xml <- xml2::as_xml_document(xml)
 
-    # Create the dir using that name
-    dir.create(file.path(zipdir, "/docMetadata"), showWarnings = FALSE, recursive = TRUE)
+    # Create the dir using that name if needed
+    if (!dir.exists(file.path(zipdir, "/docMetadata"))) {
+      dir.create(
+        file.path(zipdir, "/docMetadata"),
+        showWarnings = FALSE,
+        recursive = TRUE
+      )
+    }
 
     # Write the XML data to the temp directory
-    xml2::write_xml(xml, paste0(zipdir, "/docMetadata/LabelInfo.xml"), useBytes = TRUE)
+    xml2::write_xml(
+      xml,
+      paste0(zipdir, "/docMetadata/LabelInfo.xml"),
+      useBytes = TRUE
+    )
 
-    # Update content file with new child node
+    # Update content file with new child node if needed
     content <- xml2::read_xml(file.path(zipdir, "/[Content_Types].xml"))
-    new_node <- xml2::xml_add_child(content, .value = "Override")
+    content_required <- !grepl("docMetadata", content)
 
-    xml2::xml_set_attrs(new_node, c(
-      PartName = "/docMetadata/LabelInfo.xml",
-      ContentType = "application/vnd.ms-office.classificationlabels+xml"
-    ))
+    if (content_required) {
+      new_node <- xml2::xml_add_child(content, .value = "Override")
 
-    xml2::write_xml(content, file.path(zipdir, "/[Content_Types].xml"), useBytes = TRUE)
+      xml2::xml_set_attrs(
+        new_node,
+        c(
+          PartName = "/docMetadata/LabelInfo.xml",
+          ContentType = "application/vnd.ms-office.classificationlabels+xml"
+        )
+      )
 
-    # Update .rels file with new child node
+      xml2::write_xml(
+        content,
+        file.path(zipdir, "/[Content_Types].xml"),
+        useBytes = TRUE
+      )
+    }
+
+    # Update .rels file with new child node if needed
     rels_file <- xml2::read_xml(file.path(zipdir, "/_rels/.rels"))
+    rels_required <- !grepl("docMetadata", rels_file)
 
-    xml2::xml_set_attrs(xml2::xml_add_child(rels_file, .value = "Relationship"), c(
-      Id = "rId6",
-      Type="http://schemas.microsoft.com/office/2020/02/relationships/classificationlabels",
-      Target="docMetadata/LabelInfo.xml"
-    ))
+    if (rels_required) {
+      xml2::xml_set_attrs(
+        xml2::xml_add_child(rels_file, .value = "Relationship"),
+        c(
+          Id = "rId6",
+          Type = "http://schemas.microsoft.com/office/2020/02/relationships/classificationlabels",
+          Target = "docMetadata/LabelInfo.xml"
+        )
+      )
 
-
-    xml2::write_xml(rels_file, file.path(zipdir, "/_rels/.rels"), useBytes = TRUE)
+      xml2::write_xml(
+        rels_file,
+        file.path(zipdir, "/_rels/.rels"),
+        useBytes = TRUE
+      )
+    }
 
     # Delete original file
     file.remove(file)
 
-    newzip <- file.path(file_path, paste0(file_name, ".docx"))
-    file.create(newzip)
+    newzip <- paste0(file_name, ".zip")
 
+    zip::zip(
+      zipfile = newzip,
+      files = list.files(zipdir),
+      recurse = TRUE,
+      include_directories = FALSE,
+      root = zipdir,
+      mode = "mirror"
+    ) # end of zip()
 
-    zip::zip(zipfile = newzip,
-             files = list.files(zipdir),
-             recurse = TRUE,
-             include_directories = FALSE,
-             root = zipdir,
-             mode = "mirror") # end of zip()
+    file.copy(
+      from = file.path(zipdir, newzip, fsep = "\\"),
+      to = file.path(file_dir, newzip)
+    )
+
+    file.rename(from = newzip, to = file)
 
     # Delete un-zipped files
     unlink(zipdir, recursive = TRUE)
-
-    # Delete tmp folder
-    unlink(file.path(file_path, "tmp"), recursive = TRUE)
-
   }
 
   cli::cli_alert_success(
@@ -260,4 +303,3 @@ apply_sensitivity_label <- function(file, label) {
 
   invisible(file)
 }
-
