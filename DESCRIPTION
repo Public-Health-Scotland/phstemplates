@@ -1,6 +1,6 @@
 Package: phstemplates
 Title: PHS R Templates
-Version: 1.2.4
+Version: 1.3.0
 Authors@R: c(
     person("Public Health Scotland", , , "phs.datascience@phs.scot", role = "cph"),
     person("Alan", "Yeung", , "alan.yeung@phs.scot", role = c("aut", "cre"),

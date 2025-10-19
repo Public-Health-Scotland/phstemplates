@@ -1,3 +1,8 @@
+# phstemplates 1.3.0
+
+* Added PHS Quarto HTML template, accessible through `create_phs_html()`.
+* Added `read_sensitivity_label()` and `apply_sensitivity_label()` functions to read and apply PHS sensitivity labels to Microsoft Word and Excel documents.
+
 # phstemplates 1.2.4
 
 * Uses git2r functions for working with git.

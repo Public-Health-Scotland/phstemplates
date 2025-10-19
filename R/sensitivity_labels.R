@@ -205,7 +205,11 @@ apply_sensitivity_label <- function(file, label) {
 
     # Zipping process needs its own directory
     # Creates the temporary directory at the same time
-    zipdir <- tempdir()
+    zipdir <- file.path(tempdir(), file_name)
+
+    if (grepl("ming.32", R.Version()$platform)) {
+      zipdir <- gsub("\\\\", "/", zipdir)
+    }
 
     # Unzip the file into the dir
     utils::unzip(file, exdir = zipdir)
@@ -284,10 +288,7 @@ apply_sensitivity_label <- function(file, label) {
       include_directories = FALSE,
       root = zipdir,
       mode = "mirror"
-    ) # end of zip()
-
-    # Delete un-zipped files
-    unlink(list.files(zipdir, full.names = TRUE), recursive = TRUE)
+    )
   }
 
   cli::cli_alert_success(

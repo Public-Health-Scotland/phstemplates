@@ -25,6 +25,7 @@
 #' @param cover_title Title to be used in the cover page.
 #' @param cover_subtitle Subtitle to be used in the cover page.
 #' @param cover_date Date to be used in the cover page.
+#' @param sensitivity_label Sensitivity label. One of: 'Personal', 'OFFICIAL', 'OFFICIAL_SENSITIVE_VMO'.
 #' @return R Markdown output format to pass to \code{\link[rmarkdown]{render}}
 #' @examples
 #' \dontrun{
@@ -49,7 +50,8 @@ phs_report_docx <- function(
   cover_page = NULL,
   cover_title = "Title",
   cover_subtitle = "Subtitle",
-  cover_date = "DD Month YYYY"
+  cover_date = "DD Month YYYY",
+  sensitivity_label = NULL
 ) {
   resolve_highlight <- utils::getFromNamespace("resolve_highlight", "rmarkdown")
   highlighters <- utils::getFromNamespace("highlighters", "rmarkdown")
@@ -128,7 +130,8 @@ phs_report_docx <- function(
     title = cover_title,
     stitle = cover_subtitle,
     dt = cover_date,
-    tocd = toc_depth
+    tocd = toc_depth,
+    slabel = sensitivity_label
   ) {
     officer::read_docx(output_file) %>%
       officer::cursor_begin() %>%
@@ -165,6 +168,12 @@ phs_report_docx <- function(
       officer::body_add_xml(str = xml_elt) %>%
       officer::set_doc_properties(title = title) %>%
       print(output_file)
+
+    if (!is.null(slabel)) {
+      apply_sensitivity_label(output_file, slabel)
+    } else {
+      invisible(output_file)
+    }
   }
 
   # return output format
