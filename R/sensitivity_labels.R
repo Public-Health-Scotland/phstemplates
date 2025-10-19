@@ -99,7 +99,7 @@ read_sensitivity_label <- function(file) {
       return("No label")
     }
 
-    unlink(list.files(zipdir, full.names = TRUE), recursive = TRUE)
+    unlink(zipdir, recursive = TRUE)
   }
 
   if (length(label_name) == 0L) {
@@ -303,7 +303,7 @@ apply_sensitivity_label <- function(file, label) {
       mode = "mirror"
     )
 
-    unlink(list.files(zipdir, full.names = TRUE), recursive = TRUE)
+    unlink(zipdir, recursive = TRUE)
   }
 
   cli::cli_alert_success(
