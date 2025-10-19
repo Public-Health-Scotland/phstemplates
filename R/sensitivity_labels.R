@@ -66,7 +66,15 @@ read_sensitivity_label <- function(file) {
   ## Extracting label within Word docs ----
 
   if (file_ext == "docx") {
-    zipdir <- tempdir()
+    file_name <- basename(file)
+    file_name <- tools::file_path_sans_ext(file_name)
+
+    zipdir <- file.path(tempdir(), file_name)
+
+    if (grepl("ming.32", R.Version()$platform)) {
+      zipdir <- gsub("\\\\", "/", zipdir)
+    }
+
     utils::unzip(file, exdir = zipdir)
 
     label_file_exists <- file.exists(file.path(
@@ -77,11 +85,16 @@ read_sensitivity_label <- function(file) {
 
     if (label_file_exists) {
       mips <- xml2::read_xml(file.path(zipdir, "docMetadata", "LabelInfo.xml"))
+
       label_node <- xml2::xml_find_first(mips, "//clbl:label")
       id_value <- xml2::xml_attr(label_node, "id")
       id_value <- substr(id_value, 2, nchar(id_value) - 1)
       label_id <- grep(id_value, unlist(sensitivity_label_xml))
       label_name <- names(sensitivity_label_xml)[label_id]
+
+      if (length(label_name) == length(sensitivity_label_xml)) {
+        label_name <- "No label"
+      }
     } else {
       return("No label")
     }
@@ -289,6 +302,8 @@ apply_sensitivity_label <- function(file, label) {
       root = zipdir,
       mode = "mirror"
     )
+
+    unlink(list.files(zipdir, full.names = TRUE), recursive = TRUE)
   }
 
   cli::cli_alert_success(
