@@ -66,14 +66,10 @@ read_sensitivity_label <- function(file) {
   ## Extracting label within Word docs ----
 
   if (file_ext == "docx") {
-    file_name <- basename(file)
-    file_name <- tools::file_path_sans_ext(file_name)
+    file_name <- tools::file_path_sans_ext(basename(file))
 
     zipdir <- file.path(tempdir(), file_name)
 
-    if (grepl("ming.32", R.Version()$platform)) {
-      zipdir <- gsub("\\\\", "/", zipdir)
-    }
 
     utils::unzip(file, exdir = zipdir)
 
@@ -89,7 +85,7 @@ read_sensitivity_label <- function(file) {
       label_node <- xml2::xml_find_first(mips, "//clbl:label")
       id_value <- xml2::xml_attr(label_node, "id")
       id_value <- substr(id_value, 2, nchar(id_value) - 1)
-      label_id <- grep(id_value, unlist(sensitivity_label_xml))
+      label_id <- grep(id_value, unlist(sensitivity_label_xml), fixed = TRUE)
       label_name <- names(sensitivity_label_xml)[label_id]
 
       if (length(label_name) == length(sensitivity_label_xml)) {
@@ -212,17 +208,12 @@ apply_sensitivity_label <- function(file, label) {
   if (file_ext == "docx") {
     # Parsing input
     file_dir <- dirname(file)
-    file_name <- basename(file)
-    # Removing file type from actual name
-    file_name <- tools::file_path_sans_ext(file_name)
+    file_name <- tools::file_path_sans_ext(basename(file))
 
     # Zipping process needs its own directory
     # Creates the temporary directory at the same time
     zipdir <- file.path(tempdir(), file_name)
 
-    if (grepl("ming.32", R.Version()$platform)) {
-      zipdir <- gsub("\\\\", "/", zipdir)
-    }
 
     # Unzip the file into the dir
     utils::unzip(file, exdir = zipdir)
@@ -242,7 +233,7 @@ apply_sensitivity_label <- function(file, label) {
     # Write the XML data to the temp directory
     xml2::write_xml(
       xml,
-      paste0(zipdir, "/docMetadata/LabelInfo.xml"),
+      file.path(zipdir, "docMetadata", "LabelInfo.xml"),
       useBytes = TRUE
     )
 
