@@ -70,7 +70,6 @@ read_sensitivity_label <- function(file) {
 
     zipdir <- file.path(tempdir(), file_name)
 
-
     utils::unzip(file, exdir = zipdir)
 
     label_file_exists <- file.exists(file.path(
@@ -213,7 +212,6 @@ apply_sensitivity_label <- function(file, label) {
     # Zipping process needs its own directory
     # Creates the temporary directory at the same time
     zipdir <- file.path(tempdir(), file_name)
-
 
     # Unzip the file into the dir
     utils::unzip(file, exdir = zipdir)
