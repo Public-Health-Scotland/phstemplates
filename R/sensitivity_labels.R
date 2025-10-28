@@ -3,7 +3,7 @@
 #' openxlsx2 package functions. Returns the label name, 'no label' if none is found,
 #' or errors if unexpected.
 #'
-#' @param file Path to the file (.xlsx, .xls, ".docx")
+#' @param file Path to the file (.xlsx, .xlsm, .docx, docm)
 #' @return The sensitivity label name, or 'no label' if none is found.
 #' @examples
 #' \dontrun{
@@ -43,15 +43,15 @@ read_sensitivity_label <- function(file) {
 
   # Check file is valid
   file_ext <- tolower(tools::file_ext(file))
-  if (!file_ext %in% c("xlsx", "xls", "docx")) {
+  if (!file_ext %in% c("xlsx", "xlsm", "docx", "docm")) {
     cli::cli_abort(
-      "{.arg file} must be an Excel workbook or Word document with {.val .xlsx}, {.val .xls}, or {.val .docx} extension, not {.val .{file_ext}}."
+      "{.arg file} must be an Excel workbook or Word document with {.val .xlsx}, {.val .xlsm}, or {.val .docx}, {.val .docm} extension, not {.val .{file_ext}}."
     )
   }
 
   ## Extracting label within Excel workbooks ----
 
-  if (file_ext %in% c("xlsx", "xls")) {
+  if (file_ext %in% c("xlsx", "xlsm")) {
     wb <- openxlsx2::wb_load(file)
     mips <- openxlsx2::wb_get_mips(wb)
 
@@ -65,7 +65,7 @@ read_sensitivity_label <- function(file) {
 
   ## Extracting label within Word docs ----
 
-  if (file_ext == "docx") {
+  if (file_ext %in% c("docx", "docm")) {
     file_name <- tools::file_path_sans_ext(basename(file))
 
     zipdir <- file.path(tempdir(), file_name)
@@ -83,12 +83,14 @@ read_sensitivity_label <- function(file) {
 
       label_node <- xml2::xml_find_first(mips, "//clbl:label")
       id_value <- xml2::xml_attr(label_node, "id")
-      id_value <- substr(id_value, 2, nchar(id_value) - 1)
-      label_id <- grep(id_value, unlist(sensitivity_label_xml), fixed = TRUE)
-      label_name <- names(sensitivity_label_xml)[label_id]
 
-      if (length(label_name) == length(sensitivity_label_xml)) {
+      # If the label ID is the same as the site ID, return no label
+      if (id_value == xml2::xml_attr(label_node, "siteId")) {
         label_name <- "No label"
+      } else {
+        id_value <- substr(id_value, 2, nchar(id_value) - 1)
+        label_id <- grep(id_value, unlist(sensitivity_label_xml), fixed = TRUE)
+        label_name <- names(sensitivity_label_xml)[label_id]
       }
     } else {
       return("No label")
@@ -116,7 +118,7 @@ read_sensitivity_label <- function(file) {
 #' using the appropriate XML, and saves the modified file. If successful, it
 #' silently returns the file path.
 #'
-#' @param file Path to the file (.xlsx, .xls, ".docx")
+#' @param file Path to the file (.xlsx, .xlsm, .docx, .docm)
 #' @param label Sensitivity label. One of: 'Personal', 'OFFICIAL',
 #' 'OFFICIAL_SENSITIVE_VMO'.
 #' @return Silently returns the file path if successful.
@@ -185,9 +187,9 @@ apply_sensitivity_label <- function(file, label) {
 
   # Check file is valid
   file_ext <- tolower(tools::file_ext(file))
-  if (!file_ext %in% c("xlsx", "xls", "docx")) {
+  if (!file_ext %in% c("xlsx", "xlsm", "docx", "docm")) {
     cli::cli_abort(
-      "{.arg file} must be an Excel workbook or Word document with{.val .xlsx}, {.val .xls}, or {.val .docx} extension, not {.val .{file_ext}}."
+      "{.arg file} must be an Excel workbook or Word document with{.val .xlsx}, {.val .xlsm}, or {.val .docx}, {.val .docm} extension, not {.val .{file_ext}}."
     )
   }
 
@@ -196,7 +198,7 @@ apply_sensitivity_label <- function(file, label) {
 
   ## Apply label to Excel workbooks ----
 
-  if (file_ext %in% c("xlsx", "xls")) {
+  if (file_ext %in% c("xlsx", "xlsm")) {
     wb <- openxlsx2::wb_load(file)
     wb <- openxlsx2::wb_add_mips(wb, xml)
     openxlsx2::wb_save(wb, file)
@@ -204,7 +206,7 @@ apply_sensitivity_label <- function(file, label) {
 
   ## Apply label to Word docs ----
 
-  if (file_ext == "docx") {
+  if (file_ext %in% c("docx", "docm")) {
     # Parsing input
     file_dir <- dirname(file)
     file_name <- tools::file_path_sans_ext(basename(file))
@@ -281,7 +283,10 @@ apply_sensitivity_label <- function(file, label) {
     # Delete original file
     file.remove(file)
 
-    newzip <- file.path(normalizePath(file_dir), paste0(file_name, ".docx"))
+    newzip <- file.path(
+      normalizePath(file_dir),
+      paste0(file_name, ".", file_ext)
+    )
 
     zip::zip(
       zipfile = newzip,

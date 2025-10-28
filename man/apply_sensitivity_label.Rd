@@ -7,7 +7,7 @@
 apply_sensitivity_label(file, label)
 }
 \arguments{
-\item{file}{Path to the file (.xlsx, .xls, ".docx")}
+\item{file}{Path to the file (.xlsx, .xlsm, .docx, .docm)}
 
 \item{label}{Sensitivity label. One of: 'Personal', 'OFFICIAL',
 'OFFICIAL_SENSITIVE_VMO'.}

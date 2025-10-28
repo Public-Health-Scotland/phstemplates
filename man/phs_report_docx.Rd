@@ -21,7 +21,7 @@ phs_report_docx(
   cover_title = "Title",
   cover_subtitle = "Subtitle",
   cover_date = "DD Month YYYY",
-  sensitivity_label = NULL
+  label = NULL
 )
 }
 \arguments{
@@ -85,7 +85,8 @@ additional details.}
 
 \item{cover_date}{Date to be used in the cover page.}
 
-\item{sensitivity_label}{Sensitivity label. One of: 'Personal', 'OFFICIAL', 'OFFICIAL_SENSITIVE_VMO'.}
+\item{label}{Sensitivity label. One of: 'Personal', 'OFFICIAL',
+'OFFICIAL_SENSITIVE_VMO'.}
 }
 \value{
 R Markdown output format to pass to \code{\link[rmarkdown]{render}}

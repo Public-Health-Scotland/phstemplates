@@ -25,7 +25,7 @@
 #' @param cover_title Title to be used in the cover page.
 #' @param cover_subtitle Subtitle to be used in the cover page.
 #' @param cover_date Date to be used in the cover page.
-#' @param sensitivity_label Sensitivity label. One of: 'Personal', 'OFFICIAL', 'OFFICIAL_SENSITIVE_VMO'.
+#' @inheritParams apply_sensitivity_label
 #' @return R Markdown output format to pass to \code{\link[rmarkdown]{render}}
 #' @examples
 #' \dontrun{
@@ -51,7 +51,7 @@ phs_report_docx <- function(
   cover_title = "Title",
   cover_subtitle = "Subtitle",
   cover_date = "DD Month YYYY",
-  sensitivity_label = NULL
+  label = NULL
 ) {
   resolve_highlight <- utils::getFromNamespace("resolve_highlight", "rmarkdown")
   highlighters <- utils::getFromNamespace("highlighters", "rmarkdown")
@@ -131,7 +131,7 @@ phs_report_docx <- function(
     stitle = cover_subtitle,
     dt = cover_date,
     tocd = toc_depth,
-    slabel = sensitivity_label
+    slabel = label
   ) {
     officer::read_docx(output_file) %>%
       officer::cursor_begin() %>%

@@ -7,7 +7,7 @@
 read_sensitivity_label(file)
 }
 \arguments{
-\item{file}{Path to the file (.xlsx, .xls, ".docx")}
+\item{file}{Path to the file (.xlsx, .xlsm, .docx, docm)}
 }
 \value{
 The sensitivity label name, or 'no label' if none is found.
