@@ -285,7 +285,7 @@ apply_sensitivity_label <- function(file, label) {
 
     newzip <- file.path(
       normalizePath(file_dir),
-      paste0(file_name, ".", file_ext)
+      paste0(file_name, ".", tools::file_ext(file))
     )
 
     zip::zip(
