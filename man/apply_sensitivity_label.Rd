@@ -7,7 +7,7 @@
 apply_sensitivity_label(file, label)
 }
 \arguments{
-\item{file}{Path to the Excel file (.xlsx or .xls)}
+\item{file}{Path to the file (.xlsx, .xlsm, .docx, .docm)}
 
 \item{label}{Sensitivity label. One of: 'Personal', 'OFFICIAL',
 'OFFICIAL_SENSITIVE_VMO'.}
@@ -16,11 +16,11 @@ apply_sensitivity_label(file, label)
 Silently returns the file path if successful.
 }
 \description{
-Applies a sensitivity label to an Excel file using openxlsx2
+Applies a sensitivity label to a Word or Excel file using openxlsx2
 and built-in XML. Supported labels are 'Personal', 'OFFICIAL', and
 'OFFICIAL_SENSITIVE_VMO' (visual markings only).
 
-The function loads the Excel file, applies the specified sensitivity label
+The function loads the file, applies the specified sensitivity label
 using the appropriate XML, and saves the modified file. If successful, it
 silently returns the file path.
 }
@@ -31,3 +31,8 @@ silently returns the file path.
 apply_sensitivity_label("myfile.xlsx", "Personal")
 }
 }
+\seealso{
+Other Sensitivity Label functions: 
+\code{\link{read_sensitivity_label}()}
+}
+\concept{Sensitivity Label functions}

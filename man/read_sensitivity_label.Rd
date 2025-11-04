@@ -7,14 +7,14 @@
 read_sensitivity_label(file)
 }
 \arguments{
-\item{file}{Path to the Excel file (.xlsx or .xls)}
+\item{file}{Path to the file (.xlsx, .xlsm, .docx, docm)}
 }
 \value{
 The sensitivity label name, or 'no label' if none is found.
 }
 \description{
-Reads the sensitivity label from an Excel file using
-openxlsx2::wb_get_mips. Returns the label name, 'no label' if none is found,
+Reads the sensitivity label from a Word or Excel file using
+openxlsx2 package functions. Returns the label name, 'no label' if none is found,
 or errors if unexpected.
 }
 \examples{
@@ -25,3 +25,8 @@ label <- read_sensitivity_label("myfile.xlsx")
 print(label)  # "Personal"
 }
 }
+\seealso{
+Other Sensitivity Label functions: 
+\code{\link{apply_sensitivity_label}()}
+}
+\concept{Sensitivity Label functions}

@@ -1,6 +1,6 @@
 Package: phstemplates
 Title: PHS R Templates
-Version: 1.2.4
+Version: 1.3.0
 Authors@R: c(
     person("Public Health Scotland", , , "phs.datascience@phs.scot", role = "cph"),
     person("Alan", "Yeung", , "alan.yeung@phs.scot", role = c("aut", "cre"),
@@ -10,7 +10,8 @@ Authors@R: c(
     person("James", "Hayes", , "James.Hayes2@phs.scot", role = "ctb",
            comment = c(ORCID = "0000-0002-5380-2029")),
     person("Ellie", "Bates", , "Ellie.Bates@phs.scot", role = "ctb"),
-    person("Matthew", "Hoyle", , "matthew.hoyle@phs.scot", role = "ctb")
+    person("Matthew", "Hoyle", , "matthew.hoyle@phs.scot", role = "ctb"),
+    person("James", "Kilgour", , "james.kilgour2@phs.scot", role = "ctb")
   )
 Description: Templates for Public Health Scotland.
 License: MIT + file LICENSE
@@ -18,7 +19,7 @@ URL: https://github.com/Public-Health-Scotland/phstemplates,
     https://public-health-scotland.github.io/phstemplates/
 BugReports: https://github.com/Public-Health-Scotland/phstemplates/issues
 Depends: 
-    R (>= 4.0.0)
+    R (>= 4.1.0)
 Imports: 
     cli,
     git2r (>= 0.36.2),
@@ -28,7 +29,9 @@ Imports:
     renv,
     rmarkdown (>= 2.12),
     rstudioapi,
-    utils
+    utils,
+    xml2,
+    zip
 Suggests: 
     dplyr,
     flextable (>= 0.5.7),

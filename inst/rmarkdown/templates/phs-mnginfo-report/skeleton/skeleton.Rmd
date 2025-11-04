@@ -8,6 +8,7 @@ output:
     cover_subtitle: "My subtitle"
     cover_date: "DD MM YYYY"
     toc_depth: 3
+    label: "OFFICIAL"
 ---
 
 ```{r setup, include = FALSE}
