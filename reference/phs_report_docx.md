@@ -69,7 +69,7 @@ phs_report_docx(
   to be used for printing data frames. You can disable the `df_print`
   behavior entirely by setting the option `rmarkdown.df_print` to
   `FALSE`. See [Data frame printing
-  section](https://bookdown.org/yihui/rmarkdown/html-document.html#data-frame-printing)
+  section](https://yihui.org/rmarkdown/html-document.html#data-frame-printing)
   in bookdown book for examples.
 
 - highlight:

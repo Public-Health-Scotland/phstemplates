@@ -18,6 +18,7 @@ you are using R from Posit Workbench), you can install the package by
 running
 
 ``` r
+
 install.packages("phstemplates")
 ```
 
@@ -25,6 +26,7 @@ Otherwise, install the package from Github by running the following code
 in R:
 
 ``` r
+
 remotes::install_github("Public-Health-Scotland/phstemplates", ref = "main")
 ```
 
@@ -36,6 +38,7 @@ should tell you which packages you need. For example, if you need
 [officer](https://davidgohel.github.io/officer), install these first:
 
 ``` r
+
 install.packages(c("flextable", "officer"))
 ```
 
@@ -154,6 +157,7 @@ automate the production of several different reports. This is some
 example code for doing this with the official statistics template.
 
 ``` r
+
 rmarkdown::render(
   input = "my_report.Rmd",
   output_format = phstemplates::phs_report_docx(

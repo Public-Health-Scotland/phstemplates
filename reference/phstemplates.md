@@ -25,6 +25,9 @@ Useful links:
 
 Authors:
 
+- Alan Yeung <alan.yeung@phs.scot>
+  ([ORCID](https://orcid.org/0000-0001-5226-3695))
+
 - Anna Price <Anna.Price@Statistics.gov.uk>
 
 - Rosalyn Pearson <rosalyn.pearson@phs.scot>
