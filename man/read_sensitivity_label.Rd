@@ -26,7 +26,7 @@ print(label)  # "Personal"
 }
 }
 \seealso{
-Other Sensitivity Label functions: 
-\code{\link{apply_sensitivity_label}()}
+Other Sensitivity Label functions:
+\code{\link[=apply_sensitivity_label]{apply_sensitivity_label()}}
 }
 \concept{Sensitivity Label functions}
