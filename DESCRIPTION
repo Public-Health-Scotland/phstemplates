@@ -40,7 +40,7 @@ Suggests:
     lubridate,
     testthat (>= 3.0.0),
     tidyr
+Config/roxygen2/version: 8.0.0
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
-Config/roxygen2/version: 8.0.0
