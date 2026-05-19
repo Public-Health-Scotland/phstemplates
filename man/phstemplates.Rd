@@ -26,6 +26,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Alan Yeung \email{alan.yeung@phs.scot} (\href{https://orcid.org/0000-0001-5226-3695}{ORCID})
   \item Anna Price \email{Anna.Price@Statistics.gov.uk}
   \item Rosalyn Pearson \email{rosalyn.pearson@phs.scot}
 }

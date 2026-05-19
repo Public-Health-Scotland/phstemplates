@@ -32,7 +32,7 @@ apply_sensitivity_label("myfile.xlsx", "Personal")
 }
 }
 \seealso{
-Other Sensitivity Label functions: 
-\code{\link{read_sensitivity_label}()}
+Other Sensitivity Label functions:
+\code{\link[=read_sensitivity_label]{read_sensitivity_label()}}
 }
 \concept{Sensitivity Label functions}
