@@ -16,7 +16,7 @@ create_phs_html <- function(file_name = NULL) {
   }
 
   # set extension name
-  ext_name = "phs-html-quarto"
+  ext_name <- "phs-html-quarto"
 
   # check for available extensions (future proofing for multiple templates)
   stopifnot(ext_name %in% c("phs-html-quarto"))
