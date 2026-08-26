@@ -16,7 +16,7 @@ See the README on
 Useful links:
 \itemize{
   \item \url{https://github.com/Public-Health-Scotland/phstemplates}
-  \item \url{https://public-health-scotland.github.io/phstemplates/}
+  \item \url{https://code.publichealthscotland.scot/phstemplates/}
   \item Report bugs at \url{https://github.com/Public-Health-Scotland/phstemplates/issues}
 }
 
