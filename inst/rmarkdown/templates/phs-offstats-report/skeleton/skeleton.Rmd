@@ -27,8 +27,10 @@ table_data <- data.frame(
     "Table body", "Table body", "Table body",
     "Table body (with Total Row option in Table Style options ticked)"
   ),
-  Table.Head = c("Table body right aligned (for numbers) 22", "22", "22",
-                 "221"),
+  Table.Head = c(
+    "Table body right aligned (for numbers) 22", "22", "22",
+    "221"
+  ),
   Table.Head = c(72081L, 72081L, 72081L, 910937L),
   Table.Head = c(30.5, 30.5, 30.5, 24.3),
   Table.Head = c(19L, 19L, 19L, 257L)
@@ -39,16 +41,20 @@ table_data <- data.frame(
 table_data2 <- data.frame(
   stringsAsFactors = FALSE,
   Table.Head = c(
-    "Table Body text\nIn tristique lobortis sagittis. Phasellus mollis mattis iaculis.", 
-    "Table Body text\nIn tristique lobortis sagittis. Phasellus mollis mattis iaculis", 
+    "Table Body text\nIn tristique lobortis sagittis. Phasellus mollis mattis iaculis.",
+    "Table Body text\nIn tristique lobortis sagittis. Phasellus mollis mattis iaculis",
     "Table Body"
   ),
-  Table.Head = c("Table Body text\nIn tristique lobortis sagittis. Phasellus mollis mattis iaculis.",
-                 "1.   Table bullet\n      numbered 1 (123)\n    a. Table bullet\n          numbered 2 (abc)",
-                 "2.   Table bullet\n      numbered 1 (123)\n    a. Table bullet\n          numbered 2 (abc)"),
-  Table.Head = c("Table Body text\nIn tristique lobortis sagittis. Phasellus mollis mattis iaculis.",
-                 "  • Table bullet 1\n  • Table bullet 1\n      ○ Table bullet 2\n      ○ Table bullet 2",
-                 "  • Table bullet 1\n  • Table bullet 1\n      ○ Table bullet 2\n      ○ Table bullet 2")
+  Table.Head = c(
+    "Table Body text\nIn tristique lobortis sagittis. Phasellus mollis mattis iaculis.",
+    "1.   Table bullet\n      numbered 1 (123)\n    a. Table bullet\n          numbered 2 (abc)",
+    "2.   Table bullet\n      numbered 1 (123)\n    a. Table bullet\n          numbered 2 (abc)"
+  ),
+  Table.Head = c(
+    "Table Body text\nIn tristique lobortis sagittis. Phasellus mollis mattis iaculis.",
+    "  • Table bullet 1\n  • Table bullet 1\n      ○ Table bullet 2\n      ○ Table bullet 2",
+    "  • Table bullet 1\n  • Table bullet 1\n      ○ Table bullet 2\n      ○ Table bullet 2"
+  )
 )
 ```
 
@@ -56,31 +62,50 @@ table_data2 <- data.frame(
 # Create a pseudo chart
 yr <- c(rep("2014-15", times = 8), rep("2015-16", times = 8))
 mth <- rep(c("Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov"),
-           times = 2)
-counts <- c(1100, 1220, 1240, 1250, 1290, 1300, 1380, 1350,
-            1100, 1140, 1150, 1150, 1190, 1260, 1270, 1280)
+  times = 2
+)
+counts <- c(
+  1100, 1220, 1240, 1250, 1290, 1300, 1380, 1350,
+  1100, 1140, 1150, 1150, 1190, 1260, 1270, 1280
+)
 
 chart_data <- data.frame(yr, mth, counts)
 
-chart <- ggplot(data = chart_data,
-                aes(x = mth, y = counts, group = yr, color = yr,
-                    shape = yr)) +
+chart <- ggplot(
+  data = chart_data,
+  aes(
+    x = mth, y = counts, group = yr, color = yr,
+    shape = yr
+  )
+) +
   geom_line(size = 0.75) +
   geom_point(size = c(rep(3, 8), rep(2.5, 8))) +
   xlab("Month") +
-  scale_x_discrete(limits =  c("Apr", "May", "Jun", "July", "Aug", "Sep",
-                               "Oct", "Nov"),
-                   labels =  c("Apr", "May", "Jun", "July", "Aug", "Sep",
-                               "Oct", "Nov")) +
-  scale_y_continuous(breaks = c(200, 400, 600, 800, 1000, 1200, 1400, 1600),
-                     labels = c("200", "400", "600", "800", "1,000", "1,200",
-                                "1,400", "1,600"),
-                     limits = c(0, 1600),  expand = expansion(mult = 0)) +
+  scale_x_discrete(
+    limits = c(
+      "Apr", "May", "Jun", "July", "Aug", "Sep",
+      "Oct", "Nov"
+    ),
+    labels = c(
+      "Apr", "May", "Jun", "July", "Aug", "Sep",
+      "Oct", "Nov"
+    )
+  ) +
+  scale_y_continuous(
+    breaks = c(200, 400, 600, 800, 1000, 1200, 1400, 1600),
+    labels = c(
+      "200", "400", "600", "800", "1,000", "1,200",
+      "1,400", "1,600"
+    ),
+    limits = c(0, 1600), expand = expansion(mult = 0)
+  ) +
   scale_color_manual(values = c("#9B4393", "#0078D4")) +
   scale_shape_manual(values = c("diamond", "square")) +
   theme(
-    plot.title = element_text(hjust = 0.5, face = "bold", size = 12,
-                              colour = "#6C2383"),
+    plot.title = element_text(
+      hjust = 0.5, face = "bold", size = 12,
+      colour = "#6C2383"
+    ),
     plot.margin = margin(l = 30, b = 10),
     panel.background = element_blank(),
     panel.grid.major = element_blank(),
@@ -94,8 +119,10 @@ chart <- ggplot(data = chart_data,
     legend.key.height = unit(10, "pt"),
     legend.key.width = unit(30, "pt"),
     legend.text = element_text(size = 8),
-    axis.title.x = element_text(size = 8, face = "bold",
-                                margin = margin(t = 10)),
+    axis.title.x = element_text(
+      size = 8, face = "bold",
+      margin = margin(t = 10)
+    ),
     axis.title.y = element_blank(),
     axis.text.x = element_text(size = 7.5, color = "black"),
     axis.text.y = element_text(size = 7, color = "black"),
@@ -141,12 +168,16 @@ my_ft_format <- function(ft) {
     valign(valign = "top", part = "body") %>%
     colformat_num(big.mark = "") %>%
     fontsize(size = 12, part = "all") %>%
-    border(border = fp_border_default(color = "#000000", width = 0.5),
-           part = "all")
+    border(
+      border = fp_border_default(color = "#000000", width = 0.5),
+      part = "all"
+    )
 }
 
-headings <- list("Table head", "Table head", "Table head", "Table head",
-                 "Table head")
+headings <- list(
+  "Table head", "Table head", "Table head", "Table head",
+  "Table head"
+)
 names(headings) <- names(table_data)
 
 flextable(table_data, theme_fun = NULL) %>%
@@ -171,11 +202,12 @@ flextable(table_data2, theme_fun = NULL) %>%
   set_header_labels(values = headings2) %>%
   height(height = 0.236, part = "body") %>%
   hrule(rule = "atleast", part = "body") %>%
-  width(width = 2.1) %>% 
-    append_chunks(
+  width(width = 2.1) %>%
+  append_chunks(
     part = "body", i = 3, j = 1,
-     as_chunk(" text + hyperlink", 
-              props = fp_text(color = "#005c99", bold = TRUE, font.size = 12))
+    as_chunk(" text + hyperlink",
+      props = fp_text(color = "#005c99", bold = TRUE, font.size = 12)
+    )
   )
 ```
 

@@ -17,10 +17,14 @@ library(kableExtra)
 knitr::opts_chunk$set(echo = FALSE)
 
 # Create data frame for table
-table_contents <- data.frame(c("Text", "Text",
-                               "Text", "Text",
-                               "Text"),
-                             c(1:5))
+table_contents <- data.frame(
+  c(
+    "Text", "Text",
+    "Text", "Text",
+    "Text"
+  ),
+  c(1:5)
+)
 ```
 
 ## Slide title
@@ -56,7 +60,8 @@ hist(rnorm(100))
 ## Slide title
 
 ```{r, echo = FALSE}
-    kable(table_contents,
-          col.names = c("Column heading", "Column heading"),
-          format = "markdown")
+kable(table_contents,
+  col.names = c("Column heading", "Column heading"),
+  format = "markdown"
+)
 ```
