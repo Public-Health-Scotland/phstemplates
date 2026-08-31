@@ -30,7 +30,6 @@ This includes those with:
 
 For example, someone with impaired vision might use a screen reader.
 
-PHS has created guidance on how to make your app as accessible as possible. It can be found in the knowledge base from this 
-[link](https://public-health-scotland.github.io/knowledge-base/docs/Information%20Sharing?doc=Dashboard%20Accessibility%20Guidance.md).
+PHS has created guidance on how to make your app as accessible as possible. It can be found in the [knowledge base](https://kb.publichealthscotland.scot/docs/Information%20Sharing?doc=Dashboard%20Accessibility%20Guidance.md).
 
-We hope to build-in some of these basic features into this template in the future.
+We hope to build in some of these basic features into this template in the future.
