@@ -1,6 +1,6 @@
 # WRITE APP NAME HERE
 
-This app was created using the PHS Shiny app template from the [`{phstemplates}`](https://public-health-scotland.github.io/phstemplates/) package.
+This app was created using the PHS Shiny app template from the [`{phstemplates}`](https://code.publichealthscotland.scot/phstemplates/) package.
 
 ## Instructions for use
 
