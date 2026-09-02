@@ -16,7 +16,7 @@ Authors@R: c(
 Description: Templates for Public Health Scotland.
 License: MIT + file LICENSE
 URL: https://github.com/Public-Health-Scotland/phstemplates,
-    https://public-health-scotland.github.io/phstemplates/
+    https://code.publichealthscotland.scot/phstemplates/
 BugReports: https://github.com/Public-Health-Scotland/phstemplates/issues
 Depends: 
     R (>= 4.1.0)
@@ -40,7 +40,7 @@ Suggests:
     lubridate,
     testthat (>= 3.0.0),
     tidyr
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
