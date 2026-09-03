@@ -6,7 +6,7 @@ mtcars_plot <- function(dataset) {
   yaxis_plots[["title"]] <- "Displacement (cu.in.)"
   xaxis_plots[["title"]] <- "Gross horsepower"
 
-  p <- dataset %>%
+  p <- dataset |>
     plot_ly(
       x = ~hp,
       y = ~disp,
@@ -16,7 +16,7 @@ mtcars_plot <- function(dataset) {
       mode = "markers",
       # PHS palette (paste removes names from named list)
       colors = paste(phsstyles::phs_palettes$main)
-    ) %>%
+    ) |>
     layout(
       margin = list(b = 30, t = 10), # to avoid labels getting cut out
       legend = list(
@@ -26,7 +26,7 @@ mtcars_plot <- function(dataset) {
       ),
       yaxis = yaxis_plots,
       xaxis = xaxis_plots
-    ) %>%
+    ) |>
     # leaving only save plot button
     config(
       displaylogo = F,
