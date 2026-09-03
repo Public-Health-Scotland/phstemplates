@@ -10,3 +10,4 @@
 ^docs$
 ^pkgdown$
 air.toml
+^inst/extdata/_extensions$

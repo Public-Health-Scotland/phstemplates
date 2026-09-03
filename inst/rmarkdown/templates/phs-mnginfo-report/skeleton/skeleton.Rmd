@@ -159,15 +159,15 @@ Sed suscipit nisl vel orci scelerisque mattis. Proin ut tortor et purus bibendum
 ```{r flextable-table-data, ft.align = "left"}
 # Set up some formatting for flextable to be applied to most tables
 my_ft_format <- function(ft) {
-  ft %>%
-    bold(part = "header") %>%
-    bg(bg = "#43358B", part = "header") %>%
-    color(color = "white", part = "header") %>%
-    align(align = "left", part = "header") %>%
-    valign(valign = "center", part = "header") %>%
-    valign(valign = "top", part = "body") %>%
-    colformat_num(big.mark = "") %>%
-    fontsize(size = 12, part = "all") %>%
+  ft |>
+    bold(part = "header") |>
+    bg(bg = "#43358B", part = "header") |>
+    color(color = "white", part = "header") |>
+    align(align = "left", part = "header") |>
+    valign(valign = "center", part = "header") |>
+    valign(valign = "top", part = "body") |>
+    colformat_num(big.mark = "") |>
+    fontsize(size = 12, part = "all") |>
     border(
       border = fp_border_default(color = "#000000", width = 0.5),
       part = "all"
@@ -180,13 +180,13 @@ headings <- list(
 )
 names(headings) <- names(table_data)
 
-flextable(table_data, theme_fun = NULL) %>%
-  my_ft_format() %>%
-  set_header_labels(values = headings) %>%
-  bold(i = nrow(table_data)) %>%
-  align(j = 2, align = "right", part = "body") %>%
-  height(height = 0.236, part = "body") %>%
-  hrule(rule = "atleast", part = "body") %>%
+flextable(table_data, theme_fun = NULL) |>
+  my_ft_format() |>
+  set_header_labels(values = headings) |>
+  bold(i = nrow(table_data)) |>
+  align(j = 2, align = "right", part = "body") |>
+  height(height = 0.236, part = "body") |>
+  hrule(rule = "atleast", part = "body") |>
   width(width = 1.26)
 ```
 
@@ -197,12 +197,12 @@ flextable(table_data, theme_fun = NULL) %>%
 headings2 <- list("Table Head", "Table Head", "Table Head")
 names(headings2) <- names(table_data2)
 
-flextable(table_data2, theme_fun = NULL) %>%
-  my_ft_format() %>%
-  set_header_labels(values = headings2) %>%
-  height(height = 0.236, part = "body") %>%
-  hrule(rule = "atleast", part = "body") %>%
-  width(width = 2.1) %>%
+flextable(table_data2, theme_fun = NULL) |>
+  my_ft_format() |>
+  set_header_labels(values = headings2) |>
+  height(height = 0.236, part = "body") |>
+  hrule(rule = "atleast", part = "body") |>
+  width(width = 2.1) |>
   append_chunks(
     part = "body", i = 3, j = 1,
     as_chunk(" text + hyperlink",
