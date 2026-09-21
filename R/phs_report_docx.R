@@ -133,21 +133,21 @@ phs_report_docx <- function(
     tocd = toc_depth,
     slabel = label
   ) {
-    officer::read_docx(output_file) %>%
-      officer::cursor_begin() %>%
+    officer::read_docx(output_file) |>
+      officer::cursor_begin() |>
       officer::body_add_par(
         "Contents",
         pos = "before",
         style = "TOC Heading"
-      ) %>%
-      officer::body_add_toc(pos = "after", level = tocd) %>%
-      officer::body_add_break(pos = "after") %>%
+      ) |>
+      officer::body_add_toc(pos = "after", level = tocd) |>
+      officer::body_add_break(pos = "after") |>
       print(output_file)
 
     # Cover Page
-    cover_page <- officer::read_docx(cover) %>%
-      officer::body_replace_all_text("Publication title", title) %>%
-      officer::body_replace_all_text("Subtitle", stitle) %>%
+    cover_page <- officer::read_docx(cover) |>
+      officer::body_replace_all_text("Publication title", title) |>
+      officer::body_replace_all_text("Subtitle", stitle) |>
       officer::body_replace_all_text("DD Month YYYY", dt)
 
     # Convert characters in output file path that need escaped for XML
@@ -162,11 +162,11 @@ phs_report_docx <- function(
     }
 
     # Combine Cover and Report
-    cover_page %>%
-      officer::cursor_end() %>%
-      officer::body_add_break() %>%
-      officer::body_add_xml(str = xml_elt) %>%
-      officer::set_doc_properties(title = title) %>%
+    cover_page |>
+      officer::cursor_end() |>
+      officer::body_add_break() |>
+      officer::body_add_xml(str = xml_elt) |>
+      officer::set_doc_properties(title = title) |>
       print(output_file)
 
     if (!is.null(slabel)) {

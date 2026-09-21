@@ -61,30 +61,30 @@ compile_report <- function(
       output_dir = getwd()
     )
 
-    officer::read_docx("temp_report.docx") %>%
-      officer::cursor_begin() %>%
+    officer::read_docx("temp_report.docx") |>
+      officer::cursor_begin() |>
       officer::body_add_par(
         "Contents",
         pos = "before",
         style = "TOC Heading"
-      ) %>%
-      officer::body_add_toc(pos = "after", level = toc_level) %>%
-      officer::body_add_break(pos = "after") %>%
+      ) |>
+      officer::body_add_toc(pos = "after", level = toc_level) |>
+      officer::body_add_break(pos = "after") |>
       print("temp_report2.docx")
 
     # Cover Page
-    cover_page <- officer::read_docx(cover_filename) %>%
-      officer::body_replace_all_text("Title", title) %>%
-      officer::body_replace_all_text("Subtitle", subtitle) %>%
+    cover_page <- officer::read_docx(cover_filename) |>
+      officer::body_replace_all_text("Title", title) |>
+      officer::body_replace_all_text("Subtitle", subtitle) |>
       officer::body_replace_all_text("DD Month YYYY", date)
 
     # Combine Cover and Report
-    cover_page %>%
-      officer::cursor_end() %>%
-      officer::body_remove() %>%
-      officer::body_add_break() %>%
-      officer::body_add_docx("temp_report2.docx") %>%
-      officer::set_doc_properties(title = title) %>%
+    cover_page |>
+      officer::cursor_end() |>
+      officer::body_remove() |>
+      officer::body_add_break() |>
+      officer::body_add_docx("temp_report2.docx") |>
+      officer::set_doc_properties(title = title) |>
       print(filename_out)
 
     # Remove Temporary Files
