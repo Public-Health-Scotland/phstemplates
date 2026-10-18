@@ -9,7 +9,6 @@
 #' \dontrun{
 #' create_phs_html()
 #' }
-
 create_phs_html <- function(file_name = NULL) {
   if (is.null(file_name)) {
     stop("You must provide a valid file_name")
