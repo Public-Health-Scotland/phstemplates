@@ -22,7 +22,7 @@ or errors if unexpected.
 # Read the sensitivity label from an Excel file
 # Returns the label name or "no label" if none exists
 label <- read_sensitivity_label("myfile.xlsx")
-print(label)  # "Personal"
+print(label) # "Personal"
 }
 }
 \seealso{
